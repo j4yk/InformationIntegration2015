@@ -63,6 +63,9 @@ def read_items(items):
     relations = Relations()
     for item in items:
         item_uri = list(item.keys())[0]
+        if item_uri in seen_uris:
+            print("WARNING: skipping duplicate instance", item_uri)
+            continue
         seen_uris.add(item_uri)
         properties = item[item_uri]
         # TODO: change this to reflect the real mapping
