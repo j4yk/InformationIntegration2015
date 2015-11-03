@@ -67,7 +67,7 @@ def read_items(items):
         properties = item[item_uri]
         # TODO: change this to reflect the real mapping
         columns = [column_name(relation, prop) for prop in properties.keys() if not is_relational_property(relation, prop)]
-        # 8< remove duplicate column names
+        # 8< remove duplicate column names, should not be needed later
         columns_set = set(columns)
         new_columns = []
         for col in columns:
@@ -89,7 +89,7 @@ def read_items(items):
         seen = set()
         for prop, value in properties.items():
             col = column_name(relation, prop)
-            # 8<
+            # 8< avoid duplicate column names, should not be needed later
             if col in seen:
                 continue
             seen.add(col)
@@ -128,9 +128,11 @@ def column_name(relation, property):
     return '"' + s + '"'
 
 def is_relational_property(relation, property):
+    # TODO: use some real basis for this
     return column_name(relation, property) == '"relation"'
 
 def is_array_property(relation, property):
+    # TODO: use some real basis for this
     return False
 
 def main():
