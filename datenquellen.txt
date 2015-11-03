@@ -1,0 +1,4 @@
+Datenquellen:
+
+Person: http://web.informatik.uni-mannheim.de/DBpediaAsTables/json/Person.json.gz
+Organisation: http://web.informatik.uni-mannheim.de/DBpediaAsTables/json/Organisation.json.gz
