@@ -106,11 +106,6 @@ def read_items(items):
                 assert col != '"relation"'
                 # >8
                 parameters.append(value)
-            # 8<
-            if col == '"relation"' and any(v in seen_uris for v in value):
-                print("found a relation")
-                stop = True
-            # >8
         seq_of_parameters.append(parameters)
         counter += 1
         if counter % 100 == 0:
