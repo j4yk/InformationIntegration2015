@@ -1,0 +1,1943 @@
+DROP TABLE IF EXISTS dbpedia_person_voice CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_viceprimeminister CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_vicepresident CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_veneratedin CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_trainer CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_statedelegate CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_spouse CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_relative CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_relation CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_primeminister CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_president CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_partner CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_parent CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_opponent CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_notablestudent CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_nominee CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_monarch CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_manager CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_lieutenant CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_institution CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_influencedby CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_influenced CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_incumbent CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_heir CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_governorgeneral CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_governor CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_formerpartner CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_formercoach CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_formerchoreographer CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_employer CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_doctoralstudent CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_doctoraladvisor CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_deputy CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_currentpartner CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_currentmember CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_creator CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_coach CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_choreographer CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_child CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_chancellor CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_canonizedby CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_beatifiedby CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_associate CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_appointer CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person_academicadvisor CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_viceprincipal CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_vicepresident CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_vicechancellor CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_trustee CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_thirdcommander CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_superintendent CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_spokesperson CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_secretarygeneral CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_secondcommander CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_rector CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_principal CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_president CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_patron CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_pastmember CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_parentorganisation CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_officerincharge CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_notablecommander CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_nobellaureates CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_manager CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_leader CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_keyperson CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_influencedby CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_influenced CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_head CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_fourthcommander CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_foundingperson CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_formerbandmember CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_director CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_dean CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_currentmember CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_creator CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_commander CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_coach CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_clubsrecordgoalscorer CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_childorganisation CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_chancellor CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_chairperson CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_chairman CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_ceo CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_bandmember CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_alumni CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation_affiliation CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_organisation CASCADE;
+
+DROP TABLE IF EXISTS dbpedia_person CASCADE;
+
+CREATE TABLE dbpedia_person (
+        uri TEXT PRIMARY KEY,
+        rdf_schema_label TEXT,
+        rdf_schema_comment TEXT[],
+        timeinspace INT[],
+        wheelbase REAL,
+        length REAL,
+        width REAL,
+        height REAL[],
+        weight REAL[],
+        runtime INT,
+        academicadvisor_label TEXT[],
+        activeyearsenddate DATE[],
+        activeyearsendyear INT[],
+        activeyearsstartdate DATE[],
+        activeyearsstartyear INT[],
+        album_label TEXT,
+        album TEXT,
+        alias TEXT[],
+        allegiance TEXT[],
+        almamater_label TEXT[],
+        almamater TEXT[],
+        appointer_label TEXT[],
+        artist_label TEXT,
+        artist TEXT,
+        associate_label TEXT[],
+        associatedact_label TEXT[],
+        associatedact TEXT[],
+        associatedband_label TEXT[],
+        associatedband TEXT[],
+        associatedmusicalartist_label TEXT[],
+        associatedmusicalartist TEXT[],
+        author_label TEXT,
+        author TEXT,
+        automobilemodel TEXT,
+        award_label TEXT[],
+        award TEXT[],
+        background TEXT[],
+        battingside TEXT[],
+        battle_label TEXT[],
+        battle TEXT[],
+        beatifiedby_label TEXT[],
+        beatifieddate DATE[],
+        beatifiedplace_label TEXT[],
+        beatifiedplace TEXT[],
+        bestfinish TEXT[],
+        bibsysid TEXT,
+        billed_label TEXT[],
+        billed TEXT[],
+        birthdate DATE[],
+        birthname TEXT[],
+        birthplace_label TEXT[],
+        birthplace TEXT[],
+        birthyear INT[],
+        block TEXT[],
+        bnfid TEXT,
+        board_label TEXT[],
+        board TEXT[],
+        bodydiscovered_label TEXT[],
+        bodydiscovered TEXT[],
+        bowlrecord TEXT[],
+        bpnid TEXT[],
+        buriedplace_label TEXT[],
+        buriedplace TEXT[],
+        bustsize REAL[],
+        callsign TEXT[],
+        canonizedby_label TEXT[],
+        canonizeddate DATE[],
+        canonizedplace_label TEXT[],
+        canonizedplace TEXT[],
+        careerpoints BIGINT,
+        careerprizemoney REAL,
+        careerstation_label TEXT[],
+        careerstation TEXT[],
+        centurybreaks BIGINT,
+        chairman_label TEXT,
+        chairman TEXT,
+        championships INT,
+        chancellor_label TEXT[],
+        child_label TEXT[],
+        choreographer_label TEXT[],
+        citizenship_label TEXT[],
+        citizenship TEXT[],
+        club_label TEXT[],
+        club TEXT[],
+        coach_label TEXT[],
+        coachedteam_label TEXT[],
+        coachedteam TEXT[],
+        coachingrecord TEXT[],
+        college_label TEXT[],
+        college TEXT[],
+        committee TEXT[],
+        commonname TEXT,
+        configuration TEXT,
+        country_label TEXT[],
+        country TEXT[],
+        creator_label TEXT[],
+        currentmember_label TEXT[],
+        currentpartner_label TEXT[],
+        currentrank BIGINT,
+        currentrecord TEXT[],
+        dateofburial DATE,
+        deathcause_label TEXT[],
+        deathcause TEXT[],
+        deathdate DATE[],
+        deathplace_label TEXT[],
+        deathplace TEXT[],
+        deathyear INT[],
+        debut DATE[],
+        debutteam_label TEXT,
+        debutteam TEXT,
+        depictiondescription TEXT[],
+        deputy_label TEXT[],
+        discipline_label TEXT[],
+        discipline TEXT[],
+        doctoraladvisor_label TEXT[],
+        doctoralstudent_label TEXT[],
+        draft TEXT[],
+        draftpick TEXT[],
+        draftround TEXT,
+        draftteam_label TEXT[],
+        draftteam TEXT[],
+        draftyear INT,
+        education_label TEXT[],
+        education TEXT[],
+        electiondate DATE[],
+        electionmajority INT[],
+        employer_label TEXT[],
+        endyearofinsertion INT,
+        engine_label TEXT,
+        engine TEXT,
+        era_label TEXT[],
+        era TEXT[],
+        espnid BIGINT,
+        ethnicity_label TEXT[],
+        ethnicity TEXT[],
+        event_label TEXT[],
+        event TEXT[],
+        eyecolor TEXT,
+        fastestlap INT,
+        feastday DATE[],
+        field_label TEXT[],
+        field TEXT[],
+        firstappearance TEXT[],
+        firstrace_label TEXT[],
+        firstrace TEXT[],
+        firstwin_label TEXT,
+        firstwin TEXT,
+        format_label TEXT,
+        format TEXT,
+        formerchoreographer_label TEXT[],
+        formercoach_label TEXT[],
+        formerhighschool_label TEXT[],
+        formerhighschool TEXT[],
+        formerpartner_label TEXT[],
+        formerteam_label TEXT[],
+        formerteam TEXT[],
+        garrison_label TEXT[],
+        garrison TEXT[],
+        gender_label TEXT[],
+        gender TEXT[],
+        genre_label TEXT[],
+        genre TEXT[],
+        governor_label TEXT[],
+        governorgeneral_label TEXT[],
+        haircolor TEXT[],
+        halloffame TEXT[],
+        height2 REAL[],
+        heir_label TEXT[],
+        highestbreak BIGINT[],
+        highestrank BIGINT[],
+        highschool_label TEXT[],
+        highschool TEXT[],
+        hipsize REAL[],
+        hometown_label TEXT[],
+        hometown TEXT[],
+        honours_label TEXT[],
+        honours TEXT[],
+        incumbent_label TEXT[],
+        individualisedgnd TEXT,
+        influenced_label TEXT[],
+        influencedby_label TEXT[],
+        institution_label TEXT[],
+        instrument_label TEXT[],
+        instrument TEXT[],
+        isniid TEXT[],
+        knownfor_label TEXT[],
+        knownfor TEXT[],
+        language_label TEXT[],
+        language TEXT[],
+        lastappearance_label TEXT[],
+        lastappearance TEXT[],
+        lastposition INT,
+        lastrace_label TEXT[],
+        lastrace TEXT[],
+        lastwin_label TEXT,
+        lastwin TEXT,
+        lccnid TEXT[],
+        league_label TEXT[],
+        league TEXT[],
+        length2 REAL,
+        lieutenant_label TEXT[],
+        location_label TEXT[],
+        location TEXT[],
+        maininterest_label TEXT[],
+        maininterest TEXT[],
+        majorshrine_label TEXT[],
+        majorshrine TEXT[],
+        majorityleader BIGINT,
+        manager_label TEXT[],
+        managerclub_label TEXT[],
+        managerclub TEXT[],
+        manufacturer_label TEXT,
+        manufacturer TEXT,
+        mbaid TEXT,
+        militarybranch_label TEXT[],
+        militarybranch TEXT[],
+        militarycommand TEXT[],
+        militaryrank_label TEXT[],
+        militaryrank TEXT[],
+        militaryunit_label TEXT[],
+        militaryunit TEXT[],
+        mission_label TEXT[],
+        mission TEXT[],
+        monarch_label TEXT[],
+        movement_label TEXT[],
+        movement TEXT[],
+        mythology_label TEXT,
+        mythology TEXT,
+        nationalteam_label TEXT[],
+        nationalteam TEXT[],
+        nationality_label TEXT[],
+        nationality TEXT[],
+        network_label TEXT,
+        network TEXT,
+        networth REAL[],
+        nlaid TEXT,
+        nominee_label TEXT[],
+        notableidea_label TEXT[],
+        notableidea TEXT[],
+        notablestudent_label TEXT[],
+        notablework_label TEXT[],
+        notablework TEXT[],
+        number BIGINT[],
+        numberbuilt INT,
+        numberofepisodes INT,
+        numberoffilms INT[],
+        occupation_label TEXT[],
+        occupation TEXT[],
+        office TEXT[],
+        opponent_label TEXT[],
+        orcidid TEXT,
+        orderinoffice TEXT[],
+        origin_label TEXT,
+        origin TEXT,
+        otherparty_label TEXT[],
+        otherparty TEXT[],
+        otherwins INT[],
+        overallrecord TEXT[],
+        parent_label TEXT[],
+        partner_label TEXT[],
+        party_label TEXT[],
+        party TEXT[],
+        personfunction_label TEXT[],
+        personfunction TEXT[],
+        philosophicalschool_label TEXT[],
+        philosophicalschool TEXT[],
+        picture_label TEXT[],
+        picture TEXT[],
+        placeofburial_label TEXT[],
+        placeofburial TEXT[],
+        plays TEXT[],
+        podiums INT,
+        poles INT,
+        portfolio TEXT[],
+        portrayer_label TEXT[],
+        portrayer TEXT[],
+        position_label TEXT[],
+        position TEXT[],
+        predecessor_label TEXT[],
+        predecessor TEXT[],
+        presenter_label TEXT,
+        presenter TEXT,
+        president_label TEXT[],
+        previouswork_label TEXT,
+        previouswork TEXT,
+        pricemoney REAL[],
+        primeminister_label TEXT[],
+        producer_label TEXT,
+        producer TEXT,
+        productionendyear INT,
+        productionstartyear INT,
+        profession_label TEXT[],
+        profession TEXT[],
+        prospectleague_label TEXT,
+        prospectleague TEXT,
+        prospectteam_label TEXT[],
+        prospectteam TEXT[],
+        pseudonym TEXT[],
+        publisher_label TEXT,
+        publisher TEXT,
+        race_label TEXT[],
+        race TEXT[],
+        racehorse_label TEXT[],
+        racehorse TEXT[],
+        races INT[],
+        rankingwins INT,
+        rating REAL,
+        recorddate DATE[],
+        recordlabel_label TEXT[],
+        recordlabel TEXT[],
+        recordedin_label TEXT[],
+        recordedin TEXT[],
+        region_label TEXT[],
+        region TEXT[],
+        relation_label TEXT[],
+        relative_label TEXT[],
+        releasedate DATE,
+        religion_label TEXT[],
+        religion TEXT[],
+        residence_label TEXT[],
+        residence TEXT[],
+        restingplace_label TEXT[],
+        restingplace TEXT[],
+        restingplaceposition TEXT[],
+        ridid TEXT,
+        royalanthem_label TEXT,
+        royalanthem TEXT,
+        runningmate_label TEXT,
+        runningmate TEXT,
+        runtime2 REAL,
+        salary REAL[],
+        school_label TEXT[],
+        school TEXT[],
+        selection_label TEXT[],
+        selection TEXT[],
+        selibrid TEXT,
+        seniority TEXT,
+        series_label TEXT[],
+        series TEXT[],
+        serviceendyear INT[],
+        servicenumber TEXT[],
+        servicestartyear INT[],
+        shoenumber INT[],
+        shoots TEXT[],
+        significantbuilding_label TEXT[],
+        significantbuilding TEXT[],
+        significantdesign_label TEXT[],
+        significantdesign TEXT[],
+        significantproject_label TEXT[],
+        significantproject TEXT[],
+        speaker BIGINT,
+        species_label TEXT[],
+        species TEXT[],
+        spike TEXT,
+        sport_label TEXT[],
+        sport TEXT[],
+        sportcountry_label TEXT,
+        sportcountry TEXT,
+        spouse_label TEXT[],
+        squadnumber INT[],
+        starring_label TEXT[],
+        starring TEXT[],
+        startyearofinsertion INT,
+        statedelegate_label TEXT[],
+        stateoforigin_label TEXT[],
+        stateoforigin TEXT[],
+        statisticlabel_label TEXT[],
+        statisticlabel TEXT[],
+        statisticvalue REAL[],
+        statisticyear DATE,
+        status TEXT[],
+        subsequentwork_label TEXT,
+        subsequentwork TEXT,
+        successor_label TEXT[],
+        successor TEXT[],
+        supplementaldraftround TEXT[],
+        supplementaldraftyear INT,
+        suppreddeddate DATE,
+        team_label TEXT[],
+        team TEXT[],
+        televisionseries_label TEXT[],
+        televisionseries TEXT[],
+        termperiod_label TEXT[],
+        termperiod TEXT[],
+        throwingside TEXT[],
+        thumbnail_label TEXT,
+        thumbnail TEXT,
+        timeinspace2 REAL[],
+        title TEXT[],
+        tournamentrecord TEXT[],
+        tracknumber INT,
+        trainer_label TEXT[],
+        training_label TEXT[],
+        training TEXT[],
+        transmission TEXT,
+        type_label TEXT[],
+        type TEXT[],
+        ulanid TEXT,
+        undraftedyear INT,
+        unitcost REAL,
+        university_label TEXT[],
+        university TEXT[],
+        veneratedin_label TEXT[],
+        viafid TEXT[],
+        vicepresident_label TEXT[],
+        viceprimeminister_label TEXT[],
+        voice_label TEXT[],
+        voicetype_label TEXT[],
+        voicetype TEXT[],
+        waistsize REAL[],
+        weight2 REAL[],
+        whadraft TEXT[],
+        whadraftteam_label TEXT,
+        whadraftteam TEXT,
+        wheelbase2 REAL,
+        width2 REAL,
+        wikipagedisambiguates_label TEXT[],
+        wikipagedisambiguates TEXT[],
+        wikipageid BIGINT,
+        wikipageredirects_label TEXT,
+        wikipageredirects TEXT,
+        wikipagerevisionid BIGINT,
+        wins INT[],
+        winsatasia_label TEXT,
+        winsatasia TEXT,
+        winsataus_label TEXT,
+        winsataus TEXT,
+        winsatchallenges_label TEXT,
+        winsatchallenges TEXT,
+        winsatchampionships_label TEXT,
+        winsatchampionships TEXT,
+        winsatjapan_label TEXT,
+        winsatjapan TEXT,
+        winsatlet_label TEXT,
+        winsatlet TEXT,
+        winsatlpga_label TEXT,
+        winsatlpga TEXT,
+        winsatmajors_label TEXT,
+        winsatmajors TEXT,
+        winsatnwide_label TEXT,
+        winsatnwide TEXT,
+        winsatothertournaments_label TEXT,
+        winsatothertournaments TEXT,
+        winsatpga_label TEXT,
+        winsatpga TEXT,
+        winsatprotournaments_label TEXT,
+        winsatprotournaments TEXT,
+        winsineurope_label TEXT,
+        winsineurope TEXT,
+        worldchampiontitleyear TEXT[],
+        writer_label TEXT,
+        writer TEXT,
+        year INT[],
+        years INT,
+        alternativenames TEXT,
+        birthdate2 DATE,
+        birthname2 TEXT,
+        birthplace2 TEXT,
+        caption TEXT,
+        children TEXT,
+        citizenship_label2 TEXT,
+        citizenship2 TEXT,
+        dateofbirth DATE,
+        dateofdeath DATE,
+        deathcause_label2 TEXT,
+        deathcause2 TEXT,
+        deathdate2 DATE,
+        deathplace2 TEXT,
+        hasphotocollection_label TEXT,
+        hasphotocollection TEXT,
+        hometown2 TEXT,
+        knownfor2 TEXT,
+        name TEXT[],
+        nationality_label2 TEXT,
+        nationality2 TEXT,
+        occupation2 TEXT,
+        othernames TEXT,
+        placeofbirth TEXT[],
+        placeofdeath TEXT[],
+        residence2 TEXT,
+        shortdescription TEXT,
+        spouce TEXT,
+        spouse_label2 TEXT,
+        spouse2 TEXT,
+        description TEXT[],
+        point TEXT,
+        _22_rdf_syntax_ns_type_label TEXT[],
+        _22_rdf_syntax_ns_type TEXT[],
+        owl_sameas_label TEXT[],
+        owl_sameas TEXT[],
+        wgs84_pos_lat REAL,
+        wgs84_pos_long REAL,
+        core_broader_label TEXT[],
+        core_broader TEXT[],
+        core_preflabel TEXT,
+        core_related_label TEXT[],
+        core_related TEXT[],
+        core_subject_label TEXT[],
+        core_subject TEXT[]
+);
+
+CREATE TABLE dbpedia_organisation (
+        uri TEXT PRIMARY KEY,
+        rdf_schema_label TEXT,
+        rdf_schema_comment TEXT[],
+        floorarea REAL,
+        area REAL,
+        areametro REAL,
+        areatotal REAL[],
+        populationdensity REAL[],
+        populationmetrodensity REAL,
+        campussize REAL[],
+        discharge REAL,
+        watershed REAL,
+        runtime INT,
+        abbreviation TEXT[],
+        actscore_label TEXT,
+        actscore TEXT,
+        activeyearsendyear INT[],
+        activeyearsstartyear INT[],
+        added DATE,
+        address TEXT[],
+        affiliation_label TEXT[],
+        agerange INT[],
+        aircraftattack_label TEXT[],
+        aircraftattack TEXT[],
+        aircraftbomber_label TEXT[],
+        aircraftbomber TEXT[],
+        aircraftelectronic_label TEXT[],
+        aircraftelectronic TEXT[],
+        aircraftfighter_label TEXT[],
+        aircraftfighter TEXT[],
+        aircrafthelicopter_label TEXT[],
+        aircrafthelicopter TEXT[],
+        aircrafthelicopterattack_label TEXT[],
+        aircrafthelicopterattack TEXT[],
+        aircrafthelicoptercargo_label TEXT[],
+        aircrafthelicoptercargo TEXT[],
+        aircrafthelicoptermultirole_label TEXT[],
+        aircrafthelicoptermultirole TEXT[],
+        aircrafthelicopterobservation_label TEXT[],
+        aircrafthelicopterobservation TEXT[],
+        aircrafthelicoptertransport_label TEXT[],
+        aircrafthelicoptertransport TEXT[],
+        aircrafthelicopterutility_label TEXT[],
+        aircrafthelicopterutility TEXT[],
+        aircraftinterceptor_label TEXT[],
+        aircraftinterceptor TEXT[],
+        aircraftpatrol_label TEXT[],
+        aircraftpatrol TEXT[],
+        aircraftrecon_label TEXT[],
+        aircraftrecon TEXT[],
+        aircrafttrainer_label TEXT[],
+        aircrafttrainer TEXT[],
+        aircrafttransport_label TEXT[],
+        aircrafttransport TEXT[],
+        alias TEXT[],
+        alliance_label TEXT[],
+        alliance TEXT[],
+        alumni_label TEXT[],
+        analogchannel TEXT[],
+        anniversary DATE[],
+        architect_label TEXT,
+        architect TEXT,
+        architecturalstyle_label TEXT,
+        architecturalstyle TEXT,
+        area2 REAL[],
+        areacode TEXT,
+        arealand REAL,
+        areametro2 REAL,
+        areatotal2 REAL[],
+        areawater REAL[],
+        artist_label TEXT[],
+        artist TEXT[],
+        assetundermanagement REAL,
+        assets REAL[],
+        assistantprincipal_label TEXT,
+        assistantprincipal TEXT,
+        associatedact_label TEXT[],
+        associatedact TEXT[],
+        associatedband_label TEXT[],
+        associatedband TEXT[],
+        associatedmusicalartist_label TEXT[],
+        associatedmusicalartist TEXT[],
+        athletics_label TEXT[],
+        athletics TEXT[],
+        authority_label TEXT[],
+        authority TEXT[],
+        averageclasssize REAL[],
+        averagespeed REAL[],
+        award_label TEXT[],
+        award TEXT[],
+        background TEXT[],
+        bandmember_label TEXT[],
+        barpassrate REAL[],
+        battle_label TEXT[],
+        battle TEXT[],
+        battlehonours TEXT[],
+        birthdate DATE[],
+        birthplace_label TEXT[],
+        birthplace TEXT[],
+        birthyear INT,
+        bnfid TEXT,
+        broadcastarea_label TEXT[],
+        broadcastarea TEXT[],
+        broadcastnetwork_label TEXT[],
+        broadcastnetwork TEXT[],
+        broadcastrepeater TEXT[],
+        broadcaststationclass TEXT[],
+        broadcasttranslator TEXT[],
+        budget REAL[],
+        buildingenddate DATE,
+        callsign TEXT[],
+        callsignmeaning TEXT[],
+        campus_label TEXT[],
+        campus TEXT[],
+        campussize2 REAL[],
+        campustype TEXT[],
+        capacity INT[],
+        category_label TEXT[],
+        category TEXT[],
+        ceeb TEXT[],
+        ceo_label TEXT[],
+        chairlabel_label TEXT,
+        chairlabel TEXT,
+        chairman_label TEXT[],
+        chairmantitle TEXT[],
+        chairperson_label TEXT[],
+        chancellor_label TEXT[],
+        chaplain_label TEXT,
+        chaplain TEXT,
+        childorganisation_label TEXT[],
+        circulation INT,
+        city_label TEXT[],
+        city TEXT[],
+        class_label TEXT,
+        class TEXT,
+        classes INT[],
+        closed DATE,
+        closingdate DATE[],
+        closingyear INT[],
+        clubsrecordgoalscorer_label TEXT[],
+        coach_label TEXT[],
+        colour_label TEXT[],
+        colour TEXT[],
+        colourname TEXT[],
+        commandstructure_label TEXT[],
+        commandstructure TEXT[],
+        commander_label TEXT[],
+        committeeinlegislature_label TEXT[],
+        committeeinlegislature TEXT[],
+        country_label TEXT[],
+        country TEXT[],
+        county_label TEXT[],
+        county TEXT[],
+        creator_label TEXT[],
+        currency_label TEXT[],
+        currency TEXT[],
+        currentmember_label TEXT[],
+        currentseason TEXT[],
+        currentstatus TEXT[],
+        custodian_label TEXT,
+        custodian TEXT,
+        date DATE,
+        dcc TEXT,
+        dean_label TEXT[],
+        deathdate DATE,
+        deathplace_label TEXT[],
+        deathplace TEXT[],
+        deathyear INT,
+        demonym TEXT,
+        denomination_label TEXT[],
+        denomination TEXT[],
+        depictiondescription TEXT,
+        designer_label TEXT,
+        designer TEXT,
+        destination_label TEXT[],
+        destination TEXT[],
+        dfe_label TEXT,
+        dfe TEXT,
+        digitalchannel TEXT[],
+        digitalsubchannel TEXT[],
+        director_label TEXT[],
+        disbanded DATE[],
+        discharge2 REAL,
+        discipline_label TEXT,
+        discipline TEXT,
+        diseasesdb TEXT,
+        dissolved DATE,
+        distributingcompany_label TEXT[],
+        distributingcompany TEXT[],
+        distributinglabel_label TEXT[],
+        distributinglabel TEXT[],
+        district_label TEXT[],
+        district TEXT[],
+        division_label TEXT[],
+        division TEXT[],
+        editortitle TEXT,
+        educationsystem_label TEXT[],
+        educationsystem TEXT[],
+        effectiveradiatedpower REAL[],
+        electiondateleader DATE,
+        elevation REAL[],
+        emedicinesubject TEXT,
+        emedicinetopic TEXT,
+        endowment REAL[],
+        equity REAL[],
+        ethnicgroupsinyear INT,
+        europeanaffiliation_label TEXT[],
+        europeanaffiliation TEXT[],
+        europeanparliamentgroup_label TEXT[],
+        europeanparliamentgroup TEXT[],
+        extinctiondate DATE[],
+        extinctionyear INT[],
+        facilityid BIGINT[],
+        facultysize INT[],
+        family_label TEXT,
+        family TEXT,
+        fansgroup TEXT[],
+        fate TEXT[],
+        fees REAL[],
+        firstairdate DATE[],
+        firstgame TEXT[],
+        floorarea2 REAL,
+        floorcount INT,
+        formationdate DATE[],
+        formationyear INT[],
+        formerbandmember_label TEXT[],
+        formerbroadcastnetwork_label TEXT[],
+        formerbroadcastnetwork TEXT[],
+        formercallsign TEXT[],
+        formerchannel TEXT[],
+        formername TEXT[],
+        foundationplace_label TEXT[],
+        foundationplace TEXT[],
+        foundedby_label TEXT[],
+        foundedby TEXT[],
+        founder_label TEXT[],
+        founder TEXT[],
+        foundingdate DATE[],
+        foundingperson_label TEXT[],
+        foundingyear INT[],
+        fourthcommander_label TEXT[],
+        frequency REAL[],
+        garrison_label TEXT[],
+        garrison TEXT[],
+        gender_label TEXT[],
+        gender TEXT[],
+        generalmanager_label TEXT,
+        generalmanager TEXT,
+        genre_label TEXT[],
+        genre TEXT[],
+        genus_label TEXT,
+        genus TEXT,
+        governingbody_label TEXT,
+        governingbody TEXT,
+        grades_label TEXT[],
+        grades TEXT[],
+        ground_label TEXT[],
+        ground TEXT[],
+        head_label TEXT[],
+        headlabel TEXT[],
+        headquarter_label TEXT[],
+        headquarter TEXT[],
+        heightaboveaverageterrain REAL[],
+        homearena_label TEXT[],
+        homearena TEXT[],
+        homestadium_label TEXT[],
+        homestadium TEXT[],
+        hometown_label TEXT[],
+        hometown TEXT[],
+        honours_label TEXT[],
+        honours TEXT[],
+        house_label TEXT[],
+        house TEXT[],
+        hubairport_label TEXT[],
+        hubairport TEXT[],
+        iataairlinecode TEXT[],
+        icaoairlinecode TEXT[],
+        icd10 TEXT,
+        icd9 TEXT,
+        identificationsymbol TEXT[],
+        ideology_label TEXT[],
+        ideology TEXT[],
+        imagesize BIGINT,
+        individualisedgnd TEXT,
+        industry_label TEXT[],
+        industry TEXT[],
+        influenced_label TEXT[],
+        influencedby_label TEXT[],
+        instrument_label TEXT[],
+        instrument TEXT[],
+        internationalaffiliation_label TEXT[],
+        internationalaffiliation TEXT[],
+        internationally BOOLEAN,
+        ispartof_label TEXT[],
+        ispartof TEXT[],
+        isbn TEXT,
+        isniid TEXT,
+        issn TEXT,
+        jurisdiction_label TEXT[],
+        jurisdiction TEXT[],
+        keyperson_label TEXT[],
+        kingdom_label TEXT,
+        kingdom TEXT,
+        knownfor_label TEXT,
+        knownfor TEXT,
+        language_label TEXT[],
+        language TEXT[],
+        largestcity_label TEXT,
+        largestcity TEXT,
+        largestsettlement_label TEXT[],
+        largestsettlement TEXT[],
+        largestwin TEXT[],
+        lastairdate DATE[],
+        lastelectiondate DATE[],
+        lcc TEXT,
+        lccnid TEXT[],
+        leader_label TEXT[],
+        leaderfunction_label TEXT[],
+        leaderfunction TEXT[],
+        leadername_label TEXT,
+        leadername TEXT,
+        leadertitle TEXT,
+        league_label TEXT[],
+        league TEXT[],
+        legalform_label TEXT[],
+        legalform TEXT[],
+        legislativeperiodname TEXT[],
+        length REAL,
+        licensee TEXT[],
+        literarygenre_label TEXT,
+        literarygenre TEXT,
+        localauthority_label TEXT[],
+        localauthority TEXT[],
+        location_label TEXT[],
+        location TEXT[],
+        locationcity_label TEXT[],
+        locationcity TEXT[],
+        locationcountry_label TEXT[],
+        locationcountry TEXT[],
+        logo TEXT[],
+        lounge_label TEXT[],
+        lounge TEXT[],
+        lowerage INT[],
+        mainorgan_label TEXT[],
+        mainorgan TEXT[],
+        manager_label TEXT[],
+        managertitle TEXT[],
+        manufacturer_label TEXT,
+        manufacturer TEXT,
+        map_label TEXT[],
+        map TEXT[],
+        march_label TEXT[],
+        march TEXT[],
+        mascot TEXT[],
+        mbaid TEXT,
+        medlineplus TEXT,
+        membership TEXT[],
+        mergedintoparty_label TEXT[],
+        mergedintoparty TEXT[],
+        meshid TEXT,
+        militarybranch_label TEXT[],
+        militarybranch TEXT[],
+        militaryunitsize TEXT[],
+        motto TEXT[],
+        mouthelevation REAL,
+        mouthmountain_label TEXT,
+        mouthmountain TEXT,
+        mouthplace_label TEXT,
+        mouthplace TEXT,
+        mouthposition TEXT,
+        nationalaffiliation_label TEXT[],
+        nationalaffiliation TEXT[],
+        nationalranking INT,
+        nationality_label TEXT[],
+        nationality TEXT[],
+        netincome REAL,
+        nobellaureates_label TEXT[],
+        nonfictionsubject_label TEXT,
+        nonfictionsubject TEXT,
+        notablecommander_label TEXT[],
+        nrhpreferencenumber TEXT,
+        numberbuilt INT[],
+        numberofclassrooms_label TEXT,
+        numberofclassrooms TEXT,
+        numberofdoctoralstudents INT[],
+        numberofemployees INT[],
+        numberofgraduatestudents INT,
+        numberoflawyers INT[],
+        numberoflines INT[],
+        numberoflocations INT[],
+        numberofmembers INT[],
+        numberofoffices INT,
+        numberofpages INT,
+        numberofpostgraduatestudents INT[],
+        numberofstaff INT[],
+        numberofstations INT[],
+        numberofstudents INT[],
+        numberofteams INT[],
+        numberofundergraduatestudents INT[],
+        numberofvehicles INT[],
+        numberofvolunteers INT[],
+        nutscode TEXT,
+        occupation_label TEXT[],
+        occupation TEXT[],
+        oclc TEXT,
+        offeredclasses TEXT[],
+        officerincharge_label TEXT[],
+        officiallanguage_label TEXT[],
+        officiallanguage TEXT[],
+        officialschoolcolour TEXT[],
+        omim BIGINT,
+        openingdate DATE[],
+        openingyear INT[],
+        operatedby_label TEXT[],
+        operatedby TEXT[],
+        operatingincome REAL,
+        orcidid TEXT,
+        order_label TEXT[],
+        "order" TEXT[],
+        origin_label TEXT,
+        origin TEXT,
+        other BIGINT[],
+        otherchannel TEXT[],
+        oversight TEXT[],
+        owner_label TEXT[],
+        owner TEXT[],
+        owningcompany_label TEXT[],
+        owningcompany TEXT[],
+        parent_label TEXT,
+        parent TEXT,
+        parentcompany_label TEXT[],
+        parentcompany TEXT[],
+        parentorganisation_label TEXT[],
+        party_label TEXT,
+        party TEXT,
+        passengersperday INT[],
+        passengersperyear INT[],
+        pastmember_label TEXT[],
+        patron_label TEXT[],
+        percentageofareawater REAL,
+        pictureformat_label TEXT[],
+        pictureformat TEXT[],
+        politicalpartyinlegislature_label TEXT[],
+        politicalpartyinlegislature TEXT[],
+        politicalpartyofleader_label TEXT[],
+        politicalpartyofleader TEXT[],
+        populationdensity2 REAL[],
+        populationmetro INT,
+        populationmetrodensity2 REAL,
+        populationtotal INT,
+        populationtotalranking INT,
+        populationurban INT,
+        position_label TEXT[],
+        position TEXT[],
+        postalcode TEXT[],
+        predecessor_label TEXT[],
+        predecessor TEXT[],
+        president_label TEXT[],
+        previouswork_label TEXT,
+        previouswork TEXT,
+        principal_label TEXT[],
+        producer_label TEXT,
+        producer TEXT,
+        product_label TEXT[],
+        product TEXT[],
+        production INT[],
+        programmeformat_label TEXT[],
+        programmeformat TEXT[],
+        province_label TEXT[],
+        province TEXT[],
+        provost_label TEXT,
+        provost TEXT,
+        pseudonym TEXT,
+        publisher_label TEXT,
+        publisher TEXT,
+        purpose TEXT[],
+        railgauge REAL,
+        ranking INT[],
+        ratio TEXT[],
+        recorddate DATE,
+        recordlabel_label TEXT[],
+        recordlabel TEXT[],
+        recordedin_label TEXT,
+        recordedin TEXT,
+        rector_label TEXT[],
+        region_label TEXT[],
+        region TEXT[],
+        regionserved_label TEXT[],
+        regionserved TEXT[],
+        releasedate DATE,
+        religion_label TEXT[],
+        religion TEXT[],
+        religioushead_label TEXT[],
+        religioushead TEXT[],
+        religiousheadlabel_label TEXT,
+        religiousheadlabel TEXT,
+        reportingmark TEXT,
+        restingplace_label TEXT[],
+        restingplace TEXT[],
+        revenue REAL[],
+        rival_label TEXT[],
+        rival TEXT[],
+        rivermouth_label TEXT[],
+        rivermouth TEXT[],
+        role TEXT[],
+        runtime2 REAL,
+        satscore_label TEXT,
+        satscore TEXT,
+        schoolboard_label TEXT[],
+        schoolboard TEXT[],
+        schoolcode TEXT[],
+        schoolnumber TEXT[],
+        schoolpatron_label TEXT[],
+        schoolpatron TEXT[],
+        season_label TEXT[],
+        season TEXT[],
+        secondcommander_label TEXT[],
+        secretarygeneral_label TEXT[],
+        selibrid TEXT,
+        service_label TEXT[],
+        service TEXT[],
+        sharedate DATE,
+        shareofaudience REAL[],
+        sharesource TEXT[],
+        sistercollege_label TEXT[],
+        sistercollege TEXT[],
+        sisterstation_label TEXT[],
+        sisterstation TEXT[],
+        sixthformstudents TEXT,
+        slogan TEXT[],
+        sourcecountry_label TEXT[],
+        sourcecountry TEXT[],
+        sourceelevation REAL[],
+        sourceposition TEXT,
+        specialist TEXT[],
+        splitfromparty_label TEXT[],
+        splitfromparty TEXT[],
+        spokesperson_label TEXT[],
+        sport_label TEXT[],
+        sport TEXT[],
+        stadium_label TEXT[],
+        stadium TEXT[],
+        staff INT[],
+        state_label TEXT[],
+        state TEXT[],
+        status TEXT[],
+        subsequentwork_label TEXT,
+        subsequentwork TEXT,
+        subsidiary_label TEXT[],
+        subsidiary TEXT[],
+        successor_label TEXT[],
+        successor TEXT[],
+        superintendent_label TEXT[],
+        targetairport_label TEXT[],
+        targetairport TEXT[],
+        teachingstaff_label TEXT[],
+        teachingstaff TEXT[],
+        team_label TEXT[],
+        team TEXT[],
+        teamname TEXT[],
+        testaverage REAL[],
+        thirdcommander_label TEXT[],
+        thumbnail_label TEXT,
+        thumbnail TEXT,
+        timezone_label TEXT,
+        timezone TEXT,
+        timeshiftchannel TEXT[],
+        title TEXT[],
+        topspeed REAL,
+        tracklength REAL[],
+        trustee_label TEXT[],
+        tuition REAL[],
+        type_label TEXT[],
+        type TEXT[],
+        typeofelectrification_label TEXT[],
+        typeofelectrification TEXT[],
+        ucicode TEXT[],
+        ulanid TEXT,
+        unitcost REAL,
+        university_label TEXT[],
+        university TEXT[],
+        upperage INT[],
+        usedinwar_label TEXT[],
+        usedinwar TEXT[],
+        utcoffset TEXT[],
+        viafid TEXT[],
+        vicechancellor_label TEXT[],
+        vicepresident_label TEXT[],
+        viceprincipal_label TEXT[],
+        viceprincipallabel_label TEXT,
+        viceprincipallabel TEXT,
+        virtualchannel TEXT[],
+        voicetype_label TEXT[],
+        voicetype TEXT[],
+        voltageofelectrification REAL[],
+        watershed2 REAL,
+        webcast_label TEXT[],
+        webcast TEXT[],
+        wikipagedisambiguates_label TEXT[],
+        wikipagedisambiguates TEXT[],
+        wikipageid BIGINT,
+        wikipageredirects_label TEXT,
+        wikipageredirects TEXT,
+        wikipagerevisionid BIGINT,
+        worstdefeat TEXT[],
+        year INT,
+        yearofconstruction INT,
+        youthwing_label TEXT[],
+        youthwing TEXT[],
+        description TEXT[],
+        point TEXT[],
+        _22_rdf_syntax_ns_type_label TEXT[],
+        _22_rdf_syntax_ns_type TEXT[],
+        owl_sameas_label TEXT[],
+        owl_sameas TEXT[],
+        wgs84_pos_geometry TEXT,
+        wgs84_pos_lat REAL[],
+        wgs84_pos_long REAL[],
+        core_broader_label TEXT,
+        core_broader TEXT,
+        core_preflabel TEXT
+);
+
+CREATE TABLE dbpedia_organisation_affiliation (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        affiliation TEXT REFERENCES dbpedia_organisation,
+        affiliation_label TEXT,
+        PRIMARY KEY(organisation, affiliation)
+);
+
+CREATE TABLE dbpedia_organisation_alumni (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        alumni TEXT REFERENCES dbpedia_person,
+        alumni_label TEXT,
+        PRIMARY KEY(organisation, alumni)
+);
+
+CREATE TABLE dbpedia_organisation_bandmember (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        bandmember TEXT REFERENCES dbpedia_person,
+        bandmember_label TEXT,
+        PRIMARY KEY(organisation, bandmember)
+);
+
+CREATE TABLE dbpedia_organisation_ceo (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        ceo TEXT REFERENCES dbpedia_person,
+        ceo_label TEXT,
+        PRIMARY KEY(organisation, ceo)
+);
+
+CREATE TABLE dbpedia_organisation_chairman (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        chairman TEXT REFERENCES dbpedia_person,
+        chairman_label TEXT,
+        PRIMARY KEY(organisation, chairman)
+);
+
+CREATE TABLE dbpedia_organisation_chairperson (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        chairperson TEXT REFERENCES dbpedia_person,
+        chairperson_label TEXT,
+        PRIMARY KEY(organisation, chairperson)
+);
+
+CREATE TABLE dbpedia_organisation_chancellor (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        chancellor TEXT REFERENCES dbpedia_person,
+        chancellor_label TEXT,
+        PRIMARY KEY(organisation, chancellor)
+);
+
+CREATE TABLE dbpedia_organisation_childorganisation (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        childorganisation TEXT REFERENCES dbpedia_organisation,
+        childorganisation_label TEXT,
+        PRIMARY KEY(organisation, childorganisation)
+);
+
+CREATE TABLE dbpedia_organisation_clubsrecordgoalscorer (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        clubsrecordgoalscorer TEXT REFERENCES dbpedia_person,
+        clubsrecordgoalscorer_label TEXT,
+        PRIMARY KEY(organisation, clubsrecordgoalscorer)
+);
+
+CREATE TABLE dbpedia_organisation_coach (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        coach TEXT REFERENCES dbpedia_person,
+        coach_label TEXT,
+        PRIMARY KEY(organisation, coach)
+);
+
+CREATE TABLE dbpedia_organisation_commander (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        commander TEXT REFERENCES dbpedia_person,
+        commander_label TEXT,
+        PRIMARY KEY(organisation, commander)
+);
+
+CREATE TABLE dbpedia_organisation_creator (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        creator TEXT REFERENCES dbpedia_person,
+        creator_label TEXT,
+        PRIMARY KEY(organisation, creator)
+);
+
+CREATE TABLE dbpedia_organisation_currentmember (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        currentmember TEXT REFERENCES dbpedia_person,
+        currentmember_label TEXT,
+        PRIMARY KEY(organisation, currentmember)
+);
+
+CREATE TABLE dbpedia_organisation_dean (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        dean TEXT REFERENCES dbpedia_person,
+        dean_label TEXT,
+        PRIMARY KEY(organisation, dean)
+);
+
+CREATE TABLE dbpedia_organisation_director (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        director TEXT REFERENCES dbpedia_person,
+        director_label TEXT,
+        PRIMARY KEY(organisation, director)
+);
+
+CREATE TABLE dbpedia_organisation_formerbandmember (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        formerbandmember TEXT REFERENCES dbpedia_person,
+        formerbandmember_label TEXT,
+        PRIMARY KEY(organisation, formerbandmember)
+);
+
+CREATE TABLE dbpedia_organisation_foundingperson (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        foundingperson TEXT REFERENCES dbpedia_person,
+        foundingperson_label TEXT,
+        PRIMARY KEY(organisation, foundingperson)
+);
+
+CREATE TABLE dbpedia_organisation_fourthcommander (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        fourthcommander TEXT REFERENCES dbpedia_person,
+        fourthcommander_label TEXT,
+        PRIMARY KEY(organisation, fourthcommander)
+);
+
+CREATE TABLE dbpedia_organisation_head (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        head TEXT REFERENCES dbpedia_person,
+        head_label TEXT,
+        PRIMARY KEY(organisation, head)
+);
+
+CREATE TABLE dbpedia_organisation_influenced (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        influenced TEXT REFERENCES dbpedia_person,
+        influenced_label TEXT,
+        PRIMARY KEY(organisation, influenced)
+);
+
+CREATE TABLE dbpedia_organisation_influencedby (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        influencedby TEXT REFERENCES dbpedia_person,
+        influencedby_label TEXT,
+        PRIMARY KEY(organisation, influencedby)
+);
+
+CREATE TABLE dbpedia_organisation_keyperson (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        keyperson TEXT REFERENCES dbpedia_person,
+        keyperson_label TEXT,
+        PRIMARY KEY(organisation, keyperson)
+);
+
+CREATE TABLE dbpedia_organisation_leader (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        leader TEXT REFERENCES dbpedia_person,
+        leader_label TEXT,
+        PRIMARY KEY(organisation, leader)
+);
+
+CREATE TABLE dbpedia_organisation_manager (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        manager TEXT REFERENCES dbpedia_person,
+        manager_label TEXT,
+        PRIMARY KEY(organisation, manager)
+);
+
+CREATE TABLE dbpedia_organisation_nobellaureates (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        nobellaureates TEXT REFERENCES dbpedia_person,
+        nobellaureates_label TEXT,
+        PRIMARY KEY(organisation, nobellaureates)
+);
+
+CREATE TABLE dbpedia_organisation_notablecommander (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        notablecommander TEXT REFERENCES dbpedia_person,
+        notablecommander_label TEXT,
+        PRIMARY KEY(organisation, notablecommander)
+);
+
+CREATE TABLE dbpedia_organisation_officerincharge (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        officerincharge TEXT REFERENCES dbpedia_person,
+        officerincharge_label TEXT,
+        PRIMARY KEY(organisation, officerincharge)
+);
+
+CREATE TABLE dbpedia_organisation_parentorganisation (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        parentorganisation TEXT REFERENCES dbpedia_organisation,
+        parentorganisation_label TEXT,
+        PRIMARY KEY(organisation, parentorganisation)
+);
+
+CREATE TABLE dbpedia_organisation_pastmember (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        pastmember TEXT REFERENCES dbpedia_person,
+        pastmember_label TEXT,
+        PRIMARY KEY(organisation, pastmember)
+);
+
+CREATE TABLE dbpedia_organisation_patron (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        patron TEXT REFERENCES dbpedia_person,
+        patron_label TEXT,
+        PRIMARY KEY(organisation, patron)
+);
+
+CREATE TABLE dbpedia_organisation_president (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        president TEXT REFERENCES dbpedia_person,
+        president_label TEXT,
+        PRIMARY KEY(organisation, president)
+);
+
+CREATE TABLE dbpedia_organisation_principal (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        principal TEXT REFERENCES dbpedia_person,
+        principal_label TEXT,
+        PRIMARY KEY(organisation, principal)
+);
+
+CREATE TABLE dbpedia_organisation_rector (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        rector TEXT REFERENCES dbpedia_person,
+        rector_label TEXT,
+        PRIMARY KEY(organisation, rector)
+);
+
+CREATE TABLE dbpedia_organisation_secondcommander (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        secondcommander TEXT REFERENCES dbpedia_person,
+        secondcommander_label TEXT,
+        PRIMARY KEY(organisation, secondcommander)
+);
+
+CREATE TABLE dbpedia_organisation_secretarygeneral (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        secretarygeneral TEXT REFERENCES dbpedia_person,
+        secretarygeneral_label TEXT,
+        PRIMARY KEY(organisation, secretarygeneral)
+);
+
+CREATE TABLE dbpedia_organisation_spokesperson (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        spokesperson TEXT REFERENCES dbpedia_person,
+        spokesperson_label TEXT,
+        PRIMARY KEY(organisation, spokesperson)
+);
+
+CREATE TABLE dbpedia_organisation_superintendent (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        superintendent TEXT REFERENCES dbpedia_person,
+        superintendent_label TEXT,
+        PRIMARY KEY(organisation, superintendent)
+);
+
+CREATE TABLE dbpedia_organisation_thirdcommander (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        thirdcommander TEXT REFERENCES dbpedia_person,
+        thirdcommander_label TEXT,
+        PRIMARY KEY(organisation, thirdcommander)
+);
+
+CREATE TABLE dbpedia_organisation_trustee (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        trustee TEXT REFERENCES dbpedia_person,
+        trustee_label TEXT,
+        PRIMARY KEY(organisation, trustee)
+);
+
+CREATE TABLE dbpedia_organisation_vicechancellor (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        vicechancellor TEXT REFERENCES dbpedia_person,
+        vicechancellor_label TEXT,
+        PRIMARY KEY(organisation, vicechancellor)
+);
+
+CREATE TABLE dbpedia_organisation_vicepresident (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        vicepresident TEXT REFERENCES dbpedia_person,
+        vicepresident_label TEXT,
+        PRIMARY KEY(organisation, vicepresident)
+);
+
+CREATE TABLE dbpedia_organisation_viceprincipal (
+        organisation TEXT REFERENCES dbpedia_organisation,
+        viceprincipal TEXT REFERENCES dbpedia_person,
+        viceprincipal_label TEXT,
+        PRIMARY KEY(organisation, viceprincipal)
+);
+
+CREATE TABLE dbpedia_person_academicadvisor (
+        person TEXT REFERENCES dbpedia_person,
+        academicadvisor TEXT REFERENCES dbpedia_person,
+        academicadvisor_label TEXT,
+        PRIMARY KEY(person, academicadvisor)
+);
+
+CREATE TABLE dbpedia_person_appointer (
+        person TEXT REFERENCES dbpedia_person,
+        appointer TEXT REFERENCES dbpedia_person,
+        appointer_label TEXT,
+        PRIMARY KEY(person, appointer)
+);
+
+CREATE TABLE dbpedia_person_associate (
+        person TEXT REFERENCES dbpedia_person,
+        associate TEXT REFERENCES dbpedia_person,
+        associate_label TEXT,
+        PRIMARY KEY(person, associate)
+);
+
+CREATE TABLE dbpedia_person_beatifiedby (
+        person TEXT REFERENCES dbpedia_person,
+        beatifiedby TEXT REFERENCES dbpedia_person,
+        beatifiedby_label TEXT,
+        PRIMARY KEY(person, beatifiedby)
+);
+
+CREATE TABLE dbpedia_person_canonizedby (
+        person TEXT REFERENCES dbpedia_person,
+        canonizedby TEXT REFERENCES dbpedia_person,
+        canonizedby_label TEXT,
+        PRIMARY KEY(person, canonizedby)
+);
+
+CREATE TABLE dbpedia_person_chancellor (
+        person TEXT REFERENCES dbpedia_person,
+        chancellor TEXT REFERENCES dbpedia_person,
+        chancellor_label TEXT,
+        PRIMARY KEY(person, chancellor)
+);
+
+CREATE TABLE dbpedia_person_child (
+        person TEXT REFERENCES dbpedia_person,
+        child TEXT REFERENCES dbpedia_person,
+        child_label TEXT,
+        PRIMARY KEY(person, child)
+);
+
+CREATE TABLE dbpedia_person_choreographer (
+        person TEXT REFERENCES dbpedia_person,
+        choreographer TEXT REFERENCES dbpedia_person,
+        choreographer_label TEXT,
+        PRIMARY KEY(person, choreographer)
+);
+
+CREATE TABLE dbpedia_person_coach (
+        person TEXT REFERENCES dbpedia_person,
+        coach TEXT REFERENCES dbpedia_person,
+        coach_label TEXT,
+        PRIMARY KEY(person, coach)
+);
+
+CREATE TABLE dbpedia_person_creator (
+        person TEXT REFERENCES dbpedia_person,
+        creator TEXT REFERENCES dbpedia_person,
+        creator_label TEXT,
+        PRIMARY KEY(person, creator)
+);
+
+CREATE TABLE dbpedia_person_currentmember (
+        person TEXT REFERENCES dbpedia_person,
+        currentmember TEXT REFERENCES dbpedia_person,
+        currentmember_label TEXT,
+        PRIMARY KEY(person, currentmember)
+);
+
+CREATE TABLE dbpedia_person_currentpartner (
+        person TEXT REFERENCES dbpedia_person,
+        currentpartner TEXT REFERENCES dbpedia_person,
+        currentpartner_label TEXT,
+        PRIMARY KEY(person, currentpartner)
+);
+
+CREATE TABLE dbpedia_person_deputy (
+        person TEXT REFERENCES dbpedia_person,
+        deputy TEXT REFERENCES dbpedia_person,
+        deputy_label TEXT,
+        PRIMARY KEY(person, deputy)
+);
+
+CREATE TABLE dbpedia_person_doctoraladvisor (
+        person TEXT REFERENCES dbpedia_person,
+        doctoraladvisor TEXT REFERENCES dbpedia_person,
+        doctoraladvisor_label TEXT,
+        PRIMARY KEY(person, doctoraladvisor)
+);
+
+CREATE TABLE dbpedia_person_doctoralstudent (
+        person TEXT REFERENCES dbpedia_person,
+        doctoralstudent TEXT REFERENCES dbpedia_person,
+        doctoralstudent_label TEXT,
+        PRIMARY KEY(person, doctoralstudent)
+);
+
+CREATE TABLE dbpedia_person_employer (
+        person TEXT REFERENCES dbpedia_person,
+        employer TEXT REFERENCES dbpedia_organisation,
+        employer_label TEXT,
+        PRIMARY KEY(person, employer)
+);
+
+CREATE TABLE dbpedia_person_formerchoreographer (
+        person TEXT REFERENCES dbpedia_person,
+        formerchoreographer TEXT REFERENCES dbpedia_person,
+        formerchoreographer_label TEXT,
+        PRIMARY KEY(person, formerchoreographer)
+);
+
+CREATE TABLE dbpedia_person_formercoach (
+        person TEXT REFERENCES dbpedia_person,
+        formercoach TEXT REFERENCES dbpedia_person,
+        formercoach_label TEXT,
+        PRIMARY KEY(person, formercoach)
+);
+
+CREATE TABLE dbpedia_person_formerpartner (
+        person TEXT REFERENCES dbpedia_person,
+        formerpartner TEXT REFERENCES dbpedia_person,
+        formerpartner_label TEXT,
+        PRIMARY KEY(person, formerpartner)
+);
+
+CREATE TABLE dbpedia_person_governor (
+        person TEXT REFERENCES dbpedia_person,
+        governor TEXT REFERENCES dbpedia_person,
+        governor_label TEXT,
+        PRIMARY KEY(person, governor)
+);
+
+CREATE TABLE dbpedia_person_governorgeneral (
+        person TEXT REFERENCES dbpedia_person,
+        governorgeneral TEXT REFERENCES dbpedia_person,
+        governorgeneral_label TEXT,
+        PRIMARY KEY(person, governorgeneral)
+);
+
+CREATE TABLE dbpedia_person_heir (
+        person TEXT REFERENCES dbpedia_person,
+        heir TEXT REFERENCES dbpedia_person,
+        heir_label TEXT,
+        PRIMARY KEY(person, heir)
+);
+
+CREATE TABLE dbpedia_person_incumbent (
+        person TEXT REFERENCES dbpedia_person,
+        incumbent TEXT REFERENCES dbpedia_person,
+        incumbent_label TEXT,
+        PRIMARY KEY(person, incumbent)
+);
+
+CREATE TABLE dbpedia_person_influenced (
+        person TEXT REFERENCES dbpedia_person,
+        influenced TEXT REFERENCES dbpedia_person,
+        influenced_label TEXT,
+        PRIMARY KEY(person, influenced)
+);
+
+CREATE TABLE dbpedia_person_influencedby (
+        person TEXT REFERENCES dbpedia_person,
+        influencedby TEXT REFERENCES dbpedia_person,
+        influencedby_label TEXT,
+        PRIMARY KEY(person, influencedby)
+);
+
+CREATE TABLE dbpedia_person_institution (
+        person TEXT REFERENCES dbpedia_person,
+        institution TEXT REFERENCES dbpedia_organisation,
+        institution_label TEXT,
+        PRIMARY KEY(person, institution)
+);
+
+CREATE TABLE dbpedia_person_lieutenant (
+        person TEXT REFERENCES dbpedia_person,
+        lieutenant TEXT REFERENCES dbpedia_person,
+        lieutenant_label TEXT,
+        PRIMARY KEY(person, lieutenant)
+);
+
+CREATE TABLE dbpedia_person_manager (
+        person TEXT REFERENCES dbpedia_person,
+        manager TEXT REFERENCES dbpedia_person,
+        manager_label TEXT,
+        PRIMARY KEY(person, manager)
+);
+
+CREATE TABLE dbpedia_person_monarch (
+        person TEXT REFERENCES dbpedia_person,
+        monarch TEXT REFERENCES dbpedia_person,
+        monarch_label TEXT,
+        PRIMARY KEY(person, monarch)
+);
+
+CREATE TABLE dbpedia_person_nominee (
+        person TEXT REFERENCES dbpedia_person,
+        nominee TEXT REFERENCES dbpedia_person,
+        nominee_label TEXT,
+        PRIMARY KEY(person, nominee)
+);
+
+CREATE TABLE dbpedia_person_notablestudent (
+        person TEXT REFERENCES dbpedia_person,
+        notablestudent TEXT REFERENCES dbpedia_person,
+        notablestudent_label TEXT,
+        PRIMARY KEY(person, notablestudent)
+);
+
+CREATE TABLE dbpedia_person_opponent (
+        person TEXT REFERENCES dbpedia_person,
+        opponent TEXT REFERENCES dbpedia_person,
+        opponent_label TEXT,
+        PRIMARY KEY(person, opponent)
+);
+
+CREATE TABLE dbpedia_person_parent (
+        person TEXT REFERENCES dbpedia_person,
+        parent TEXT REFERENCES dbpedia_person,
+        parent_label TEXT,
+        PRIMARY KEY(person, parent)
+);
+
+CREATE TABLE dbpedia_person_partner (
+        person TEXT REFERENCES dbpedia_person,
+        partner TEXT REFERENCES dbpedia_person,
+        partner_label TEXT,
+        PRIMARY KEY(person, partner)
+);
+
+CREATE TABLE dbpedia_person_president (
+        person TEXT REFERENCES dbpedia_person,
+        president TEXT REFERENCES dbpedia_person,
+        president_label TEXT,
+        PRIMARY KEY(person, president)
+);
+
+CREATE TABLE dbpedia_person_primeminister (
+        person TEXT REFERENCES dbpedia_person,
+        primeminister TEXT REFERENCES dbpedia_person,
+        primeminister_label TEXT,
+        PRIMARY KEY(person, primeminister)
+);
+
+CREATE TABLE dbpedia_person_relation (
+        person TEXT REFERENCES dbpedia_person,
+        relation TEXT REFERENCES dbpedia_person,
+        relation_label TEXT,
+        PRIMARY KEY(person, relation)
+);
+
+CREATE TABLE dbpedia_person_relative (
+        person TEXT REFERENCES dbpedia_person,
+        relative TEXT REFERENCES dbpedia_person,
+        relative_label TEXT,
+        PRIMARY KEY(person, relative)
+);
+
+CREATE TABLE dbpedia_person_spouse (
+        person TEXT REFERENCES dbpedia_person,
+        spouse TEXT REFERENCES dbpedia_person,
+        spouse_label TEXT,
+        PRIMARY KEY(person, spouse)
+);
+
+CREATE TABLE dbpedia_person_statedelegate (
+        person TEXT REFERENCES dbpedia_person,
+        statedelegate TEXT REFERENCES dbpedia_person,
+        statedelegate_label TEXT,
+        PRIMARY KEY(person, statedelegate)
+);
+
+CREATE TABLE dbpedia_person_trainer (
+        person TEXT REFERENCES dbpedia_person,
+        trainer TEXT REFERENCES dbpedia_person,
+        trainer_label TEXT,
+        PRIMARY KEY(person, trainer)
+);
+
+CREATE TABLE dbpedia_person_veneratedin (
+        person TEXT REFERENCES dbpedia_person,
+        veneratedin TEXT REFERENCES dbpedia_organisation,
+        veneratedin_label TEXT,
+        PRIMARY KEY(person, veneratedin)
+);
+
+CREATE TABLE dbpedia_person_vicepresident (
+        person TEXT REFERENCES dbpedia_person,
+        vicepresident TEXT REFERENCES dbpedia_person,
+        vicepresident_label TEXT,
+        PRIMARY KEY(person, vicepresident)
+);
+
+CREATE TABLE dbpedia_person_viceprimeminister (
+        person TEXT REFERENCES dbpedia_person,
+        viceprimeminister TEXT REFERENCES dbpedia_person,
+        viceprimeminister_label TEXT,
+        PRIMARY KEY(person, viceprimeminister)
+);
+
+CREATE TABLE dbpedia_person_voice (
+        person TEXT REFERENCES dbpedia_person,
+        voice TEXT REFERENCES dbpedia_person,
+        voice_label TEXT,
+        PRIMARY KEY(person, voice)
+);
+
+ALTER TABLE dbpedia_organisation ADD CONSTRAINT chaplain_fk FOREIGN KEY (chaplain) REFERENCES dbpedia_person;
+
+ALTER TABLE dbpedia_organisation ADD CONSTRAINT custodian_fk FOREIGN KEY (custodian) REFERENCES dbpedia_person;
+
+ALTER TABLE dbpedia_organisation ADD CONSTRAINT designer_fk FOREIGN KEY (designer) REFERENCES dbpedia_person;
+
+ALTER TABLE dbpedia_organisation ADD CONSTRAINT generalmanager_fk FOREIGN KEY (generalmanager) REFERENCES dbpedia_person;
+
+ALTER TABLE dbpedia_organisation ADD CONSTRAINT governingbody_fk FOREIGN KEY (governingbody) REFERENCES dbpedia_organisation;
+
+ALTER TABLE dbpedia_organisation ADD CONSTRAINT leadername_fk FOREIGN KEY (leadername) REFERENCES dbpedia_person;
+
+ALTER TABLE dbpedia_organisation ADD CONSTRAINT manufacturer_fk FOREIGN KEY (manufacturer) REFERENCES dbpedia_organisation;
+
+ALTER TABLE dbpedia_organisation ADD CONSTRAINT parent_fk FOREIGN KEY (parent) REFERENCES dbpedia_person;
+
+ALTER TABLE dbpedia_organisation ADD CONSTRAINT provost_fk FOREIGN KEY (provost) REFERENCES dbpedia_person;
+
+ALTER TABLE dbpedia_person ADD CONSTRAINT author_fk FOREIGN KEY (author) REFERENCES dbpedia_person;
+
+ALTER TABLE dbpedia_person ADD CONSTRAINT chairman_fk FOREIGN KEY (chairman) REFERENCES dbpedia_person;
+
+ALTER TABLE dbpedia_person ADD CONSTRAINT manufacturer_fk FOREIGN KEY (manufacturer) REFERENCES dbpedia_organisation;
+
+ALTER TABLE dbpedia_person ADD CONSTRAINT presenter_fk FOREIGN KEY (presenter) REFERENCES dbpedia_person;
+
+ALTER TABLE dbpedia_person ADD CONSTRAINT runningmate_fk FOREIGN KEY (runningmate) REFERENCES dbpedia_person;
+
+ALTER TABLE dbpedia_person ADD CONSTRAINT writer_fk FOREIGN KEY (writer) REFERENCES dbpedia_person;
+
