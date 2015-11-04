@@ -1,22 +1,83 @@
 dbpedia.org/snorql
 
-SELECT ?person ?firstname ?lastname ?birthDate ?party ?partyname ?almaMater min(?universityName) as ?universityname
+================================= Person/Politician table
+SELECT DISTINCT?person ?firstname ?lastname ?birthDate
 FROM <http://dbpedia.org/>
 WHERE {
     ?person rdf:type dbo:Person.
     ?person foaf:givenName ?firstname.
     ?person foaf:surname ?lastname.
     ?person dbo:birthDate ?birthDate.
-    OPTIONAL {
-        ?person dbo:party ?party.
-        ?party dbp:nativeName ?partyname.
-        ?person dbo:almaMater ?almaMater.
-        ?almaMater foaf:name ?universityName.
-    }
+    ?person dbo:party ?party.
+    ?party dbp:nativeName ?partyname.
 }
-GROUP BY ?person ?firstname ?lastname ?birthDate ?party ?partyname ?almaMater
+GROUP BY ?person ?firstname ?lastname ?birthDate
 ORDER BY ?person
 
---> URL for Query with JSON return
+http://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+owl%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0D%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0D%0APREFIX+dc%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0D%0APREFIX+%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2F%3E%0D%0APREFIX+dbpedia2%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fproperty%2F%3E%0D%0APREFIX+dbpedia%3A+%3Chttp%3A%2F%2Fdbpedia.org%2F%3E%0D%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0ASELECT+DISTINCT%3Fperson+%3Ffirstname+%3Flastname+%3FbirthDate%0D%0AFROM+%3Chttp%3A%2F%2Fdbpedia.org%2F%3E%0D%0AWHERE+%7B%0D%0A++++%3Fperson+rdf%3Atype+dbo%3APerson.%0D%0A++++%3Fperson+foaf%3AgivenName+%3Ffirstname.%0D%0A++++%3Fperson+foaf%3Asurname+%3Flastname.%0D%0A++++%3Fperson+dbo%3AbirthDate+%3FbirthDate.%0D%0A++++%3Fperson+dbo%3Aparty+%3Fparty.%0D%0A++++%3Fparty+dbp%3AnativeName+%3Fpartyname.%0D%0A%7D%0D%0AGROUP+BY+%3Fperson+%3Ffirstname+%3Flastname+%3FbirthDate%0D%0AORDER+BY+%3Fperson&output=json
 
-http://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+owl%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0D%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0D%0APREFIX+dc%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0D%0APREFIX+%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2F%3E%0D%0APREFIX+dbpedia2%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fproperty%2F%3E%0D%0APREFIX+dbpedia%3A+%3Chttp%3A%2F%2Fdbpedia.org%2F%3E%0D%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0ASELECT+%3Fperson+%3Ffirstname+%3Flastname+%3FbirthDate+%3Fparty+%3Fpartyname+%3FalmaMater+min%28%3FuniversityName%29+as+%3Funiversityname%0D%0AFROM+%3Chttp%3A%2F%2Fdbpedia.org%2F%3E%0D%0AWHERE+%7B%0D%0A++++%3Fperson+rdf%3Atype+dbo%3APerson.%0D%0A++++%3Fperson+foaf%3AgivenName+%3Ffirstname.%0D%0A++++%3Fperson+foaf%3Asurname+%3Flastname.%0D%0A++++%3Fperson+dbo%3AbirthDate+%3FbirthDate.%0D%0A++++OPTIONAL+%7B%0D%0A++++++++%3Fperson+dbo%3Aparty+%3Fparty.%0D%0A++++++++%3Fparty+dbp%3AnativeName+%3Fpartyname.%0D%0A++++++++%3Fperson+dbo%3AalmaMater+%3FalmaMater.%0D%0A++++++++%3FalmaMater+foaf%3Aname+%3FuniversityName.%0D%0A++++%7D%0D%0A%7D%0D%0AGROUP+BY+%3Fperson+%3Ffirstname+%3Flastname+%3FbirthDate+%3Fparty+%3Fpartyname+%3FalmaMater%0D%0AORDER+BY+%3Fperson&output=json
+================================== Party Table
+SELECT DISTINCT ?party min(?partyName) as ?partyname
+FROM <http://dbpedia.org/>
+WHERE {
+    ?person rdf:type dbo:Person.
+    ?person foaf:givenName ?firstname.
+    ?person foaf:surname ?lastname.
+    ?person dbo:birthDate ?birthDate.
+    ?person dbo:party ?party.
+    ?party dbp:nativeName ?partyName.
+}
+GROUP BY ?party
+ORDER BY ?party
+
+http://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+owl%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0D%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0D%0APREFIX+dc%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0D%0APREFIX+%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2F%3E%0D%0APREFIX+dbpedia2%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fproperty%2F%3E%0D%0APREFIX+dbpedia%3A+%3Chttp%3A%2F%2Fdbpedia.org%2F%3E%0D%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0ASELECT+DISTINCT+%3Fparty+min%28%3FpartyName%29+as+%3Fpartyname%0D%0AFROM+%3Chttp%3A%2F%2Fdbpedia.org%2F%3E%0D%0AWHERE+%7B%0D%0A++++%3Fperson+rdf%3Atype+dbo%3APerson.%0D%0A++++%3Fperson+foaf%3AgivenName+%3Ffirstname.%0D%0A++++%3Fperson+foaf%3Asurname+%3Flastname.%0D%0A++++%3Fperson+dbo%3AbirthDate+%3FbirthDate.%0D%0A++++%3Fperson+dbo%3Aparty+%3Fparty.%0D%0A++++%3Fparty+dbp%3AnativeName+%3FpartyName.%0D%0A%7D%0D%0AGROUP+BY+%3Fparty%0D%0AORDER+BY+%3Fparty&output=json
+
+============================ university table
+SELECT DISTINCT ?university min(?universityName) as ?universityname
+FROM <http://dbpedia.org/>
+WHERE {
+    ?person rdf:type dbo:Person.
+    ?person foaf:givenName ?firstname.
+    ?person foaf:surname ?lastname.
+    ?person dbo:birthDate ?birthDate.
+    ?person dbo:party ?party.
+    ?party dbp:nativeName ?partyname.
+    ?person dbo:almaMater ?university.
+    ?university foaf:name ?universityName.
+}
+GROUP BY ?university
+ORDER BY ?university
+
+http://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+owl%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0D%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0D%0APREFIX+dc%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0D%0APREFIX+%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2F%3E%0D%0APREFIX+dbpedia2%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fproperty%2F%3E%0D%0APREFIX+dbpedia%3A+%3Chttp%3A%2F%2Fdbpedia.org%2F%3E%0D%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0ASELECT+DISTINCT+%3Funiversity+min%28%3FuniversityName%29+as+%3Funiversityname%0D%0AFROM+%3Chttp%3A%2F%2Fdbpedia.org%2F%3E%0D%0AWHERE+%7B%0D%0A++++%3Fperson+rdf%3Atype+dbo%3APerson.%0D%0A++++%3Fperson+foaf%3AgivenName+%3Ffirstname.%0D%0A++++%3Fperson+foaf%3Asurname+%3Flastname.%0D%0A++++%3Fperson+dbo%3AbirthDate+%3FbirthDate.%0D%0A++++%3Fperson+dbo%3Aparty+%3Fparty.%0D%0A++++%3Fparty+dbp%3AnativeName+%3Fpartyname.%0D%0A++++%3Fperson+dbo%3AalmaMater+%3Funiversity.%0D%0A++++%3Funiversity+foaf%3Aname+%3FuniversityName.%0D%0A%7D%0D%0AGROUP+BY+%3Funiversity%0D%0AORDER+BY+%3Funiversity&output=json
+
+============================ person - party relation
+SELECT DISTINCT ?person ?party
+FROM <http://dbpedia.org/>
+WHERE {
+    ?person rdf:type dbo:Person.
+    ?person foaf:givenName ?firstname.
+    ?person foaf:surname ?lastname.
+    ?person dbo:birthDate ?birthDate.
+    ?person dbo:party ?party.
+    ?party dbp:nativeName ?partyname.
+}
+ORDER BY ?person
+
+http://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+owl%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0D%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0D%0APREFIX+dc%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0D%0APREFIX+%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2F%3E%0D%0APREFIX+dbpedia2%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fproperty%2F%3E%0D%0APREFIX+dbpedia%3A+%3Chttp%3A%2F%2Fdbpedia.org%2F%3E%0D%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0ASELECT+DISTINCT+%3Fperson+%3Fparty%0D%0AFROM+%3Chttp%3A%2F%2Fdbpedia.org%2F%3E%0D%0AWHERE+%7B%0D%0A++++%3Fperson+rdf%3Atype+dbo%3APerson.%0D%0A++++%3Fperson+foaf%3AgivenName+%3Ffirstname.%0D%0A++++%3Fperson+foaf%3Asurname+%3Flastname.%0D%0A++++%3Fperson+dbo%3AbirthDate+%3FbirthDate.%0D%0A++++%3Fperson+dbo%3Aparty+%3Fparty.%0D%0A++++%3Fparty+dbp%3AnativeName+%3Fpartyname.%0D%0A%7D%0D%0AORDER+BY+%3Fperson&output=json
+
+============================ person - university relation
+SELECT DISTINCT ?person ?university
+FROM <http://dbpedia.org/>
+WHERE {
+    ?person rdf:type dbo:Person.
+    ?person foaf:givenName ?firstname.
+    ?person foaf:surname ?lastname.
+    ?person dbo:birthDate ?birthDate.
+    ?person dbo:party ?party.
+    ?party dbp:nativeName ?partyname.
+    ?person dbo:almaMater ?university.
+    ?university foaf:name ?universityName.
+}
+ORDER BY ?person
+
+http://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+owl%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0D%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0D%0APREFIX+dc%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0D%0APREFIX+%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2F%3E%0D%0APREFIX+dbpedia2%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fproperty%2F%3E%0D%0APREFIX+dbpedia%3A+%3Chttp%3A%2F%2Fdbpedia.org%2F%3E%0D%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0ASELECT+DISTINCT+%3Fperson+%3Funiversity%0D%0AFROM+%3Chttp%3A%2F%2Fdbpedia.org%2F%3E%0D%0AWHERE+%7B%0D%0A++++%3Fperson+rdf%3Atype+dbo%3APerson.%0D%0A++++%3Fperson+foaf%3AgivenName+%3Ffirstname.%0D%0A++++%3Fperson+foaf%3Asurname+%3Flastname.%0D%0A++++%3Fperson+dbo%3AbirthDate+%3FbirthDate.%0D%0A++++%3Fperson+dbo%3Aparty+%3Fparty.%0D%0A++++%3Fparty+dbp%3AnativeName+%3Fpartyname.%0D%0A++++%3Fperson+dbo%3AalmaMater+%3Funiversity.%0D%0A++++%3Funiversity+foaf%3Aname+%3FuniversityName.%0D%0A%7D%0D%0AORDER+BY+%3Fperson&output=json
