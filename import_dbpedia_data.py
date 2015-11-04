@@ -33,26 +33,26 @@ class Relations:
                         + " (source_instance_uri, target_label, target_uri) values (%s, %s, %s)"
                 seq_of_parameters = []
                 for instance_uri in self.instances_by_relation[relation]:
-                    parameters = []
                     for label, related_uri in zip(
                             self.related_labels[relation, instance_uri, property],
                             self.related_values[relation, instance_uri, property]):
-                        parameters.append(instance_uri, label, related_uri)
-                    seq_of_parameters.append(parameters)
-                cursor.executemany(sql, seq_of_parameters)
+                        seq_of_parameters.append([instance_uri, label, related_uri])
+                try:
+                    cursor.executemany(sql, seq_of_parameters)
+                except:
+                    import pdb, traceback
+                    type, value, tb = sys.exc_info()
+                    traceback.print_exc()
+                    pdb.post_mortem(tb)
                 conn.commit()
                 print("added " + relation + "." + property + " relation tuples")
 
 def trimlabel(property):
     return property[:property.rindex("_label")]
 
-def name_of_relationship_table(relation, property):
-    return relation + "_" + column_name(relation, property)
-
-conn = psycopg2.connect('dbname=infoint user=infoint password=infoint')
-cursor = conn.cursor()
-
 def read_items(items):
+    conn = psycopg2.connect('dbname=infoint user=infoint password=infoint')
+    cursor = conn.cursor()
     counter = 0
     relation = "foo"
     sql = "insert into " + relation + " "
@@ -98,25 +98,32 @@ def read_items(items):
             seen.add(col)
             # >8
             if is_relational_property(relation, prop):
-                relations.add(item_uri, relation, prop, value)
+                relations.add(relation, item_uri, prop, value)
             elif is_array_property(relation, prop):
                 parameters.append([value] if type(value) is not list else value)
             else:
-                assert col != 'relation'
+                # 8<
+                assert col != '"relation"'
+                # >8
                 parameters.append(value)
-            if col == 'relation' and any(v in seen_uris for v in value):
+            # 8<
+            if col == '"relation"' and any(v in seen_uris for v in value):
                 print("found a relation")
                 stop = True
+            # >8
         seq_of_parameters.append(parameters)
         counter += 1
-        if counter % 1000 == 1:
+        if counter % 100 == 0:
             print(counter, end="\r")
+        if counter % 1000 == 1:
             cursor.executemany(sql, seq_of_parameters)
             seq_of_parameters[:] = []
         if counter % 5000 == 0:
             conn.commit()
+        # 8<
         if stop:
             break
+        # >8
     cursor.executemany(sql, seq_of_parameters)
     conn.commit()
     relations.insertall(cursor, conn)
@@ -132,11 +139,14 @@ def column_name(relation, property):
 
 def is_relational_property(relation, property):
     # TODO: use some real basis for this
-    return column_name(relation, property) == '"relation"'
+    return column_name(relation, property).startswith('"relation')
 
 def is_array_property(relation, property):
     # TODO: use some real basis for this
     return False
+
+def name_of_relationship_table(relation, property):
+    return relation + "_" + column_name(relation, property).strip('"')
 
 def main():
     import sys
