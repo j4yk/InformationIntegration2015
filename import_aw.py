@@ -114,9 +114,9 @@ for p in parliaments_data["parliaments"]:
         # insert aggregated data for candidacy
         executeSQL(
             cur,
-            "INSERT INTO candidacy (parliament, candidate, constituency, party, number, result) VALUES (%s, %s, %s, %s, %s, %s)",
+            "INSERT INTO candidacy (parliament, candidate, constituency, party, number, result, won) VALUES (%s, %s, %s, %s, %s, %s, %s)",
             [ERROR_PQ_VIOLATION],
             (p["uuid"], pr["meta"]["uuid"], pr["constituency"]["uuid"], pr["party"], 
-            pr["constituency"]["number"], pr["constituency"]["result"]))
+            pr["constituency"]["number"], pr["constituency"]["result"], pr["constituency"]["won"]))
 
 print("\nsuccess")
