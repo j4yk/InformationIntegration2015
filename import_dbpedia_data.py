@@ -2,7 +2,6 @@
 
 import sys
 import gzip
-import ijson
 import psycopg2
 from urllib.request import urlopen
 from collections import defaultdict
@@ -68,20 +67,20 @@ def read_items(items):
             continue
         seen_uris.add(item_uri)
         properties = item[item_uri]
-        # TODO: change this to reflect the real mapping
-        columns = [column_name(relation, prop) for prop in properties.keys() if not is_relational_property(relation, prop)]
-        # 8< remove duplicate column names, should not be needed later
-        columns_set = set(columns)
-        new_columns = []
-        for col in columns:
-            if col in columns_set:
-                new_columns.append(col)
-                columns_set.remove(col)
-        columns = new_columns
-        # >8
-        assert '"relation"' not in columns
-        # assert len(column_properties) == len(properties)
         if not sql_initialized:
+            # TODO: change this to reflect the real mapping
+            columns = [column_name(relation, prop) for prop in properties.keys() if not is_relational_property(relation, prop)]
+            # 8< remove duplicate column names, should not be needed later
+            columns_set = set(columns)
+            new_columns = []
+            for col in columns:
+                if col in columns_set:
+                    new_columns.append(col)
+                    columns_set.remove(col)
+            columns = new_columns
+            # >8
+            assert '"relation"' not in columns
+            # assert len(column_properties) == len(properties)
             sql += "(uri," \
                 + ",".join(prop for prop in columns) \
                 + ") values (" \
@@ -90,22 +89,7 @@ def read_items(items):
             sql_initialized = True
         parameters = [item_uri]
         seen = set()
-        for prop, value in properties.items():
-            col = column_name(relation, prop)
-            # 8< avoid duplicate column names, should not be needed later
-            if col in seen:
-                continue
-            seen.add(col)
-            # >8
-            if is_relational_property(relation, prop):
-                relations.add(relation, item_uri, prop, value)
-            elif is_array_property(relation, prop):
-                parameters.append([value] if type(value) is not list else value)
-            else:
-                # 8<
-                assert col != '"relation"'
-                # >8
-                parameters.append(value)
+        collect_parameters(parameters, item_uri, relations, col, relation, seen, properties)
         seq_of_parameters.append(parameters)
         counter += 1
         if counter % 100 == 0:
@@ -123,14 +107,32 @@ def read_items(items):
     conn.commit()
     relations.insertall(cursor, conn)
 
+def collect_parameters(parameters, item_uri, relations, col, relation, seen, properties):
+    for prop, value in properties.items():
+        col = column_name(relation, prop)
+        # 8< avoid duplicate column names, should not be needed later
+        if col in seen:
+            continue
+        seen.add(col)
+        # >8
+        if is_relational_property(relation, prop):
+            relations.add(relation, item_uri, prop, value)
+        elif is_array_property(relation, prop):
+            parameters.append([value] if type(value) is not list else value)
+        else:
+            parameters.append(value)
+
+column_name_memo = {}
 def column_name(relation, property):
-    s = property[property.rindex('/') + 1:].translate({
-        ord('-'): '_',
-        ord('#'): '_',
-        })
-    if not s[0].isalpha():
-        s = "_" + s
-    return '"' + s + '"'
+    if (relation,property) not in column_name_memo:
+        s = property[property.rindex('/') + 1:].translate({
+            ord('-'): '_',
+            ord('#'): '_',
+            })
+        if not s[0].isalpha():
+            s = "_" + s
+        column_name_memo[relation, property] = '"' + s + '"'
+    return column_name_memo[relation, property]
 
 def is_relational_property(relation, property):
     # TODO: use some real basis for this
@@ -147,7 +149,17 @@ def main():
     import sys
     webstream = urlopen(PERSONS_URL)
     unzippedstream = gzip.open(webstream)
-    items = ijson.items(unzippedstream, 'instances.item')
-    read_items(items)
+    stream = unzippedstream
+    read_items(items(stream))
+
+def items(stream):
+    import json
+    next(stream)
+    for index, line in enumerate(stream):
+        json_str = line[:-2]
+        if index == 0:
+            json_str = json_str[13:]
+        yield json.loads(json_str)
+
 if __name__ == '__main__':
     main()
