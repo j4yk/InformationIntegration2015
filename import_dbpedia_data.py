@@ -1,9 +1,10 @@
 #! python3
 
+from __future__ import print_function
 import sys
 import gzip
 import psycopg2
-from urllib.request import urlopen
+# from urllib.request import urlopen
 from collections import defaultdict
 
 PERSONS_URL = "http://web.informatik.uni-mannheim.de/DBpediaAsTables/json/Person.json.gz"
@@ -49,38 +50,20 @@ class Relations:
 def trimlabel(property):
     return property[:property.rindex("_label")]
 
-def read_items(items):
+def read_items(items, relation):
     conn = psycopg2.connect('dbname=infoint user=infoint password=infoint')
     cursor = conn.cursor()
     counter = 0
-    relation = "foo"
-    sql = "insert into " + relation + " "
+    sql = "insert into " + table_name(relation) + " "
     sql_initialized = False
     seq_of_parameters = []
-    seen_uris = set()
-    stop = False
     relations = Relations()
     for item in items:
         item_uri = list(item.keys())[0]
-        if item_uri in seen_uris:
-            print("WARNING: skipping duplicate instance", item_uri)
-            continue
-        seen_uris.add(item_uri)
         properties = item[item_uri]
         if not sql_initialized:
             # TODO: change this to reflect the real mapping
             columns = [column_name(relation, prop) for prop in properties.keys() if not is_relational_property(relation, prop)]
-            # 8< remove duplicate column names, should not be needed later
-            columns_set = set(columns)
-            new_columns = []
-            for col in columns:
-                if col in columns_set:
-                    new_columns.append(col)
-                    columns_set.remove(col)
-            columns = new_columns
-            # >8
-            assert '"relation"' not in columns
-            # assert len(column_properties) == len(properties)
             sql += "(uri," \
                 + ",".join(prop for prop in columns) \
                 + ") values (" \
@@ -89,32 +72,33 @@ def read_items(items):
             sql_initialized = True
         parameters = [item_uri]
         seen = set()
-        collect_parameters(parameters, item_uri, relations, col, relation, seen, properties)
+        collect_parameters(parameters, item_uri, relations, relation, seen, properties)
         seq_of_parameters.append(parameters)
         counter += 1
         if counter % 100 == 0:
             print(counter, end="\r")
         if counter % 1000 == 1:
-            cursor.executemany(sql, seq_of_parameters)
+            try:
+                cursor.executemany(sql, seq_of_parameters)
+            except psycopg2.DataError as e:
+                import pdb, traceback
+                exc_type, value, tb = sys.exc_info()
+                traceback.print_exc()
+                pdb.post_mortem(tb)
+                sys.exit(1)
             seq_of_parameters[:] = []
         if counter % 5000 == 0:
             conn.commit()
-        # 8<
-        if stop:
-            break
-        # >8
+            pass
     cursor.executemany(sql, seq_of_parameters)
     conn.commit()
     relations.insertall(cursor, conn)
 
-def collect_parameters(parameters, item_uri, relations, col, relation, seen, properties):
+def collect_parameters(parameters, item_uri, relations, relation, seen, properties):
     for prop, value in properties.items():
-        col = column_name(relation, prop)
-        # 8< avoid duplicate column names, should not be needed later
-        if col in seen:
-            continue
-        seen.add(col)
-        # >8
+        if value == 'NULL':
+            value = None
+        if value == '{NULL}': import pdb; pdb.set_trace()
         if is_relational_property(relation, prop):
             relations.add(relation, item_uri, prop, value)
         elif is_array_property(relation, prop):
@@ -122,35 +106,46 @@ def collect_parameters(parameters, item_uri, relations, col, relation, seen, pro
         else:
             parameters.append(value)
 
-column_name_memo = {}
 def column_name(relation, property):
-    if (relation,property) not in column_name_memo:
-        s = property[property.rindex('/') + 1:].translate({
-            ord('-'): '_',
-            ord('#'): '_',
-            })
-        if not s[0].isalpha():
-            s = "_" + s
-        column_name_memo[relation, property] = '"' + s + '"'
-    return column_name_memo[relation, property]
+    return config[relation, property][COLUMN]
 
 def is_relational_property(relation, property):
-    # TODO: use some real basis for this
-    return column_name(relation, property).startswith('"relation')
+    return config[relation, property][TABLE] != "dbpedia_" + relation
 
 def is_array_property(relation, property):
-    # TODO: use some real basis for this
-    return False
+    return config[relation, property][IS_ARRAY]
+
+def table_name(relation):
+    return config[relation, "URI"][TABLE]
 
 def name_of_relationship_table(relation, property):
-    return relation + "_" + column_name(relation, property).strip('"')
+    return config[relation, property][TABLE]
 
 def main():
-    import sys
-    webstream = urlopen(PERSONS_URL)
-    unzippedstream = gzip.open(webstream)
-    stream = unzippedstream
-    read_items(items(stream))
+    import sys, os
+    filename = sys.argv[1]
+    relation = os.path.basename(filename).replace(".json.gz", "").lower()
+    # webstream = urlopen(PERSONS_URL)
+    # unzippedstream = gzip.open(webstream)
+    load_configuration()
+    with open(filename, 'rb') as f:
+        unzippedstream = gzip.open(f, 'rt', encoding="utf-8")
+        stream = unzippedstream
+        read_items(items(stream), relation)
+
+config = {}
+TABLE = 0
+COLUMN = 1
+IS_ARRAY = 2
+
+def load_configuration():
+    with open('configuration.txt', 'rt') as f:
+        for line in f:
+            what, where, is_array = line.split(",")
+            is_array = bool(is_array)
+            relation, property_uri = what.split(".", 1)
+            table, column = where.split(".", 1)
+            config[relation, property_uri] = (table, column, is_array)
 
 def items(stream):
     import json
