@@ -1,0 +1,913 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2016 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="22">
+	<resources>
+		<datasources>
+			<datasource name="infoint1">
+				<properties JDBCDriver="org.postgresql.Driver" JDBCDatabaseURL="jdbc:postgresql://localhost:5432/infoint" DBUser="infoint" DBPassword="infoint" DBDataSource="PostgreSQL_input" DBCatalog="infoint" OLEDBOptions="Port=5432;B0=16777215;BI=0;"/>
+				<database_connection database_kind="PostgreSQL" import_kind="ODBC" version="9.3.5" ConnectionString="Dsn=PostgreSQL_input;Server=localhost;Database=infoint;Port=5432;B0=16777215;BI=0;Uid=infoint;Pwd=infoint;" name="infoint1" path="infoint1">
+					<properties>
+						<property name="Database Kind" value="PostgreSQL"/>
+						<property name="Import Kind" value="ODBC"/>
+						<property name="Root Object" value="infoint"/>
+						<property name="FileDsn"/>
+						<property name="Dsn" value="PostgreSQL_input"/>
+						<property name="Driver"/>
+						<property name="Trusted_Connection"/>
+						<property name="App"/>
+						<property name="Server" value="localhost"/>
+						<property name="Database" value="infoint"/>
+						<property name="Regional"/>
+						<property name="Languages"/>
+						<property name="Wsid"/>
+						<property name="Uid" value="infoint"/>
+						<property name="Pwd" value="NXfG5G-2dcA31"/>
+						<property name="Port" value="5432"/>
+						<property name="Option"/>
+						<property name="Stmt"/>
+						<property name="A1"/>
+						<property name="A6"/>
+						<property name="A7"/>
+						<property name="A8"/>
+						<property name="B0" value="16777215"/>
+						<property name="B1"/>
+						<property name="BI" value="0"/>
+						<property name="C2"/>
+						<property name="CA"/>
+						<property name="CX"/>
+					</properties>
+					<LocalViewStorage/>
+					<LocalRelationsStorage/>
+					<RecordSetStructureStorage/>
+				</database_connection>
+			</datasource>
+			<datasource name="infoint2">
+				<properties JDBCDriver="org.postgresql.Driver" JDBCDatabaseURL="jdbc:postgresql://localhost:5432/infoint" DBUser="infoint" DBPassword="infoint" DBDataSource="PostgreSQL_output" DBCatalog="infoint" OLEDBOptions="Port=5432;B0=16777215;BI=0;"/>
+				<database_connection database_kind="PostgreSQL" import_kind="ODBC" version="9.3.5" ConnectionString="DSN=PostgreSQL_output;DATABASE=infoint;SERVER=localhost;PORT=5432;UID=infoint;PWD=infoint;SSLmode=disable;ReadOnly=0;Protocol=7.4;FakeOidIndex=0;ShowOidColumn=0;RowVersioning=0;ShowSystemTables=0;ConnSettings=;Fetch=100;Socket=4096;UnknownSizes=0;MaxVarcharSize=255;MaxLongVarcharSize=8190;Debug=0;CommLog=0;Optimizer=0;Ksqo=1;UseDeclareFetch=0;TextAsLongVarchar=1;UnknownsAsLongVarchar=0;BoolsAsChar=1;Parse=0;CancelAsFreeStmt=0;ExtraSysTablePrefixes=dd_;;LFConversion=1;UpdatableCursors=1;DisallowPremature=0;TrueIsMinus1=0;BI=0;ByteaAsLongVarBinary=0;UseServerSidePrepare=1;LowerCaseIdentifier=0;GssAuthUseGSS=0;XaOpt=1" name="infoint2" path="infoint2">
+					<properties>
+						<property name="Database Kind" value="PostgreSQL"/>
+						<property name="Import Kind" value="ODBC"/>
+						<property name="Root Object" value="infoint"/>
+						<property name="FileDsn"/>
+						<property name="Dsn" value="PostgreSQL_output"/>
+						<property name="Driver"/>
+						<property name="Trusted_Connection"/>
+						<property name="App"/>
+						<property name="Server" value="localhost"/>
+						<property name="Database" value="infoint"/>
+						<property name="Regional"/>
+						<property name="Languages"/>
+						<property name="Wsid"/>
+						<property name="Uid" value="infoint"/>
+						<property name="Pwd" value="NXfG5G-2dcA31"/>
+						<property name="Port" value="5432"/>
+						<property name="Option"/>
+						<property name="Stmt"/>
+						<property name="A1"/>
+						<property name="A6"/>
+						<property name="A7"/>
+						<property name="A8"/>
+						<property name="B0" value="16777215"/>
+						<property name="B1"/>
+						<property name="BI" value="0"/>
+						<property name="C2"/>
+						<property name="CA"/>
+						<property name="CX"/>
+					</properties>
+					<LocalViewStorage/>
+					<LocalRelationsStorage/>
+					<RecordSetStructureStorage/>
+				</database_connection>
+			</datasource>
+		</datasources>
+	</resources>
+	<component name="defaultmap1" blackbox="0" uid="1" editable="1">
+		<properties SelectedLanguage="java"/>
+		<structure>
+			<children>
+				<component name="is-not-null" library="db" uid="23" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="48"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="49"/>
+					</targets>
+					<view ltx="445" lty="472" rbx="519" rby="511"/>
+				</component>
+				<component name="dbpedia-party-to-integrated-party" library="user" blackbox="0" uid="39" kind="19" visible="0">
+					<view ltx="385" lty="-71" rbx="677" rby="-4"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="dbpediaparty" componentid="33" expanded="1">
+								<entry name="dbpedia.party" inpkey="69" expanded="1"/>
+							</entry>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="party_id" outkey="70" componentid="30"/>
+						</root>
+					</data>
+				</component>
+				<component name="auto-number" library="core" uid="17" kind="5">
+					<properties/>
+					<sources>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="10"/>
+					</targets>
+					<view ltx="412" lty="340" rbx="543" rby="430"/>
+				</component>
+				<component name="structure" library="core" uid="19" kind="29">
+					<properties/>
+					<view ltx="570" lty="313" rbx="673" rby="349"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace uid="http://www.altova.com/mapforce"/>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="compute-when" inpkey="17"/>
+							<entry name="document" expanded="1">
+								<entry name="value" ns="1" inpkey="16" outkey="15"/>
+							</entry>
+						</root>
+						<wsdl/>
+						<variable datatype="ID"/>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
+				<component name="dbpedia.person" library="core" uid="21" kind="3">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="50"/>
+						<datapoint pos="1" key="51"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="52"/>
+						<datapoint/>
+					</targets>
+					<view ltx="553" lty="446" rbx="656" rby="502"/>
+				</component>
+				<component name="structure" library="db" uid="4" kind="15">
+					<properties/>
+					<view ltx="707" lty="26" rbx="914" rby="701"/>
+					<data>
+						<root scrollposition="227">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.almamater" type="table" expanded="1"/>
+								<entry name="integrated.party" type="table" inpkey="24" outkey="87" expanded="1">
+									<tableactions>
+										<action proceedchildren="1"/>
+									</tableactions>
+									<entry name="id" inpkey="13" outkey="103"/>
+									<entry name="uri" inpkey="25"/>
+									<entry name="name" inpkey="26"/>
+									<entry name="integrated.person_party|party_id" type="table" expanded="1"/>
+								</entry>
+								<entry name="integrated.person" type="table" inpkey="27" outkey="104" expanded="1">
+									<tableactions>
+										<action proceedchildren="1"/>
+									</tableactions>
+									<entry name="id" inpkey="28" outkey="105"/>
+									<entry name="first_name" inpkey="29"/>
+									<entry name="last_name" inpkey="30"/>
+									<entry name="dbpedia_uri" inpkey="31"/>
+									<entry name="integrated.birth|person_id" type="table" inpkey="45" expanded="1">
+										<entry name="date" inpkey="46"/>
+									</entry>
+									<entry name="integrated.person_party|person_id" type="table" expanded="1">
+										<entry name="integrated.party|party_id" type="table" expanded="1"/>
+									</entry>
+								</entry>
+								<entry name="integrated.politician" type="table" expanded="1"/>
+								<entry name="integrated.university" type="table" inpkey="134" expanded="1">
+									<entry name="uri" inpkey="135"/>
+									<entry name="name" inpkey="136"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint2">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="almamater" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="birth" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="party" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person_party" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="politician" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="university" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="9" kind="15">
+					<properties/>
+					<view ltx="148" lty="26" rbx="360" rby="509"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="dbpedia.party" type="table" outkey="14" expanded="1">
+									<entry name="party" outkey="18"/>
+									<entry name="partyname" outkey="19"/>
+									<entry name="dbpedia.person_party|party" type="table">
+										<entry name="dbpedia.person|person" type="table" expanded="1"/>
+									</entry>
+								</entry>
+								<entry name="dbpedia.person" type="table" outkey="20" expanded="1">
+									<entry name="id" outkey="21"/>
+									<entry name="firstname" outkey="22"/>
+									<entry name="lastname" outkey="23"/>
+									<entry name="birthdate" outkey="47"/>
+									<entry name="dbpedia.person_party|person" type="table">
+										<entry name="dbpedia.party|party" type="table" expanded="1"/>
+									</entry>
+								</entry>
+								<entry name="dbpedia.person_party" type="table" outkey="100" expanded="1">
+									<entry name="person" outkey="101"/>
+									<entry name="party" outkey="102"/>
+								</entry>
+								<entry name="dbpedia.person_uni" type="table" outkey="137" expanded="1">
+									<entry name="person" outkey="138"/>
+									<entry name="university" outkey="139"/>
+								</entry>
+								<entry name="dbpedia.uni" type="table" outkey="140" expanded="1">
+									<entry name="university" outkey="141"/>
+									<entry name="universityname" outkey="142"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint1">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint1" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="dbpedia" Kind="Schema"/>
+										<PathElement Name="party" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint1" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="dbpedia" Kind="Schema"/>
+										<PathElement Name="person" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint1" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="dbpedia" Kind="Schema"/>
+										<PathElement Name="person_party" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint1" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="dbpedia" Kind="Schema"/>
+										<PathElement Name="person_uni" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint1" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="dbpedia" Kind="Schema"/>
+										<PathElement Name="uni" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="42" kind="15">
+					<properties XSLTDefaultOutput="1"/>
+					<view ltx="1341" lty="26" rbx="1550" rby="514"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.almamater" type="table" inpkey="131" expanded="1">
+									<entry name="person_id" inpkey="132"/>
+									<entry name="university" inpkey="133"/>
+								</entry>
+								<entry name="integrated.party" type="table">
+									<entry name="integrated.person_party|party_id" type="table" expanded="1"/>
+								</entry>
+								<entry name="integrated.person" type="table">
+									<entry name="integrated.person_party|person_id" type="table">
+										<entry name="integrated.party|party_id" type="table" expanded="1"/>
+									</entry>
+								</entry>
+								<entry name="integrated.person_party" type="table" inpkey="91" expanded="1">
+									<entry name="party_id" inpkey="92"/>
+									<entry name="person_id" inpkey="99"/>
+								</entry>
+								<entry name="integrated.politician" type="table" inpkey="166" expanded="1">
+									<entry name="person_id" inpkey="167"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint2">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="almamater" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="birth" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="party" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person_article" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person_party" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="politician" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="university" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="integrated.person" library="db" uid="50" kind="21">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="161"/>
+						<datapoint pos="1" key="164"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="159"/>
+					</targets>
+					<view ltx="946" lty="459" rbx="1058" rby="515"/>
+					<data>
+						<where condition="dbpedia_uri = :dbpedia_uri">
+							<parameters>
+								<parameter name="dbpedia_uri" type="string" auto-detect="0"/>
+							</parameters>
+						</where>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="51" kind="15">
+					<properties/>
+					<view ltx="1104" lty="472" rbx="1300" rby="540"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.person" type="table" inpkey="160" expanded="1">
+									<entry name="id" inpkey="163" outkey="162"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint2" InstanceRoot="{}integrated.person">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
+				<component name="integrated.person" library="db" uid="49" kind="21">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="129"/>
+						<datapoint pos="1" key="125"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="127"/>
+					</targets>
+					<view ltx="946" lty="359" rbx="1058" rby="415"/>
+					<data>
+						<where condition="dbpedia_uri = :dbpedia_uri">
+							<parameters>
+								<parameter name="dbpedia_uri" type="string" auto-detect="0"/>
+							</parameters>
+						</where>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="48" kind="15">
+					<properties/>
+					<view ltx="1104" lty="372" rbx="1300" rby="440"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.person" type="table" inpkey="128" expanded="1">
+									<entry name="id" inpkey="126" outkey="130"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint2" InstanceRoot="{}integrated.person">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
+				<component name="integrated.person" library="db" uid="45" kind="21">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="106"/>
+						<datapoint pos="1" key="107"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="108"/>
+					</targets>
+					<view ltx="980" lty="211" rbx="1092" rby="267"/>
+					<data>
+						<where condition="dbpedia_uri = :dbpedia_uri">
+							<parameters>
+								<parameter name="dbpedia_uri" type="string" auto-detect="0"/>
+							</parameters>
+						</where>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="47" kind="15">
+					<properties/>
+					<view ltx="1104" lty="280" rbx="1300" rby="348"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.person" type="table" inpkey="109" expanded="1">
+									<entry name="id" inpkey="110" outkey="111"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint2" InstanceRoot="{}integrated.person">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
+				<component name="integrated.party" library="db" uid="43" kind="21">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="88"/>
+						<datapoint pos="1" key="89"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="90"/>
+					</targets>
+					<view ltx="962" lty="50" rbx="1065" rby="106"/>
+					<data>
+						<where condition="uri = :dbpedia_uri">
+							<parameters>
+								<parameter name="dbpedia_uri" type="string" auto-detect="0"/>
+							</parameters>
+						</where>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="46" kind="15">
+					<properties/>
+					<view ltx="1120" lty="50" rbx="1270" rby="250"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.party" type="table" inpkey="112" expanded="1">
+									<entry name="id" inpkey="113" outkey="114"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint2" InstanceRoot="{}integrated.party">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="party" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges>
+					<edge edgekey="71">
+						<data>
+							<dataconnection type="2"/>
+						</data>
+					</edge>
+				</edges>
+				<vertices>
+					<vertex vertexkey="10">
+						<edges>
+							<edge vertexkey="16" edgekey="33"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="14">
+						<edges>
+							<edge vertexkey="24" edgekey="35"/>
+							<edge vertexkey="69" edgekey="71"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="15">
+						<edges>
+							<edge vertexkey="28" edgekey="37"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="18">
+						<edges>
+							<edge vertexkey="25" edgekey="38"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="19">
+						<edges>
+							<edge vertexkey="26" edgekey="39"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="20">
+						<edges>
+							<edge vertexkey="27" edgekey="40"/>
+							<edge vertexkey="17" edgekey="41"/>
+							<edge vertexkey="50" edgekey="53"/>
+							<edge vertexkey="166" edgekey="168"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="21">
+						<edges>
+							<edge vertexkey="31" edgekey="42"/>
+							<edge vertexkey="164" edgekey="169"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="22">
+						<edges>
+							<edge vertexkey="29" edgekey="43"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="23">
+						<edges>
+							<edge vertexkey="30" edgekey="44"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="47">
+						<edges>
+							<edge vertexkey="48" edgekey="54"/>
+							<edge vertexkey="46" edgekey="63"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="49">
+						<edges>
+							<edge vertexkey="51" edgekey="55"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="52">
+						<edges>
+							<edge vertexkey="45" edgekey="64"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="70">
+						<edges>
+							<edge vertexkey="13" edgekey="72"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="87">
+						<edges>
+							<edge vertexkey="88" edgekey="95"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="90">
+						<edges>
+							<edge vertexkey="112" edgekey="115"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="100">
+						<edges>
+							<edge vertexkey="91" edgekey="116"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="101">
+						<edges>
+							<edge vertexkey="107" edgekey="117"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="102">
+						<edges>
+							<edge vertexkey="89" edgekey="118"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="103">
+						<edges>
+							<edge vertexkey="113" edgekey="119"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="104">
+						<edges>
+							<edge vertexkey="106" edgekey="120"/>
+							<edge vertexkey="129" edgekey="143"/>
+							<edge vertexkey="161" edgekey="170"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="105">
+						<edges>
+							<edge vertexkey="110" edgekey="121"/>
+							<edge vertexkey="126" edgekey="144"/>
+							<edge vertexkey="163" edgekey="171"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="108">
+						<edges>
+							<edge vertexkey="109" edgekey="122"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="111">
+						<edges>
+							<edge vertexkey="99" edgekey="123"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="114">
+						<edges>
+							<edge vertexkey="92" edgekey="124"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="127">
+						<edges>
+							<edge vertexkey="128" edgekey="145"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="130">
+						<edges>
+							<edge vertexkey="132" edgekey="146"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="137">
+						<edges>
+							<edge vertexkey="131" edgekey="147"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="138">
+						<edges>
+							<edge vertexkey="125" edgekey="148"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="139">
+						<edges>
+							<edge vertexkey="133" edgekey="149"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="140">
+						<edges>
+							<edge vertexkey="134" edgekey="150"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="141">
+						<edges>
+							<edge vertexkey="135" edgekey="151"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="142">
+						<edges>
+							<edge vertexkey="136" edgekey="152"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="159">
+						<edges>
+							<edge vertexkey="160" edgekey="172"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="162">
+						<edges>
+							<edge vertexkey="167" edgekey="173"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+	<component name="dbpedia-party-to-integrated-party" library="user" blackbox="0" uid="29" editable="1" inline="1">
+		<properties/>
+		<structure>
+			<children>
+				<component name="structure" library="db" uid="33" kind="15">
+					<properties/>
+					<view rbx="150" rby="200"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="dbpedia.party" type="table" outkey="5" expanded="1"/>
+						</root>
+						<wsdl/>
+						<database ref="infoint1" InstanceRoot="{}dbpedia.party">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint1" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="dbpedia" Kind="Schema"/>
+										<PathElement Name="party" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+						<parameter usageKind="input" name="dbpediaparty"/>
+					</data>
+				</component>
+				<component name="party_id" library="core" uid="30" kind="7">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="12"/>
+					</sources>
+					<view ltx="619" lty="56" rbx="686" rby="95"/>
+					<data>
+						<output datatype="IDREF"/>
+						<wsdl/>
+						<parameter usageKind="output" name="party_id"/>
+					</data>
+				</component>
+				<component name="auto-number" library="core" uid="35" kind="5">
+					<properties/>
+					<sources>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="1"/>
+					</targets>
+					<view ltx="209" lty="122" rbx="340" rby="212"/>
+				</component>
+				<component name="structure" library="core" uid="37" kind="29">
+					<properties/>
+					<view ltx="391" lty="15" rbx="494" rby="51"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace uid="http://www.altova.com/mapforce"/>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="compute-when" inpkey="9"/>
+							<entry name="document" expanded="1">
+								<entry name="value" ns="1" inpkey="10" outkey="11"/>
+							</entry>
+						</root>
+						<wsdl/>
+						<variable datatype="IDREF"/>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="1">
+						<edges>
+							<edge vertexkey="10" edgekey="13"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="5">
+						<edges>
+							<edge vertexkey="9" edgekey="14"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="11">
+						<edges>
+							<edge vertexkey="12" edgekey="15"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+</mapping>
