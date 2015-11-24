@@ -1,0 +1,13 @@
+Herausforderungen
+-----------------
+
+Vergabe neuer IDs erschwert Befüllen der m-n-Relationship-Tabellen.
+Mapping alte-ID-zu-neue-ID wird erst nach und nach erstellt.
+Mit Tools: Relationship-Tabellen erst in zweitem Schritt auf Basis bereits
+eingefügter Basisdaten erstellen.
+
+Wie MapForce bedienen?
+Warum muss man beim Herausfinden der neuen ID nach SQL-WHERE-Component noch die
+alte ID in die nachfolgende Variable-Component eingeben?
+
+# vim: tw=80
