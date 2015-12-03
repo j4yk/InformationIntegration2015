@@ -339,27 +339,6 @@
 						</root>
 					</data>
 				</component>
-				<component name="party-id-from-party-name" library="user" blackbox="0" uid="366" kind="19" visible="0">
-					<view ltx="780" lty="30" rbx="933" rby="47"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="party_name" inpkey="938" componentid="300"/>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="party_id" outkey="939" componentid="301"/>
-						</root>
-					</data>
-				</component>
 				<component name="party-id-from-party-name" library="user" blackbox="0" uid="399" kind="19" visible="0">
 					<view ltx="780" lty="256" rbx="933" rby="273"/>
 					<data>
@@ -423,8 +402,8 @@
 						</root>
 					</data>
 				</component>
-				<component name="distinct-double-input" library="user" blackbox="0" uid="387" kind="19" visible="0">
-					<view ltx="549" lty="159" rbx="710" rby="210"/>
+				<component name="party-id-from-party-name" library="user" blackbox="0" uid="366" kind="19" visible="0">
+					<view ltx="780" lty="30" rbx="933" rby="47"/>
 					<data>
 						<root scrollposition="1">
 							<header>
@@ -432,8 +411,7 @@
 									<namespace/>
 								</namespaces>
 							</header>
-							<entry name="input1" inpkey="981" componentid="258"/>
-							<entry name="input2" inpkey="982" componentid="259"/>
+							<entry name="party_name" inpkey="938" componentid="300"/>
 						</root>
 						<root rootindex="1">
 							<header>
@@ -441,10 +419,27 @@
 									<namespace/>
 								</namespaces>
 							</header>
-							<entry name="distinct_values" outkey="989" componentid="370"/>
-							<entry name="output1" outkey="991" componentid="396"/>
-							<entry name="output2" outkey="992" componentid="397"/>
+							<entry name="party_id" outkey="939" componentid="301"/>
 						</root>
+					</data>
+				</component>
+				<component name="abgeordnetenwatch.candida..." library="db" uid="422" kind="21">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="1044"/>
+						<datapoint pos="1" key="1045"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="1046"/>
+					</targets>
+					<view ltx="397" lty="30" rbx="595" rby="86"/>
+					<data>
+						<where condition="uuid =:aw_uuid">
+							<parameters>
+								<parameter name="aw_uuid" type="string" auto-detect="0"/>
+							</parameters>
+						</where>
+						<wsdl/>
 					</data>
 				</component>
 				<component name="occupation-id-from-occupation-name" library="user" blackbox="0" uid="409" kind="19" visible="0">
@@ -499,6 +494,190 @@
 						<parameter usageKind="variable"/>
 					</data>
 				</component>
+				<component name="structure" library="db" uid="173" kind="15">
+					<properties/>
+					<view ltx="732" lty="301" rbx="1037" rby="589"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.constituency" type="table" inpkey="747">
+									<entry name="uuid" inpkey="748"/>
+									<entry name="name" inpkey="749"/>
+									<entry name="area_codes" inpkey="750"/>
+								</entry>
+								<entry name="integrated.occupation" type="table" inpkey="645">
+									<entry name="id" inpkey="646"/>
+									<entry name="label" inpkey="647"/>
+									<entry name="mapping.aw_occupation_id|id" type="table" expanded="1">
+										<entry name="label" inpkey="910"/>
+									</entry>
+								</entry>
+								<entry name="integrated.parliament" type="table" inpkey="751">
+									<entry name="uuid" inpkey="752"/>
+									<entry name="name" inpkey="753"/>
+									<entry name="start_date" inpkey="754"/>
+									<entry name="end_date" inpkey="755"/>
+									<entry name="election_date" inpkey="756"/>
+								</entry>
+								<entry name="integrated.party" type="table" inpkey="757">
+									<entry name="id" inpkey="758"/>
+									<entry name="name" inpkey="759"/>
+									<entry name="mapping.aw_party_id|id" type="table" expanded="1">
+										<entry name="name" inpkey="911"/>
+									</entry>
+								</entry>
+								<entry name="integrated.person" type="table" inpkey="455">
+									<entry name="id" inpkey="456"/>
+									<entry name="first_name" inpkey="457"/>
+									<entry name="last_name" inpkey="458"/>
+									<entry name="gender" inpkey="459"/>
+									<entry name="email" inpkey="460"/>
+									<entry name="twitter" inpkey="648"/>
+									<entry name="degree" inpkey="649"/>
+									<entry name="education" inpkey="650"/>
+									<entry name="integrated.birth|person_id" type="table">
+										<entry name="year" inpkey="637"/>
+									</entry>
+									<entry name="integrated.politician|person_id" type="table">
+										<entry name="aw_uuid" inpkey="614"/>
+										<entry name="aw_username" inpkey="615"/>
+										<entry name="aw_picture_url" inpkey="651"/>
+									</entry>
+									<entry name="mapping.aw_person_id|id" type="table">
+										<tableactions>
+											<action proceedchildren="1">
+												<field name="id" function="equal"/>
+											</action>
+										</tableactions>
+										<entry name="aw_uuid" inpkey="906"/>
+									</entry>
+								</entry>
+								<entry name="integrated.place" type="table" inpkey="701">
+									<entry name="id" inpkey="702"/>
+									<entry name="name" inpkey="712"/>
+								</entry>
+								<entry name="integrated.state" type="table" inpkey="760">
+									<entry name="state" inpkey="761"/>
+								</entry>
+								<entry name="mapping.aw_person_id" type="table" dbbefore="delete">
+									<tableactions>
+										<action operation="ignore" proceedchildren="1">
+											<field name="aw_uuid" function="equal"/>
+										</action>
+									</tableactions>
+									<entry name="aw_uuid" outkey="1057"/>
+									<entry name="id" outkey="1033"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="birth" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="constituency" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="occupation" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="parliament" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="party" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="place" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="politician" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="state" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="aw_occupation_id" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="aw_party_id" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="aw_person_id" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="distinct-double-input" library="user" blackbox="0" uid="387" kind="19" visible="0">
+					<view ltx="549" lty="159" rbx="710" rby="210"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="input1" inpkey="981" componentid="258"/>
+							<entry name="input2" inpkey="982" componentid="259"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="distinct_values" outkey="989" componentid="370"/>
+							<entry name="output1" outkey="991" componentid="396"/>
+							<entry name="output2" outkey="992" componentid="397"/>
+						</root>
+					</data>
+				</component>
 				<component name="structure" library="db" uid="336" kind="15">
 					<properties XSLTDefaultOutput="1"/>
 					<view ltx="1230" lty="-19" rbx="1469" rby="272"/>
@@ -551,191 +730,6 @@
 								</selections>
 							</data>
 						</database>
-					</data>
-				</component>
-				<component name="structure" library="db" uid="173" kind="15">
-					<properties/>
-					<view ltx="732" lty="301" rbx="1037" rby="589"/>
-					<data>
-						<root scrollposition="265">
-							<header>
-								<namespaces/>
-							</header>
-							<entry name="document" expanded="1">
-								<entry name="integrated.constituency" type="table" inpkey="747">
-									<entry name="uuid" inpkey="748"/>
-									<entry name="name" inpkey="749"/>
-									<entry name="area_codes" inpkey="750"/>
-								</entry>
-								<entry name="integrated.occupation" type="table" inpkey="645">
-									<entry name="id" inpkey="646"/>
-									<entry name="label" inpkey="647"/>
-									<entry name="mapping.aw_occupation_id|id" type="table" expanded="1">
-										<entry name="label" inpkey="910"/>
-									</entry>
-								</entry>
-								<entry name="integrated.parliament" type="table" inpkey="751">
-									<entry name="uuid" inpkey="752"/>
-									<entry name="name" inpkey="753"/>
-									<entry name="start_date" inpkey="754"/>
-									<entry name="end_date" inpkey="755"/>
-									<entry name="election_date" inpkey="756"/>
-								</entry>
-								<entry name="integrated.party" type="table" inpkey="757">
-									<entry name="id" inpkey="758"/>
-									<entry name="name" inpkey="759"/>
-									<entry name="mapping.aw_party_id|id" type="table" expanded="1">
-										<entry name="name" inpkey="911"/>
-									</entry>
-								</entry>
-								<entry name="integrated.person" type="table" inpkey="455" expanded="1">
-									<entry name="id" inpkey="456"/>
-									<entry name="first_name" inpkey="457"/>
-									<entry name="last_name" inpkey="458"/>
-									<entry name="gender" inpkey="459"/>
-									<entry name="email" inpkey="460"/>
-									<entry name="twitter" inpkey="648"/>
-									<entry name="degree" inpkey="649"/>
-									<entry name="education" inpkey="650"/>
-									<entry name="integrated.birth|person_id" type="table">
-										<entry name="year" inpkey="637"/>
-									</entry>
-									<entry name="integrated.person_occupation|person_id" type="table" expanded="1"/>
-									<entry name="integrated.politician|person_id" type="table">
-										<entry name="aw_uuid" inpkey="614"/>
-										<entry name="aw_username" inpkey="615"/>
-										<entry name="aw_picture_url" inpkey="651"/>
-									</entry>
-									<entry name="mapping.aw_person_id|id" type="table" expanded="1">
-										<tableactions>
-											<action proceedchildren="1">
-												<field name="id" function="equal"/>
-											</action>
-										</tableactions>
-										<entry name="aw_uuid" inpkey="906"/>
-									</entry>
-								</entry>
-								<entry name="integrated.place" type="table" inpkey="701">
-									<entry name="id" inpkey="702"/>
-									<entry name="name" inpkey="712"/>
-								</entry>
-								<entry name="integrated.state" type="table" inpkey="760">
-									<entry name="state" inpkey="761"/>
-								</entry>
-								<entry name="mapping.aw_person_id" type="table" outkey="1032" expanded="1" dbbefore="delete">
-									<tableactions>
-										<action operation="ignore" proceedchildren="1">
-											<field name="aw_uuid" function="equal"/>
-										</action>
-									</tableactions>
-									<entry name="id" outkey="1033"/>
-								</entry>
-							</entry>
-						</root>
-						<wsdl/>
-						<database ref="infoint">
-							<data>
-								<selections>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="birth" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="constituency" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="occupation" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="parliament" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="party" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="person" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="person_occupation" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="place" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="politician" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="state" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="mapping" Kind="Schema"/>
-										<PathElement Name="aw_occupation_id" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="mapping" Kind="Schema"/>
-										<PathElement Name="aw_party_id" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="mapping" Kind="Schema"/>
-										<PathElement Name="aw_person_id" Kind="Table"/>
-									</selection>
-								</selections>
-							</data>
-						</database>
-					</data>
-				</component>
-				<component name="mapping.aw_person_id" library="db" uid="422" kind="21">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="1044"/>
-						<datapoint pos="1" key="1045"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="1046"/>
-					</targets>
-					<view ltx="560" lty="30" rbx="723" rby="86"/>
-					<data>
-						<where condition="aw_uuid =:aw_uuid">
-							<parameters>
-								<parameter name="aw_uuid" type="string" auto-detect="0"/>
-							</parameters>
-						</where>
-						<wsdl/>
 					</data>
 				</component>
 				<component name="db" library="db" uid="147" kind="15">
@@ -828,12 +822,12 @@
 							<edge vertexkey="228" edgekey="514"/>
 							<edge vertexkey="614" edgekey="621"/>
 							<edge vertexkey="906" edgekey="908"/>
-							<edge vertexkey="1045" edgekey="1056"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="197">
 						<edges>
 							<edge vertexkey="455" edgekey="622"/>
+							<edge vertexkey="1044" edgekey="1058"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="224">
@@ -1114,14 +1108,9 @@
 							<edge vertexkey="934" edgekey="1006"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="1032">
-						<edges>
-							<edge vertexkey="1044" edgekey="1049"/>
-						</edges>
-					</vertex>
 					<vertex vertexkey="1033">
 						<edges>
-							<edge vertexkey="1040" edgekey="1050"/>
+							<edge vertexkey="1040" edgekey="1059"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="1037">
@@ -1147,6 +1136,11 @@
 					<vertex vertexkey="1046">
 						<edges>
 							<edge vertexkey="1038" edgekey="1055"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="1057">
+						<edges>
+							<edge vertexkey="1045" edgekey="1060"/>
 						</edges>
 					</vertex>
 				</vertices>
@@ -2273,17 +2267,6 @@
 						<wsdl/>
 					</data>
 				</component>
-				<component name="first-items" library="core" uid="317" kind="5">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="10"/>
-						<datapoint pos="1" key="12"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="5"/>
-					</targets>
-					<view ltx="503" lty="-11" rbx="611" rby="45"/>
-				</component>
 				<component name="occupation_name" library="core" uid="312" kind="6">
 					<properties/>
 					<sources>
@@ -2388,6 +2371,17 @@
 						</where>
 						<wsdl/>
 					</data>
+				</component>
+				<component name="first-items" library="core" uid="317" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="10"/>
+						<datapoint pos="1" key="12"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="5"/>
+					</targets>
+					<view ltx="503" lty="-11" rbx="611" rby="45"/>
 				</component>
 			</children>
 			<graph directed="1">
