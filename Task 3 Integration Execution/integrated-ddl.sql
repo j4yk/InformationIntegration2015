@@ -14,6 +14,15 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 
 --
+-- Name: integrated; Type: SCHEMA; Schema: -; Owner: postgres
+--
+
+CREATE SCHEMA integrated;
+
+
+ALTER SCHEMA integrated OWNER TO postgres;
+
+--
 -- TOC entry 197 (class 3079 OID 11855)
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
 --
@@ -110,7 +119,9 @@ ALTER TABLE auxiliary_income OWNER TO postgres;
 CREATE TABLE birth (
     person_id integer,
     place_id integer,
-    date date,
+    year integer,
+    month integer,
+    day integer,
     first_name character varying,
     last_name character varying
 );
@@ -200,7 +211,9 @@ ALTER TABLE constituency OWNER TO postgres;
 CREATE TABLE death (
     person_id integer,
     place_id integer,
-    date date
+    year integer,
+    month integer,
+    day integer
 );
 
 
@@ -273,9 +286,11 @@ CREATE TABLE person (
     first_name character varying,
     last_name character varying,
     gender character varying,
-    occupation_id integer,
     email character varying,
     url character varying,
+    twitter character varying,
+    degree character varying,
+    education character varying,
     dbpedia_uri character varying,
     wikidata_id character varying,
     nyt_id character varying,
@@ -350,6 +365,7 @@ CREATE TABLE politician (
     person_id integer NOT NULL,
     aw_uuid character varying,
     aw_username character varying,
+    aw_picture_url character varying,
     state character varying
 );
 
@@ -459,7 +475,7 @@ ALTER TABLE ONLY book
 --
 
 ALTER TABLE ONLY candidacy
-    ADD CONSTRAINT candidacy_pkey PRIMARY KEY (candidate);
+    ADD CONSTRAINT candidacy_pkey PRIMARY KEY (candidate, parliament, constituency);
 
 
 --

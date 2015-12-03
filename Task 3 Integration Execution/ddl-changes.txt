@@ -1,0 +1,8 @@
+ddl changes:
+
+	*	by Daniel on 12/03:
+
+		-	'date' in birth & death seperated into 'year', 'month', 'day' (because some sources know only some of those parts)
+		-	removed 'occupation_id' for person (since there is the 'person_occupation' table to model that relation)
+		-	added 'person.degree', 'person.twitter', 'person.education', 'politician.aw_picture_url' (missing from aw)
+		-	corrected 'candidacy'-pk from 'candidate' to 'candidate', 'parliament' & 'constituency'
