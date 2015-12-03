@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2016sp1 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="22">
+	<resources>
+		<datasources>
+			<datasource name="informationintegration">
+				<properties JDBCDriver="org.postgresql.Driver" JDBCDatabaseURL="jdbc:postgresql://localhost:5432/informationintegration" DBUser="postgres" DBPassword="manager" DBDataSource="Goodreads" DBCatalog="informationintegration" OLEDBOptions="Port=5432;B0=16777215;BI=0;"/>
+				<database_connection database_kind="PostgreSQL" import_kind="ODBC" version="9.4.5" ConnectionString="DSN=Goodreads;DATABASE=informationintegration;SERVER=localhost;PORT=5432;UID=postgres;PWD=manager;SSLmode=disable;ReadOnly=0;Protocol=7.4;FakeOidIndex=0;ShowOidColumn=0;RowVersioning=0;ShowSystemTables=0;ConnSettings=;Fetch=100;Socket=4096;UnknownSizes=0;MaxVarcharSize=255;MaxLongVarcharSize=8190;Debug=0;CommLog=0;Optimizer=0;Ksqo=1;UseDeclareFetch=0;TextAsLongVarchar=1;UnknownsAsLongVarchar=0;BoolsAsChar=1;Parse=0;CancelAsFreeStmt=0;ExtraSysTablePrefixes=dd_;;LFConversion=1;UpdatableCursors=1;DisallowPremature=0;TrueIsMinus1=0;BI=0;ByteaAsLongVarBinary=0;UseServerSidePrepare=1;LowerCaseIdentifier=0;GssAuthUseGSS=0;XaOpt=1" name="informationintegration" path="informationintegration">
+					<properties>
+						<property name="Database Kind" value="PostgreSQL"/>
+						<property name="Import Kind" value="ODBC"/>
+						<property name="Root Object" value="informationintegration"/>
+						<property name="FileDsn"/>
+						<property name="Dsn" value="Goodreads"/>
+						<property name="Driver"/>
+						<property name="Trusted_Connection"/>
+						<property name="App"/>
+						<property name="Server" value="localhost"/>
+						<property name="Database" value="informationintegration"/>
+						<property name="Regional"/>
+						<property name="Languages"/>
+						<property name="Wsid"/>
+						<property name="Uid" value="postgres"/>
+						<property name="Pwd" value="MTEM4E-tEf831"/>
+						<property name="Port" value="5432"/>
+						<property name="Option"/>
+						<property name="Stmt"/>
+						<property name="A1"/>
+						<property name="A6"/>
+						<property name="A7"/>
+						<property name="A8"/>
+						<property name="B0" value="16777215"/>
+						<property name="B1"/>
+						<property name="BI" value="0"/>
+						<property name="C2"/>
+						<property name="CA"/>
+						<property name="CX"/>
+					</properties>
+					<LocalViewStorage/>
+					<LocalRelationsStorage/>
+					<RecordSetStructureStorage/>
+				</database_connection>
+			</datasource>
+			<datasource name="integrated">
+				<properties JDBCDriver="org.postgresql.Driver" JDBCDatabaseURL="jdbc:postgresql://localhost:5432/integrated" DBUser="postgres" DBPassword="manager" DBDataSource="PostgreSQL35W" DBCatalog="integrated" OLEDBOptions="Port=5432;B0=16777215;BI=0;"/>
+				<database_connection database_kind="PostgreSQL" import_kind="ODBC" version="9.4.5" ConnectionString="DSN=PostgreSQL35W;DATABASE=integrated;SERVER=localhost;PORT=5432;UID=postgres;PWD=manager;SSLmode=disable;ReadOnly=0;Protocol=7.4;FakeOidIndex=0;ShowOidColumn=0;RowVersioning=0;ShowSystemTables=0;ConnSettings=;Fetch=100;Socket=4096;UnknownSizes=0;MaxVarcharSize=255;MaxLongVarcharSize=8190;Debug=0;CommLog=0;Optimizer=0;Ksqo=1;UseDeclareFetch=0;TextAsLongVarchar=1;UnknownsAsLongVarchar=0;BoolsAsChar=1;Parse=0;CancelAsFreeStmt=0;ExtraSysTablePrefixes=dd_;;LFConversion=1;UpdatableCursors=1;DisallowPremature=0;TrueIsMinus1=0;BI=0;ByteaAsLongVarBinary=0;UseServerSidePrepare=1;LowerCaseIdentifier=0;GssAuthUseGSS=0;XaOpt=1" name="integrated" path="integrated">
+					<properties>
+						<property name="Database Kind" value="PostgreSQL"/>
+						<property name="Import Kind" value="ODBC"/>
+						<property name="Root Object" value="integrated"/>
+						<property name="FileDsn"/>
+						<property name="Dsn" value="PostgreSQL35W"/>
+						<property name="Driver"/>
+						<property name="Trusted_Connection"/>
+						<property name="App"/>
+						<property name="Server" value="localhost"/>
+						<property name="Database" value="integrated"/>
+						<property name="Regional"/>
+						<property name="Languages"/>
+						<property name="Wsid"/>
+						<property name="Uid" value="postgres"/>
+						<property name="Pwd" value="MTEM4E-tEf831"/>
+						<property name="Port" value="5432"/>
+						<property name="Option"/>
+						<property name="Stmt"/>
+						<property name="A1"/>
+						<property name="A6"/>
+						<property name="A7"/>
+						<property name="A8"/>
+						<property name="B0" value="16777215"/>
+						<property name="B1"/>
+						<property name="BI" value="0"/>
+						<property name="C2"/>
+						<property name="CA"/>
+						<property name="CX"/>
+					</properties>
+					<LocalViewStorage/>
+					<LocalRelationsStorage/>
+					<RecordSetStructureStorage/>
+				</database_connection>
+			</datasource>
+		</datasources>
+	</resources>
+	<component name="defaultmap1" blackbox="0" uid="1" editable="1">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="substring-after" library="core" uid="9" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="13"/>
+						<datapoint pos="1" key="14"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="15"/>
+					</targets>
+					<view ltx="596" lty="80" rbx="696" rby="136"/>
+				</component>
+				<component name="constant" library="core" uid="10" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="16"/>
+					</targets>
+					<view ltx="500" lty="118" rbx="543" rby="136"/>
+					<data>
+						<constant value=" " datatype="string"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="substring-before" library="core" uid="12" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="17"/>
+						<datapoint pos="1" key="18"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="19"/>
+					</targets>
+					<view ltx="596" lty="2" rbx="704" rby="58"/>
+				</component>
+				<component name="parse-date" library="core" uid="23" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="1"/>
+						<datapoint pos="1" key="2"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="3"/>
+					</targets>
+					<view ltx="851" lty="732" rbx="931" rby="788"/>
+				</component>
+				<component name="auto-number" library="core" uid="19" kind="5">
+					<properties/>
+					<sources>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="10"/>
+					</targets>
+					<view ltx="573" lty="-146" rbx="704" rby="-56"/>
+				</component>
+				<component name="datetime-from-parts" library="lang" uid="21" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="20"/>
+						<datapoint pos="1" key="21"/>
+						<datapoint pos="2" key="22"/>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="23"/>
+					</targets>
+					<view ltx="457" lty="716" rbx="579" rby="874"/>
+				</component>
+				<component name="auto-number" library="core" uid="26" kind="5">
+					<properties/>
+					<sources>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="12"/>
+					</targets>
+					<view ltx="448" lty="606" rbx="579" rby="696"/>
+				</component>
+				<component name="structure" library="db" uid="3" kind="15">
+					<properties/>
+					<view ltx="-48" lty="40" rbx="344" rby="660"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="public.goodreads_authors" type="table" outkey="24" expanded="1">
+									<entry name="name" outkey="25"/>
+									<entry name="gender" outkey="26"/>
+									<entry name="hometown" outkey="27"/>
+									<entry name="born_at" outkey="5"/>
+									<entry name="died_at" outkey="28"/>
+									<entry name="fans_count" outkey="29"/>
+									<entry name="average_rating" outkey="30"/>
+									<entry name="ratings_count" outkey="31"/>
+									<entry name="goodreads_author" outkey="32"/>
+									<entry name="public.goodreads_books|author_id" type="table" outkey="33" expanded="1">
+										<entry name="id" outkey="34"/>
+										<entry name="title" outkey="35"/>
+										<entry name="average_rating" outkey="36"/>
+										<entry name="description" outkey="37"/>
+										<entry name="edition_information" outkey="38"/>
+										<entry name="format" outkey="39"/>
+										<entry name="isbn" outkey="40"/>
+										<entry name="isbn13" outkey="41"/>
+										<entry name="num_pages" outkey="42"/>
+										<entry name="publication_day" outkey="43"/>
+										<entry name="publication_month" outkey="44"/>
+										<entry name="publication_year" outkey="45"/>
+										<entry name="published" outkey="46"/>
+										<entry name="publisher" outkey="47"/>
+										<entry name="ratings_count" outkey="48"/>
+										<entry name="text_reviews_count" outkey="49"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="informationintegration">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="informationintegration" Kind="DataSource"/>
+										<PathElement Name="informationintegration" Kind="Database"/>
+										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="goodreads_authors" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="informationintegration" Kind="DataSource"/>
+										<PathElement Name="informationintegration" Kind="Database"/>
+										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="goodreads_books" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="2" kind="15">
+					<properties XSLTDefaultOutput="1"/>
+					<view ltx="1046" lty="-160" rbx="1672" rby="920"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="public.person" type="table" inpkey="50" expanded="1">
+									<entry name="id" inpkey="11"/>
+									<entry name="first_name" inpkey="51"/>
+									<entry name="last_name" inpkey="52"/>
+									<entry name="gender" inpkey="53"/>
+									<entry name="public.author|person_id" type="table" inpkey="54" expanded="1">
+										<entry name="fans_count" inpkey="55"/>
+										<entry name="average_rating" inpkey="56"/>
+										<entry name="ratings_count" inpkey="57"/>
+										<entry name="goodreads_author" inpkey="58"/>
+										<entry name="public.book|author" type="table" inpkey="59" expanded="1">
+											<entry name="id" inpkey="60"/>
+											<entry name="title" inpkey="61"/>
+											<entry name="average_rating" inpkey="62"/>
+											<entry name="description" inpkey="63"/>
+											<entry name="edition_information" inpkey="64"/>
+											<entry name="format" inpkey="65"/>
+											<entry name="isbd" inpkey="66"/>
+											<entry name="isbn13" inpkey="67"/>
+											<entry name="num_pages" inpkey="68"/>
+											<entry name="publication_date" inpkey="69"/>
+											<entry name="published" inpkey="70"/>
+											<entry name="publisher" inpkey="71"/>
+											<entry name="ratings_count" inpkey="72"/>
+											<entry name="text_reviews_count" inpkey="73"/>
+										</entry>
+									</entry>
+									<entry name="public.birth|person_id" type="table" inpkey="74" expanded="1">
+										<entry name="place_id" inpkey="75"/>
+										<entry name="date" inpkey="4"/>
+										<entry name="public.place|place_id" type="table" inpkey="76" expanded="1">
+											<entry name="name" inpkey="77"/>
+										</entry>
+									</entry>
+									<entry name="public.death|person_id" type="table" inpkey="78" expanded="1">
+										<entry name="date" inpkey="79"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="integrated">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="integrated" Kind="DataSource"/>
+										<PathElement Name="integrated" Kind="Database"/>
+										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="author" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="integrated" Kind="DataSource"/>
+										<PathElement Name="integrated" Kind="Database"/>
+										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="birth" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="integrated" Kind="DataSource"/>
+										<PathElement Name="integrated" Kind="Database"/>
+										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="book" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="integrated" Kind="DataSource"/>
+										<PathElement Name="integrated" Kind="Database"/>
+										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="death" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="integrated" Kind="DataSource"/>
+										<PathElement Name="integrated" Kind="Database"/>
+										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="person" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="integrated" Kind="DataSource"/>
+										<PathElement Name="integrated" Kind="Database"/>
+										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="place" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="parse-date" library="core" uid="25" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="8"/>
+						<datapoint pos="1" key="9"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="7"/>
+					</targets>
+					<view ltx="851" lty="799" rbx="931" rby="855"/>
+				</component>
+				<component name="constant" library="core" uid="24" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="6"/>
+					</targets>
+					<view ltx="642" lty="798" rbx="729" rby="816"/>
+					<data>
+						<constant value="[Y]/[M]/[D]" datatype="string"/>
+						<wsdl/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="3">
+						<edges>
+							<edge vertexkey="4" edgekey="80"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="5">
+						<edges>
+							<edge vertexkey="1" edgekey="81"/>
+							<edge vertexkey="74" edgekey="82"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="6">
+						<edges>
+							<edge vertexkey="2" edgekey="83"/>
+							<edge vertexkey="9" edgekey="84"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="7">
+						<edges>
+							<edge vertexkey="79" edgekey="85"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="10">
+						<edges>
+							<edge vertexkey="11" edgekey="86"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="12">
+						<edges>
+							<edge vertexkey="75" edgekey="87"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="15">
+						<edges>
+							<edge vertexkey="52" edgekey="88"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="16">
+						<edges>
+							<edge vertexkey="14" edgekey="89"/>
+							<edge vertexkey="18" edgekey="90"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="19">
+						<edges>
+							<edge vertexkey="51" edgekey="91"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="23">
+						<edges>
+							<edge vertexkey="69" edgekey="92"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="24">
+						<edges>
+							<edge vertexkey="50" edgekey="93"/>
+							<edge vertexkey="54" edgekey="94"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="25">
+						<edges>
+							<edge vertexkey="13" edgekey="95"/>
+							<edge vertexkey="17" edgekey="96"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="26">
+						<edges>
+							<edge vertexkey="53" edgekey="97"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="27">
+						<edges>
+							<edge vertexkey="77" edgekey="98"/>
+							<edge vertexkey="76" edgekey="99"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="28">
+						<edges>
+							<edge vertexkey="78" edgekey="100"/>
+							<edge vertexkey="8" edgekey="101"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="29">
+						<edges>
+							<edge vertexkey="55" edgekey="102"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="30">
+						<edges>
+							<edge vertexkey="56" edgekey="103"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="31">
+						<edges>
+							<edge vertexkey="57" edgekey="104"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="32">
+						<edges>
+							<edge vertexkey="58" edgekey="105"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="33">
+						<edges>
+							<edge vertexkey="59" edgekey="106"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="34">
+						<edges>
+							<edge vertexkey="60" edgekey="107"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="35">
+						<edges>
+							<edge vertexkey="61" edgekey="108"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="36">
+						<edges>
+							<edge vertexkey="62" edgekey="109"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="37">
+						<edges>
+							<edge vertexkey="63" edgekey="110"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="38">
+						<edges>
+							<edge vertexkey="64" edgekey="111"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="39">
+						<edges>
+							<edge vertexkey="65" edgekey="112"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="40">
+						<edges>
+							<edge vertexkey="66" edgekey="113"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="41">
+						<edges>
+							<edge vertexkey="67" edgekey="114"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="42">
+						<edges>
+							<edge vertexkey="68" edgekey="115"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="43">
+						<edges>
+							<edge vertexkey="22" edgekey="116"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="44">
+						<edges>
+							<edge vertexkey="21" edgekey="117"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="45">
+						<edges>
+							<edge vertexkey="20" edgekey="118"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="46">
+						<edges>
+							<edge vertexkey="70" edgekey="119"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="47">
+						<edges>
+							<edge vertexkey="71" edgekey="120"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="48">
+						<edges>
+							<edge vertexkey="72" edgekey="121"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="49">
+						<edges>
+							<edge vertexkey="73" edgekey="122"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+</mapping>
