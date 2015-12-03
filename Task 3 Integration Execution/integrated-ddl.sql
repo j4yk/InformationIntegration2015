@@ -730,14 +730,6 @@ ALTER TABLE ONLY person_article
     ADD CONSTRAINT person_article_person_id_fkey FOREIGN KEY (person_id) REFERENCES person(id);
 
 
---
--- TOC entry 2027 (class 2606 OID 17110)
--- Name: person_occupation_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY person
-    ADD CONSTRAINT person_occupation_id_fkey FOREIGN KEY (occupation_id) REFERENCES occupation(id);
-
 
 --
 -- TOC entry 2044 (class 2606 OID 17310)
