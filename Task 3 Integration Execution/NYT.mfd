@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2016sp1 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="22">
+	<resources>
+		<datasources>
+			<datasource name="infointe">
+				<properties JDBCDriver="org.postgresql.Driver" JDBCDatabaseURL="jdbc:postgresql://localhost:5432/infointe" DBUser="postgres" DBPassword="manager" DBDataSource="NYT" DBCatalog="infointe" OLEDBOptions="Port=5432;B0=16777215;BI=0;"/>
+				<database_connection database_kind="PostgreSQL" import_kind="ODBC" version="9.4.5" ConnectionString="DSN=NYT;DATABASE=infointe;SERVER=localhost;PORT=5432;UID=postgres;PWD=manager;SSLmode=disable;ReadOnly=0;Protocol=7.4;FakeOidIndex=0;ShowOidColumn=0;RowVersioning=0;ShowSystemTables=0;ConnSettings=;Fetch=100;Socket=4096;UnknownSizes=0;MaxVarcharSize=255;MaxLongVarcharSize=8190;Debug=0;CommLog=0;Optimizer=0;Ksqo=1;UseDeclareFetch=0;TextAsLongVarchar=1;UnknownsAsLongVarchar=0;BoolsAsChar=1;Parse=0;CancelAsFreeStmt=0;ExtraSysTablePrefixes=dd_;;LFConversion=1;UpdatableCursors=1;DisallowPremature=0;TrueIsMinus1=0;BI=0;ByteaAsLongVarBinary=0;UseServerSidePrepare=1;LowerCaseIdentifier=0;GssAuthUseGSS=0;XaOpt=1" name="infointe" path="infointe">
+					<properties>
+						<property name="Database Kind" value="PostgreSQL"/>
+						<property name="Import Kind" value="ODBC"/>
+						<property name="Root Object" value="infointe"/>
+						<property name="FileDsn"/>
+						<property name="Dsn" value="NYT"/>
+						<property name="Driver"/>
+						<property name="Trusted_Connection"/>
+						<property name="App"/>
+						<property name="Server" value="localhost"/>
+						<property name="Database" value="infointe"/>
+						<property name="Regional"/>
+						<property name="Languages"/>
+						<property name="Wsid"/>
+						<property name="Uid" value="postgres"/>
+						<property name="Pwd" value="MTEM4E-tEf831"/>
+						<property name="Port" value="5432"/>
+						<property name="Option"/>
+						<property name="Stmt"/>
+						<property name="A1"/>
+						<property name="A6"/>
+						<property name="A7"/>
+						<property name="A8"/>
+						<property name="B0" value="16777215"/>
+						<property name="B1"/>
+						<property name="BI" value="0"/>
+						<property name="C2"/>
+						<property name="CA"/>
+						<property name="CX"/>
+					</properties>
+					<LocalViewStorage/>
+					<LocalRelationsStorage/>
+					<RecordSetStructureStorage/>
+				</database_connection>
+			</datasource>
+			<datasource name="integrated">
+				<properties JDBCDriver="org.postgresql.Driver" JDBCDatabaseURL="jdbc:postgresql://localhost:5432/integrated" DBUser="postgres" DBPassword="manager" DBDataSource="integrated" DBCatalog="integrated" OLEDBOptions="Port=5432;B0=16777215;BI=0;"/>
+				<database_connection database_kind="PostgreSQL" import_kind="ODBC" version="9.4.5" ConnectionString="DSN=integrated;DATABASE=integrated;SERVER=localhost;PORT=5432;UID=postgres;PWD=manager;SSLmode=disable;ReadOnly=0;Protocol=7.4;FakeOidIndex=0;ShowOidColumn=0;RowVersioning=0;ShowSystemTables=0;ConnSettings=;Fetch=100;Socket=4096;UnknownSizes=0;MaxVarcharSize=255;MaxLongVarcharSize=8190;Debug=0;CommLog=0;Optimizer=0;Ksqo=1;UseDeclareFetch=0;TextAsLongVarchar=1;UnknownsAsLongVarchar=0;BoolsAsChar=1;Parse=0;CancelAsFreeStmt=0;ExtraSysTablePrefixes=dd_;;LFConversion=1;UpdatableCursors=1;DisallowPremature=0;TrueIsMinus1=0;BI=0;ByteaAsLongVarBinary=0;UseServerSidePrepare=1;LowerCaseIdentifier=0;GssAuthUseGSS=0;XaOpt=1" name="integrated" path="integrated">
+					<properties>
+						<property name="Database Kind" value="PostgreSQL"/>
+						<property name="Import Kind" value="ODBC"/>
+						<property name="Root Object" value="integrated"/>
+						<property name="FileDsn"/>
+						<property name="Dsn" value="integrated"/>
+						<property name="Driver"/>
+						<property name="Trusted_Connection"/>
+						<property name="App"/>
+						<property name="Server" value="localhost"/>
+						<property name="Database" value="integrated"/>
+						<property name="Regional"/>
+						<property name="Languages"/>
+						<property name="Wsid"/>
+						<property name="Uid" value="postgres"/>
+						<property name="Pwd" value="MTEM4E-tEf831"/>
+						<property name="Port" value="5432"/>
+						<property name="Option"/>
+						<property name="Stmt"/>
+						<property name="A1"/>
+						<property name="A6"/>
+						<property name="A7"/>
+						<property name="A8"/>
+						<property name="B0" value="16777215"/>
+						<property name="B1"/>
+						<property name="BI" value="0"/>
+						<property name="C2"/>
+						<property name="CA"/>
+						<property name="CX"/>
+					</properties>
+					<LocalViewStorage/>
+					<LocalRelationsStorage/>
+					<RecordSetStructureStorage/>
+				</database_connection>
+			</datasource>
+		</datasources>
+	</resources>
+	<component name="defaultmap1" blackbox="0" uid="1" editable="1">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="auto-number" library="core" uid="5" kind="5">
+					<properties/>
+					<sources>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="1"/>
+					</targets>
+					<view ltx="714" lty="-12" rbx="845" rby="78"/>
+				</component>
+				<component name="substring-before" library="core" uid="9" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="2"/>
+						<datapoint pos="1" key="3"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="4"/>
+					</targets>
+					<view ltx="657" lty="249" rbx="765" rby="305"/>
+				</component>
+				<component name="substring-after" library="core" uid="7" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="5"/>
+						<datapoint pos="1" key="6"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="7"/>
+					</targets>
+					<view ltx="665" lty="332" rbx="765" rby="388"/>
+				</component>
+				<component name="constant" library="core" uid="10" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="8"/>
+					</targets>
+					<view ltx="552" lty="318" rbx="598" rby="336"/>
+					<data>
+						<constant value=", " datatype="string"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="2" kind="15">
+					<properties XSLTDefaultOutput="1"/>
+					<view ltx="1148" lty="76" rbx="1579" rby="922"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="public.person" type="table" inpkey="9" expanded="1">
+									<entry name="id" inpkey="10"/>
+									<entry name="first_name" inpkey="11"/>
+									<entry name="last_name" inpkey="12"/>
+									<entry name="nyt_id" inpkey="13"/>
+									<entry name="associated_articles_count" inpkey="14"/>
+									<entry name="public.person_article|person_id" type="table" inpkey="15" expanded="1">
+										<entry name="article_id" inpkey="16"/>
+										<entry name="public.article_header|article_id" type="table" inpkey="17" expanded="1">
+											<entry name="headline" inpkey="18"/>
+											<entry name="abstract" inpkey="19"/>
+											<entry name="word_count" inpkey="20"/>
+											<entry name="pub_date" inpkey="21"/>
+											<entry name="web_url" inpkey="22"/>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="integrated">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="integrated" Kind="DataSource"/>
+										<PathElement Name="integrated" Kind="Database"/>
+										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="article_header" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="integrated" Kind="DataSource"/>
+										<PathElement Name="integrated" Kind="Database"/>
+										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="person" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="integrated" Kind="DataSource"/>
+										<PathElement Name="integrated" Kind="Database"/>
+										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="person_article" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="3" kind="15">
+					<properties/>
+					<view ltx="101" lty="60" rbx="522" rby="782"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="public.people" type="table" outkey="23" expanded="1">
+									<entry name="person_id" outkey="24"/>
+									<entry name="associated_article_count" outkey="25"/>
+									<entry name="pref_label" outkey="26"/>
+									<entry name="public.people_ref|person_id" type="table" outkey="27" expanded="1">
+										<entry name="article_id" outkey="28"/>
+										<entry name="public.article_header|article_id" type="table" outkey="29" expanded="1">
+											<entry name="headline" outkey="30"/>
+											<entry name="pub_date" outkey="31"/>
+											<entry name="word_count" outkey="32"/>
+											<entry name="abstract" outkey="33"/>
+											<entry name="web_url" outkey="34"/>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infointe">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infointe" Kind="DataSource"/>
+										<PathElement Name="infointe" Kind="Database"/>
+										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="article_header" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infointe" Kind="DataSource"/>
+										<PathElement Name="infointe" Kind="Database"/>
+										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="people" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infointe" Kind="DataSource"/>
+										<PathElement Name="infointe" Kind="Database"/>
+										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="people_ref" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="1">
+						<edges>
+							<edge vertexkey="10" edgekey="35"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="4">
+						<edges>
+							<edge vertexkey="11" edgekey="36"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="7">
+						<edges>
+							<edge vertexkey="12" edgekey="37"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="8">
+						<edges>
+							<edge vertexkey="3" edgekey="38"/>
+							<edge vertexkey="6" edgekey="39"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="23">
+						<edges>
+							<edge vertexkey="9" edgekey="40"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="24">
+						<edges>
+							<edge vertexkey="13" edgekey="41"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="25">
+						<edges>
+							<edge vertexkey="14" edgekey="42"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="26">
+						<edges>
+							<edge vertexkey="5" edgekey="43"/>
+							<edge vertexkey="2" edgekey="44"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="27">
+						<edges>
+							<edge vertexkey="15" edgekey="45"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="28">
+						<edges>
+							<edge vertexkey="16" edgekey="46"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="29">
+						<edges>
+							<edge vertexkey="17" edgekey="47"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="30">
+						<edges>
+							<edge vertexkey="18" edgekey="48"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="31">
+						<edges>
+							<edge vertexkey="21" edgekey="49"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="32">
+						<edges>
+							<edge vertexkey="20" edgekey="50"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="33">
+						<edges>
+							<edge vertexkey="19" edgekey="51"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="34">
+						<edges>
+							<edge vertexkey="22" edgekey="52"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+</mapping>
