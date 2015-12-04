@@ -348,8 +348,8 @@ ALTER TABLE person_party OWNER TO postgres;
 CREATE TABLE place (
     id integer NOT NULL,
     name character varying,
-    latitude real,
-    longitude real,
+    latitude character varying,
+    longitude character varying,
     country character varying
 );
 

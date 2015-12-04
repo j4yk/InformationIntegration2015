@@ -6,3 +6,7 @@ ddl changes:
 		-	removed 'occupation_id' for person (since there is the 'person_occupation' table to model that relation)
 		-	added 'person.degree', 'person.twitter', 'person.education', 'politician.aw_picture_url' (missing from aw)
 		-	corrected 'candidacy'-pk from 'candidate' to 'candidate', 'parliament' & 'constituency'
+
+	*	by Daniel on 12/04:
+
+		-	'latitude' & 'longitude' in 'place' converted to VARCHAR (format is like 'E007.133333', that's not real)
