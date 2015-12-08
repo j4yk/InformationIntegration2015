@@ -69,30 +69,6 @@
 						<wsdl/>
 					</data>
 				</component>
-				<component name="substring-before" library="core" uid="12" kind="5">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="17"/>
-						<datapoint pos="1" key="18"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="19"/>
-					</targets>
-					<view ltx="596" lty="2" rbx="704" rby="58"/>
-				</component>
-				<component name="auto-number" library="core" uid="19" kind="5">
-					<properties/>
-					<sources>
-						<datapoint/>
-						<datapoint/>
-						<datapoint/>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="10"/>
-					</targets>
-					<view ltx="573" lty="-146" rbx="704" rby="-56"/>
-				</component>
 				<component name="datetime-from-parts" library="lang" uid="21" kind="5">
 					<properties/>
 					<sources>
@@ -109,19 +85,6 @@
 						<datapoint pos="0" key="23"/>
 					</targets>
 					<view ltx="457" lty="716" rbx="579" rby="874"/>
-				</component>
-				<component name="auto-number" library="core" uid="26" kind="5">
-					<properties/>
-					<sources>
-						<datapoint/>
-						<datapoint/>
-						<datapoint/>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="12"/>
-					</targets>
-					<view ltx="448" lty="606" rbx="579" rby="696"/>
 				</component>
 				<component name="constant" library="core" uid="24" kind="2">
 					<properties/>
@@ -216,6 +179,43 @@
 					</targets>
 					<view ltx="865" lty="815" rbx="984" rby="854"/>
 				</component>
+				<component name="auto-number" library="core" uid="19" kind="5">
+					<properties/>
+					<sources>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="573" lty="-146" rbx="704" rby="-56"/>
+				</component>
+				<component name="auto-number" library="core" uid="26" kind="5">
+					<properties/>
+					<sources>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="448" lty="606" rbx="579" rby="696"/>
+				</component>
+				<component name="substring-before" library="core" uid="12" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="17"/>
+						<datapoint pos="1" key="18"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="19"/>
+					</targets>
+					<view ltx="596" lty="2" rbx="704" rby="58"/>
+				</component>
 				<component name="db" library="db" uid="3" kind="15">
 					<properties/>
 					<view ltx="-48" lty="40" rbx="344" rby="660"/>
@@ -228,7 +228,6 @@
 								<entry name="goodreads.goodreads_authors" type="table" outkey="24" expanded="1">
 									<entry name="name" outkey="25"/>
 									<entry name="gender" outkey="26"/>
-									<entry name="hometown" outkey="27"/>
 									<entry name="born_at" outkey="5"/>
 									<entry name="died_at" outkey="28"/>
 									<entry name="fans_count" outkey="29"/>
@@ -281,13 +280,16 @@
 					<properties XSLTDefaultOutput="1"/>
 					<view ltx="1046" lty="-160" rbx="1672" rby="920"/>
 					<data>
-						<root scrollposition="26">
+						<root scrollposition="1">
 							<header>
 								<namespaces/>
 							</header>
 							<entry name="document" expanded="1">
 								<entry name="integrated.person" type="table" inpkey="50" expanded="1">
-									<entry name="id" inpkey="11"/>
+									<tableactions>
+										<action proceedchildren="1"/>
+									</tableactions>
+									<entry name="id" valuekeygeneration="maxnumber"/>
 									<entry name="first_name" inpkey="51"/>
 									<entry name="last_name" inpkey="52"/>
 									<entry name="gender" inpkey="53"/>
@@ -296,7 +298,7 @@
 										<entry name="average_rating" inpkey="56"/>
 										<entry name="ratings_count" inpkey="57"/>
 										<entry name="goodreads_author" inpkey="58"/>
-										<entry name="integrated.book|author" type="table" inpkey="59" expanded="1">
+										<entry name="integrated.book|author" type="table" inpkey="59">
 											<entry name="id" inpkey="60"/>
 											<entry name="title" inpkey="61"/>
 											<entry name="average_rating" inpkey="62"/>
@@ -314,12 +316,20 @@
 										</entry>
 									</entry>
 									<entry name="integrated.birth|person_id" type="table" inpkey="74" expanded="1">
-										<entry name="place_id" inpkey="75"/>
+										<tableactions>
+											<action proceedchildren="1">
+												<field name="person_id" function="equal"/>
+											</action>
+										</tableactions>
 										<entry name="year" inpkey="129"/>
 										<entry name="month" inpkey="131"/>
 										<entry name="day" inpkey="130"/>
-										<entry name="integrated.place|place_id" type="table" inpkey="76" expanded="1">
-											<entry name="name" inpkey="77"/>
+										<entry name="integrated.place|place_id" type="table">
+											<tableactions>
+												<action operation="update" proceedchildren="1">
+													<field name="id" function="equal"/>
+												</action>
+											</tableactions>
 										</entry>
 									</entry>
 									<entry name="integrated.death|person_id" type="table" inpkey="78" expanded="1">
@@ -327,6 +337,12 @@
 										<entry name="month" inpkey="139"/>
 										<entry name="day" inpkey="140"/>
 									</entry>
+								</entry>
+								<entry name="integrated.place" type="table">
+									<tableactions>
+										<action proceedchildren="1"/>
+									</tableactions>
+									<entry name="id" valuekeygeneration="maxnumber"/>
 								</entry>
 							</entry>
 						</root>
@@ -405,16 +421,6 @@
 							<edge vertexkey="136" edgekey="147"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="10">
-						<edges>
-							<edge vertexkey="11" edgekey="86"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="12">
-						<edges>
-							<edge vertexkey="75" edgekey="87"/>
-						</edges>
-					</vertex>
 					<vertex vertexkey="15">
 						<edges>
 							<edge vertexkey="52" edgekey="88"/>
@@ -451,12 +457,6 @@
 					<vertex vertexkey="26">
 						<edges>
 							<edge vertexkey="53" edgekey="97"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="27">
-						<edges>
-							<edge vertexkey="77" edgekey="98"/>
-							<edge vertexkey="76" edgekey="99"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="28">

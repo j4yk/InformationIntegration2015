@@ -97,11 +97,19 @@
 					<properties/>
 					<view ltx="101" lty="60" rbx="522" rby="782"/>
 					<data>
-						<root>
+						<root scrollposition="1">
 							<header>
 								<namespaces/>
 							</header>
 							<entry name="document" expanded="1">
+								<entry name="nytlod.article_header" type="table" outkey="53" expanded="1">
+									<entry name="article_id" outkey="54"/>
+									<entry name="headline" outkey="55"/>
+									<entry name="pub_date" outkey="56"/>
+									<entry name="word_count" outkey="57"/>
+									<entry name="abstract" outkey="58"/>
+									<entry name="web_url" outkey="59"/>
+								</entry>
 								<entry name="nytlod.people" type="table" outkey="23" expanded="1">
 									<entry name="person_id" outkey="24"/>
 									<entry name="associated_article_count" outkey="25"/>
@@ -155,8 +163,22 @@
 								<namespaces/>
 							</header>
 							<entry name="document" expanded="1">
+								<entry name="integrated.article_header" type="table" inpkey="60" expanded="1">
+									<tableactions>
+										<action proceedchildren="1"/>
+									</tableactions>
+									<entry name="id" inpkey="61"/>
+									<entry name="headline" inpkey="62"/>
+									<entry name="abstract" inpkey="63"/>
+									<entry name="word_count" inpkey="64"/>
+									<entry name="pub_date" inpkey="65"/>
+									<entry name="web_url" inpkey="66"/>
+								</entry>
 								<entry name="integrated.person" type="table" inpkey="9" expanded="1">
-									<entry name="id" inpkey="10"/>
+									<tableactions>
+										<action proceedchildren="1"/>
+									</tableactions>
+									<entry name="id" inpkey="10" valuekeygeneration="maxnumber"/>
 									<entry name="first_name" inpkey="11"/>
 									<entry name="last_name" inpkey="12"/>
 									<entry name="nyt_id" inpkey="13"/>
@@ -172,6 +194,7 @@
 										</entry>
 									</entry>
 								</entry>
+								<entry name="integrated.person_article" type="table" expanded="1"/>
 							</entry>
 						</root>
 						<wsdl/>
@@ -285,6 +308,41 @@
 					<vertex vertexkey="34">
 						<edges>
 							<edge vertexkey="22" edgekey="52"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="53">
+						<edges>
+							<edge vertexkey="60" edgekey="67"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="54">
+						<edges>
+							<edge vertexkey="61" edgekey="68"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="55">
+						<edges>
+							<edge vertexkey="62" edgekey="69"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="56">
+						<edges>
+							<edge vertexkey="65" edgekey="70"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="57">
+						<edges>
+							<edge vertexkey="64" edgekey="71"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="58">
+						<edges>
+							<edge vertexkey="63" edgekey="72"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="59">
+						<edges>
+							<edge vertexkey="66" edgekey="73"/>
 						</edges>
 					</vertex>
 				</vertices>
