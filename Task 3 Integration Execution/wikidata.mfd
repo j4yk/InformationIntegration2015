@@ -249,28 +249,6 @@
 						</root>
 					</data>
 				</component>
-				<component name="generate-new-id" library="user" blackbox="0" uid="212" kind="19" visible="0">
-					<view ltx="266" lty="550" rbx="487" rby="584"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="existing_integrated_ids" inpkey="242" componentid="204"/>
-							<entry name="old_ids" inpkey="243" componentid="207"/>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="new_ids" outkey="244" componentid="205"/>
-						</root>
-					</data>
-				</component>
 				<component name="parse-name" library="user-person-integration" blackbox="0" uid="237" kind="19" visible="0">
 					<view ltx="335" lty="366" rbx="523" rby="400"/>
 					<data>
@@ -315,6 +293,118 @@
 						</root>
 					</data>
 				</component>
+				<component name="generate-new-id" library="user" blackbox="0" uid="206" kind="19" visible="0">
+					<view ltx="190" lty="1" rbx="411" rby="35"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="existing_integrated_ids" inpkey="225" componentid="204"/>
+							<entry name="old_ids" inpkey="221" componentid="207"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="new_ids" outkey="222" componentid="205"/>
+						</root>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="198" kind="15">
+					<properties/>
+					<view ltx="-261" lty="1" rbx="-4" rby="95"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.country" type="table">
+									<entry name="id" outkey="329"/>
+								</entry>
+								<entry name="integrated.occupation" type="table">
+									<entry name="id" outkey="206"/>
+								</entry>
+								<entry name="integrated.person" type="table">
+									<entry name="id" outkey="232"/>
+								</entry>
+								<entry name="integrated.place" type="table">
+									<entry name="id" outkey="237"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint2">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="country" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="occupation" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="place" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="generate-new-id" library="user" blackbox="0" uid="249" kind="19" visible="0">
+					<view ltx="190" lty="139" rbx="411" rby="173"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="existing_integrated_ids" inpkey="327" componentid="204"/>
+							<entry name="old_ids" inpkey="326" componentid="207"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="new_ids" outkey="328" componentid="205"/>
+						</root>
+					</data>
+				</component>
+				<component name="group-by" library="core" uid="46" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="19"/>
+						<datapoint pos="1" key="20"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="21"/>
+						<datapoint pos="1" key="22"/>
+					</targets>
+					<view ltx="61" lty="304" rbx="170" rby="360"/>
+				</component>
 				<component name="value-map" library="core" uid="63" kind="23">
 					<properties/>
 					<sources>
@@ -323,7 +413,7 @@
 					<targets>
 						<datapoint pos="0" key="103"/>
 					</targets>
-					<view ltx="459" lty="452" rbx="536" rby="491"/>
+					<view ltx="489" lty="449" rbx="566" rby="488"/>
 					<data>
 						<wsdl/>
 						<valuemap>
@@ -406,40 +496,6 @@
 						</database>
 					</data>
 				</component>
-				<component name="group-by" library="core" uid="46" kind="5">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="19"/>
-						<datapoint pos="1" key="20"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="21"/>
-						<datapoint pos="1" key="22"/>
-					</targets>
-					<view ltx="61" lty="304" rbx="170" rby="360"/>
-				</component>
-				<component name="generate-new-id" library="user" blackbox="0" uid="206" kind="19" visible="0">
-					<view ltx="190" lty="1" rbx="411" rby="35"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="existing_integrated_ids" inpkey="225" componentid="204"/>
-							<entry name="old_ids" inpkey="221" componentid="207"/>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="new_ids" outkey="222" componentid="205"/>
-						</root>
-					</data>
-				</component>
 				<component name="structure" library="db" uid="42" kind="15">
 					<properties XSLTDefaultOutput="1"/>
 					<view ltx="592" lty="1" rbx="836" rby="934"/>
@@ -449,6 +505,11 @@
 								<namespaces/>
 							</header>
 							<entry name="document" expanded="1">
+								<entry name="integrated.country" type="table" inpkey="330" expanded="1">
+									<entry name="id" inpkey="331"/>
+									<entry name="wikidata_id" inpkey="332"/>
+									<entry name="name" inpkey="333"/>
+								</entry>
 								<entry name="integrated.occupation" type="table" inpkey="210" expanded="1">
 									<entry name="id" inpkey="207"/>
 									<entry name="label" inpkey="211"/>
@@ -462,16 +523,9 @@
 									<entry name="last_name" inpkey="277"/>
 									<entry name="gender" inpkey="278"/>
 									<entry name="wikidata_id" inpkey="239"/>
-									<entry name="mapping.wikidata_person|integrated_person_id" type="table" expanded="1">
-										<entry name="wikidata_person_id" inpkey="240"/>
-									</entry>
+									<entry name="mapping.wikidata_person|integrated_person_id" type="table" expanded="1"/>
 								</entry>
-								<entry name="integrated.place" type="table" inpkey="245" expanded="1">
-									<entry name="id" inpkey="246"/>
-									<entry name="name" inpkey="247"/>
-									<entry name="country" inpkey="248"/>
-								</entry>
-								<entry name="integrated.place" type="table" inpkey="249" expanded="1" clone="1">
+								<entry name="integrated.place" type="table" inpkey="249" expanded="1">
 									<entry name="id" inpkey="241"/>
 									<entry name="name" inpkey="250"/>
 								</entry>
@@ -515,6 +569,12 @@
 										<PathElement Name="infoint2" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="country" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="death" Kind="Table"/>
 									</selection>
 									<selection>
@@ -534,6 +594,12 @@
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="person" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person_country" Kind="Table"/>
 									</selection>
 									<selection>
 										<PathElement Name="infoint2" Kind="DataSource"/>
@@ -612,53 +678,6 @@
 						</database>
 					</data>
 				</component>
-				<component name="structure" library="db" uid="198" kind="15">
-					<properties/>
-					<view ltx="-261" lty="1" rbx="-4" rby="95"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces/>
-							</header>
-							<entry name="document" expanded="1">
-								<entry name="integrated.occupation" type="table">
-									<entry name="id" outkey="206"/>
-								</entry>
-								<entry name="integrated.person" type="table">
-									<entry name="id" outkey="232"/>
-								</entry>
-								<entry name="integrated.place" type="table">
-									<entry name="id" outkey="237"/>
-								</entry>
-							</entry>
-						</root>
-						<wsdl/>
-						<database ref="infoint2">
-							<data>
-								<selections>
-									<selection>
-										<PathElement Name="infoint2" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="occupation" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint2" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="person" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint2" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="place" Kind="Table"/>
-									</selection>
-								</selections>
-							</data>
-						</database>
-					</data>
-				</component>
 			</children>
 			<graph directed="1">
 				<edges/>
@@ -672,7 +691,6 @@
 						<edges>
 							<edge vertexkey="230" edgekey="255"/>
 							<edge vertexkey="239" edgekey="256"/>
-							<edge vertexkey="240" edgekey="257"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="29">
@@ -759,28 +777,22 @@
 					<vertex vertexkey="237">
 						<edges>
 							<edge vertexkey="235" edgekey="265"/>
-							<edge vertexkey="242" edgekey="266"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="244">
-						<edges>
-							<edge vertexkey="246" edgekey="267"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="251">
 						<edges>
-							<edge vertexkey="245" edgekey="268"/>
+							<edge vertexkey="330" edgekey="334"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="252">
 						<edges>
-							<edge vertexkey="243" edgekey="269"/>
+							<edge vertexkey="326" edgekey="335"/>
+							<edge vertexkey="332" edgekey="336"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="253">
 						<edges>
-							<edge vertexkey="247" edgekey="270"/>
-							<edge vertexkey="248" edgekey="271"/>
+							<edge vertexkey="333" edgekey="337"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="274">
@@ -791,6 +803,16 @@
 					<vertex vertexkey="275">
 						<edges>
 							<edge vertexkey="277" edgekey="283"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="328">
+						<edges>
+							<edge vertexkey="331" edgekey="338"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="329">
+						<edges>
+							<edge vertexkey="327" edgekey="339"/>
 						</edges>
 					</vertex>
 				</vertices>
@@ -1486,7 +1508,6 @@
 	</component>
 	<component name="parse-datetime" library="user-person-mapping" blackbox="0" uid="238" editable="1" inline="1">
 		<properties/>
-		<description/>
 		<structure>
 			<children>
 				<component name="constant" library="core" uid="239" kind="2">
