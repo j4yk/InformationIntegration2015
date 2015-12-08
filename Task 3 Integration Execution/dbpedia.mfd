@@ -104,66 +104,6 @@
 						<wsdl/>
 					</data>
 				</component>
-				<component name="structure" library="db" uid="51" kind="15">
-					<properties/>
-					<view ltx="1104" lty="472" rbx="1300" rby="540"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces/>
-							</header>
-							<entry name="document" expanded="1">
-								<entry name="integrated.person" type="table" inpkey="160" expanded="1">
-									<entry name="id" inpkey="163" outkey="162"/>
-								</entry>
-							</entry>
-						</root>
-						<wsdl/>
-						<database ref="infoint2" InstanceRoot="{}integrated.person">
-							<data>
-								<selections>
-									<selection>
-										<PathElement Name="infoint2" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="person" Kind="Table"/>
-									</selection>
-								</selections>
-							</data>
-						</database>
-						<parameter usageKind="variable"/>
-					</data>
-				</component>
-				<component name="structure" library="db" uid="48" kind="15">
-					<properties/>
-					<view ltx="1104" lty="372" rbx="1300" rby="440"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces/>
-							</header>
-							<entry name="document" expanded="1">
-								<entry name="integrated.person" type="table" inpkey="128" expanded="1">
-									<entry name="id" inpkey="126" outkey="130"/>
-								</entry>
-							</entry>
-						</root>
-						<wsdl/>
-						<database ref="infoint2" InstanceRoot="{}integrated.person">
-							<data>
-								<selections>
-									<selection>
-										<PathElement Name="infoint2" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="person" Kind="Table"/>
-									</selection>
-								</selections>
-							</data>
-						</database>
-						<parameter usageKind="variable"/>
-					</data>
-				</component>
 				<component name="integrated.person" library="db" uid="45" kind="21">
 					<properties/>
 					<sources>
@@ -181,36 +121,6 @@
 							</parameters>
 						</where>
 						<wsdl/>
-					</data>
-				</component>
-				<component name="structure" library="db" uid="47" kind="15">
-					<properties/>
-					<view ltx="1104" lty="280" rbx="1300" rby="348"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces/>
-							</header>
-							<entry name="document" expanded="1">
-								<entry name="integrated.person" type="table" inpkey="109" expanded="1">
-									<entry name="id" inpkey="110" outkey="111"/>
-								</entry>
-							</entry>
-						</root>
-						<wsdl/>
-						<database ref="infoint2" InstanceRoot="{}integrated.person">
-							<data>
-								<selections>
-									<selection>
-										<PathElement Name="infoint2" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="person" Kind="Table"/>
-									</selection>
-								</selections>
-							</data>
-						</database>
-						<parameter usageKind="variable"/>
 					</data>
 				</component>
 				<component name="integrated.party" library="db" uid="43" kind="21">
@@ -277,48 +187,29 @@
 					</targets>
 					<view ltx="553" lty="446" rbx="656" rby="502"/>
 				</component>
-				<component name="integrated.person" library="db" uid="49" kind="21">
+				<component name="structure" library="db" uid="51" kind="15">
 					<properties/>
-					<sources>
-						<datapoint pos="0" key="129"/>
-						<datapoint pos="1" key="125"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="127"/>
-					</targets>
-					<view ltx="946" lty="359" rbx="1058" rby="415"/>
+					<view ltx="1104" lty="472" rbx="1300" rby="540"/>
 					<data>
-						<where condition="dbpedia_uri = :dbpedia_uri">
-							<parameters>
-								<parameter name="dbpedia_uri" type="string" auto-detect="0"/>
-							</parameters>
-						</where>
-						<wsdl/>
-					</data>
-				</component>
-				<component name="structure" library="db" uid="46" kind="15">
-					<properties/>
-					<view ltx="1120" lty="50" rbx="1270" rby="250"/>
-					<data>
-						<root>
+						<root scrollposition="1">
 							<header>
 								<namespaces/>
 							</header>
 							<entry name="document" expanded="1">
-								<entry name="integrated.party" type="table" inpkey="112" expanded="1">
-									<entry name="id" inpkey="113" outkey="114"/>
+								<entry name="integrated.person" type="table" inpkey="160" expanded="1">
+									<entry name="id" inpkey="163" outkey="162"/>
 								</entry>
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint2" InstanceRoot="{}integrated.party">
+						<database ref="infoint2" InstanceRoot="{}integrated.person">
 							<data>
 								<selections>
 									<selection>
 										<PathElement Name="infoint2" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="party" Kind="Table"/>
+										<PathElement Name="person" Kind="Table"/>
 									</selection>
 								</selections>
 							</data>
@@ -326,33 +217,76 @@
 						<parameter usageKind="variable"/>
 					</data>
 				</component>
-				<component name="structure" library="db" uid="42" kind="15">
+				<component name="structure" library="db" uid="47" kind="15">
 					<properties/>
-					<view ltx="1341" lty="26" rbx="1550" rby="514"/>
+					<view ltx="1104" lty="280" rbx="1300" rby="348"/>
 					<data>
 						<root scrollposition="1">
 							<header>
 								<namespaces/>
 							</header>
 							<entry name="document" expanded="1">
-								<entry name="integrated.almamater" type="table" inpkey="131" expanded="1">
-									<entry name="person_id" inpkey="132"/>
-									<entry name="university" inpkey="133"/>
+								<entry name="integrated.person" type="table" inpkey="109" expanded="1">
+									<entry name="id" inpkey="110" outkey="111"/>
 								</entry>
-								<entry name="integrated.party" type="table">
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint2" InstanceRoot="{}integrated.person">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="4" kind="15">
+					<properties/>
+					<view ltx="707" lty="26" rbx="914" rby="701"/>
+					<data>
+						<root scrollposition="101">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.almamater" type="table" expanded="1"/>
+								<entry name="integrated.party" type="table" inpkey="24" outkey="87" expanded="1">
+									<tableactions>
+										<action proceedchildren="1"/>
+									</tableactions>
+									<entry name="id" outkey="103" valuekeygeneration="maxnumber"/>
+									<entry name="uri" inpkey="25"/>
+									<entry name="name" inpkey="26"/>
 									<entry name="integrated.person_party|party_id" type="table" expanded="1"/>
 								</entry>
-								<entry name="integrated.person" type="table">
-									<entry name="integrated.person_party|person_id" type="table">
+								<entry name="integrated.person" type="table" inpkey="27" outkey="104" expanded="1">
+									<tableactions>
+										<action proceedchildren="1"/>
+									</tableactions>
+									<entry name="id" outkey="105" valuekeygeneration="maxnumber"/>
+									<entry name="first_name" inpkey="29"/>
+									<entry name="last_name" inpkey="30"/>
+									<entry name="dbpedia_uri" inpkey="31"/>
+									<entry name="integrated.birth|person_id" type="table" inpkey="45" expanded="1">
+										<entry name="year" inpkey="178"/>
+										<entry name="month" inpkey="179"/>
+										<entry name="day" inpkey="180"/>
+									</entry>
+									<entry name="integrated.person_party|person_id" type="table" expanded="1">
 										<entry name="integrated.party|party_id" type="table" expanded="1"/>
 									</entry>
 								</entry>
-								<entry name="integrated.person_party" type="table" inpkey="91" expanded="1">
-									<entry name="party_id" inpkey="92"/>
-									<entry name="person_id" inpkey="99"/>
-								</entry>
-								<entry name="integrated.politician" type="table" inpkey="166" expanded="1">
-									<entry name="person_id" inpkey="167"/>
+								<entry name="integrated.politician" type="table" expanded="1"/>
+								<entry name="integrated.university" type="table" inpkey="134" expanded="1">
+									<entry name="uri" inpkey="135"/>
+									<entry name="name" inpkey="136"/>
 								</entry>
 							</entry>
 						</root>
@@ -383,12 +317,6 @@
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="person" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint2" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="person_article" Kind="Table"/>
 									</selection>
 									<selection>
 										<PathElement Name="infoint2" Kind="DataSource"/>
@@ -491,46 +419,82 @@
 						</database>
 					</data>
 				</component>
-				<component name="structure" library="db" uid="4" kind="15">
-					<properties XSLTDefaultOutput="1"/>
-					<view ltx="707" lty="26" rbx="914" rby="701"/>
+				<component name="integrated.person" library="db" uid="49" kind="21">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="129"/>
+						<datapoint pos="1" key="125"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="127"/>
+					</targets>
+					<view ltx="946" lty="359" rbx="1058" rby="415"/>
 					<data>
-						<root scrollposition="101">
+						<where condition="dbpedia_uri = :dbpedia_uri">
+							<parameters>
+								<parameter name="dbpedia_uri" type="string" auto-detect="0"/>
+							</parameters>
+						</where>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="48" kind="15">
+					<properties/>
+					<view ltx="1104" lty="372" rbx="1300" rby="440"/>
+					<data>
+						<root scrollposition="1">
 							<header>
 								<namespaces/>
 							</header>
 							<entry name="document" expanded="1">
-								<entry name="integrated.almamater" type="table" expanded="1"/>
-								<entry name="integrated.party" type="table" inpkey="24" outkey="87" expanded="1">
-									<tableactions>
-										<action proceedchildren="1"/>
-									</tableactions>
-									<entry name="id" outkey="103" valuekeygeneration="maxnumber"/>
-									<entry name="uri" inpkey="25"/>
-									<entry name="name" inpkey="26"/>
+								<entry name="integrated.person" type="table" inpkey="128" expanded="1">
+									<entry name="id" inpkey="126" outkey="130"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint2" InstanceRoot="{}integrated.person">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="42" kind="15">
+					<properties XSLTDefaultOutput="1"/>
+					<view ltx="1341" lty="26" rbx="1550" rby="514"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.almamater" type="table" inpkey="131" expanded="1">
+									<entry name="person_id" inpkey="132"/>
+									<entry name="university" inpkey="133"/>
+								</entry>
+								<entry name="integrated.party" type="table">
 									<entry name="integrated.person_party|party_id" type="table" expanded="1"/>
 								</entry>
-								<entry name="integrated.person" type="table" inpkey="27" outkey="104" expanded="1">
-									<tableactions>
-										<action proceedchildren="1"/>
-									</tableactions>
-									<entry name="id" outkey="105" valuekeygeneration="maxnumber"/>
-									<entry name="first_name" inpkey="29"/>
-									<entry name="last_name" inpkey="30"/>
-									<entry name="dbpedia_uri" inpkey="31"/>
-									<entry name="integrated.birth|person_id" type="table" inpkey="45" expanded="1">
-										<entry name="year" inpkey="178"/>
-										<entry name="month" inpkey="179"/>
-										<entry name="day" inpkey="180"/>
-									</entry>
-									<entry name="integrated.person_party|person_id" type="table" expanded="1">
+								<entry name="integrated.person" type="table">
+									<entry name="integrated.person_party|person_id" type="table">
 										<entry name="integrated.party|party_id" type="table" expanded="1"/>
 									</entry>
 								</entry>
-								<entry name="integrated.politician" type="table" expanded="1"/>
-								<entry name="integrated.university" type="table" inpkey="134" expanded="1">
-									<entry name="uri" inpkey="135"/>
-									<entry name="name" inpkey="136"/>
+								<entry name="integrated.person_party" type="table" inpkey="91" expanded="1">
+									<entry name="party_id" inpkey="92"/>
+									<entry name="person_id" inpkey="99"/>
+								</entry>
+								<entry name="integrated.politician" type="table" inpkey="166" expanded="1">
+									<entry name="person_id" inpkey="167"/>
 								</entry>
 							</entry>
 						</root>
@@ -566,6 +530,12 @@
 										<PathElement Name="infoint2" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person_article" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="person_party" Kind="Table"/>
 									</selection>
 									<selection>
@@ -583,6 +553,36 @@
 								</selections>
 							</data>
 						</database>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="46" kind="15">
+					<properties/>
+					<view ltx="1120" lty="50" rbx="1243" rby="136"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.party" type="table" inpkey="112" expanded="1">
+									<entry name="id" inpkey="113" outkey="114"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint2" InstanceRoot="{}integrated.party">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="party" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+						<parameter usageKind="variable"/>
 					</data>
 				</component>
 			</children>
