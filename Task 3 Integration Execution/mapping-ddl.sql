@@ -272,17 +272,6 @@ ALTER TABLE ONLY gnd_work_id
 -- wikidata stuff
 -----------------
 
-CREATE TABLE wikidata_person (
-    wikidata_person_id character varying,
-    integrated_person_id integer,
-    primary key(integrated_person_id)
-);
-
-ALTER TABLE wikidata_person OWNER TO postgres;
-alter table only wikidata_person
-    add constraint mapping_wd_person_id_fkey foreign key (integrated_person_id) references integrated.person(id);
-
-
 CREATE TABLE wikidata_place (
     wikidata_place_id character varying,
     integrated_place_id integer,
