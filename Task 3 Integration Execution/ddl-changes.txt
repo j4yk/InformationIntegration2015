@@ -10,3 +10,10 @@ ddl changes:
 	*	by Daniel on 12/04:
 
 		-	'latitude' & 'longitude' in 'place' converted to VARCHAR (format is like 'E007.133333', that's not real)
+
+	*   by Jakob on 12/08:
+	
+	    -   add another entity 'country'
+		-   add relation 'person_country' for a person's nationality (mapped from wikidata)
+		-   rename 'place.country' to 'place.country_id' and make it a FK reference to 'country.id'
+		-   add 'state.country_id' for completeness sake

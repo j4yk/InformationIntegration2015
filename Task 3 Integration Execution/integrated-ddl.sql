@@ -203,6 +203,16 @@ CREATE TABLE constituency (
 
 ALTER TABLE constituency OWNER TO postgres;
 
+
+CREATE TABLE country (
+    id integer NOT NULL,
+    wikidata_id character varying,
+    name character varying
+);
+
+
+ALTER TABLE country OWNER TO postgres;
+
 --
 -- TOC entry 180 (class 1259 OID 17178)
 -- Name: death; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
@@ -314,6 +324,15 @@ CREATE TABLE person_article (
 
 ALTER TABLE person_article OWNER TO postgres;
 
+
+CREATE TABLE person_country (
+    person_id integer,
+    country_id integer
+);
+
+
+ALTER TABLE person_country OWNER TO postgres;
+
 --
 -- TOC entry 189 (class 1259 OID 17302)
 -- Name: person_occupation; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
@@ -340,6 +359,8 @@ CREATE TABLE person_party (
 
 ALTER TABLE person_party OWNER TO postgres;
 
+
+
 --
 -- TOC entry 173 (class 1259 OID 17081)
 -- Name: place; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
@@ -350,7 +371,7 @@ CREATE TABLE place (
     name character varying,
     latitude character varying,
     longitude character varying,
-    country character varying
+    country_id integer
 );
 
 
@@ -408,7 +429,8 @@ CREATE TABLE state (
     state character varying NOT NULL,
     capital_id integer,
     area real,
-    population integer
+    population integer,
+    country_id integer
 );
 
 
@@ -531,6 +553,10 @@ ALTER TABLE ONLY party
 ALTER TABLE ONLY person
     ADD CONSTRAINT person_pkey PRIMARY KEY (id);
 
+
+
+ALTER TABLE ONLY country
+    ADD CONSTRAINT country_pkey PRIMARY KEY (id);
 
 --
 -- TOC entry 1999 (class 2606 OID 17088)
@@ -731,6 +757,10 @@ ALTER TABLE ONLY person_article
 
 
 
+ALTER TABLE ONLY person_country
+    ADD CONSTRAINT person_country_country_id_fkey FOREIGN KEY (country_id) REFERENCES country(id),
+    ADD CONSTRAINT person_country_person_id_fkey  FOREIGN KEY (person_id)  REFERENCES person(id);
+
 --
 -- TOC entry 2044 (class 2606 OID 17310)
 -- Name: person_occupation_occupation_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
@@ -765,6 +795,10 @@ ALTER TABLE ONLY person_party
 
 ALTER TABLE ONLY person_party
     ADD CONSTRAINT person_party_person_id_fkey FOREIGN KEY (person_id) REFERENCES person(id);
+
+
+ALTER TABLE ONLY place
+    ADD CONSTRAINT place_country_id_fkey FOREIGN KEY (country_id) REFERENCES country(id);
 
 
 --
@@ -818,7 +852,8 @@ ALTER TABLE ONLY related_to
 --
 
 ALTER TABLE ONLY state
-    ADD CONSTRAINT state_capital_id_fkey FOREIGN KEY (capital_id) REFERENCES place(id);
+    ADD CONSTRAINT state_capital_id_fkey FOREIGN KEY (capital_id) REFERENCES place(id),
+    ADD CONSTRAINT state_country_id_fkey FOREIGN KEY (country_id) REFERENCES country(id);
 
 
 --

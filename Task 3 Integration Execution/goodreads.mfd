@@ -3,62 +3,24 @@
 <mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="22">
 	<resources>
 		<datasources>
-			<datasource name="informationintegration">
-				<properties JDBCDriver="org.postgresql.Driver" JDBCDatabaseURL="jdbc:postgresql://localhost:5432/informationintegration" DBUser="postgres" DBPassword="manager" DBDataSource="Goodreads" DBCatalog="informationintegration" OLEDBOptions="Port=5432;B0=16777215;BI=0;"/>
-				<database_connection database_kind="PostgreSQL" import_kind="ODBC" version="9.4.5" ConnectionString="DSN=Goodreads;DATABASE=informationintegration;SERVER=localhost;PORT=5432;UID=postgres;PWD=manager;SSLmode=disable;ReadOnly=0;Protocol=7.4;FakeOidIndex=0;ShowOidColumn=0;RowVersioning=0;ShowSystemTables=0;ConnSettings=;Fetch=100;Socket=4096;UnknownSizes=0;MaxVarcharSize=255;MaxLongVarcharSize=8190;Debug=0;CommLog=0;Optimizer=0;Ksqo=1;UseDeclareFetch=0;TextAsLongVarchar=1;UnknownsAsLongVarchar=0;BoolsAsChar=1;Parse=0;CancelAsFreeStmt=0;ExtraSysTablePrefixes=dd_;;LFConversion=1;UpdatableCursors=1;DisallowPremature=0;TrueIsMinus1=0;BI=0;ByteaAsLongVarBinary=0;UseServerSidePrepare=1;LowerCaseIdentifier=0;GssAuthUseGSS=0;XaOpt=1" name="informationintegration" path="informationintegration">
+			<datasource name="infoint">
+				<properties JDBCDriver="org.postgresql.Driver" JDBCDatabaseURL="jdbc:postgresql://localhost:5432/infoint" DBUser="infoint" DBPassword="manager" DBDataSource="THISONE" DBCatalog="infoint" OLEDBOptions="Port=5432;B0=16777215;BI=0;"/>
+				<database_connection database_kind="PostgreSQL" import_kind="ODBC" version="9.4.5" ConnectionString="DSN=THISONE;DATABASE=infoint;SERVER=localhost;PORT=5432;UID=infoint;PWD=manager;SSLmode=disable;ReadOnly=0;Protocol=7.4;FakeOidIndex=0;ShowOidColumn=0;RowVersioning=0;ShowSystemTables=0;ConnSettings=;Fetch=100;Socket=4096;UnknownSizes=0;MaxVarcharSize=255;MaxLongVarcharSize=8190;Debug=0;CommLog=0;Optimizer=0;Ksqo=1;UseDeclareFetch=0;TextAsLongVarchar=1;UnknownsAsLongVarchar=0;BoolsAsChar=1;Parse=0;CancelAsFreeStmt=0;ExtraSysTablePrefixes=dd_;;LFConversion=1;UpdatableCursors=1;DisallowPremature=0;TrueIsMinus1=0;BI=0;ByteaAsLongVarBinary=0;UseServerSidePrepare=1;LowerCaseIdentifier=0;GssAuthUseGSS=0;XaOpt=1" name="infoint" path="infoint">
 					<properties>
 						<property name="Database Kind" value="PostgreSQL"/>
 						<property name="Import Kind" value="ODBC"/>
-						<property name="Root Object" value="informationintegration"/>
+						<property name="Root Object" value="infoint"/>
 						<property name="FileDsn"/>
-						<property name="Dsn" value="Goodreads"/>
+						<property name="Dsn" value="THISONE"/>
 						<property name="Driver"/>
 						<property name="Trusted_Connection"/>
 						<property name="App"/>
 						<property name="Server" value="localhost"/>
-						<property name="Database" value="informationintegration"/>
+						<property name="Database" value="infoint"/>
 						<property name="Regional"/>
 						<property name="Languages"/>
 						<property name="Wsid"/>
-						<property name="Uid" value="postgres"/>
-						<property name="Pwd" value="MTEM4E-tEf831"/>
-						<property name="Port" value="5432"/>
-						<property name="Option"/>
-						<property name="Stmt"/>
-						<property name="A1"/>
-						<property name="A6"/>
-						<property name="A7"/>
-						<property name="A8"/>
-						<property name="B0" value="16777215"/>
-						<property name="B1"/>
-						<property name="BI" value="0"/>
-						<property name="C2"/>
-						<property name="CA"/>
-						<property name="CX"/>
-					</properties>
-					<LocalViewStorage/>
-					<LocalRelationsStorage/>
-					<RecordSetStructureStorage/>
-				</database_connection>
-			</datasource>
-			<datasource name="integrated">
-				<properties JDBCDriver="org.postgresql.Driver" JDBCDatabaseURL="jdbc:postgresql://localhost:5432/integrated" DBUser="postgres" DBPassword="manager" DBDataSource="PostgreSQL35W" DBCatalog="integrated" OLEDBOptions="Port=5432;B0=16777215;BI=0;"/>
-				<database_connection database_kind="PostgreSQL" import_kind="ODBC" version="9.4.5" ConnectionString="DSN=PostgreSQL35W;DATABASE=integrated;SERVER=localhost;PORT=5432;UID=postgres;PWD=manager;SSLmode=disable;ReadOnly=0;Protocol=7.4;FakeOidIndex=0;ShowOidColumn=0;RowVersioning=0;ShowSystemTables=0;ConnSettings=;Fetch=100;Socket=4096;UnknownSizes=0;MaxVarcharSize=255;MaxLongVarcharSize=8190;Debug=0;CommLog=0;Optimizer=0;Ksqo=1;UseDeclareFetch=0;TextAsLongVarchar=1;UnknownsAsLongVarchar=0;BoolsAsChar=1;Parse=0;CancelAsFreeStmt=0;ExtraSysTablePrefixes=dd_;;LFConversion=1;UpdatableCursors=1;DisallowPremature=0;TrueIsMinus1=0;BI=0;ByteaAsLongVarBinary=0;UseServerSidePrepare=1;LowerCaseIdentifier=0;GssAuthUseGSS=0;XaOpt=1" name="integrated" path="integrated">
-					<properties>
-						<property name="Database Kind" value="PostgreSQL"/>
-						<property name="Import Kind" value="ODBC"/>
-						<property name="Root Object" value="integrated"/>
-						<property name="FileDsn"/>
-						<property name="Dsn" value="PostgreSQL35W"/>
-						<property name="Driver"/>
-						<property name="Trusted_Connection"/>
-						<property name="App"/>
-						<property name="Server" value="localhost"/>
-						<property name="Database" value="integrated"/>
-						<property name="Regional"/>
-						<property name="Languages"/>
-						<property name="Wsid"/>
-						<property name="Uid" value="postgres"/>
+						<property name="Uid" value="infoint"/>
 						<property name="Pwd" value="MTEM4E-tEf831"/>
 						<property name="Port" value="5432"/>
 						<property name="Option"/>
@@ -118,17 +80,6 @@
 					</targets>
 					<view ltx="596" lty="2" rbx="704" rby="58"/>
 				</component>
-				<component name="parse-date" library="core" uid="23" kind="5">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="1"/>
-						<datapoint pos="1" key="2"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="3"/>
-					</targets>
-					<view ltx="851" lty="732" rbx="931" rby="788"/>
-				</component>
 				<component name="auto-number" library="core" uid="19" kind="5">
 					<properties/>
 					<sources>
@@ -172,7 +123,100 @@
 					</targets>
 					<view ltx="448" lty="606" rbx="579" rby="696"/>
 				</component>
-				<component name="structure" library="db" uid="3" kind="15">
+				<component name="constant" library="core" uid="24" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="6"/>
+					</targets>
+					<view ltx="632" lty="798" rbx="719" rby="816"/>
+					<data>
+						<constant value="[Y]/[M]/[D]" datatype="string"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="parse-date" library="core" uid="23" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="1"/>
+						<datapoint pos="1" key="2"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="3"/>
+					</targets>
+					<view ltx="745" lty="688" rbx="825" rby="744"/>
+				</component>
+				<component name="day-from-datetime" library="lang" uid="32" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="123"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="124"/>
+					</targets>
+					<view ltx="865" lty="767" rbx="980" rby="806"/>
+				</component>
+				<component name="month-from-datetime" library="lang" uid="30" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="125"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="126"/>
+					</targets>
+					<view ltx="865" lty="716" rbx="991" rby="755"/>
+				</component>
+				<component name="year-from-datetime" library="lang" uid="28" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="127"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="128"/>
+					</targets>
+					<view ltx="865" lty="669" rbx="984" rby="708"/>
+				</component>
+				<component name="parse-date" library="core" uid="25" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="8"/>
+						<datapoint pos="1" key="9"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="7"/>
+					</targets>
+					<view ltx="745" lty="845" rbx="825" rby="901"/>
+				</component>
+				<component name="day-from-datetime" library="lang" uid="33" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="136"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="135"/>
+					</targets>
+					<view ltx="865" lty="913" rbx="980" rby="952"/>
+				</component>
+				<component name="month-from-datetime" library="lang" uid="34" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="132"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="137"/>
+					</targets>
+					<view ltx="865" lty="862" rbx="991" rby="901"/>
+				</component>
+				<component name="year-from-datetime" library="lang" uid="35" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="133"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="134"/>
+					</targets>
+					<view ltx="865" lty="815" rbx="984" rby="854"/>
+				</component>
+				<component name="db" library="db" uid="3" kind="15">
 					<properties/>
 					<view ltx="-48" lty="40" rbx="344" rby="660"/>
 					<data>
@@ -181,7 +225,7 @@
 								<namespaces/>
 							</header>
 							<entry name="document" expanded="1">
-								<entry name="public.goodreads_authors" type="table" outkey="24" expanded="1">
+								<entry name="goodreads.goodreads_authors" type="table" outkey="24" expanded="1">
 									<entry name="name" outkey="25"/>
 									<entry name="gender" outkey="26"/>
 									<entry name="hometown" outkey="27"/>
@@ -191,7 +235,7 @@
 									<entry name="average_rating" outkey="30"/>
 									<entry name="ratings_count" outkey="31"/>
 									<entry name="goodreads_author" outkey="32"/>
-									<entry name="public.goodreads_books|author_id" type="table" outkey="33" expanded="1">
+									<entry name="goodreads.goodreads_books|author_id" type="table" outkey="33" expanded="1">
 										<entry name="id" outkey="34"/>
 										<entry name="title" outkey="35"/>
 										<entry name="average_rating" outkey="36"/>
@@ -213,19 +257,19 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="informationintegration">
+						<database ref="infoint">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="informationintegration" Kind="DataSource"/>
-										<PathElement Name="informationintegration" Kind="Database"/>
-										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="goodreads" Kind="Schema"/>
 										<PathElement Name="goodreads_authors" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="informationintegration" Kind="DataSource"/>
-										<PathElement Name="informationintegration" Kind="Database"/>
-										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="goodreads" Kind="Schema"/>
 										<PathElement Name="goodreads_books" Kind="Table"/>
 									</selection>
 								</selections>
@@ -233,26 +277,26 @@
 						</database>
 					</data>
 				</component>
-				<component name="structure" library="db" uid="2" kind="15">
+				<component name="db" library="db" uid="2" kind="15">
 					<properties XSLTDefaultOutput="1"/>
 					<view ltx="1046" lty="-160" rbx="1672" rby="920"/>
 					<data>
-						<root scrollposition="1">
+						<root scrollposition="26">
 							<header>
 								<namespaces/>
 							</header>
 							<entry name="document" expanded="1">
-								<entry name="public.person" type="table" inpkey="50" expanded="1">
+								<entry name="integrated.person" type="table" inpkey="50" expanded="1">
 									<entry name="id" inpkey="11"/>
 									<entry name="first_name" inpkey="51"/>
 									<entry name="last_name" inpkey="52"/>
 									<entry name="gender" inpkey="53"/>
-									<entry name="public.author|person_id" type="table" inpkey="54" expanded="1">
+									<entry name="integrated.author|person_id" type="table" inpkey="54" expanded="1">
 										<entry name="fans_count" inpkey="55"/>
 										<entry name="average_rating" inpkey="56"/>
 										<entry name="ratings_count" inpkey="57"/>
 										<entry name="goodreads_author" inpkey="58"/>
-										<entry name="public.book|author" type="table" inpkey="59" expanded="1">
+										<entry name="integrated.book|author" type="table" inpkey="59" expanded="1">
 											<entry name="id" inpkey="60"/>
 											<entry name="title" inpkey="61"/>
 											<entry name="average_rating" inpkey="62"/>
@@ -269,84 +313,66 @@
 											<entry name="text_reviews_count" inpkey="73"/>
 										</entry>
 									</entry>
-									<entry name="public.birth|person_id" type="table" inpkey="74" expanded="1">
+									<entry name="integrated.birth|person_id" type="table" inpkey="74" expanded="1">
 										<entry name="place_id" inpkey="75"/>
-										<entry name="date" inpkey="4"/>
-										<entry name="public.place|place_id" type="table" inpkey="76" expanded="1">
+										<entry name="year" inpkey="129"/>
+										<entry name="month" inpkey="131"/>
+										<entry name="day" inpkey="130"/>
+										<entry name="integrated.place|place_id" type="table" inpkey="76" expanded="1">
 											<entry name="name" inpkey="77"/>
 										</entry>
 									</entry>
-									<entry name="public.death|person_id" type="table" inpkey="78" expanded="1">
-										<entry name="date" inpkey="79"/>
+									<entry name="integrated.death|person_id" type="table" inpkey="78" expanded="1">
+										<entry name="year" inpkey="138"/>
+										<entry name="month" inpkey="139"/>
+										<entry name="day" inpkey="140"/>
 									</entry>
 								</entry>
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="integrated">
+						<database ref="infoint">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="integrated" Kind="DataSource"/>
-										<PathElement Name="integrated" Kind="Database"/>
-										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="author" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="integrated" Kind="DataSource"/>
-										<PathElement Name="integrated" Kind="Database"/>
-										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="birth" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="integrated" Kind="DataSource"/>
-										<PathElement Name="integrated" Kind="Database"/>
-										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="book" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="integrated" Kind="DataSource"/>
-										<PathElement Name="integrated" Kind="Database"/>
-										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="death" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="integrated" Kind="DataSource"/>
-										<PathElement Name="integrated" Kind="Database"/>
-										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="person" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="integrated" Kind="DataSource"/>
-										<PathElement Name="integrated" Kind="Database"/>
-										<PathElement Name="public" Kind="Schema"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="place" Kind="Table"/>
 									</selection>
 								</selections>
 							</data>
 						</database>
-					</data>
-				</component>
-				<component name="parse-date" library="core" uid="25" kind="5">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="8"/>
-						<datapoint pos="1" key="9"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="7"/>
-					</targets>
-					<view ltx="851" lty="799" rbx="931" rby="855"/>
-				</component>
-				<component name="constant" library="core" uid="24" kind="2">
-					<properties/>
-					<targets>
-						<datapoint pos="0" key="6"/>
-					</targets>
-					<view ltx="642" lty="798" rbx="729" rby="816"/>
-					<data>
-						<constant value="[Y]/[M]/[D]" datatype="string"/>
-						<wsdl/>
 					</data>
 				</component>
 			</children>
@@ -355,13 +381,15 @@
 				<vertices>
 					<vertex vertexkey="3">
 						<edges>
-							<edge vertexkey="4" edgekey="80"/>
+							<edge vertexkey="127" edgekey="141"/>
+							<edge vertexkey="125" edgekey="142"/>
+							<edge vertexkey="123" edgekey="143"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="5">
 						<edges>
 							<edge vertexkey="1" edgekey="81"/>
-							<edge vertexkey="74" edgekey="82"/>
+							<edge vertexkey="74" edgekey="144"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="6">
@@ -372,7 +400,9 @@
 					</vertex>
 					<vertex vertexkey="7">
 						<edges>
-							<edge vertexkey="79" edgekey="85"/>
+							<edge vertexkey="133" edgekey="145"/>
+							<edge vertexkey="132" edgekey="146"/>
+							<edge vertexkey="136" edgekey="147"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="10">
@@ -538,6 +568,36 @@
 					<vertex vertexkey="49">
 						<edges>
 							<edge vertexkey="73" edgekey="122"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="124">
+						<edges>
+							<edge vertexkey="130" edgekey="148"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="126">
+						<edges>
+							<edge vertexkey="131" edgekey="149"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="128">
+						<edges>
+							<edge vertexkey="129" edgekey="150"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="134">
+						<edges>
+							<edge vertexkey="138" edgekey="151"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="135">
+						<edges>
+							<edge vertexkey="140" edgekey="152"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="137">
+						<edges>
+							<edge vertexkey="139" edgekey="153"/>
 						</edges>
 					</vertex>
 				</vertices>

@@ -268,6 +268,41 @@ ALTER TABLE ONLY gnd_place_id
 ALTER TABLE ONLY gnd_work_id
     ADD CONSTRAINT gnd_work_id_fkey FOREIGN KEY (id) REFERENCES integrated.work(id);
 
+-----------------
+-- wikidata stuff
+-----------------
+
+CREATE TABLE wikidata_person (
+    wikidata_person_id character varying,
+    integrated_person_id integer,
+    primary key(integrated_person_id)
+);
+
+ALTER TABLE wikidata_person OWNER TO postgres;
+alter table only wikidata_person
+    add constraint mapping_wd_person_id_fkey foreign key (integrated_person_id) references integrated.person(id);
+
+
+CREATE TABLE wikidata_place (
+    wikidata_place_id character varying,
+    integrated_place_id integer,
+    primary key(integrated_place_id)
+);
+
+ALTER TABLE wikidata_place OWNER TO postgres;
+alter table only wikidata_place
+    add constraint mapping_wd_place_id_fkey foreign key (integrated_place_id) references integrated.place(id);
+
+
+CREATE TABLE wikidata_occupation (
+    wikidata_occupation_id character varying,
+    integrated_occupation_id integer,
+    primary key(integrated_occupation_id)
+);
+
+ALTER TABLE wikidata_occupation OWNER TO postgres;
+alter table only wikidata_occupation
+    add constraint mapping_wd_occupation_id_fkey foreign key (integrated_occupation_id) references integrated.occupation(id);
 
 --
 -- PostgreSQL database dump complete
