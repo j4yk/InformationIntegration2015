@@ -47,264 +47,6 @@
 		<properties ShowLibraryNameInHeader="1" SelectedLanguage="builtin"/>
 		<structure>
 			<children>
-				<component name="person-start-id" library="user" blackbox="0" uid="334" kind="19" visible="0">
-					<view ltx="1" lty="352" rbx="123" rby="369"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces/>
-							</header>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="person-start-id" outkey="5" componentid="107"/>
-						</root>
-					</data>
-				</component>
-				<component name="attribute-id" library="user" blackbox="0" uid="336" kind="19" visible="0">
-					<view ltx="306" lty="352" rbx="455" rby="369"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="start_id" inpkey="3" componentid="343"/>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="attribute_id" outkey="4" componentid="341"/>
-						</root>
-					</data>
-				</component>
-				<component name="place-start-id" library="user" blackbox="0" uid="337" kind="19" visible="0">
-					<view ltx="1" lty="422" rbx="112" rby="439"/>
-					<data>
-						<root>
-							<header>
-								<namespaces/>
-							</header>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="place-start-id" outkey="33" componentid="242"/>
-						</root>
-					</data>
-				</component>
-				<component name="structure" library="core" uid="338" kind="29">
-					<properties/>
-					<view ltx="140" lty="422" rbx="273" rby="458"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace uid="http://www.altova.com/mapforce"/>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="compute-when">
-								<setting value="once"/>
-							</entry>
-							<entry name="document" expanded="1">
-								<entry name="value" ns="1" inpkey="34" outkey="36"/>
-							</entry>
-						</root>
-						<wsdl/>
-						<variable datatype="ID"/>
-						<parameter usageKind="variable"/>
-					</data>
-				</component>
-				<component name="attribute-id" library="user" blackbox="0" uid="339" kind="19" visible="0">
-					<view ltx="306" lty="422" rbx="455" rby="439"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="start_id" inpkey="37" componentid="343"/>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="attribute_id" outkey="56" componentid="341"/>
-						</root>
-					</data>
-				</component>
-				<component name="structure" library="core" uid="350" kind="29">
-					<properties/>
-					<view ltx="140" lty="488" rbx="273" rby="524"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace uid="http://www.altova.com/mapforce"/>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="compute-when">
-								<setting value="once"/>
-							</entry>
-							<entry name="document" expanded="1">
-								<entry name="value" ns="1" inpkey="65" outkey="62"/>
-							</entry>
-						</root>
-						<wsdl/>
-						<variable datatype="ID"/>
-						<parameter usageKind="variable"/>
-					</data>
-				</component>
-				<component name="work-start-id" library="user" blackbox="0" uid="353" kind="19" visible="0">
-					<view ltx="1" lty="488" rbx="112" rby="505"/>
-					<data>
-						<root>
-							<header>
-								<namespaces/>
-							</header>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="work-start-id" outkey="67" componentid="347"/>
-						</root>
-					</data>
-				</component>
-				<component name="structure" library="core" uid="355" kind="29">
-					<properties/>
-					<view ltx="179" lty="557" rbx="312" rby="593"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace uid="http://www.altova.com/mapforce"/>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="compute-when">
-								<setting value="once"/>
-							</entry>
-							<entry name="document" expanded="1">
-								<entry name="value" ns="1" inpkey="84" outkey="81"/>
-							</entry>
-						</root>
-						<wsdl/>
-						<variable datatype="ID"/>
-						<parameter usageKind="variable"/>
-					</data>
-				</component>
-				<component name="structure" library="core" uid="335" kind="29">
-					<properties/>
-					<view ltx="151" lty="352" rbx="284" rby="388"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace uid="http://www.altova.com/mapforce"/>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="compute-when">
-								<setting value="once"/>
-							</entry>
-							<entry name="document" expanded="1">
-								<entry name="value" ns="1" inpkey="6" outkey="2"/>
-							</entry>
-						</root>
-						<wsdl/>
-						<variable datatype="ID"/>
-						<parameter usageKind="variable"/>
-					</data>
-				</component>
-				<component name="occupation-start-id" library="user" blackbox="0" uid="354" kind="19" visible="0">
-					<view ltx="1" lty="557" rbx="143" rby="574"/>
-					<data>
-						<root>
-							<header>
-								<namespaces/>
-							</header>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="occupation-start-id" outkey="83" componentid="209"/>
-						</root>
-					</data>
-				</component>
-				<component name="attribute-id" library="user" blackbox="0" uid="357" kind="19" visible="0">
-					<view ltx="338" lty="581" rbx="487" rby="598"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="start_id" inpkey="82" componentid="343"/>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="attribute_id" outkey="87" componentid="341"/>
-						</root>
-					</data>
-				</component>
-				<component name="attribute-id" library="user" blackbox="0" uid="351" kind="19" visible="0">
-					<view ltx="306" lty="473" rbx="455" rby="490"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="start_id" inpkey="63" componentid="343"/>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="attribute_id" outkey="66" componentid="341"/>
-						</root>
-					</data>
-				</component>
-				<component name="distinct-values" library="core" uid="356" kind="5">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="85"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="86"/>
-					</targets>
-					<view ltx="338" lty="529" rbx="468" rby="568"/>
-				</component>
 				<component name="occupation-id-from-occupation-name" library="user" blackbox="0" uid="360" kind="19" visible="0">
 					<view ltx="962" lty="338" rbx="1179" rby="355"/>
 					<data>
@@ -812,6 +554,27 @@
 					</targets>
 					<view ltx="456" lty="161" rbx="553" rby="200"/>
 				</component>
+				<component name="value-map" library="core" uid="520" kind="23">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="314"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="315"/>
+					</targets>
+					<view ltx="282" lty="197" rbx="392" rby="236"/>
+					<data>
+						<wsdl/>
+						<valuemap>
+							<valuemapTable>
+								<entry from="1" to="m"/>
+								<entry from="2" to="f"/>
+							</valuemapTable>
+							<input name="input" type="string"/>
+							<result name="result" type="string"/>
+						</valuemap>
+					</data>
+				</component>
 				<component name="structure" library="db" uid="328" kind="15">
 					<properties/>
 					<view ltx="529" lty="306" rbx="897" rby="597"/>
@@ -822,14 +585,20 @@
 							</header>
 							<entry name="document" expanded="1">
 								<entry name="integrated.occupation" type="table" inpkey="104">
-									<entry name="id" inpkey="105"/>
+									<tableactions>
+										<action proceedchildren="1"/>
+									</tableactions>
+									<entry name="id" valuekeygeneration="maxnumber"/>
 									<entry name="label" inpkey="106"/>
 									<entry name="mapping.gnd_occupation_id|id" type="table" expanded="1">
 										<entry name="name" inpkey="107"/>
 									</entry>
 								</entry>
-								<entry name="integrated.person" type="table" inpkey="17" expanded="1">
-									<entry name="id" inpkey="18"/>
+								<entry name="integrated.person" type="table" inpkey="17">
+									<tableactions>
+										<action proceedchildren="1"/>
+									</tableactions>
+									<entry name="id" valuekeygeneration="maxnumber"/>
 									<entry name="first_name" inpkey="19"/>
 									<entry name="last_name" inpkey="20"/>
 									<entry name="gender" inpkey="21"/>
@@ -838,7 +607,10 @@
 									</entry>
 								</entry>
 								<entry name="integrated.place" type="table" inpkey="45">
-									<entry name="id" inpkey="58"/>
+									<tableactions>
+										<action proceedchildren="1"/>
+									</tableactions>
+									<entry name="id" valuekeygeneration="maxnumber"/>
 									<entry name="name" inpkey="46"/>
 									<entry name="latitude" inpkey="47"/>
 									<entry name="longitude" inpkey="48"/>
@@ -846,8 +618,11 @@
 										<entry name="gnd_id" inpkey="59"/>
 									</entry>
 								</entry>
-								<entry name="integrated.work" type="table" inpkey="68">
-									<entry name="id" inpkey="69"/>
+								<entry name="integrated.work" type="table" inpkey="68" expanded="1">
+									<tableactions>
+										<action proceedchildren="1"/>
+									</tableactions>
+									<entry name="id" valuekeygeneration="maxnumber"/>
 									<entry name="name" inpkey="70"/>
 									<entry name="mapping.gnd_work_id|id" type="table" expanded="1">
 										<entry name="gnd_id" inpkey="71"/>
@@ -916,6 +691,16 @@
 						</database>
 					</data>
 				</component>
+				<component name="distinct-values" library="core" uid="356" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="85"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="86"/>
+					</targets>
+					<view ltx="324" lty="386" rbx="454" rby="425"/>
+				</component>
 				<component name="structure" library="db" uid="327" kind="15">
 					<properties/>
 					<view ltx="1" lty="-10" rbx="197" rby="304"/>
@@ -930,7 +715,7 @@
 									<entry name="person1" outkey="144"/>
 									<entry name="type" outkey="132"/>
 								</entry>
-								<entry name="gnd.persons" type="table" outkey="7" expanded="1">
+								<entry name="gnd.persons" type="table" outkey="7">
 									<entry name="gender" outkey="8"/>
 									<entry name="name" outkey="9"/>
 									<entry name="place_of_birth" outkey="209"/>
@@ -995,46 +780,10 @@
 						</database>
 					</data>
 				</component>
-				<component name="value-map" library="core" uid="520" kind="23">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="314"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="315"/>
-					</targets>
-					<view ltx="282" lty="197" rbx="392" rby="236"/>
-					<data>
-						<wsdl/>
-						<valuemap>
-							<valuemapTable>
-								<entry from="1" to="m"/>
-								<entry from="2" to="f"/>
-							</valuemapTable>
-							<input name="input" type="string"/>
-							<result name="result" type="string"/>
-						</valuemap>
-					</data>
-				</component>
 			</children>
 			<graph directed="1">
 				<edges/>
 				<vertices>
-					<vertex vertexkey="2">
-						<edges>
-							<edge vertexkey="3" edgekey="22"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="4">
-						<edges>
-							<edge vertexkey="18" edgekey="23"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="5">
-						<edges>
-							<edge vertexkey="6" edgekey="24"/>
-						</edges>
-					</vertex>
 					<vertex vertexkey="7">
 						<edges>
 							<edge vertexkey="17" edgekey="25"/>
@@ -1050,16 +799,6 @@
 					<vertex vertexkey="9">
 						<edges>
 							<edge vertexkey="222" edgekey="234"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="33">
-						<edges>
-							<edge vertexkey="34" edgekey="49"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="36">
-						<edges>
-							<edge vertexkey="37" edgekey="50"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="39">
@@ -1090,29 +829,9 @@
 							<edge vertexkey="46" edgekey="55"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="56">
-						<edges>
-							<edge vertexkey="58" edgekey="60"/>
-						</edges>
-					</vertex>
 					<vertex vertexkey="57">
 						<edges>
 							<edge vertexkey="59" edgekey="61"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="62">
-						<edges>
-							<edge vertexkey="63" edgekey="75"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="66">
-						<edges>
-							<edge vertexkey="69" edgekey="76"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="67">
-						<edges>
-							<edge vertexkey="65" edgekey="77"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="72">
@@ -1130,26 +849,11 @@
 							<edge vertexkey="70" edgekey="80"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="81">
-						<edges>
-							<edge vertexkey="82" edgekey="111"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="83">
-						<edges>
-							<edge vertexkey="84" edgekey="112"/>
-						</edges>
-					</vertex>
 					<vertex vertexkey="86">
 						<edges>
 							<edge vertexkey="104" edgekey="113"/>
 							<edge vertexkey="106" edgekey="114"/>
 							<edge vertexkey="107" edgekey="115"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="87">
-						<edges>
-							<edge vertexkey="105" edgekey="116"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="94">
@@ -2668,7 +2372,6 @@
 	</component>
 	<component name="person-id-from-gnd-id" library="user" blackbox="0" uid="373" editable="1" inline="1">
 		<properties/>
-		<description/>
 		<structure>
 			<children>
 				<component name="constant" library="core" uid="375" kind="2">
@@ -2693,17 +2396,6 @@
 						<wsdl/>
 						<parameter usageKind="output" name="person_id"/>
 					</data>
-				</component>
-				<component name="first-items" library="core" uid="378" kind="5">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="2"/>
-						<datapoint pos="1" key="4"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="13"/>
-					</targets>
-					<view ltx="483" lty="13" rbx="591" rby="69"/>
 				</component>
 				<component name="gnd_id" library="core" uid="380" kind="6">
 					<properties/>
@@ -2798,6 +2490,17 @@
 						<wsdl/>
 					</data>
 				</component>
+				<component name="first-items" library="core" uid="378" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="2"/>
+						<datapoint pos="1" key="4"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="13"/>
+					</targets>
+					<view ltx="483" lty="13" rbx="591" rby="69"/>
+				</component>
 			</children>
 			<graph directed="1">
 				<edges/>
@@ -2843,7 +2546,6 @@
 	</component>
 	<component name="work-id-from-gnd-id" library="user" blackbox="0" uid="386" editable="1" inline="1">
 		<properties/>
-		<description/>
 		<structure>
 			<children>
 				<component name="gnd_id" library="core" uid="390" kind="6">
@@ -3018,7 +2720,6 @@
 	</component>
 	<component name="place-id-from-gnd-id" library="user" blackbox="0" uid="404" editable="1" inline="1">
 		<properties/>
-		<description/>
 		<structure>
 			<children>
 				<component name="constant" library="core" uid="406" kind="2">
@@ -3193,7 +2894,6 @@
 	</component>
 	<component name="seperate-gnd-name" library="user" blackbox="0" uid="419" editable="1" inline="1">
 		<properties/>
-		<description/>
 		<structure>
 			<children>
 				<component name="constant" library="core" uid="422" kind="2">
@@ -3300,7 +3000,6 @@
 	</component>
 	<component name="seperate-gnd-lifespan" library="user" blackbox="0" uid="434" editable="1" inline="1">
 		<properties/>
-		<description/>
 		<structure>
 			<children>
 				<component name="substring-after" library="core" uid="438" kind="5">
@@ -3531,7 +3230,6 @@
 	</component>
 	<component name="seperate-gnd-date" library="user" blackbox="0" uid="442" editable="1" inline="1">
 		<properties/>
-		<description/>
 		<structure>
 			<children>
 				<component name="date" library="core" uid="444" kind="6">
@@ -3829,7 +3527,6 @@
 	</component>
 	<component name="is-not-null-3-input" library="user" blackbox="0" uid="499" editable="1" inline="1">
 		<properties/>
-		<description/>
 		<structure>
 			<children>
 				<component name="is-not-null" library="db" uid="502" kind="5">
