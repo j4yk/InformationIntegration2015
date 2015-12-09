@@ -3,20 +3,20 @@
 <mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="22">
 	<resources>
 		<datasources>
-			<datasource name="informationIntegration">
-				<properties JDBCDriver="org.postgresql.Driver" JDBCDatabaseURL="jdbc:postgresql://localhost:5432/informationIntegration" DBUser="postgres" DBPassword="ferien09" DBDataSource="PostgreSQL35W" DBCatalog="informationIntegration" OLEDBOptions="Port=5432;B0=16777215;BI=0;"/>
-				<database_connection database_kind="PostgreSQL" import_kind="ODBC" version="9.4.5" ConnectionString="DSN=PostgreSQL35W;DATABASE=informationIntegration;SERVER=localhost;PORT=5432;UID=postgres;PWD=ferien09;SSLmode=disable;ReadOnly=0;Protocol=7.4;FakeOidIndex=0;ShowOidColumn=0;RowVersioning=0;ShowSystemTables=0;ConnSettings=;Fetch=100;Socket=4096;UnknownSizes=0;MaxVarcharSize=255;MaxLongVarcharSize=8190;Debug=0;CommLog=0;Optimizer=0;Ksqo=1;UseDeclareFetch=0;TextAsLongVarchar=1;UnknownsAsLongVarchar=0;BoolsAsChar=1;Parse=0;CancelAsFreeStmt=0;ExtraSysTablePrefixes=dd_;;LFConversion=1;UpdatableCursors=1;DisallowPremature=0;TrueIsMinus1=0;BI=0;ByteaAsLongVarBinary=0;UseServerSidePrepare=1;LowerCaseIdentifier=0;GssAuthUseGSS=0;XaOpt=1" name="informationIntegration" path="informationIntegration">
+			<datasource name="infoint">
+				<properties JDBCDriver="org.postgresql.Driver" JDBCDatabaseURL="jdbc:postgresql://localhost:5432/infoint" DBUser="postgres" DBPassword="ferien09" DBDataSource="PostgreSQL30_1" DBCatalog="infoint" OLEDBOptions="Port=5432;B0=16777215;BI=0;"/>
+				<database_connection database_kind="PostgreSQL" import_kind="ODBC" version="9.4.5" ConnectionString="DSN=PostgreSQL30_1;DATABASE=infoint;SERVER=localhost;PORT=5432;UID=postgres;PWD=ferien09;SSLmode=disable;ReadOnly=0;Protocol=7.4;FakeOidIndex=0;ShowOidColumn=0;RowVersioning=0;ShowSystemTables=0;ConnSettings=;Fetch=100;Socket=4096;UnknownSizes=0;MaxVarcharSize=255;MaxLongVarcharSize=8190;Debug=0;CommLog=0;Optimizer=0;Ksqo=1;UseDeclareFetch=0;TextAsLongVarchar=1;UnknownsAsLongVarchar=0;BoolsAsChar=1;Parse=0;CancelAsFreeStmt=0;ExtraSysTablePrefixes=dd_;;LFConversion=1;UpdatableCursors=1;DisallowPremature=0;TrueIsMinus1=0;BI=0;ByteaAsLongVarBinary=0;UseServerSidePrepare=1;LowerCaseIdentifier=0;GssAuthUseGSS=0;XaOpt=1" name="infoint" path="infoint">
 					<properties>
 						<property name="Database Kind" value="PostgreSQL"/>
 						<property name="Import Kind" value="ODBC"/>
-						<property name="Root Object" value="informationIntegration"/>
+						<property name="Root Object" value="infoint"/>
 						<property name="FileDsn"/>
-						<property name="Dsn" value="PostgreSQL35W"/>
+						<property name="Dsn" value="PostgreSQL30_1"/>
 						<property name="Driver"/>
 						<property name="Trusted_Connection"/>
 						<property name="App"/>
 						<property name="Server" value="localhost"/>
-						<property name="Database" value="informationIntegration"/>
+						<property name="Database" value="infoint"/>
 						<property name="Regional"/>
 						<property name="Languages"/>
 						<property name="Wsid"/>
@@ -39,8 +39,8 @@
 					<LocalViewStorage>
 						<LocalViewElement SQL="SELECT id from integrated.person
 ">
-							<PathElement Name="informationIntegration" Kind="DataSource"/>
-							<PathElement Name="informationIntegration" Kind="Database"/>
+							<PathElement Name="infoint" Kind="DataSource"/>
+							<PathElement Name="infoint" Kind="Database"/>
 							<PathElement Name="integrated" Kind="Schema"/>
 							<PathElement Name="SELECT_Statement" Kind="Select Statement"/>
 						</LocalViewElement>
@@ -55,88 +55,10 @@
 		<properties SelectedLanguage="builtin"/>
 		<structure>
 			<children>
-				<component name="constant" library="core" uid="207" kind="2">
-					<properties/>
-					<targets>
-						<datapoint pos="0" key="244"/>
-					</targets>
-					<view ltx="926" lty="287" rbx="1018" rby="305"/>
-					<data>
-						<constant value="Bundestag" datatype="string"/>
-						<wsdl/>
-					</data>
-				</component>
-				<component name="person id from abgeordneten name" library="user" blackbox="0" uid="220" kind="19" visible="0">
-					<view ltx="652" lty="456" rbx="867" rby="490"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="abgeordneten_name" inpkey="276" componentid="163"/>
-							<entry name="values" inpkey="277" componentid="205"/>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="person_id" outkey="275" componentid="164"/>
-						</root>
-					</data>
-				</component>
-				<component name="person id from abgeordneten name" library="user" blackbox="0" uid="223" kind="19" visible="0">
-					<view ltx="664" lty="609" rbx="879" rby="643"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="abgeordneten_name" inpkey="299" componentid="163"/>
-							<entry name="values" inpkey="300" componentid="205"/>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="person_id" outkey="301" componentid="164"/>
-						</root>
-					</data>
-				</component>
-				<component name="structure" library="core" uid="116" kind="29">
-					<properties/>
-					<view ltx="109" lty="575" rbx="242" rby="611"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace uid="http://www.altova.com/mapforce"/>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="compute-when">
-								<setting value="once"/>
-							</entry>
-							<entry name="document" expanded="1">
-								<entry name="value" ns="1" inpkey="153" outkey="149"/>
-							</entry>
-						</root>
-						<wsdl/>
-						<variable datatype="ID"/>
-						<parameter usageKind="variable"/>
-					</data>
-				</component>
 				<component name="split name" library="user" blackbox="0" uid="189" kind="19" visible="0">
-					<view ltx="277" lty="499" rbx="409" rby="533"/>
+					<view ltx="204" lty="-62" rbx="322" rby="-30"/>
 					<data>
-						<root scrollposition="1">
+						<root>
 							<header>
 								<namespaces>
 									<namespace/>
@@ -155,176 +77,16 @@
 						</root>
 					</data>
 				</component>
-				<component name="party id from fraktion_name" library="user" blackbox="0" uid="211" kind="19" visible="0">
-					<view ltx="652" lty="528" rbx="820" rby="562"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="fraktion_name" inpkey="250" componentid="214"/>
-							<entry name="values" inpkey="251" componentid="215"/>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="party_id" outkey="252" componentid="213"/>
-						</root>
-					</data>
-				</component>
-				<component name="attribute_id" library="user" blackbox="0" uid="159" kind="19" visible="0">
-					<view ltx="444" lty="637" rbx="593" rby="671"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="values" inpkey="163" componentid="140"/>
-							<entry name="start_id" inpkey="165" componentid="142"/>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="attribute_id" outkey="167" componentid="141"/>
-						</root>
-					</data>
-				</component>
-				<component name="structure" library="core" uid="158" kind="29">
-					<properties/>
-					<view ltx="109" lty="641" rbx="242" rby="677"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace uid="http://www.altova.com/mapforce"/>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="compute-when">
-								<setting value="once"/>
-							</entry>
-							<entry name="document" expanded="1">
-								<entry name="value" ns="1" inpkey="166" outkey="164"/>
-							</entry>
-						</root>
-						<wsdl/>
-						<variable datatype="ID"/>
-						<parameter usageKind="variable"/>
-					</data>
-				</component>
-				<component name="party_start_id" library="user" blackbox="0" uid="157" kind="19" visible="0">
-					<view ltx="8" lty="654" rbx="85" rby="671"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces/>
-							</header>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="result2" outkey="170" componentid="149"/>
-						</root>
-					</data>
-				</component>
-				<component name="distinct-values" library="core" uid="160" kind="5">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="169"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="168"/>
-					</targets>
-					<view ltx="305" lty="637" rbx="402" rby="676"/>
-				</component>
-				<component name="db" library="db" uid="4" kind="15">
-					<properties/>
-					<view ltx="470" lty="17" rbx="692" rby="310"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces/>
-							</header>
-							<entry name="document" expanded="1">
-								<entry name="integrated.committee" type="table" inpkey="177">
-									<entry name="name" inpkey="178"/>
-									<entry name="url" inpkey="179"/>
-									<entry name="flyer_url" inpkey="180"/>
-									<entry name="info_text" inpkey="181"/>
-								</entry>
-								<entry name="integrated.party" type="table" inpkey="182" expanded="1">
-									<entry name="id" inpkey="183"/>
-									<entry name="name" inpkey="184"/>
-								</entry>
-								<entry name="integrated.person" type="table" inpkey="5" expanded="1">
-									<entry name="id" inpkey="6"/>
-									<entry name="first_name" inpkey="37"/>
-									<entry name="last_name" inpkey="38"/>
-									<entry name="gender" inpkey="7"/>
-									<entry name="url" inpkey="8"/>
-									<entry name="integrated.politician|person_id" type="table">
-										<entry name="state" inpkey="39"/>
-									</entry>
-								</entry>
-							</entry>
-						</root>
-						<wsdl/>
-						<database ref="informationIntegration">
-							<data>
-								<selections>
-									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="committee" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="party" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="person" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="politician" Kind="Table"/>
-									</selection>
-								</selections>
-							</data>
-						</database>
-					</data>
-				</component>
 				<component name="person id from abgeordneten name" library="user" blackbox="0" uid="194" kind="19" visible="0">
-					<view ltx="652" lty="390" rbx="867" rby="424"/>
+					<view ltx="628" lty="210" rbx="823" rby="226"/>
 					<data>
-						<root scrollposition="1">
+						<root>
 							<header>
 								<namespaces>
 									<namespace/>
 								</namespaces>
 							</header>
 							<entry name="abgeordneten_name" inpkey="206" componentid="163"/>
-							<entry name="values" inpkey="211" componentid="205"/>
 						</root>
 						<root rootindex="1">
 							<header>
@@ -336,13 +98,16 @@
 						</root>
 					</data>
 				</component>
-				<component name="person_start_id" library="user" blackbox="0" uid="137" kind="19" visible="0">
-					<view ltx="8" lty="575" rbx="79" rby="592"/>
+				<component name="person id from abgeordneten name" library="user" blackbox="0" uid="234" kind="19" visible="0">
+					<view ltx="629" lty="266" rbx="824" rby="282"/>
 					<data>
-						<root scrollposition="1">
+						<root>
 							<header>
-								<namespaces/>
+								<namespaces>
+									<namespace/>
+								</namespaces>
 							</header>
+							<entry name="abgeordneten_name" inpkey="400" componentid="163"/>
 						</root>
 						<root rootindex="1">
 							<header>
@@ -350,102 +115,71 @@
 									<namespace/>
 								</namespaces>
 							</header>
-							<entry name="result" outkey="155" componentid="119"/>
+							<entry name="person_id" outkey="399" componentid="164"/>
 						</root>
 					</data>
 				</component>
-				<component name="person_start_id" library="user" blackbox="0" uid="233" kind="19" visible="0">
-					<view ltx="-219" lty="-64" rbx="-148" rby="-47"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces/>
-							</header>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="result" outkey="376" componentid="119"/>
-						</root>
-					</data>
-				</component>
-				<component name="auto-number" library="core" uid="227" kind="5">
+				<component name="db" library="db" uid="251" kind="15">
 					<properties/>
-					<sources>
-						<datapoint/>
-						<datapoint pos="1" key="373"/>
-						<datapoint/>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="362"/>
-					</targets>
-					<view ltx="-108" lty="-89" rbx="23" rby="1"/>
-				</component>
-				<component name="structure" library="core" uid="229" kind="29">
-					<properties/>
-					<view ltx="39" lty="-89" rbx="142" rby="-53"/>
+					<view ltx="-62" lty="-183" rbx="88" rby="17"/>
 					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-									<namespace uid="http://www.altova.com/mapforce"/>
-								</namespaces>
-							</header>
-							<entry name="document" ns="1" expanded="1">
-								<entry name="value" inpkey="377" outkey="378"/>
-							</entry>
-						</root>
-						<wsdl/>
-						<variable datatype="ID"/>
-						<parameter usageKind="variable"/>
-					</data>
-				</component>
-				<component name="structure" library="db" uid="228" kind="15">
-					<properties/>
-					<view ltx="160" lty="-89" rbx="310" rby="111"/>
-					<data>
-						<root scrollposition="1">
+						<root>
 							<header>
 								<namespaces/>
 							</header>
 							<entry name="document" expanded="1">
-								<entry name="saves.Person" type="table" inpkey="379" expanded="1">
-									<entry name="abgeordneter" inpkey="380"/>
-									<entry name="id" inpkey="381"/>
+								<entry name="integrated.country" type="table" expanded="1">
+									<tableactions>
+										<action proceedchildren="1"/>
+									</tableactions>
+									<entry name="id" valuekeygeneration="maxnumber"/>
+									<entry name="name" inpkey="404"/>
+									<entry name="mapping.bundestag_country_id|id" type="table" inpkey="414" expanded="1"/>
 								</entry>
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="informationIntegration">
+						<database ref="infoint">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
-										<PathElement Name="saves" Kind="Schema"/>
-										<PathElement Name="Person" Kind="Table"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="country" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="bundestag_country_id" Kind="Table"/>
 									</selection>
 								</selections>
 							</data>
 						</database>
 					</data>
 				</component>
-				<component name="attribute_id" library="user" blackbox="0" uid="146" kind="19" visible="0">
-					<view ltx="277" lty="571" rbx="426" rby="605"/>
+				<component name="constant" library="core" uid="250" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="403"/>
+					</targets>
+					<view ltx="-184" lty="-121" rbx="-101" rby="-107"/>
 					<data>
-						<root scrollposition="1">
+						<constant value="Deutschland" datatype="string"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="person id from abgeordneten name" library="user" blackbox="0" uid="220" kind="19" visible="0">
+					<view ltx="630" lty="438" rbx="825" rby="454"/>
+					<data>
+						<root>
 							<header>
 								<namespaces>
 									<namespace/>
 								</namespaces>
 							</header>
-							<entry name="values" inpkey="157" componentid="140"/>
-							<entry name="start_id" inpkey="158" componentid="142"/>
+							<entry name="abgeordneten_name" inpkey="276" componentid="163"/>
 						</root>
 						<root rootindex="1">
 							<header>
@@ -453,7 +187,216 @@
 									<namespace/>
 								</namespaces>
 							</header>
-							<entry name="attribute_id" outkey="159" componentid="141"/>
+							<entry name="person_id" outkey="275" componentid="164"/>
+						</root>
+					</data>
+				</component>
+				<component name="comittee id from comittee name" library="user" blackbox="0" uid="278" kind="19" visible="0">
+					<view ltx="641" lty="501" rbx="807" rby="517"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="comitteename" inpkey="425" componentid="271"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="comittee id" outkey="426" componentid="273"/>
+						</root>
+					</data>
+				</component>
+				<component name="person id from abgeordneten name" library="user" blackbox="0" uid="223" kind="19" visible="0">
+					<view ltx="652" lty="575" rbx="847" rby="591"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="abgeordneten_name" inpkey="299" componentid="163"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="person_id" outkey="301" componentid="164"/>
+						</root>
+					</data>
+				</component>
+				<component name="party id from fraktion_name" library="user" blackbox="0" uid="211" kind="19" visible="0">
+					<view ltx="664" lty="329" rbx="818" rby="345"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="fraktion_name" inpkey="250" componentid="214"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="party_id" outkey="252" componentid="213"/>
+						</root>
+					</data>
+				</component>
+				<component name="get country" library="user" blackbox="0" uid="261" kind="19" visible="0">
+					<view ltx="338" lty="1" rbx="409" rby="17"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="result2" outkey="422" componentid="256"/>
+						</root>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="207" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="244"/>
+					</targets>
+					<view ltx="350" lty="-60" rbx="425" rby="-46"/>
+					<data>
+						<constant value="Bundestag" datatype="string"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="create-guid" library="lang" uid="279" kind="5">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="432"/>
+					</targets>
+					<view ltx="318" lty="-119" rbx="386" rby="-88"/>
+				</component>
+				<component name="get Parliament" library="user" blackbox="0" uid="289" kind="19" visible="0">
+					<view ltx="723" lty="174" rbx="783" rby="190"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="uuid" outkey="437" componentid="283"/>
+						</root>
+					</data>
+				</component>
+				<component name="db" library="db" uid="42" kind="15">
+					<properties/>
+					<view ltx="1045" lty="125" rbx="1286" rby="601"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.auxiliary_income" type="table" inpkey="308">
+									<entry name="politician" inpkey="309"/>
+									<entry name="type" inpkey="310"/>
+									<entry name="year" inpkey="311"/>
+									<entry name="level" inpkey="312"/>
+									<entry name="start_date" inpkey="313"/>
+									<entry name="end_date" inpkey="314"/>
+									<entry name="periodical" inpkey="315"/>
+									<entry name="description" inpkey="316"/>
+								</entry>
+								<entry name="integrated.candidacy" type="table" inpkey="317" expanded="1">
+									<entry name="candidate" inpkey="318"/>
+									<entry name="parliament" inpkey="319"/>
+									<entry name="party_id" inpkey="320"/>
+									<entry name="state_id" inpkey="407"/>
+									<entry name="mandate" inpkey="321"/>
+									<entry name="ended" inpkey="322"/>
+								</entry>
+								<entry name="integrated.function" type="table" inpkey="323">
+									<entry name="committee_id" inpkey="427"/>
+									<entry name="politician" inpkey="324"/>
+									<entry name="function_name" inpkey="325"/>
+								</entry>
+								<entry name="integrated.person_party" type="table" inpkey="326" expanded="1">
+									<entry name="party_id" inpkey="327"/>
+									<entry name="person_id" inpkey="328"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="auxiliary_income" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="candidacy" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="function" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person_party" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="state name to state id" library="user" blackbox="0" uid="247" kind="19" visible="0">
+					<view ltx="663" lty="386" rbx="799" rby="402"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="state_name" inpkey="408" componentid="241"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="state_id" outkey="409" componentid="240"/>
 						</root>
 					</data>
 				</component>
@@ -461,7 +404,7 @@
 					<properties/>
 					<view ltx="-63" lty="156" rbx="180" rby="518"/>
 					<data>
-						<root scrollposition="1">
+						<root>
 							<header>
 								<namespaces/>
 							</header>
@@ -481,11 +424,15 @@
 									<entry name="flyer_url" outkey="175"/>
 									<entry name="info_text" outkey="176"/>
 								</entry>
-								<entry name="bundestag.funktion" type="table" outkey="279">
+								<entry name="bundestag.fraktion" type="table" outkey="387">
+									<entry name="name" outkey="388"/>
+								</entry>
+								<entry name="bundestag.funktion" type="table" outkey="279" expanded="1">
 									<entry name="abgeordneter" outkey="278"/>
 									<entry name="funktion" outkey="287"/>
+									<entry name="ausschuss" outkey="428"/>
 								</entry>
-								<entry name="bundestag.nebeneinkunft" type="table" outkey="212">
+								<entry name="bundestag.nebeneinkunft" type="table" outkey="212" expanded="1">
 									<entry name="abgeordneter" outkey="203"/>
 									<entry name="type" outkey="223"/>
 									<entry name="year" outkey="224"/>
@@ -498,42 +445,42 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="informationIntegration">
+						<database ref="infoint">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="bundestag" Kind="Schema"/>
 										<PathElement Name="abgeordneter" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="bundestag" Kind="Schema"/>
 										<PathElement Name="ausschuss" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="bundestag" Kind="Schema"/>
 										<PathElement Name="fraktion" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="bundestag" Kind="Schema"/>
 										<PathElement Name="funktion" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="bundestag" Kind="Schema"/>
 										<PathElement Name="nebeneinkunft" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="bundestag" Kind="Schema"/>
 										<PathElement Name="web" Kind="Table"/>
 									</selection>
@@ -542,69 +489,149 @@
 						</database>
 					</data>
 				</component>
-				<component name="db" library="db" uid="42" kind="15">
+				<component name="distinct-values" library="core" uid="249" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="412"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="413"/>
+					</targets>
+					<view ltx="214" lty="23" rbx="297" rby="54"/>
+				</component>
+				<component name="db" library="db" uid="4" kind="15">
 					<properties XSLTDefaultOutput="1"/>
-					<view ltx="1077" lty="194" rbx="1318" rby="670"/>
+					<view ltx="480" lty="-138" rbx="771" rby="142"/>
 					<data>
-						<root scrollposition="1">
+						<root scrollposition="71">
 							<header>
 								<namespaces/>
 							</header>
 							<entry name="document" expanded="1">
-								<entry name="integrated.auxiliary_income" type="table" inpkey="308">
-									<entry name="politician" inpkey="309"/>
-									<entry name="type" inpkey="310"/>
-									<entry name="year" inpkey="311"/>
-									<entry name="level" inpkey="312"/>
-									<entry name="start_date" inpkey="313"/>
-									<entry name="end_date" inpkey="314"/>
-									<entry name="periodical" inpkey="315"/>
-									<entry name="description" inpkey="316"/>
+								<entry name="integrated.committee" type="table" inpkey="177">
+									<tableactions>
+										<action proceedchildren="1"/>
+									</tableactions>
+									<entry name="id" valuekeygeneration="maxnumber"/>
+									<entry name="name" inpkey="178"/>
+									<entry name="url" inpkey="179"/>
+									<entry name="flyer_url" inpkey="180"/>
+									<entry name="info_text" inpkey="181"/>
+									<entry name="mapping.bundestag_committee_id|id" type="table" expanded="1">
+										<entry name="name" inpkey="389"/>
+									</entry>
 								</entry>
-								<entry name="integrated.candidacy" type="table" inpkey="317" expanded="1">
-									<entry name="candidate" inpkey="318"/>
-									<entry name="parliament" inpkey="319"/>
-									<entry name="party_id" inpkey="320"/>
-									<entry name="mandate" inpkey="321"/>
-									<entry name="ended" inpkey="322"/>
+								<entry name="integrated.parliament" type="table" expanded="1">
+									<entry name="uuid" inpkey="433"/>
+									<entry name="name" inpkey="434"/>
+									<entry name="mapping.bundestag_parliament_id|uuid" type="table" inpkey="439" expanded="1"/>
 								</entry>
-								<entry name="integrated.function" type="table" inpkey="323">
-									<entry name="politician" inpkey="324"/>
-									<entry name="function_name" inpkey="325"/>
+								<entry name="integrated.party" type="table" inpkey="182">
+									<tableactions>
+										<action proceedchildren="1"/>
+									</tableactions>
+									<entry name="id" valuekeygeneration="maxnumber"/>
+									<entry name="name" inpkey="184"/>
+									<entry name="mapping.bundestag_party_id|id" type="table" expanded="1">
+										<entry name="name" inpkey="390"/>
+									</entry>
 								</entry>
-								<entry name="integrated.person_party" type="table" inpkey="326" expanded="1">
-									<entry name="party_id" inpkey="327"/>
-									<entry name="person_id" inpkey="328"/>
+								<entry name="integrated.person" type="table" inpkey="5">
+									<tableactions>
+										<action proceedchildren="1"/>
+									</tableactions>
+									<entry name="id" valuekeygeneration="maxnumber"/>
+									<entry name="first_name" inpkey="37"/>
+									<entry name="last_name" inpkey="38"/>
+									<entry name="gender" inpkey="7"/>
+									<entry name="url" inpkey="8"/>
+									<entry name="integrated.politician|person_id" type="table" inpkey="391"/>
+									<entry name="mapping.bundestag_person_id|id" type="table" expanded="1">
+										<entry name="name" inpkey="392"/>
+									</entry>
+								</entry>
+								<entry name="integrated.state" type="table" inpkey="410" expanded="1">
+									<tableactions>
+										<action proceedchildren="1"/>
+									</tableactions>
+									<entry name="id" valuekeygeneration="maxnumber"/>
+									<entry name="name" inpkey="411"/>
+									<entry name="country_id" inpkey="423"/>
+									<entry name="mapping.bundestag_state_id|id" type="table" expanded="1">
+										<entry name="name" inpkey="442"/>
+									</entry>
 								</entry>
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="informationIntegration">
+						<database ref="infoint">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="auxiliary_income" Kind="Table"/>
+										<PathElement Name="committee" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="candidacy" Kind="Table"/>
+										<PathElement Name="parliament" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="function" Kind="Table"/>
+										<PathElement Name="party" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="person_party" Kind="Table"/>
+										<PathElement Name="person" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="politician" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="state" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="bundestag_committee_id" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="bundestag_parliament_id" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="bundestag_party_id" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="bundestag_person_id" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="bundestag_state_id" Kind="Table"/>
 									</selection>
 								</selections>
 							</data>
@@ -618,11 +645,9 @@
 					<vertex vertexkey="9">
 						<edges>
 							<edge vertexkey="5" edgekey="14"/>
-							<edge vertexkey="251" edgekey="255"/>
-							<edge vertexkey="300" edgekey="304"/>
 							<edge vertexkey="326" edgekey="329"/>
 							<edge vertexkey="317" edgekey="330"/>
-							<edge vertexkey="379" edgekey="382"/>
+							<edge vertexkey="391" edgekey="393"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="10">
@@ -637,58 +662,20 @@
 					</vertex>
 					<vertex vertexkey="31">
 						<edges>
-							<edge vertexkey="157" edgekey="160"/>
 							<edge vertexkey="197" edgekey="200"/>
 							<edge vertexkey="299" edgekey="305"/>
-							<edge vertexkey="380" edgekey="383"/>
+							<edge vertexkey="392" edgekey="394"/>
+							<edge vertexkey="400" edgekey="401"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="34">
 						<edges>
-							<edge vertexkey="39" edgekey="56"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="149">
-						<edges>
-							<edge vertexkey="158" edgekey="161"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="155">
-						<edges>
-							<edge vertexkey="153" edgekey="156"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="159">
-						<edges>
-							<edge vertexkey="6" edgekey="162"/>
-							<edge vertexkey="318" edgekey="331"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="164">
-						<edges>
-							<edge vertexkey="165" edgekey="185"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="167">
-						<edges>
-							<edge vertexkey="183" edgekey="186"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="168">
-						<edges>
-							<edge vertexkey="163" edgekey="187"/>
-							<edge vertexkey="182" edgekey="188"/>
-							<edge vertexkey="184" edgekey="189"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="170">
-						<edges>
-							<edge vertexkey="166" edgekey="190"/>
+							<edge vertexkey="408" edgekey="415"/>
+							<edge vertexkey="412" edgekey="417"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="171">
 						<edges>
-							<edge vertexkey="169" edgekey="191"/>
 							<edge vertexkey="250" edgekey="256"/>
 						</edges>
 					</vertex>
@@ -700,6 +687,7 @@
 					<vertex vertexkey="173">
 						<edges>
 							<edge vertexkey="178" edgekey="193"/>
+							<edge vertexkey="389" edgekey="395"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="174">
@@ -739,7 +727,6 @@
 					</vertex>
 					<vertex vertexkey="212">
 						<edges>
-							<edge vertexkey="211" edgekey="213"/>
 							<edge vertexkey="308" edgekey="333"/>
 						</edges>
 					</vertex>
@@ -785,7 +772,8 @@
 					</vertex>
 					<vertex vertexkey="244">
 						<edges>
-							<edge vertexkey="319" edgekey="342"/>
+							<edge vertexkey="434" edgekey="435"/>
+							<edge vertexkey="439" edgekey="440"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="249">
@@ -795,8 +783,8 @@
 					</vertex>
 					<vertex vertexkey="252">
 						<edges>
-							<edge vertexkey="327" edgekey="344"/>
 							<edge vertexkey="320" edgekey="345"/>
+							<edge vertexkey="327" edgekey="429"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="275">
@@ -811,7 +799,6 @@
 					</vertex>
 					<vertex vertexkey="279">
 						<edges>
-							<edge vertexkey="277" edgekey="296"/>
 							<edge vertexkey="323" edgekey="347"/>
 						</edges>
 					</vertex>
@@ -825,19 +812,63 @@
 							<edge vertexkey="328" edgekey="349"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="362">
+					<vertex vertexkey="387">
 						<edges>
-							<edge vertexkey="377" edgekey="384"/>
+							<edge vertexkey="182" edgekey="396"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="376">
+					<vertex vertexkey="388">
 						<edges>
-							<edge vertexkey="373" edgekey="385"/>
+							<edge vertexkey="184" edgekey="397"/>
+							<edge vertexkey="390" edgekey="398"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="378">
+					<vertex vertexkey="399">
 						<edges>
-							<edge vertexkey="381" edgekey="386"/>
+							<edge vertexkey="318" edgekey="402"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="403">
+						<edges>
+							<edge vertexkey="404" edgekey="418"/>
+							<edge vertexkey="414" edgekey="419"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="409">
+						<edges>
+							<edge vertexkey="407" edgekey="420"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="413">
+						<edges>
+							<edge vertexkey="410" edgekey="421"/>
+							<edge vertexkey="411" edgekey="445"/>
+							<edge vertexkey="442" edgekey="446"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="422">
+						<edges>
+							<edge vertexkey="423" edgekey="424"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="426">
+						<edges>
+							<edge vertexkey="427" edgekey="430"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="428">
+						<edges>
+							<edge vertexkey="425" edgekey="431"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="432">
+						<edges>
+							<edge vertexkey="433" edgekey="436"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="437">
+						<edges>
+							<edge vertexkey="319" edgekey="438"/>
 						</edges>
 					</vertex>
 				</vertices>
@@ -856,15 +887,14 @@
 							<header>
 								<namespaces/>
 							</header>
-							<entry name="dbpedia.party"/>
 						</root>
 						<wsdl/>
-						<database ref="informationIntegration" InstanceRoot="{}dbpedia.party">
+						<database ref="infoint" InstanceRoot="{}dbpedia.party">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="dbpedia" Kind="Schema"/>
 										<PathElement Name="party" Kind="Table"/>
 									</selection>
@@ -1077,7 +1107,7 @@
 						</root>
 					</data>
 				</component>
-				<component name="structure" library="db" uid="135" kind="15">
+				<component name="db" library="db" uid="135" kind="15">
 					<properties/>
 					<view ltx="33" lty="136" rbx="229" rby="357"/>
 					<data>
@@ -1092,12 +1122,12 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="informationIntegration">
+						<database ref="infoint">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="person" Kind="Table"/>
 									</selection>
@@ -1410,7 +1440,7 @@
 						</root>
 					</data>
 				</component>
-				<component name="structure" library="db" uid="151" kind="15">
+				<component name="db" library="db" uid="151" kind="15">
 					<properties/>
 					<view ltx="559" lty="204" rbx="755" rby="425"/>
 					<data>
@@ -1425,12 +1455,12 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="informationIntegration">
+						<database ref="infoint">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="party" Kind="Table"/>
 									</selection>
@@ -1466,22 +1496,10 @@
 					<targets>
 						<datapoint pos="0" key="9"/>
 					</targets>
-					<view ltx="442" lty="129" rbx="480" rby="147"/>
+					<view ltx="442" lty="129" rbx="472" rby="143"/>
 					<data>
 						<constant value="1" datatype="decimal"/>
 						<wsdl/>
-					</data>
-				</component>
-				<component name="person_id" library="core" uid="164" kind="7">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="8"/>
-					</sources>
-					<view ltx="1217" lty="59" rbx="1293" rby="98"/>
-					<data>
-						<output datatype="string"/>
-						<wsdl/>
-						<parameter usageKind="output" name="person_id"/>
 					</data>
 				</component>
 				<component name="abgeordneten_name" library="core" uid="163" kind="6">
@@ -1492,105 +1510,11 @@
 					<targets>
 						<datapoint pos="0" key="13"/>
 					</targets>
-					<view ltx="212" lty="208" rbx="360" rby="247"/>
+					<view ltx="212" lty="208" rbx="336" rby="239"/>
 					<data>
 						<input datatype="string"/>
 						<wsdl/>
 						<parameter usageKind="input" name="abgeordneten_name"/>
-					</data>
-				</component>
-				<component name="values" library="core" uid="205" kind="6">
-					<properties/>
-					<sources>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="58"/>
-					</targets>
-					<view ltx="178" lty="277" rbx="259" rby="316"/>
-					<data>
-						<input datatype="string"/>
-						<wsdl/>
-						<parameter usageKind="input" name="values"/>
-					</data>
-				</component>
-				<component name="saves.Person" library="db" uid="165" kind="21">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="12"/>
-						<datapoint pos="1" key="42"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="1"/>
-					</targets>
-					<view ltx="352" lty="39" rbx="494" rby="95"/>
-					<data>
-						<where condition="abgeordneter = :abgeordneten_name">
-							<parameters>
-								<parameter name="abgeordneten_name" type="string" auto-detect="0"/>
-							</parameters>
-						</where>
-						<wsdl/>
-					</data>
-				</component>
-				<component name="structure" library="db" uid="204" kind="15">
-					<properties/>
-					<view ltx="148" lty="24" rbx="280" rby="156"/>
-					<data>
-						<root>
-							<header>
-								<namespaces/>
-							</header>
-							<entry name="document" expanded="1">
-								<entry name="saves.Person" type="table" outkey="49" expanded="1">
-									<entry name="id" outkey="46"/>
-								</entry>
-							</entry>
-						</root>
-						<wsdl/>
-						<database ref="informationIntegration">
-							<data>
-								<selections>
-									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
-										<PathElement Name="saves" Kind="Schema"/>
-										<PathElement Name="Person" Kind="Table"/>
-									</selection>
-								</selections>
-							</data>
-						</database>
-					</data>
-				</component>
-				<component name="structure" library="db" uid="190" kind="15">
-					<properties/>
-					<view ltx="860" lty="59" rbx="1056" rby="299"/>
-					<data>
-						<root>
-							<header>
-								<namespaces/>
-							</header>
-							<entry name="compute-when" inpkey="59"/>
-							<entry name="document" expanded="1">
-								<entry name="integrated.person" type="table" inpkey="56" expanded="1">
-									<entry name="id" inpkey="54" outkey="52"/>
-								</entry>
-							</entry>
-						</root>
-						<wsdl/>
-						<database ref="informationIntegration" InstanceRoot="{}integrated.person">
-							<data>
-								<selections>
-									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="person" Kind="Table"/>
-									</selection>
-								</selections>
-							</data>
-						</database>
-						<parameter usageKind="variable"/>
 					</data>
 				</component>
 				<component name="first-items" library="core" uid="166" kind="5">
@@ -1602,7 +1526,97 @@
 					<targets>
 						<datapoint pos="0" key="5"/>
 					</targets>
-					<view ltx="559" lty="39" rbx="667" rby="95"/>
+					<view ltx="559" lty="39" rbx="645" rby="83"/>
+				</component>
+				<component name="db" library="db" uid="190" kind="15">
+					<properties/>
+					<view ltx="860" lty="59" rbx="1056" rby="299"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.person" type="table" inpkey="56" expanded="1">
+									<entry name="id" inpkey="54" outkey="52"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint" InstanceRoot="{}integrated.person">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
+				<component name="db" library="db" uid="204" kind="15">
+					<properties/>
+					<view ltx="148" lty="24" rbx="280" rby="156"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="mapping.bundestag_person_id" type="table" outkey="61" expanded="1">
+									<entry name="id" outkey="67"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="bundestag_person_id" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="person_id" library="core" uid="164" kind="7">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="8"/>
+					</sources>
+					<view ltx="1131" lty="59" rbx="1194" rby="90"/>
+					<data>
+						<output datatype="string"/>
+						<wsdl/>
+						<parameter usageKind="output" name="person_id"/>
+					</data>
+				</component>
+				<component name="mapping.bundestag_person_..." library="db" uid="165" kind="21">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="12"/>
+						<datapoint pos="1" key="42"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="1"/>
+					</targets>
+					<view ltx="352" lty="39" rbx="502" rby="83"/>
+					<data>
+						<where condition="name = :abgeordneten_name">
+							<parameters>
+								<parameter name="abgeordneten_name" type="string" auto-detect="0"/>
+							</parameters>
+						</where>
+						<wsdl/>
+					</data>
 				</component>
 			</children>
 			<graph directed="1">
@@ -1615,7 +1629,7 @@
 					</vertex>
 					<vertex vertexkey="5">
 						<edges>
-							<edge vertexkey="56" edgekey="57"/>
+							<edge vertexkey="56" edgekey="68"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="9">
@@ -1628,24 +1642,19 @@
 							<edge vertexkey="42" edgekey="44"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="46">
-						<edges>
-							<edge vertexkey="54" edgekey="55"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="49">
-						<edges>
-							<edge vertexkey="12" edgekey="50"/>
-						</edges>
-					</vertex>
 					<vertex vertexkey="52">
 						<edges>
 							<edge vertexkey="8" edgekey="53"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="58">
+					<vertex vertexkey="61">
 						<edges>
-							<edge vertexkey="59" edgekey="60"/>
+							<edge vertexkey="12" edgekey="64"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="67">
+						<edges>
+							<edge vertexkey="54" edgekey="69"/>
 						</edges>
 					</vertex>
 				</vertices>
@@ -1838,25 +1847,10 @@
 					<targets>
 						<datapoint pos="0" key="1"/>
 					</targets>
-					<view ltx="531" lty="274" rbx="569" rby="292"/>
+					<view ltx="531" lty="274" rbx="561" rby="288"/>
 					<data>
 						<constant value="1" datatype="decimal"/>
 						<wsdl/>
-					</data>
-				</component>
-				<component name="values" library="core" uid="215" kind="6">
-					<properties/>
-					<sources>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="15"/>
-					</targets>
-					<view ltx="267" lty="422" rbx="348" rby="461"/>
-					<data>
-						<input datatype="string"/>
-						<wsdl/>
-						<parameter usageKind="input" name="values"/>
 					</data>
 				</component>
 				<component name="party_id" library="core" uid="213" kind="7">
@@ -1864,7 +1858,7 @@
 					<sources>
 						<datapoint pos="0" key="8"/>
 					</sources>
-					<view ltx="1306" lty="204" rbx="1373" rby="243"/>
+					<view ltx="1306" lty="204" rbx="1363" rby="235"/>
 					<data>
 						<output datatype="string"/>
 						<wsdl/>
@@ -1879,30 +1873,11 @@
 					<targets>
 						<datapoint pos="0" key="5"/>
 					</targets>
-					<view ltx="301" lty="353" rbx="418" rby="392"/>
+					<view ltx="301" lty="353" rbx="401" rby="384"/>
 					<data>
 						<input datatype="string"/>
 						<wsdl/>
 						<parameter usageKind="input" name="fraktion_name"/>
-					</data>
-				</component>
-				<component name="integrated.party" library="db" uid="218" kind="21">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="14"/>
-						<datapoint pos="1" key="29"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="3"/>
-					</targets>
-					<view ltx="441" lty="184" rbx="552" rby="240"/>
-					<data>
-						<where condition="name = :fraktion_name">
-							<parameters>
-								<parameter name="fraktion_name" type="string" auto-detect="0"/>
-							</parameters>
-						</where>
-						<wsdl/>
 					</data>
 				</component>
 				<component name="first-items" library="core" uid="219" kind="5">
@@ -1914,46 +1889,16 @@
 					<targets>
 						<datapoint pos="0" key="9"/>
 					</targets>
-					<view ltx="648" lty="184" rbx="756" rby="240"/>
+					<view ltx="648" lty="184" rbx="734" rby="228"/>
 				</component>
-				<component name="structure" library="db" uid="216" kind="15">
-					<properties/>
-					<view ltx="237" lty="169" rbx="369" rby="301"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces/>
-							</header>
-							<entry name="document" expanded="1">
-								<entry name="integrated.party" type="table" outkey="25" expanded="1">
-									<entry name="id" outkey="26"/>
-								</entry>
-							</entry>
-						</root>
-						<wsdl/>
-						<database ref="informationIntegration">
-							<data>
-								<selections>
-									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="party" Kind="Table"/>
-									</selection>
-								</selections>
-							</data>
-						</database>
-					</data>
-				</component>
-				<component name="structure" library="db" uid="217" kind="15">
+				<component name="db" library="db" uid="217" kind="15">
 					<properties/>
 					<view ltx="949" lty="204" rbx="1145" rby="444"/>
 					<data>
-						<root scrollposition="1">
+						<root>
 							<header>
 								<namespaces/>
 							</header>
-							<entry name="compute-when" inpkey="16"/>
 							<entry name="document" expanded="1">
 								<entry name="integrated.party" type="table" inpkey="31" expanded="1">
 									<entry name="id" inpkey="32" outkey="33"/>
@@ -1961,12 +1906,12 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="informationIntegration" InstanceRoot="{}integrated.party">
+						<database ref="infoint" InstanceRoot="{}integrated.party">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="informationIntegration" Kind="DataSource"/>
-										<PathElement Name="informationIntegration" Kind="Database"/>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="party" Kind="Table"/>
 									</selection>
@@ -1974,6 +1919,54 @@
 							</data>
 						</database>
 						<parameter usageKind="variable"/>
+					</data>
+				</component>
+				<component name="db" library="db" uid="216" kind="15">
+					<properties/>
+					<view ltx="213" lty="168" rbx="345" rby="300"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="mapping.bundestag_party_id" type="table" outkey="37" expanded="1">
+									<entry name="id" outkey="38"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="bundestag_party_id" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="mapping.bundestag_party_i..." library="db" uid="218" kind="21">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="14"/>
+						<datapoint pos="1" key="29"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="3"/>
+					</targets>
+					<view ltx="441" lty="184" rbx="587" rby="228"/>
+					<data>
+						<where condition="name = :fraktion_name">
+							<parameters>
+								<parameter name="fraktion_name" type="string" auto-detect="0"/>
+							</parameters>
+						</where>
+						<wsdl/>
 					</data>
 				</component>
 			</children>
@@ -2000,24 +1993,631 @@
 							<edge vertexkey="31" edgekey="34"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="15">
+					<vertex vertexkey="33">
 						<edges>
-							<edge vertexkey="16" edgekey="24"/>
+							<edge vertexkey="8" edgekey="36"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="25">
+					<vertex vertexkey="37">
 						<edges>
-							<edge vertexkey="14" edgekey="27"/>
+							<edge vertexkey="14" edgekey="39"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="38">
+						<edges>
+							<edge vertexkey="32" edgekey="40"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+	<component name="state name to state id" library="user" blackbox="0" uid="237" editable="1" inline="1">
+		<properties/>
+		<description/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="239" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="11"/>
+					</targets>
+					<view ltx="513" lty="223" rbx="543" rby="237"/>
+					<data>
+						<constant value="1" datatype="decimal"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="state_id" library="core" uid="240" kind="7">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="8"/>
+					</sources>
+					<view ltx="1288" lty="153" rbx="1344" rby="184"/>
+					<data>
+						<output datatype="string"/>
+						<wsdl/>
+						<parameter usageKind="output" name="state_id"/>
+					</data>
+				</component>
+				<component name="state_name" library="core" uid="241" kind="6">
+					<properties/>
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="9"/>
+					</targets>
+					<view ltx="283" lty="302" rbx="372" rby="333"/>
+					<data>
+						<input datatype="string"/>
+						<wsdl/>
+						<parameter usageKind="input" name="state_name"/>
+					</data>
+				</component>
+				<component name="db" library="db" uid="243" kind="15">
+					<properties/>
+					<view ltx="931" lty="153" rbx="1127" rby="393"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.state" type="table" inpkey="6" expanded="1">
+									<entry name="id" inpkey="2" outkey="7"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint" InstanceRoot="{}integrated.state">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="state" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
+				<component name="first-items" library="core" uid="244" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="14"/>
+						<datapoint pos="1" key="12"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="5"/>
+					</targets>
+					<view ltx="630" lty="133" rbx="716" rby="177"/>
+				</component>
+				<component name="mapping.bundestag_state_i..." library="db" uid="242" kind="21">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="4"/>
+						<datapoint pos="1" key="10"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="13"/>
+					</targets>
+					<view ltx="423" lty="133" rbx="568" rby="177"/>
+					<data>
+						<where condition="name = :state_name">
+							<parameters>
+								<parameter name="state_name" type="string" auto-detect="0"/>
+							</parameters>
+						</where>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="db" library="db" uid="245" kind="15">
+					<properties/>
+					<view ltx="219" lty="118" rbx="351" rby="250"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="mapping.bundestag_state_id" type="table" outkey="22" expanded="1">
+									<entry name="id" outkey="23"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="bundestag_state_id" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="5">
+						<edges>
+							<edge vertexkey="6" edgekey="17"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="7">
+						<edges>
+							<edge vertexkey="8" edgekey="18"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="9">
+						<edges>
+							<edge vertexkey="10" edgekey="19"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="11">
+						<edges>
+							<edge vertexkey="12" edgekey="20"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="13">
+						<edges>
+							<edge vertexkey="14" edgekey="21"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="22">
+						<edges>
+							<edge vertexkey="4" edgekey="24"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="23">
+						<edges>
+							<edge vertexkey="2" edgekey="25"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+	<component name="get country" library="user" blackbox="0" uid="253" editable="1" inline="1">
+		<properties/>
+		<description/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="255" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="3"/>
+					</targets>
+					<view ltx="697" lty="220" rbx="727" rby="234"/>
+					<data>
+						<constant value="1" datatype="decimal"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="result2" library="core" uid="256" kind="7">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="6"/>
+					</sources>
+					<view ltx="1152" lty="220" rbx="1203" rby="251"/>
+					<data>
+						<output datatype="string"/>
+						<wsdl/>
+						<parameter usageKind="output" name="result2"/>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="259" kind="15">
+					<properties/>
+					<view ltx="367" lty="155" rbx="547" rby="355"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="mapping.bundestag_country_id" type="table" outkey="16" expanded="1">
+									<entry name="id" outkey="17"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="bundestag_country_id" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="first-items" library="core" uid="257" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="2"/>
+						<datapoint pos="1" key="4"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="7"/>
+					</targets>
+					<view ltx="781" lty="169" rbx="867" rby="213"/>
+				</component>
+				<component name="structure" library="db" uid="258" kind="15">
+					<properties/>
+					<view ltx="916" lty="156" rbx="1096" rby="356"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="mapping.bundestag_country_id" type="table" inpkey="18" expanded="1">
+									<entry name="id" inpkey="19" outkey="20"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint" InstanceRoot="{}mapping.bundestag_country_id">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="bundestag_country_id" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="3">
+						<edges>
+							<edge vertexkey="4" edgekey="12"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="7">
+						<edges>
+							<edge vertexkey="18" edgekey="21"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="16">
+						<edges>
+							<edge vertexkey="2" edgekey="22"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="17">
+						<edges>
+							<edge vertexkey="19" edgekey="23"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="20">
+						<edges>
+							<edge vertexkey="6" edgekey="24"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+	<component name="comittee id from comittee name" library="user" blackbox="0" uid="268" editable="1" inline="1">
+		<properties/>
+		<description/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="270" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="7"/>
+					</targets>
+					<view ltx="558" lty="223" rbx="588" rby="237"/>
+					<data>
+						<constant value="1" datatype="decimal"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="comittee id" library="core" uid="273" kind="7">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="4"/>
+					</sources>
+					<view ltx="1247" lty="153" rbx="1316" rby="184"/>
+					<data>
+						<output datatype="string"/>
+						<wsdl/>
+						<parameter usageKind="output" name="comittee id"/>
+					</data>
+				</component>
+				<component name="db" library="db" uid="272" kind="15">
+					<properties/>
+					<view ltx="264" lty="118" rbx="396" rby="250"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="mapping.bundestag_committee_id" type="table" outkey="22" expanded="1">
+									<entry name="id" outkey="23"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="bundestag_committee_id" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="first-items" library="core" uid="276" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="2"/>
+						<datapoint pos="1" key="8"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="11"/>
+					</targets>
+					<view ltx="675" lty="133" rbx="761" rby="177"/>
+				</component>
+				<component name="db" library="db" uid="275" kind="15">
+					<properties/>
+					<view ltx="976" lty="153" rbx="1172" rby="393"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.committee" type="table" inpkey="24" expanded="1">
+									<entry name="id" inpkey="25" outkey="26"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint" InstanceRoot="{}integrated.committee">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="committee" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
+				<component name="comitteename" library="core" uid="271" kind="6">
+					<properties/>
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="5"/>
+					</targets>
+					<view ltx="328" lty="302" rbx="427" rby="333"/>
+					<data>
+						<input datatype="string"/>
+						<wsdl/>
+						<parameter usageKind="input" name="comitteename"/>
+					</data>
+				</component>
+				<component name="mapping.bundestag_committ..." library="db" uid="274" kind="21">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="10"/>
+						<datapoint pos="1" key="31"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="1"/>
+					</targets>
+					<view ltx="468" lty="133" rbx="619" rby="177"/>
+					<data>
+						<where condition="name = :committeename">
+							<parameters>
+								<parameter name="committeename" type="string" auto-detect="0"/>
+							</parameters>
+						</where>
+						<wsdl/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="1">
+						<edges>
+							<edge vertexkey="2" edgekey="15"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="5">
+						<edges>
+							<edge vertexkey="31" edgekey="32"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="7">
+						<edges>
+							<edge vertexkey="8" edgekey="18"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="11">
+						<edges>
+							<edge vertexkey="24" edgekey="27"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="22">
+						<edges>
+							<edge vertexkey="10" edgekey="28"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="23">
+						<edges>
+							<edge vertexkey="25" edgekey="29"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="26">
 						<edges>
-							<edge vertexkey="32" edgekey="35"/>
+							<edge vertexkey="4" edgekey="30"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="33">
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+	<component name="get Parliament" library="user" blackbox="0" uid="280" editable="1" inline="1">
+		<properties/>
+		<description/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="282" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="3"/>
+					</targets>
+					<view ltx="700" lty="220" rbx="730" rby="234"/>
+					<data>
+						<constant value="1" datatype="decimal"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="286" kind="15">
+					<properties/>
+					<view ltx="370" lty="155" rbx="550" rby="355"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="mapping.bundestag_parliament_id" type="table" outkey="16" expanded="1">
+									<entry name="uuid" outkey="17"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="bundestag_parliament_id" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="first-items" library="core" uid="284" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="10"/>
+						<datapoint pos="1" key="4"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="7"/>
+					</targets>
+					<view ltx="784" lty="169" rbx="870" rby="213"/>
+				</component>
+				<component name="structure" library="db" uid="285" kind="15">
+					<properties/>
+					<view ltx="919" lty="156" rbx="1099" rby="356"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="mapping.bundestag_parliament_id" type="table" inpkey="18" expanded="1">
+									<entry name="uuid" inpkey="19" outkey="20"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint" InstanceRoot="{}mapping.bundestag_parliament_id">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="bundestag_parliament_id" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
+				<component name="uuid" library="core" uid="283" kind="7">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="2"/>
+					</sources>
+					<view ltx="1155" lty="220" rbx="1195" rby="251"/>
+					<data>
+						<output datatype="string"/>
+						<wsdl/>
+						<parameter usageKind="output" name="uuid"/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="3">
 						<edges>
-							<edge vertexkey="8" edgekey="36"/>
+							<edge vertexkey="4" edgekey="12"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="7">
+						<edges>
+							<edge vertexkey="18" edgekey="21"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="16">
+						<edges>
+							<edge vertexkey="10" edgekey="22"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="17">
+						<edges>
+							<edge vertexkey="19" edgekey="23"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="20">
+						<edges>
+							<edge vertexkey="2" edgekey="24"/>
 						</edges>
 					</vertex>
 				</vertices>

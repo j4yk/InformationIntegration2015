@@ -73,6 +73,18 @@ CREATE TABLE aw_person_id (
 ALTER TABLE aw_person_id OWNER TO postgres;
 
 --
+-- Name: bundesrat_committee_id; Type: TABLE; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE bundesrat_committee_id (
+    name character varying NOT NULL,
+    id integer
+);
+
+
+ALTER TABLE bundesrat_committee_id OWNER TO postgres;
+
+--
 -- Name: bundesrat_country_id; Type: TABLE; Schema: mapping; Owner: postgres; Tablespace: 
 --
 
@@ -129,6 +141,76 @@ CREATE TABLE bundesrat_state_id (
 
 
 ALTER TABLE bundesrat_state_id OWNER TO postgres;
+
+--
+-- Name: bundestag_committee_id; Type: TABLE; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE bundestag_committee_id (
+    name character varying NOT NULL,
+    id integer
+);
+
+
+ALTER TABLE bundestag_committee_id OWNER TO postgres;
+
+--
+-- Name: bundestag_country_id; Type: TABLE; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE bundestag_country_id (
+    id integer NOT NULL
+);
+
+
+ALTER TABLE bundestag_country_id OWNER TO postgres;
+
+--
+-- Name: bundestag_parliament_id; Type: TABLE; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE bundestag_parliament_id (
+    uuid character varying NOT NULL
+);
+
+
+ALTER TABLE bundestag_parliament_id OWNER TO postgres;
+
+--
+-- Name: bundestag_party_id; Type: TABLE; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE bundestag_party_id (
+    name character varying NOT NULL,
+    id integer
+);
+
+
+ALTER TABLE bundestag_party_id OWNER TO postgres;
+
+--
+-- Name: bundestag_person_id; Type: TABLE; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE bundestag_person_id (
+    name character varying NOT NULL,
+    id integer
+);
+
+
+ALTER TABLE bundestag_person_id OWNER TO postgres;
+
+--
+-- Name: bundestag_state_id; Type: TABLE; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE bundestag_state_id (
+    name character varying NOT NULL,
+    id integer
+);
+
+
+ALTER TABLE bundestag_state_id OWNER TO postgres;
 
 --
 -- Name: gnd_occupation_id; Type: TABLE; Schema: mapping; Owner: postgres; Tablespace: 
@@ -247,6 +329,14 @@ ALTER TABLE ONLY aw_person_id
 
 
 --
+-- Name: bundesrat_committee_id_pkey; Type: CONSTRAINT; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY bundesrat_committee_id
+    ADD CONSTRAINT bundesrat_committee_id_pkey PRIMARY KEY (name);
+
+
+--
 -- Name: bundesrat_country_id_pkey; Type: CONSTRAINT; Schema: mapping; Owner: postgres; Tablespace: 
 --
 
@@ -284,6 +374,54 @@ ALTER TABLE ONLY bundesrat_person_id
 
 ALTER TABLE ONLY bundesrat_state_id
     ADD CONSTRAINT bundesrat_state_id_pkey PRIMARY KEY (name);
+
+
+--
+-- Name: bundestag_committee_id_pkey; Type: CONSTRAINT; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY bundestag_committee_id
+    ADD CONSTRAINT bundestag_committee_id_pkey PRIMARY KEY (name);
+
+
+--
+-- Name: bundestag_country_id_pkey; Type: CONSTRAINT; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY bundestag_country_id
+    ADD CONSTRAINT bundestag_country_id_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: bundestag_parliament_id_pkey; Type: CONSTRAINT; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY bundestag_parliament_id
+    ADD CONSTRAINT bundestag_parliament_id_pkey PRIMARY KEY (uuid);
+
+
+--
+-- Name: bundestag_party_id_pkey; Type: CONSTRAINT; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY bundestag_party_id
+    ADD CONSTRAINT bundestag_party_id_pkey PRIMARY KEY (name);
+
+
+--
+-- Name: bundestag_person_id_pkey; Type: CONSTRAINT; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY bundestag_person_id
+    ADD CONSTRAINT bundestag_person_id_pkey PRIMARY KEY (name);
+
+
+--
+-- Name: bundestag_state_id_pkey; Type: CONSTRAINT; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY bundestag_state_id
+    ADD CONSTRAINT bundestag_state_id_pkey PRIMARY KEY (name);
 
 
 --
@@ -364,6 +502,13 @@ CREATE INDEX fki_aw_party_id_fkey ON aw_party_id USING btree (id);
 
 
 --
+-- Name: fki_bundesrat_committee_id_fkey; Type: INDEX; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX fki_bundesrat_committee_id_fkey ON bundesrat_committee_id USING btree (id);
+
+
+--
 -- Name: fki_bundesrat_party_id_fk; Type: INDEX; Schema: mapping; Owner: postgres; Tablespace: 
 --
 
@@ -382,6 +527,34 @@ CREATE INDEX fki_bundesrat_person_id_fkey ON bundesrat_person_id USING btree (id
 --
 
 CREATE INDEX fki_bundesrat_state_id_fkey ON bundesrat_state_id USING btree (id);
+
+
+--
+-- Name: fki_bundestag_committee_id; Type: INDEX; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX fki_bundestag_committee_id ON bundestag_committee_id USING btree (id);
+
+
+--
+-- Name: fki_bundestag_party_id_fkey; Type: INDEX; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX fki_bundestag_party_id_fkey ON bundestag_party_id USING btree (id);
+
+
+--
+-- Name: fki_bundestag_person_id_fkey; Type: INDEX; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX fki_bundestag_person_id_fkey ON bundestag_person_id USING btree (id);
+
+
+--
+-- Name: fki_bundestag_state_id_fkey; Type: INDEX; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX fki_bundestag_state_id_fkey ON bundestag_state_id USING btree (id);
 
 
 --
@@ -452,6 +625,14 @@ ALTER TABLE ONLY aw_person_id
 
 
 --
+-- Name: bundesrat_committee_id_fkey; Type: FK CONSTRAINT; Schema: mapping; Owner: postgres
+--
+
+ALTER TABLE ONLY bundesrat_committee_id
+    ADD CONSTRAINT bundesrat_committee_id_fkey FOREIGN KEY (id) REFERENCES integrated.committee(id);
+
+
+--
 -- Name: bundesrat_country_id_fk; Type: FK CONSTRAINT; Schema: mapping; Owner: postgres
 --
 
@@ -489,6 +670,54 @@ ALTER TABLE ONLY bundesrat_person_id
 
 ALTER TABLE ONLY bundesrat_state_id
     ADD CONSTRAINT bundesrat_state_id_fkey FOREIGN KEY (id) REFERENCES integrated.state(id);
+
+
+--
+-- Name: bundestag_committee_id; Type: FK CONSTRAINT; Schema: mapping; Owner: postgres
+--
+
+ALTER TABLE ONLY bundestag_committee_id
+    ADD CONSTRAINT bundestag_committee_id FOREIGN KEY (id) REFERENCES integrated.committee(id);
+
+
+--
+-- Name: bundestag_country_id_fkey; Type: FK CONSTRAINT; Schema: mapping; Owner: postgres
+--
+
+ALTER TABLE ONLY bundestag_country_id
+    ADD CONSTRAINT bundestag_country_id_fkey FOREIGN KEY (id) REFERENCES integrated.country(id);
+
+
+--
+-- Name: bundestag_parliament_id_fkey; Type: FK CONSTRAINT; Schema: mapping; Owner: postgres
+--
+
+ALTER TABLE ONLY bundestag_parliament_id
+    ADD CONSTRAINT bundestag_parliament_id_fkey FOREIGN KEY (uuid) REFERENCES integrated.parliament(uuid);
+
+
+--
+-- Name: bundestag_party_id_fkey; Type: FK CONSTRAINT; Schema: mapping; Owner: postgres
+--
+
+ALTER TABLE ONLY bundestag_party_id
+    ADD CONSTRAINT bundestag_party_id_fkey FOREIGN KEY (id) REFERENCES integrated.party(id);
+
+
+--
+-- Name: bundestag_person_id_fkey; Type: FK CONSTRAINT; Schema: mapping; Owner: postgres
+--
+
+ALTER TABLE ONLY bundestag_person_id
+    ADD CONSTRAINT bundestag_person_id_fkey FOREIGN KEY (id) REFERENCES integrated.person(id);
+
+
+--
+-- Name: bundestag_state_id_fkey; Type: FK CONSTRAINT; Schema: mapping; Owner: postgres
+--
+
+ALTER TABLE ONLY bundestag_state_id
+    ADD CONSTRAINT bundestag_state_id_fkey FOREIGN KEY (id) REFERENCES integrated.state(id);
 
 
 --
