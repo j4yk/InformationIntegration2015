@@ -82,9 +82,66 @@
 		</datasources>
 	</resources>
 	<component name="defaultmap1" blackbox="0" uid="1" editable="1">
-		<properties SelectedLanguage="java"/>
+		<properties SelectedLanguage="builtin"/>
 		<structure>
 			<children>
+				<component name="integrated.person" library="db" uid="50" kind="21">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="161"/>
+						<datapoint pos="1" key="164"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="159"/>
+					</targets>
+					<view ltx="946" lty="459" rbx="1058" rby="515"/>
+					<data>
+						<where condition="dbpedia_uri = :dbpedia_uri">
+							<parameters>
+								<parameter name="dbpedia_uri" type="string" auto-detect="0"/>
+							</parameters>
+						</where>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="integrated.person" library="db" uid="45" kind="21">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="106"/>
+						<datapoint pos="1" key="107"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="108"/>
+					</targets>
+					<view ltx="980" lty="211" rbx="1092" rby="267"/>
+					<data>
+						<where condition="dbpedia_uri = :dbpedia_uri">
+							<parameters>
+								<parameter name="dbpedia_uri" type="string" auto-detect="0"/>
+							</parameters>
+						</where>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="integrated.party" library="db" uid="43" kind="21">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="88"/>
+						<datapoint pos="1" key="89"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="90"/>
+					</targets>
+					<view ltx="962" lty="50" rbx="1065" rby="106"/>
+					<data>
+						<where condition="uri = :dbpedia_uri">
+							<parameters>
+								<parameter name="dbpedia_uri" type="string" auto-detect="0"/>
+							</parameters>
+						</where>
+						<wsdl/>
+					</data>
+				</component>
 				<component name="is-not-null" library="db" uid="23" kind="5">
 					<properties/>
 					<sources>
@@ -95,8 +152,8 @@
 					</targets>
 					<view ltx="445" lty="472" rbx="519" rby="511"/>
 				</component>
-				<component name="dbpedia-party-to-integrated-party" library="user" blackbox="0" uid="39" kind="19" visible="0">
-					<view ltx="385" lty="-71" rbx="677" rby="-4"/>
+				<component name="split-date" library="user" blackbox="0" uid="62" kind="19" visible="0">
+					<view ltx="477" lty="211" rbx="581" rby="262"/>
 					<data>
 						<root scrollposition="1">
 							<header>
@@ -104,9 +161,7 @@
 									<namespace/>
 								</namespaces>
 							</header>
-							<entry name="dbpediaparty" componentid="33" expanded="1">
-								<entry name="dbpedia.party" inpkey="69" expanded="1"/>
-							</entry>
+							<entry name="date" inpkey="174" componentid="63"/>
 						</root>
 						<root rootindex="1">
 							<header>
@@ -114,42 +169,10 @@
 									<namespace/>
 								</namespaces>
 							</header>
-							<entry name="party_id" outkey="70" componentid="30"/>
+							<entry name="year" outkey="175" componentid="64"/>
+							<entry name="month" outkey="176" componentid="65"/>
+							<entry name="day" outkey="177" componentid="66"/>
 						</root>
-					</data>
-				</component>
-				<component name="auto-number" library="core" uid="17" kind="5">
-					<properties/>
-					<sources>
-						<datapoint/>
-						<datapoint/>
-						<datapoint/>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="10"/>
-					</targets>
-					<view ltx="412" lty="340" rbx="543" rby="430"/>
-				</component>
-				<component name="structure" library="core" uid="19" kind="29">
-					<properties/>
-					<view ltx="570" lty="313" rbx="673" rby="349"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace uid="http://www.altova.com/mapforce"/>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="compute-when" inpkey="17"/>
-							<entry name="document" expanded="1">
-								<entry name="value" ns="1" inpkey="16" outkey="15"/>
-							</entry>
-						</root>
-						<wsdl/>
-						<variable datatype="ID"/>
-						<parameter usageKind="variable"/>
 					</data>
 				</component>
 				<component name="dbpedia.person" library="core" uid="21" kind="3">
@@ -164,11 +187,71 @@
 					</targets>
 					<view ltx="553" lty="446" rbx="656" rby="502"/>
 				</component>
+				<component name="structure" library="db" uid="51" kind="15">
+					<properties/>
+					<view ltx="1104" lty="472" rbx="1300" rby="540"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.person" type="table" inpkey="160" expanded="1">
+									<entry name="id" inpkey="163" outkey="162"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint2" InstanceRoot="{}integrated.person">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="47" kind="15">
+					<properties/>
+					<view ltx="1104" lty="280" rbx="1300" rby="348"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.person" type="table" inpkey="109" expanded="1">
+									<entry name="id" inpkey="110" outkey="111"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint2" InstanceRoot="{}integrated.person">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
 				<component name="structure" library="db" uid="4" kind="15">
 					<properties/>
 					<view ltx="707" lty="26" rbx="914" rby="701"/>
 					<data>
-						<root scrollposition="227">
+						<root scrollposition="101">
 							<header>
 								<namespaces/>
 							</header>
@@ -178,7 +261,7 @@
 									<tableactions>
 										<action proceedchildren="1"/>
 									</tableactions>
-									<entry name="id" inpkey="13" outkey="103"/>
+									<entry name="id" outkey="103" valuekeygeneration="maxnumber"/>
 									<entry name="uri" inpkey="25"/>
 									<entry name="name" inpkey="26"/>
 									<entry name="integrated.person_party|party_id" type="table" expanded="1"/>
@@ -187,12 +270,14 @@
 									<tableactions>
 										<action proceedchildren="1"/>
 									</tableactions>
-									<entry name="id" inpkey="28" outkey="105"/>
+									<entry name="id" outkey="105" valuekeygeneration="maxnumber"/>
 									<entry name="first_name" inpkey="29"/>
 									<entry name="last_name" inpkey="30"/>
 									<entry name="dbpedia_uri" inpkey="31"/>
 									<entry name="integrated.birth|person_id" type="table" inpkey="45" expanded="1">
-										<entry name="date" inpkey="46"/>
+										<entry name="year" inpkey="178"/>
+										<entry name="month" inpkey="179"/>
+										<entry name="day" inpkey="180"/>
 									</entry>
 									<entry name="integrated.person_party|person_id" type="table" expanded="1">
 										<entry name="integrated.party|party_id" type="table" expanded="1"/>
@@ -334,6 +419,55 @@
 						</database>
 					</data>
 				</component>
+				<component name="integrated.person" library="db" uid="49" kind="21">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="129"/>
+						<datapoint pos="1" key="125"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="127"/>
+					</targets>
+					<view ltx="946" lty="359" rbx="1058" rby="415"/>
+					<data>
+						<where condition="dbpedia_uri = :dbpedia_uri">
+							<parameters>
+								<parameter name="dbpedia_uri" type="string" auto-detect="0"/>
+							</parameters>
+						</where>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="48" kind="15">
+					<properties/>
+					<view ltx="1104" lty="372" rbx="1300" rby="440"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.person" type="table" inpkey="128" expanded="1">
+									<entry name="id" inpkey="126" outkey="130"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint2" InstanceRoot="{}integrated.person">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint2" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
 				<component name="structure" library="db" uid="42" kind="15">
 					<properties XSLTDefaultOutput="1"/>
 					<view ltx="1341" lty="26" rbx="1550" rby="514"/>
@@ -421,175 +555,9 @@
 						</database>
 					</data>
 				</component>
-				<component name="integrated.person" library="db" uid="50" kind="21">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="161"/>
-						<datapoint pos="1" key="164"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="159"/>
-					</targets>
-					<view ltx="946" lty="459" rbx="1058" rby="515"/>
-					<data>
-						<where condition="dbpedia_uri = :dbpedia_uri">
-							<parameters>
-								<parameter name="dbpedia_uri" type="string" auto-detect="0"/>
-							</parameters>
-						</where>
-						<wsdl/>
-					</data>
-				</component>
-				<component name="structure" library="db" uid="51" kind="15">
-					<properties/>
-					<view ltx="1104" lty="472" rbx="1300" rby="540"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces/>
-							</header>
-							<entry name="document" expanded="1">
-								<entry name="integrated.person" type="table" inpkey="160" expanded="1">
-									<entry name="id" inpkey="163" outkey="162"/>
-								</entry>
-							</entry>
-						</root>
-						<wsdl/>
-						<database ref="infoint2" InstanceRoot="{}integrated.person">
-							<data>
-								<selections>
-									<selection>
-										<PathElement Name="infoint2" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="person" Kind="Table"/>
-									</selection>
-								</selections>
-							</data>
-						</database>
-						<parameter usageKind="variable"/>
-					</data>
-				</component>
-				<component name="integrated.person" library="db" uid="49" kind="21">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="129"/>
-						<datapoint pos="1" key="125"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="127"/>
-					</targets>
-					<view ltx="946" lty="359" rbx="1058" rby="415"/>
-					<data>
-						<where condition="dbpedia_uri = :dbpedia_uri">
-							<parameters>
-								<parameter name="dbpedia_uri" type="string" auto-detect="0"/>
-							</parameters>
-						</where>
-						<wsdl/>
-					</data>
-				</component>
-				<component name="structure" library="db" uid="48" kind="15">
-					<properties/>
-					<view ltx="1104" lty="372" rbx="1300" rby="440"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces/>
-							</header>
-							<entry name="document" expanded="1">
-								<entry name="integrated.person" type="table" inpkey="128" expanded="1">
-									<entry name="id" inpkey="126" outkey="130"/>
-								</entry>
-							</entry>
-						</root>
-						<wsdl/>
-						<database ref="infoint2" InstanceRoot="{}integrated.person">
-							<data>
-								<selections>
-									<selection>
-										<PathElement Name="infoint2" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="person" Kind="Table"/>
-									</selection>
-								</selections>
-							</data>
-						</database>
-						<parameter usageKind="variable"/>
-					</data>
-				</component>
-				<component name="integrated.person" library="db" uid="45" kind="21">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="106"/>
-						<datapoint pos="1" key="107"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="108"/>
-					</targets>
-					<view ltx="980" lty="211" rbx="1092" rby="267"/>
-					<data>
-						<where condition="dbpedia_uri = :dbpedia_uri">
-							<parameters>
-								<parameter name="dbpedia_uri" type="string" auto-detect="0"/>
-							</parameters>
-						</where>
-						<wsdl/>
-					</data>
-				</component>
-				<component name="structure" library="db" uid="47" kind="15">
-					<properties/>
-					<view ltx="1104" lty="280" rbx="1300" rby="348"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces/>
-							</header>
-							<entry name="document" expanded="1">
-								<entry name="integrated.person" type="table" inpkey="109" expanded="1">
-									<entry name="id" inpkey="110" outkey="111"/>
-								</entry>
-							</entry>
-						</root>
-						<wsdl/>
-						<database ref="infoint2" InstanceRoot="{}integrated.person">
-							<data>
-								<selections>
-									<selection>
-										<PathElement Name="infoint2" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="person" Kind="Table"/>
-									</selection>
-								</selections>
-							</data>
-						</database>
-						<parameter usageKind="variable"/>
-					</data>
-				</component>
-				<component name="integrated.party" library="db" uid="43" kind="21">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="88"/>
-						<datapoint pos="1" key="89"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="90"/>
-					</targets>
-					<view ltx="962" lty="50" rbx="1065" rby="106"/>
-					<data>
-						<where condition="uri = :dbpedia_uri">
-							<parameters>
-								<parameter name="dbpedia_uri" type="string" auto-detect="0"/>
-							</parameters>
-						</where>
-						<wsdl/>
-					</data>
-				</component>
 				<component name="structure" library="db" uid="46" kind="15">
 					<properties/>
-					<view ltx="1120" lty="50" rbx="1270" rby="250"/>
+					<view ltx="1120" lty="50" rbx="1243" rby="136"/>
 					<data>
 						<root>
 							<header>
@@ -619,28 +587,11 @@
 				</component>
 			</children>
 			<graph directed="1">
-				<edges>
-					<edge edgekey="71">
-						<data>
-							<dataconnection type="2"/>
-						</data>
-					</edge>
-				</edges>
+				<edges/>
 				<vertices>
-					<vertex vertexkey="10">
-						<edges>
-							<edge vertexkey="16" edgekey="33"/>
-						</edges>
-					</vertex>
 					<vertex vertexkey="14">
 						<edges>
 							<edge vertexkey="24" edgekey="35"/>
-							<edge vertexkey="69" edgekey="71"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="15">
-						<edges>
-							<edge vertexkey="28" edgekey="37"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="18">
@@ -656,7 +607,6 @@
 					<vertex vertexkey="20">
 						<edges>
 							<edge vertexkey="27" edgekey="40"/>
-							<edge vertexkey="17" edgekey="41"/>
 							<edge vertexkey="50" edgekey="53"/>
 							<edge vertexkey="166" edgekey="168"/>
 						</edges>
@@ -680,7 +630,7 @@
 					<vertex vertexkey="47">
 						<edges>
 							<edge vertexkey="48" edgekey="54"/>
-							<edge vertexkey="46" edgekey="63"/>
+							<edge vertexkey="174" edgekey="181"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="49">
@@ -691,11 +641,6 @@
 					<vertex vertexkey="52">
 						<edges>
 							<edge vertexkey="45" edgekey="64"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="70">
-						<edges>
-							<edge vertexkey="13" edgekey="72"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="87">
@@ -807,6 +752,21 @@
 							<edge vertexkey="167" edgekey="173"/>
 						</edges>
 					</vertex>
+					<vertex vertexkey="175">
+						<edges>
+							<edge vertexkey="178" edgekey="182"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="176">
+						<edges>
+							<edge vertexkey="179" edgekey="183"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="177">
+						<edges>
+							<edge vertexkey="180" edgekey="184"/>
+						</edges>
+					</vertex>
 				</vertices>
 			</graph>
 		</structure>
@@ -904,6 +864,122 @@
 					<vertex vertexkey="11">
 						<edges>
 							<edge vertexkey="12" edgekey="15"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+	<component name="split-date" library="user" blackbox="0" uid="58" editable="1" inline="1">
+		<properties/>
+		<description/>
+		<structure>
+			<children>
+				<component name="month" library="core" uid="65" kind="7">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="3"/>
+					</sources>
+					<view ltx="438" lty="38" rbx="495" rby="77"/>
+					<data>
+						<output datatype="int"/>
+						<wsdl/>
+						<parameter usageKind="output" name="month"/>
+					</data>
+				</component>
+				<component name="year" library="core" uid="64" kind="7">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="4"/>
+					</sources>
+					<view ltx="438" rbx="489" rby="39"/>
+					<data>
+						<output datatype="int"/>
+						<wsdl/>
+						<parameter usageKind="output" name="year"/>
+					</data>
+				</component>
+				<component name="date" library="core" uid="63" kind="6">
+					<properties/>
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="2"/>
+					</targets>
+					<view ltx="105" lty="38" rbx="175" rby="77"/>
+					<data>
+						<input datatype="date"/>
+						<wsdl/>
+						<parameter usageKind="input" name="date"/>
+					</data>
+				</component>
+				<component name="year-from-datetime" library="lang" uid="61" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="5"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="6"/>
+					</targets>
+					<view ltx="250" rbx="369" rby="39"/>
+				</component>
+				<component name="month-from-datetime" library="lang" uid="60" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="7"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="8"/>
+					</targets>
+					<view ltx="250" lty="38" rbx="376" rby="77"/>
+				</component>
+				<component name="day-from-datetime" library="lang" uid="59" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="1"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="9"/>
+					</targets>
+					<view ltx="250" lty="76" rbx="365" rby="115"/>
+				</component>
+				<component name="day" library="core" uid="66" kind="7">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="10"/>
+					</sources>
+					<view ltx="438" lty="76" rbx="484" rby="115"/>
+					<data>
+						<output datatype="int"/>
+						<wsdl/>
+						<parameter usageKind="output" name="day"/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="2">
+						<edges>
+							<edge vertexkey="5" edgekey="11"/>
+							<edge vertexkey="7" edgekey="12"/>
+							<edge vertexkey="1" edgekey="13"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="6">
+						<edges>
+							<edge vertexkey="4" edgekey="14"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="8">
+						<edges>
+							<edge vertexkey="3" edgekey="15"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="9">
+						<edges>
+							<edge vertexkey="10" edgekey="16"/>
 						</edges>
 					</vertex>
 				</vertices>
