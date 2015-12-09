@@ -180,7 +180,8 @@ ALTER TABLE candidacy OWNER TO postgres;
 --
 
 CREATE TABLE committee (
-    name character varying NOT NULL,
+    id integer NOT NULL,
+    name character varying,
     url character varying,
     flyer_url character varying,
     info_text character varying
@@ -235,7 +236,7 @@ ALTER TABLE death OWNER TO postgres;
 --
 
 CREATE TABLE function (
-    committee_name character varying,
+    committee_id integer,
     politician integer,
     function_name character varying
 );
@@ -387,7 +388,7 @@ CREATE TABLE politician (
     aw_uuid character varying,
     aw_username character varying,
     aw_picture_url character varying,
-    state character varying
+    state_id integer
 );
 
 
@@ -426,7 +427,8 @@ ALTER TABLE related_to OWNER TO postgres;
 --
 
 CREATE TABLE state (
-    state character varying NOT NULL,
+    id integer NOT NULL,
+    name character varying,
     capital_id integer,
     area real,
     population integer,
@@ -497,7 +499,7 @@ ALTER TABLE ONLY book
 --
 
 ALTER TABLE ONLY candidacy
-    ADD CONSTRAINT candidacy_pkey PRIMARY KEY (candidate, parliament, constituency);
+    ADD CONSTRAINT candidacy_pkey PRIMARY KEY (candidate, parliament);
 
 
 --
@@ -506,7 +508,7 @@ ALTER TABLE ONLY candidacy
 --
 
 ALTER TABLE ONLY committee
-    ADD CONSTRAINT committee_pkey PRIMARY KEY (name);
+    ADD CONSTRAINT committee_pkey PRIMARY KEY (id);
 
 
 --
@@ -582,7 +584,7 @@ ALTER TABLE ONLY politician
 --
 
 ALTER TABLE ONLY state
-    ADD CONSTRAINT state_pkey PRIMARY KEY (state);
+    ADD CONSTRAINT state_pkey PRIMARY KEY (id);
 
 
 --
@@ -722,11 +724,11 @@ ALTER TABLE ONLY death
 
 --
 -- TOC entry 2039 (class 2606 OID 17270)
--- Name: function_committee_name_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: function_committee_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY function
-    ADD CONSTRAINT function_committee_name_fkey FOREIGN KEY (committee_name) REFERENCES committee(name);
+    ADD CONSTRAINT function_committee_id_fkey FOREIGN KEY (committee_id) REFERENCES committee(id);
 
 
 --
@@ -816,7 +818,7 @@ ALTER TABLE ONLY politician
 --
 
 ALTER TABLE ONLY politician
-    ADD CONSTRAINT politician_state_fkey FOREIGN KEY (state) REFERENCES state(state);
+    ADD CONSTRAINT politician_state_fkey FOREIGN KEY (state_id) REFERENCES state(id);
 
 
 --

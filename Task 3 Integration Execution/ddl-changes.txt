@@ -17,3 +17,8 @@ ddl changes:
 		-   add relation 'person_country' for a person's nationality (mapped from wikidata)
 		-   rename 'place.country' to 'place.country_id' and make it a FK reference to 'country.id'
 		-   add 'state.country_id' for completeness sake
+
+	*	by Daniel on 12/09:
+
+		-	removed 'constituency' from 'candidacy' primary key (becaue that's not by bundesrat/bundestag)
+		-	added 'id' column for 'state' & 'committee' since using the name as pk does not work when combining multiple data sources
