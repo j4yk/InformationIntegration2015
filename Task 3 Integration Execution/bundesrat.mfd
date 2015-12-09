@@ -3,15 +3,15 @@
 <mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="22">
 	<resources>
 		<datasources>
-			<datasource name="infoint">
-				<properties JDBCDriver="org.postgresql.Driver" JDBCDatabaseURL="jdbc:postgresql://localhost:5432/infoint" DBUser="postgres" DBPassword="ferien09" DBDataSource="Postgres" DBCatalog="infoint" OLEDBOptions="Port=5432;B0=16777215;BI=0;"/>
-				<database_connection database_kind="PostgreSQL" import_kind="ODBC" version="9.4.5" ConnectionString="DSN=Postgres;DATABASE=infoint;SERVER=localhost;PORT=5432;UID=postgres;PWD=ferien09;SSLmode=disable;ReadOnly=0;Protocol=7.4;FakeOidIndex=0;ShowOidColumn=0;RowVersioning=0;ShowSystemTables=0;ConnSettings=;Fetch=100;Socket=4096;UnknownSizes=0;MaxVarcharSize=255;MaxLongVarcharSize=8190;Debug=0;CommLog=0;Optimizer=0;Ksqo=1;UseDeclareFetch=0;TextAsLongVarchar=1;UnknownsAsLongVarchar=0;BoolsAsChar=1;Parse=0;CancelAsFreeStmt=0;ExtraSysTablePrefixes=dd_;;LFConversion=1;UpdatableCursors=1;DisallowPremature=0;TrueIsMinus1=0;BI=0;ByteaAsLongVarBinary=0;UseServerSidePrepare=1;LowerCaseIdentifier=0;GssAuthUseGSS=0;XaOpt=1" name="infoint" path="infoint">
+			<datasource name="infoint1">
+				<properties JDBCDriver="org.postgresql.Driver" JDBCDatabaseURL="jdbc:postgresql://localhost:5432/infoint" DBUser="postgres" DBPassword="dbpass" DBDataSource="PostgreSQL35W_9" DBCatalog="infoint" OLEDBOptions="Port=5432;B0=16777215;BI=0;"/>
+				<database_connection database_kind="PostgreSQL" import_kind="ODBC" version="9.4.5" ConnectionString="DSN=PostgreSQL35W_9;DATABASE=infoint;SERVER=localhost;PORT=5432;UID=postgres;PWD=dbpass;SSLmode=disable;ReadOnly=0;Protocol=7.4;FakeOidIndex=0;ShowOidColumn=0;RowVersioning=0;ShowSystemTables=0;ConnSettings=;Fetch=100;Socket=4096;UnknownSizes=0;MaxVarcharSize=255;MaxLongVarcharSize=8190;Debug=0;CommLog=0;Optimizer=0;Ksqo=1;UseDeclareFetch=0;TextAsLongVarchar=1;UnknownsAsLongVarchar=0;BoolsAsChar=1;Parse=0;CancelAsFreeStmt=0;ExtraSysTablePrefixes=dd_;;LFConversion=1;UpdatableCursors=1;DisallowPremature=0;TrueIsMinus1=0;BI=0;ByteaAsLongVarBinary=0;UseServerSidePrepare=1;LowerCaseIdentifier=0;GssAuthUseGSS=0;XaOpt=1" name="infoint1" path="infoint1">
 					<properties>
 						<property name="Database Kind" value="PostgreSQL"/>
 						<property name="Import Kind" value="ODBC"/>
 						<property name="Root Object" value="infoint"/>
 						<property name="FileDsn"/>
-						<property name="Dsn" value="Postgres"/>
+						<property name="Dsn" value="PostgreSQL35W_9"/>
 						<property name="Driver"/>
 						<property name="Trusted_Connection"/>
 						<property name="App"/>
@@ -21,7 +21,7 @@
 						<property name="Languages"/>
 						<property name="Wsid"/>
 						<property name="Uid" value="postgres"/>
-						<property name="Pwd" value="64U2BF-XNFSB8-5zGN61"/>
+						<property name="Pwd" value="FcAP4E-8TzXm0"/>
 						<property name="Port" value="5432"/>
 						<property name="Option"/>
 						<property name="Stmt"/>
@@ -39,7 +39,7 @@
 					<LocalViewStorage>
 						<LocalViewElement SQL="SELECT id from integrated.person
 ">
-							<PathElement Name="infoint" Kind="DataSource"/>
+							<PathElement Name="infoint1" Kind="DataSource"/>
 							<PathElement Name="infoint" Kind="Database"/>
 							<PathElement Name="integrated" Kind="Schema"/>
 							<PathElement Name="SELECT_Statement" Kind="Select Statement"/>
@@ -131,27 +131,6 @@
 						<wsdl/>
 					</data>
 				</component>
-				<component name="person id from abgeordneten name" library="user" blackbox="0" uid="257" kind="19" visible="0">
-					<view ltx="656" lty="628" rbx="871" rby="645"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="abgeordneten_name" inpkey="498" componentid="163"/>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="person_id" outkey="500" componentid="164"/>
-						</root>
-					</data>
-				</component>
 				<component name="person id from abgeordneten name" library="user" blackbox="0" uid="288" kind="19" visible="0">
 					<view ltx="656" lty="364" rbx="871" rby="381"/>
 					<data>
@@ -235,17 +214,17 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint">
+						<database ref="infoint1">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="country" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="mapping" Kind="Schema"/>
 										<PathElement Name="bundesrat_country_id" Kind="Table"/>
@@ -253,24 +232,6 @@
 								</selections>
 							</data>
 						</database>
-					</data>
-				</component>
-				<component name="get country id" library="user" blackbox="0" uid="284" kind="19" visible="0">
-					<view ltx="385" lty="38" rbx="456" rby="55"/>
-					<data>
-						<root>
-							<header>
-								<namespaces/>
-							</header>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="result" outkey="615" componentid="273"/>
-						</root>
 					</data>
 				</component>
 				<component name="create-guid" library="lang" uid="290" kind="5">
@@ -298,27 +259,6 @@
 						</root>
 					</data>
 				</component>
-				<component name="party id from fraktion_name" library="user" blackbox="0" uid="256" kind="19" visible="0">
-					<view ltx="657" lty="563" rbx="825" rby="580"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="fraktion_name" inpkey="501" componentid="214"/>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="party_id" outkey="503" componentid="213"/>
-						</root>
-					</data>
-				</component>
 				<component name="person id from abgeordneten name" library="user" blackbox="0" uid="254" kind="19" visible="0">
 					<view ltx="656" lty="455" rbx="871" rby="472"/>
 					<data>
@@ -340,25 +280,15 @@
 						</root>
 					</data>
 				</component>
-				<component name="committee name to committee id" library="user" blackbox="0" uid="382" kind="19" visible="0">
-					<view ltx="656" lty="310" rbx="873" rby="327"/>
+				<component name="constant" library="core" uid="252" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="440"/>
+					</targets>
+					<view ltx="755" lty="144" rbx="845" rby="162"/>
 					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="committee_name" inpkey="743" componentid="376"/>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="committee_id" outkey="744" componentid="375"/>
-						</root>
+						<constant value="Bundesrat" datatype="string"/>
+						<wsdl/>
 					</data>
 				</component>
 				<component name="db" library="db" uid="8" kind="15">
@@ -396,35 +326,35 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint">
+						<database ref="infoint1">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="bundesrat" Kind="Schema"/>
 										<PathElement Name="committee" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="bundesrat" Kind="Schema"/>
 										<PathElement Name="faction" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="bundesrat" Kind="Schema"/>
 										<PathElement Name="position" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="bundesrat" Kind="Schema"/>
 										<PathElement Name="representative" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="bundesrat" Kind="Schema"/>
 										<PathElement Name="state" Kind="Table"/>
@@ -434,9 +364,27 @@
 						</database>
 					</data>
 				</component>
+				<component name="get country id" library="user" blackbox="0" uid="284" kind="19" visible="0">
+					<view ltx="358" lty="39" rbx="429" rby="56"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="result" outkey="615" componentid="273"/>
+						</root>
+					</data>
+				</component>
 				<component name="db" library="db" uid="260" kind="15">
 					<properties/>
-					<view ltx="412" lty="-21" rbx="590" rby="86"/>
+					<view ltx="468" lty="-23" rbx="646" rby="84"/>
 					<data>
 						<root scrollposition="1">
 							<header>
@@ -466,35 +414,32 @@
 										</entry>
 									</entry>
 								</entry>
-								<entry name="integrated.state" type="table">
-									<entry name="integrated.place|capital_id" type="table" expanded="1"/>
-								</entry>
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint">
+						<database ref="infoint1">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="country" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="place" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="state" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="mapping" Kind="Schema"/>
 										<PathElement Name="bundesrat_state_id" Kind="Table"/>
@@ -504,56 +449,47 @@
 						</database>
 					</data>
 				</component>
-				<component name="constant" library="core" uid="252" kind="2">
-					<properties/>
-					<targets>
-						<datapoint pos="0" key="440"/>
-					</targets>
-					<view ltx="755" lty="144" rbx="845" rby="162"/>
+				<component name="party id from fraktion_name" library="user" blackbox="0" uid="256" kind="19" visible="0">
+					<view ltx="657" lty="563" rbx="825" rby="580"/>
 					<data>
-						<constant value="Bundesrat" datatype="string"/>
-						<wsdl/>
-					</data>
-				</component>
-				<component name="structure" library="db" uid="400" kind="15">
-					<properties/>
-					<view ltx="483" lty="144" rbx="646" rby="344"/>
-					<data>
-						<root>
+						<root scrollposition="1">
 							<header>
-								<namespaces/>
+								<namespaces>
+									<namespace/>
+								</namespaces>
 							</header>
-							<entry name="document" expanded="1">
-								<entry name="integrated.committee" type="table" inpkey="754" expanded="1">
-									<entry name="name" inpkey="755" outkey="756"/>
-								</entry>
-							</entry>
+							<entry name="fraktion_name" inpkey="501" componentid="214"/>
 						</root>
-						<wsdl/>
-						<database ref="infoint" InstanceRoot="{}integrated.committee">
-							<data>
-								<selections>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="committee" Kind="Table"/>
-									</selection>
-								</selections>
-							</data>
-						</database>
-						<parameter usageKind="variable"/>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="party_id" outkey="503" componentid="213"/>
+						</root>
 					</data>
 				</component>
-				<component name="distinct-values" library="core" uid="402" kind="5">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="757"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="758"/>
-					</targets>
-					<view ltx="681" lty="89" rbx="778" rby="128"/>
+				<component name="person id from abgeordneten name" library="user" blackbox="0" uid="257" kind="19" visible="0">
+					<view ltx="656" lty="628" rbx="871" rby="645"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="abgeordneten_name" inpkey="498" componentid="163"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="person_id" outkey="500" componentid="164"/>
+						</root>
+					</data>
 				</component>
 				<component name="db" library="db" uid="42" kind="15">
 					<properties/>
@@ -586,35 +522,35 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint">
+						<database ref="infoint1">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="candidacy" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="committee" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="function" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="person_party" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="position" Kind="Table"/>
@@ -622,6 +558,79 @@
 								</selections>
 							</data>
 						</database>
+					</data>
+				</component>
+				<component name="db" library="db" uid="400" kind="15">
+					<properties/>
+					<view ltx="468" lty="132" rbx="631" rby="332"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.committee" type="table" inpkey="754" expanded="1">
+									<entry name="name" inpkey="755" outkey="756"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint1" InstanceRoot="{}integrated.committee">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint1" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="committee" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
+				<component name="committee name to committee id" library="user" blackbox="0" uid="382" kind="19" visible="0">
+					<view ltx="656" lty="310" rbx="873" rby="327"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="committee_name" inpkey="743" componentid="376"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="committee_id" outkey="744" componentid="375"/>
+						</root>
+					</data>
+				</component>
+				<component name="split function" library="user" blackbox="0" uid="354" kind="19" visible="0">
+					<view ltx="190" lty="252" rbx="410" rby="286"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="function_name" inpkey="729" componentid="314"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="function name" outkey="730" componentid="313"/>
+							<entry name="committee name" outkey="731" componentid="324"/>
+						</root>
 					</data>
 				</component>
 				<component name="db" library="db" uid="4" kind="15">
@@ -639,7 +648,9 @@
 									</tableactions>
 									<entry name="id" valuekeygeneration="maxnumber"/>
 									<entry name="name" inpkey="733"/>
-									<entry name="mapping.bundesrat_committee_id|id" type="table" expanded="1"/>
+									<entry name="mapping.bundesrat_committee_id|id" type="table" expanded="1">
+										<entry name="name" inpkey="765"/>
+									</entry>
 								</entry>
 								<entry name="integrated.parliament" type="table">
 									<tableactions>
@@ -675,77 +686,77 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint">
+						<database ref="infoint1">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="committee" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="parliament" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="party" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="person" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="place" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="politician" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="position" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="state" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="mapping" Kind="Schema"/>
 										<PathElement Name="bundesrat_committee_id" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="mapping" Kind="Schema"/>
 										<PathElement Name="bundesrat_parliament_id" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="mapping" Kind="Schema"/>
 										<PathElement Name="bundesrat_party_id" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="mapping" Kind="Schema"/>
 										<PathElement Name="bundesrat_person_id" Kind="Table"/>
@@ -755,27 +766,15 @@
 						</database>
 					</data>
 				</component>
-				<component name="split function" library="user" blackbox="0" uid="354" kind="19" visible="0">
-					<view ltx="190" lty="252" rbx="410" rby="286"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="function_name" inpkey="729" componentid="314"/>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="function name" outkey="730" componentid="313"/>
-							<entry name="committee name" outkey="731" componentid="324"/>
-						</root>
-					</data>
+				<component name="distinct-values" library="core" uid="402" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="757"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="758"/>
+					</targets>
+					<view ltx="681" lty="89" rbx="778" rby="128"/>
 				</component>
 			</children>
 			<graph directed="1">
@@ -971,8 +970,8 @@
 					</vertex>
 					<vertex vertexkey="731">
 						<edges>
-							<edge vertexkey="743" edgekey="746"/>
 							<edge vertexkey="755" edgekey="760"/>
+							<edge vertexkey="743" edgekey="766"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="744">
@@ -989,6 +988,7 @@
 						<edges>
 							<edge vertexkey="732" edgekey="762"/>
 							<edge vertexkey="733" edgekey="763"/>
+							<edge vertexkey="765" edgekey="767"/>
 						</edges>
 					</vertex>
 				</vertices>
@@ -1009,11 +1009,11 @@
 							</header>
 						</root>
 						<wsdl/>
-						<database ref="infoint" InstanceRoot="{}dbpedia.party">
+						<database ref="infoint1" InstanceRoot="{}dbpedia.party">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="dbpedia" Kind="Schema"/>
 										<PathElement Name="party" Kind="Table"/>
@@ -1242,11 +1242,11 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint">
+						<database ref="infoint1">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="person" Kind="Table"/>
@@ -1563,11 +1563,11 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint">
+						<database ref="infoint1">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="party" Kind="Table"/>
@@ -1675,11 +1675,11 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint" InstanceRoot="{}integrated.person">
+						<database ref="infoint1" InstanceRoot="{}integrated.person">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="person" Kind="Table"/>
@@ -1705,11 +1705,11 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint">
+						<database ref="infoint1">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="mapping" Kind="Schema"/>
 										<PathElement Name="bundesrat_person_id" Kind="Table"/>
@@ -2026,11 +2026,11 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint" InstanceRoot="{}integrated.party">
+						<database ref="infoint1" InstanceRoot="{}integrated.party">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="party" Kind="Table"/>
@@ -2056,11 +2056,11 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint">
+						<database ref="infoint1">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="mapping" Kind="Schema"/>
 										<PathElement Name="bundesrat_party_id" Kind="Table"/>
@@ -2184,11 +2184,11 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint">
+						<database ref="infoint1">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="place" Kind="Table"/>
@@ -2254,7 +2254,7 @@
 					</targets>
 					<view ltx="414" lty="14" rbx="522" rby="70"/>
 				</component>
-				<component name="structure" library="db" uid="281" kind="15">
+				<component name="db" library="db" uid="281" kind="15">
 					<properties/>
 					<view ltx="549" lty="1" rbx="729" rby="201"/>
 					<data>
@@ -2269,11 +2269,11 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint" InstanceRoot="{}mapping.bundesrat_country_id">
+						<database ref="infoint1" InstanceRoot="{}mapping.bundesrat_country_id">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="mapping" Kind="Schema"/>
 										<PathElement Name="bundesrat_country_id" Kind="Table"/>
@@ -2284,7 +2284,7 @@
 						<parameter usageKind="variable"/>
 					</data>
 				</component>
-				<component name="structure" library="db" uid="274" kind="15">
+				<component name="db" library="db" uid="274" kind="15">
 					<properties/>
 					<view rbx="180" rby="200"/>
 					<data>
@@ -2299,11 +2299,11 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint">
+						<database ref="infoint1">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="mapping" Kind="Schema"/>
 										<PathElement Name="bundesrat_country_id" Kind="Table"/>
@@ -2384,7 +2384,7 @@
 					</targets>
 					<view ltx="702" lty="143" rbx="810" rby="199"/>
 				</component>
-				<component name="structure" library="db" uid="296" kind="15">
+				<component name="db" library="db" uid="296" kind="15">
 					<properties/>
 					<view ltx="837" lty="130" rbx="1017" rby="330"/>
 					<data>
@@ -2399,11 +2399,11 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint" InstanceRoot="{}mapping.bundesrat_parliament_id">
+						<database ref="infoint1" InstanceRoot="{}mapping.bundesrat_parliament_id">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="mapping" Kind="Schema"/>
 										<PathElement Name="bundesrat_parliament_id" Kind="Table"/>
@@ -2414,7 +2414,7 @@
 						<parameter usageKind="variable"/>
 					</data>
 				</component>
-				<component name="structure" library="db" uid="297" kind="15">
+				<component name="db" library="db" uid="297" kind="15">
 					<properties/>
 					<view ltx="288" lty="129" rbx="468" rby="329"/>
 					<data>
@@ -2429,11 +2429,11 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint">
+						<database ref="infoint1">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="mapping" Kind="Schema"/>
 										<PathElement Name="bundesrat_parliament_id" Kind="Table"/>
@@ -2478,7 +2478,6 @@
 	</component>
 	<component name="state name to state id" library="user" blackbox="0" uid="301" editable="1" inline="1">
 		<properties/>
-		<description/>
 		<structure>
 			<children>
 				<component name="constant" library="core" uid="303" kind="2">
@@ -2530,11 +2529,11 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint" InstanceRoot="{}integrated.state">
+						<database ref="infoint1" InstanceRoot="{}integrated.state">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="state" Kind="Table"/>
@@ -2560,11 +2559,11 @@
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint">
+						<database ref="infoint1">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="mapping" Kind="Schema"/>
 										<PathElement Name="bundesrat_state_id" Kind="Table"/>
@@ -2653,7 +2652,6 @@
 	</component>
 	<component name="split function" library="user" blackbox="0" uid="312" editable="1" inline="1">
 		<properties/>
-		<description/>
 		<structure>
 			<children>
 				<component name="constant" library="core" uid="319" kind="2">
@@ -3171,7 +3169,6 @@
 	</component>
 	<component name="splitt at constant" library="user" blackbox="0" uid="338" editable="1" inline="1">
 		<properties/>
-		<description/>
 		<structure>
 			<children>
 				<component name="constant" library="core" uid="347" kind="6">
@@ -3361,7 +3358,6 @@
 	</component>
 	<component name="committee name to committee id" library="user" blackbox="0" uid="372" editable="1" inline="1">
 		<properties/>
-		<description/>
 		<structure>
 			<children>
 				<component name="constant" library="core" uid="374" kind="2">
@@ -3386,65 +3382,6 @@
 					</targets>
 					<view ltx="552" lty="108" rbx="660" rby="164"/>
 				</component>
-				<component name="db" library="db" uid="378" kind="15">
-					<properties/>
-					<view ltx="141" lty="93" rbx="273" rby="225"/>
-					<data>
-						<root>
-							<header>
-								<namespaces/>
-							</header>
-							<entry name="document" expanded="1">
-								<entry name="mapping.bundesrat_committee_id" type="table" outkey="22" expanded="1">
-									<entry name="id" outkey="23"/>
-								</entry>
-							</entry>
-						</root>
-						<wsdl/>
-						<database ref="infoint">
-							<data>
-								<selections>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="mapping" Kind="Schema"/>
-										<PathElement Name="bundesrat_committee_id" Kind="Table"/>
-									</selection>
-								</selections>
-							</data>
-						</database>
-					</data>
-				</component>
-				<component name="db" library="db" uid="380" kind="15">
-					<properties/>
-					<view ltx="853" lty="128" rbx="1049" rby="368"/>
-					<data>
-						<root>
-							<header>
-								<namespaces/>
-							</header>
-							<entry name="document" expanded="1">
-								<entry name="integrated.committee" type="table" inpkey="24" expanded="1">
-									<entry name="id" inpkey="25" outkey="26"/>
-								</entry>
-							</entry>
-						</root>
-						<wsdl/>
-						<database ref="infoint" InstanceRoot="{}integrated.committee">
-							<data>
-								<selections>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="committee" Kind="Table"/>
-									</selection>
-								</selections>
-							</data>
-						</database>
-						<parameter usageKind="variable"/>
-					</data>
-				</component>
 				<component name="committee_id" library="core" uid="375" kind="7">
 					<properties/>
 					<sources>
@@ -3455,6 +3392,21 @@
 						<output datatype="string"/>
 						<wsdl/>
 						<parameter usageKind="output" name="committee_id"/>
+					</data>
+				</component>
+				<component name="committee_name" library="core" uid="376" kind="6">
+					<properties/>
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="9"/>
+					</targets>
+					<view ltx="205" lty="277" rbx="334" rby="316"/>
+					<data>
+						<input datatype="string"/>
+						<wsdl/>
+						<parameter usageKind="input" name="committee_name"/>
 					</data>
 				</component>
 				<component name="mapping.bundesrat_committ..." library="db" uid="379" kind="21">
@@ -3476,19 +3428,63 @@
 						<wsdl/>
 					</data>
 				</component>
-				<component name="committee_name" library="core" uid="376" kind="6">
+				<component name="db" library="db" uid="380" kind="15">
 					<properties/>
-					<sources>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="9"/>
-					</targets>
-					<view ltx="205" lty="277" rbx="334" rby="316"/>
+					<view ltx="853" lty="128" rbx="1049" rby="368"/>
 					<data>
-						<input datatype="string"/>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.committee" type="table" inpkey="24" expanded="1">
+									<entry name="id" inpkey="25" outkey="26"/>
+								</entry>
+							</entry>
+						</root>
 						<wsdl/>
-						<parameter usageKind="input" name="committee_name"/>
+						<database ref="infoint1" InstanceRoot="{}integrated.committee">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint1" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="committee" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
+				<component name="db" library="db" uid="378" kind="15">
+					<properties/>
+					<view ltx="141" lty="93" rbx="273" rby="225"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="mapping.bundesrat_committee_id" type="table" outkey="22" expanded="1">
+									<entry name="id" outkey="23"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint1">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint1" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="bundesrat_committee_id" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
 					</data>
 				</component>
 			</children>
@@ -3536,7 +3532,6 @@
 	</component>
 	<component name="get first word" library="user" blackbox="0" uid="408" editable="1" inline="1">
 		<properties/>
-		<description/>
 		<structure>
 			<children>
 				<component name="contains" library="core" uid="412" kind="5">
