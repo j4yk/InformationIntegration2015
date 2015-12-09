@@ -205,48 +205,6 @@
 						</root>
 					</data>
 				</component>
-				<component name="person-id-from-aw-uuid" library="user" blackbox="0" uid="398" kind="19" visible="0">
-					<view ltx="794" lty="159" rbx="940" rby="176"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="aw_uuid" inpkey="996" componentid="361"/>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="person_id" outkey="997" componentid="356"/>
-						</root>
-					</data>
-				</component>
-				<component name="party-id-from-party-name" library="user" blackbox="0" uid="399" kind="19" visible="0">
-					<view ltx="794" lty="209" rbx="947" rby="226"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="party_name" inpkey="995" componentid="300"/>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="party_id" outkey="998" componentid="301"/>
-						</root>
-					</data>
-				</component>
 				<component name="abgeordnetenwatch.candida..." library="core" uid="437" kind="3">
 					<properties/>
 					<sources>
@@ -309,70 +267,6 @@
 							</header>
 							<entry name="country_id" outkey="1127" componentid="444"/>
 						</root>
-					</data>
-				</component>
-				<component name="structure" library="db" uid="336" kind="15">
-					<properties/>
-					<view ltx="1230" lty="-19" rbx="1469" rby="338"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces/>
-							</header>
-							<entry name="document" expanded="1">
-								<entry name="integrated.candidacy" type="table" inpkey="918" expanded="1">
-									<entry name="candidate" inpkey="919"/>
-									<entry name="parliament" inpkey="920"/>
-									<entry name="constituency" inpkey="921"/>
-									<entry name="party_id" inpkey="932"/>
-									<entry name="result" inpkey="922"/>
-									<entry name="num" inpkey="923"/>
-								</entry>
-								<entry name="integrated.person_country" type="table" inpkey="1112" expanded="1">
-									<entry name="person_id" inpkey="1113"/>
-									<entry name="country_id" inpkey="1128"/>
-								</entry>
-								<entry name="integrated.person_occupation" type="table" inpkey="1031" expanded="1">
-									<entry name="person_id" inpkey="1007"/>
-									<entry name="occupation_id" inpkey="1008"/>
-								</entry>
-								<entry name="integrated.person_party" type="table" inpkey="933" expanded="1">
-									<entry name="party_id" inpkey="934"/>
-									<entry name="person_id" inpkey="935"/>
-								</entry>
-							</entry>
-						</root>
-						<wsdl/>
-						<database ref="infoint">
-							<data>
-								<selections>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="candidacy" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="person_country" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="person_occupation" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="person_party" Kind="Table"/>
-									</selection>
-								</selections>
-							</data>
-						</database>
 					</data>
 				</component>
 				<component name="value-map" library="core" uid="424" kind="23">
@@ -479,16 +373,6 @@
 						</database>
 					</data>
 				</component>
-				<component name="distinct-values" library="core" uid="289" kind="5">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="727"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="726"/>
-					</targets>
-					<view ltx="326" lty="301" rbx="456" rby="340"/>
-				</component>
 				<component name="distinct-values" library="core" uid="283" kind="5">
 					<properties/>
 					<sources>
@@ -499,11 +383,127 @@
 					</targets>
 					<view ltx="315" lty="433" rbx="445" rby="472"/>
 				</component>
+				<component name="party-id-from-party-name" library="user" blackbox="0" uid="399" kind="19" visible="0">
+					<view ltx="794" lty="209" rbx="947" rby="226"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="party_name" inpkey="995" componentid="300"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="party_id" outkey="998" componentid="301"/>
+						</root>
+					</data>
+				</component>
+				<component name="person-id-from-aw-uuid" library="user" blackbox="0" uid="398" kind="19" visible="0">
+					<view ltx="794" lty="159" rbx="940" rby="176"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="aw_uuid" inpkey="996" componentid="361"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="person_id" outkey="997" componentid="356"/>
+						</root>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="336" kind="15">
+					<properties/>
+					<view ltx="1230" lty="-19" rbx="1469" rby="338"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.candidacy" type="table" inpkey="918" expanded="1">
+									<entry name="candidate" inpkey="919"/>
+									<entry name="parliament" inpkey="920"/>
+									<entry name="constituency" inpkey="921"/>
+									<entry name="party_id" inpkey="932"/>
+									<entry name="result" inpkey="922"/>
+									<entry name="num" inpkey="923"/>
+								</entry>
+								<entry name="integrated.person_country" type="table" inpkey="1112" expanded="1">
+									<entry name="person_id" inpkey="1113"/>
+									<entry name="country_id" inpkey="1128"/>
+								</entry>
+								<entry name="integrated.person_occupation" type="table" inpkey="1031" expanded="1">
+									<entry name="person_id" inpkey="1007"/>
+									<entry name="occupation_id" inpkey="1008"/>
+								</entry>
+								<entry name="integrated.person_party" type="table" inpkey="933" expanded="1">
+									<entry name="party_id" inpkey="934"/>
+									<entry name="person_id" inpkey="935"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="candidacy" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person_country" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person_occupation" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person_party" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="distinct-values" library="core" uid="289" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="727"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="726"/>
+					</targets>
+					<view ltx="326" lty="301" rbx="456" rby="340"/>
+				</component>
 				<component name="structure" library="db" uid="173" kind="15">
 					<properties XSLTDefaultOutput="1"/>
 					<view ltx="732" lty="301" rbx="1037" rby="589"/>
 					<data>
-						<root scrollposition="1">
+						<root scrollposition="103">
 							<header>
 								<namespaces/>
 							</header>
@@ -528,14 +528,20 @@
 										<entry name="id" valuekeygeneration="maxnumber"/>
 										<entry name="name" inpkey="1130"/>
 									</entry>
-									<entry name="integrated.state|country_id" type="table" inpkey="1096">
-										<entry name="state" inpkey="1097"/>
+									<entry name="integrated.state|country_id" type="table" inpkey="1096" expanded="1">
+										<tableactions>
+											<action proceedchildren="1">
+												<field name="country_id" function="equal"/>
+											</action>
+										</tableactions>
+										<entry name="id" valuekeygeneration="maxnumber"/>
+										<entry name="name" inpkey="1135"/>
 									</entry>
-									<entry name="mapping.aw_country_id|id" type="table">
+									<entry name="mapping.aw_country_id|id" type="table" expanded="1">
 										<entry name="name" inpkey="1114"/>
 									</entry>
 								</entry>
-								<entry name="integrated.occupation" type="table" inpkey="645">
+								<entry name="integrated.occupation" type="table" inpkey="645" expanded="1">
 									<tableactions>
 										<action proceedchildren="1"/>
 									</tableactions>
@@ -808,7 +814,7 @@
 					<vertex vertexkey="726">
 						<edges>
 							<edge vertexkey="1096" edgekey="1098"/>
-							<edge vertexkey="1097" edgekey="1099"/>
+							<edge vertexkey="1135" edgekey="1136"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="729">
@@ -2358,7 +2364,6 @@
 	</component>
 	<component name="country-id-from-country-name" library="user" blackbox="0" uid="440" editable="1" inline="1">
 		<properties/>
-		<description/>
 		<structure>
 			<children>
 				<component name="constant" library="core" uid="442" kind="2">
