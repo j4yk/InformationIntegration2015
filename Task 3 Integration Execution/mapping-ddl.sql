@@ -213,6 +213,18 @@ CREATE TABLE bundestag_state_id (
 ALTER TABLE bundestag_state_id OWNER TO postgres;
 
 --
+-- Name: dbpedia_person_id; Type: TABLE; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE dbpedia_person_id (
+    uri character varying NOT NULL,
+    id integer
+);
+
+
+ALTER TABLE dbpedia_person_id OWNER TO postgres;
+
+--
 -- Name: gnd_occupation_id; Type: TABLE; Schema: mapping; Owner: postgres; Tablespace: 
 --
 
@@ -437,6 +449,14 @@ ALTER TABLE ONLY bundestag_state_id
 
 
 --
+-- Name: dbpedia_person_id_pkey; Type: CONSTRAINT; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY dbpedia_person_id
+    ADD CONSTRAINT dbpedia_person_id_pkey PRIMARY KEY (uri);
+
+
+--
 -- Name: gnd_occupation_id_pkey; Type: CONSTRAINT; Schema: mapping; Owner: postgres; Tablespace: 
 --
 
@@ -575,6 +595,13 @@ CREATE INDEX fki_bundestag_person_id_fkey ON bundestag_person_id USING btree (id
 --
 
 CREATE INDEX fki_bundestag_state_id_fkey ON bundestag_state_id USING btree (id);
+
+
+--
+-- Name: fki_dbpedia_person_id_fkey; Type: INDEX; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX fki_dbpedia_person_id_fkey ON dbpedia_person_id USING btree (id);
 
 
 --
@@ -745,6 +772,14 @@ ALTER TABLE ONLY bundestag_person_id
 
 ALTER TABLE ONLY bundestag_state_id
     ADD CONSTRAINT bundestag_state_id_fkey FOREIGN KEY (id) REFERENCES integrated.state(id);
+
+
+--
+-- Name: dbpedia_person_id_fkey; Type: FK CONSTRAINT; Schema: mapping; Owner: postgres
+--
+
+ALTER TABLE ONLY dbpedia_person_id
+    ADD CONSTRAINT dbpedia_person_id_fkey FOREIGN KEY (id) REFERENCES integrated.person(id);
 
 
 --
