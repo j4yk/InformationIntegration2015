@@ -165,6 +165,7 @@ CREATE TABLE candidacy (
     parliament character varying,
     constituency character varying,
     party_id integer,
+    state_id integer,
     result real,
     num integer,
     mandate character varying,
@@ -387,8 +388,7 @@ CREATE TABLE politician (
     person_id integer NOT NULL,
     aw_uuid character varying,
     aw_username character varying,
-    aw_picture_url character varying,
-    state_id integer
+    aw_picture_url character varying
 );
 
 
@@ -705,6 +705,15 @@ ALTER TABLE ONLY candidacy
 
 
 --
+-- TOC entry 2029 (class 2606 OID 17128)
+-- Name: politician_state_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY candidacy
+    ADD CONSTRAINT candidacy_state_fkey FOREIGN KEY (state_id) REFERENCES state(id);
+
+
+--
 -- TOC entry 2035 (class 2606 OID 17181)
 -- Name: death_person_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
@@ -810,15 +819,6 @@ ALTER TABLE ONLY place
 
 ALTER TABLE ONLY politician
     ADD CONSTRAINT politician_person_id_fkey FOREIGN KEY (person_id) REFERENCES person(id);
-
-
---
--- TOC entry 2029 (class 2606 OID 17128)
--- Name: politician_state_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY politician
-    ADD CONSTRAINT politician_state_fkey FOREIGN KEY (state_id) REFERENCES state(id);
 
 
 --

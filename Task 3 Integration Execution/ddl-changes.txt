@@ -22,3 +22,4 @@ ddl changes:
 
 		-	removed 'constituency' from 'candidacy' primary key (becaue that's not by bundesrat/bundestag)
 		-	added 'id' column for 'state' & 'committee' since using the name as pk does not work when combining multiple data sources
+		-	moved 'state_id' from 'politician' to 'candidacy'
