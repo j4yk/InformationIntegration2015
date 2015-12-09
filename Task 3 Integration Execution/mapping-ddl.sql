@@ -73,6 +73,64 @@ CREATE TABLE aw_person_id (
 ALTER TABLE aw_person_id OWNER TO postgres;
 
 --
+-- Name: bundesrat_country_id; Type: TABLE; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE bundesrat_country_id (
+    id integer NOT NULL
+);
+
+
+ALTER TABLE bundesrat_country_id OWNER TO postgres;
+
+--
+-- Name: bundesrat_parliament_id; Type: TABLE; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE bundesrat_parliament_id (
+    uuid character varying NOT NULL
+);
+
+
+ALTER TABLE bundesrat_parliament_id OWNER TO postgres;
+
+--
+-- Name: bundesrat_party_id; Type: TABLE; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE bundesrat_party_id (
+    name character varying NOT NULL,
+    id integer
+);
+
+
+ALTER TABLE bundesrat_party_id OWNER TO postgres;
+
+--
+-- Name: bundesrat_person_id; Type: TABLE; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE bundesrat_person_id (
+    name character varying NOT NULL,
+    id integer
+);
+
+
+ALTER TABLE bundesrat_person_id OWNER TO postgres;
+
+--
+-- Name: bundesrat_state_id; Type: TABLE; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE bundesrat_state_id (
+    name character varying NOT NULL,
+    id integer
+);
+
+
+ALTER TABLE bundesrat_state_id OWNER TO postgres;
+
+--
 -- Name: gnd_occupation_id; Type: TABLE; Schema: mapping; Owner: postgres; Tablespace: 
 --
 
@@ -189,6 +247,46 @@ ALTER TABLE ONLY aw_person_id
 
 
 --
+-- Name: bundesrat_country_id_pkey; Type: CONSTRAINT; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY bundesrat_country_id
+    ADD CONSTRAINT bundesrat_country_id_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: bundesrat_parliament_id_pkey; Type: CONSTRAINT; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY bundesrat_parliament_id
+    ADD CONSTRAINT bundesrat_parliament_id_pkey PRIMARY KEY (uuid);
+
+
+--
+-- Name: bundesrat_party_id_pkey; Type: CONSTRAINT; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY bundesrat_party_id
+    ADD CONSTRAINT bundesrat_party_id_pkey PRIMARY KEY (name);
+
+
+--
+-- Name: bundesrat_person_id_pkey; Type: CONSTRAINT; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY bundesrat_person_id
+    ADD CONSTRAINT bundesrat_person_id_pkey PRIMARY KEY (name);
+
+
+--
+-- Name: bundesrat_state_id_pkey; Type: CONSTRAINT; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY bundesrat_state_id
+    ADD CONSTRAINT bundesrat_state_id_pkey PRIMARY KEY (name);
+
+
+--
 -- Name: gnd_occupation_id_pkey; Type: CONSTRAINT; Schema: mapping; Owner: postgres; Tablespace: 
 --
 
@@ -266,6 +364,27 @@ CREATE INDEX fki_aw_party_id_fkey ON aw_party_id USING btree (id);
 
 
 --
+-- Name: fki_bundesrat_party_id_fk; Type: INDEX; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX fki_bundesrat_party_id_fk ON bundesrat_party_id USING btree (id);
+
+
+--
+-- Name: fki_bundesrat_person_id_fkey; Type: INDEX; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX fki_bundesrat_person_id_fkey ON bundesrat_person_id USING btree (id);
+
+
+--
+-- Name: fki_bundesrat_state_id_fkey; Type: INDEX; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX fki_bundesrat_state_id_fkey ON bundesrat_state_id USING btree (id);
+
+
+--
 -- Name: fki_gnd_occupation_id_fkey; Type: INDEX; Schema: mapping; Owner: postgres; Tablespace: 
 --
 
@@ -330,6 +449,46 @@ ALTER TABLE ONLY aw_party_id
 
 ALTER TABLE ONLY aw_person_id
     ADD CONSTRAINT aw_person_id_fkey FOREIGN KEY (id) REFERENCES integrated.person(id);
+
+
+--
+-- Name: bundesrat_country_id_fk; Type: FK CONSTRAINT; Schema: mapping; Owner: postgres
+--
+
+ALTER TABLE ONLY bundesrat_country_id
+    ADD CONSTRAINT bundesrat_country_id_fk FOREIGN KEY (id) REFERENCES integrated.country(id);
+
+
+--
+-- Name: bundesrat_parliament_id_fk; Type: FK CONSTRAINT; Schema: mapping; Owner: postgres
+--
+
+ALTER TABLE ONLY bundesrat_parliament_id
+    ADD CONSTRAINT bundesrat_parliament_id_fk FOREIGN KEY (uuid) REFERENCES integrated.parliament(uuid);
+
+
+--
+-- Name: bundesrat_party_id_fk; Type: FK CONSTRAINT; Schema: mapping; Owner: postgres
+--
+
+ALTER TABLE ONLY bundesrat_party_id
+    ADD CONSTRAINT bundesrat_party_id_fk FOREIGN KEY (id) REFERENCES integrated.party(id);
+
+
+--
+-- Name: bundesrat_person_id_fkey; Type: FK CONSTRAINT; Schema: mapping; Owner: postgres
+--
+
+ALTER TABLE ONLY bundesrat_person_id
+    ADD CONSTRAINT bundesrat_person_id_fkey FOREIGN KEY (id) REFERENCES integrated.person(id);
+
+
+--
+-- Name: bundesrat_state_id_fkey; Type: FK CONSTRAINT; Schema: mapping; Owner: postgres
+--
+
+ALTER TABLE ONLY bundesrat_state_id
+    ADD CONSTRAINT bundesrat_state_id_fkey FOREIGN KEY (id) REFERENCES integrated.state(id);
 
 
 --
