@@ -4,14 +4,14 @@
 	<resources>
 		<datasources>
 			<datasource name="infoint">
-				<properties JDBCDriver="org.postgresql.Driver" JDBCDatabaseURL="jdbc:postgresql://localhost:5432/infoint" DBUser="infoint" DBPassword="manager" DBDataSource="bla" DBCatalog="infoint" OLEDBOptions="Port=5432;B0=16777215;BI=0;"/>
-				<database_connection database_kind="PostgreSQL" import_kind="ODBC" version="9.4.5" ConnectionString="DSN=bla;DATABASE=infoint;SERVER=localhost;PORT=5432;UID=infoint;PWD=manager;SSLmode=disable;ReadOnly=0;Protocol=7.4;FakeOidIndex=0;ShowOidColumn=0;RowVersioning=0;ShowSystemTables=0;ConnSettings=;Fetch=100;Socket=4096;UnknownSizes=0;MaxVarcharSize=255;MaxLongVarcharSize=8190;Debug=0;CommLog=0;Optimizer=0;Ksqo=1;UseDeclareFetch=0;TextAsLongVarchar=1;UnknownsAsLongVarchar=0;BoolsAsChar=1;Parse=0;CancelAsFreeStmt=0;ExtraSysTablePrefixes=dd_;;LFConversion=1;UpdatableCursors=1;DisallowPremature=0;TrueIsMinus1=0;BI=0;ByteaAsLongVarBinary=0;UseServerSidePrepare=1;LowerCaseIdentifier=0;GssAuthUseGSS=0;XaOpt=1" name="infoint" path="infoint">
+				<properties JDBCDriver="org.postgresql.Driver" JDBCDatabaseURL="jdbc:postgresql://localhost:5432/infoint" DBUser="postgres" DBPassword="dbpass" DBDataSource="PostgreSQL_aw" DBCatalog="infoint" OLEDBOptions="Port=5432;B0=16777215;BI=0;"/>
+				<database_connection database_kind="PostgreSQL" import_kind="ODBC" version="9.4.5" ConnectionString="Dsn=PostgreSQL_aw;Server=localhost;Database=infoint;Port=5432;B0=16777215;BI=0;Uid=postgres;Pwd=dbpass;" name="infoint" path="infoint">
 					<properties>
 						<property name="Database Kind" value="PostgreSQL"/>
 						<property name="Import Kind" value="ODBC"/>
 						<property name="Root Object" value="infoint"/>
 						<property name="FileDsn"/>
-						<property name="Dsn" value="bla"/>
+						<property name="Dsn" value="PostgreSQL_aw"/>
 						<property name="Driver"/>
 						<property name="Trusted_Connection"/>
 						<property name="App"/>
@@ -20,8 +20,46 @@
 						<property name="Regional"/>
 						<property name="Languages"/>
 						<property name="Wsid"/>
-						<property name="Uid" value="infoint"/>
-						<property name="Pwd" value="MTEM4E-tEf831"/>
+						<property name="Uid" value="postgres"/>
+						<property name="Pwd" value="FcAP4E-8TzXm0"/>
+						<property name="Port" value="5432"/>
+						<property name="Option"/>
+						<property name="Stmt"/>
+						<property name="A1"/>
+						<property name="A6"/>
+						<property name="A7"/>
+						<property name="A8"/>
+						<property name="B0" value="16777215"/>
+						<property name="B1"/>
+						<property name="BI" value="0"/>
+						<property name="C2"/>
+						<property name="CA"/>
+						<property name="CX"/>
+					</properties>
+					<LocalViewStorage/>
+					<LocalRelationsStorage/>
+					<RecordSetStructureStorage/>
+				</database_connection>
+			</datasource>
+			<datasource name="infoint1">
+				<properties JDBCDriver="org.postgresql.Driver" JDBCDatabaseURL="jdbc:postgresql://localhost:5432/infoint" DBUser="postgres" DBPassword="dbpass" DBDataSource="PostgreSQL35W_1" DBCatalog="infoint" OLEDBOptions="Port=5432;B0=16777215;BI=0;"/>
+				<database_connection database_kind="PostgreSQL" import_kind="ODBC" version="9.4.5" ConnectionString="DSN=PostgreSQL35W_1;DATABASE=infoint;SERVER=localhost;PORT=5432;UID=postgres;PWD=dbpass;SSLmode=disable;ReadOnly=0;Protocol=7.4;FakeOidIndex=0;ShowOidColumn=0;RowVersioning=0;ShowSystemTables=0;ConnSettings=;Fetch=100;Socket=4096;UnknownSizes=0;MaxVarcharSize=255;MaxLongVarcharSize=8190;Debug=0;CommLog=0;Optimizer=0;Ksqo=1;UseDeclareFetch=0;TextAsLongVarchar=1;UnknownsAsLongVarchar=0;BoolsAsChar=1;Parse=0;CancelAsFreeStmt=0;ExtraSysTablePrefixes=dd_;;LFConversion=1;UpdatableCursors=1;DisallowPremature=0;TrueIsMinus1=0;BI=0;ByteaAsLongVarBinary=0;UseServerSidePrepare=1;LowerCaseIdentifier=0;GssAuthUseGSS=0;XaOpt=1" name="infoint1" path="infoint1">
+					<properties>
+						<property name="Database Kind" value="PostgreSQL"/>
+						<property name="Import Kind" value="ODBC"/>
+						<property name="Root Object" value="infoint"/>
+						<property name="FileDsn"/>
+						<property name="Dsn" value="PostgreSQL35W_1"/>
+						<property name="Driver"/>
+						<property name="Trusted_Connection"/>
+						<property name="App"/>
+						<property name="Server" value="localhost"/>
+						<property name="Database" value="infoint"/>
+						<property name="Regional"/>
+						<property name="Languages"/>
+						<property name="Wsid"/>
+						<property name="Uid" value="postgres"/>
+						<property name="Pwd" value="FcAP4E-8TzXm0"/>
 						<property name="Port" value="5432"/>
 						<property name="Option"/>
 						<property name="Stmt"/>
@@ -47,18 +85,27 @@
 		<properties SelectedLanguage="builtin"/>
 		<structure>
 			<children>
-				<component name="auto-number" library="core" uid="5" kind="5">
+				<component name="substring-after" library="core" uid="7" kind="5">
 					<properties/>
 					<sources>
-						<datapoint/>
-						<datapoint/>
-						<datapoint/>
-						<datapoint/>
+						<datapoint pos="0" key="5"/>
+						<datapoint pos="1" key="6"/>
 					</sources>
 					<targets>
-						<datapoint pos="0" key="1"/>
+						<datapoint pos="0" key="7"/>
 					</targets>
-					<view ltx="714" lty="-12" rbx="845" rby="78"/>
+					<view ltx="369" lty="490" rbx="469" rby="546"/>
+				</component>
+				<component name="constant" library="core" uid="10" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="8"/>
+					</targets>
+					<view ltx="287" lty="476" rbx="333" rby="494"/>
+					<data>
+						<constant value=", " datatype="string"/>
+						<wsdl/>
+					</data>
 				</component>
 				<component name="substring-before" library="core" uid="9" kind="5">
 					<properties/>
@@ -69,94 +116,11 @@
 					<targets>
 						<datapoint pos="0" key="4"/>
 					</targets>
-					<view ltx="657" lty="249" rbx="765" rby="305"/>
-				</component>
-				<component name="substring-after" library="core" uid="7" kind="5">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="5"/>
-						<datapoint pos="1" key="6"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="7"/>
-					</targets>
-					<view ltx="665" lty="332" rbx="765" rby="388"/>
-				</component>
-				<component name="constant" library="core" uid="10" kind="2">
-					<properties/>
-					<targets>
-						<datapoint pos="0" key="8"/>
-					</targets>
-					<view ltx="552" lty="318" rbx="598" rby="336"/>
-					<data>
-						<constant value=", " datatype="string"/>
-						<wsdl/>
-					</data>
-				</component>
-				<component name="db" library="db" uid="3" kind="15">
-					<properties/>
-					<view ltx="101" lty="60" rbx="522" rby="782"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces/>
-							</header>
-							<entry name="document" expanded="1">
-								<entry name="nytlod.article_header" type="table" outkey="53" expanded="1">
-									<entry name="article_id" outkey="54"/>
-									<entry name="headline" outkey="55"/>
-									<entry name="pub_date" outkey="56"/>
-									<entry name="word_count" outkey="57"/>
-									<entry name="abstract" outkey="58"/>
-									<entry name="web_url" outkey="59"/>
-								</entry>
-								<entry name="nytlod.people" type="table" outkey="23" expanded="1">
-									<entry name="person_id" outkey="24"/>
-									<entry name="associated_article_count" outkey="25"/>
-									<entry name="pref_label" outkey="26"/>
-									<entry name="nytlod.people_ref|person_id" type="table" outkey="27" expanded="1">
-										<entry name="article_id" outkey="28"/>
-										<entry name="nytlod.article_header|article_id" type="table" outkey="29" expanded="1">
-											<entry name="headline" outkey="30"/>
-											<entry name="pub_date" outkey="31"/>
-											<entry name="word_count" outkey="32"/>
-											<entry name="abstract" outkey="33"/>
-											<entry name="web_url" outkey="34"/>
-										</entry>
-									</entry>
-								</entry>
-							</entry>
-						</root>
-						<wsdl/>
-						<database ref="infoint">
-							<data>
-								<selections>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="nytlod" Kind="Schema"/>
-										<PathElement Name="article_header" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="nytlod" Kind="Schema"/>
-										<PathElement Name="people" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="nytlod" Kind="Schema"/>
-										<PathElement Name="people_ref" Kind="Table"/>
-									</selection>
-								</selections>
-							</data>
-						</database>
-					</data>
+					<view ltx="361" lty="407" rbx="469" rby="463"/>
 				</component>
 				<component name="db" library="db" uid="2" kind="15">
 					<properties XSLTDefaultOutput="1"/>
-					<view ltx="1148" lty="76" rbx="1579" rby="922"/>
+					<view ltx="506" rbx="844" rby="454"/>
 					<data>
 						<root scrollposition="1">
 							<header>
@@ -178,43 +142,153 @@
 									<tableactions>
 										<action proceedchildren="1"/>
 									</tableactions>
-									<entry name="id" inpkey="10" valuekeygeneration="maxnumber"/>
+									<entry name="id" valuekeygeneration="maxnumber"/>
 									<entry name="first_name" inpkey="11"/>
 									<entry name="last_name" inpkey="12"/>
 									<entry name="nyt_id" inpkey="13"/>
 									<entry name="associated_articles_count" inpkey="14"/>
-									<entry name="integrated.person_article|person_id" type="table" inpkey="15" expanded="1">
-										<entry name="article_id" inpkey="16"/>
-										<entry name="integrated.article_header|article_id" type="table" inpkey="17" expanded="1">
-											<entry name="headline" inpkey="18"/>
-											<entry name="abstract" inpkey="19"/>
-											<entry name="word_count" inpkey="20"/>
-											<entry name="pub_date" inpkey="21"/>
-											<entry name="web_url" inpkey="22"/>
-										</entry>
+									<entry name="integrated.person_article|person_id" type="table">
+										<entry name="integrated.article_header|article_id" type="table" expanded="1"/>
+									</entry>
+									<entry name="mapping.nyt_person_id|id" type="table" expanded="1">
+										<entry name="nyt_id" inpkey="107"/>
 									</entry>
 								</entry>
-								<entry name="integrated.person_article" type="table" expanded="1"/>
 							</entry>
 						</root>
 						<wsdl/>
-						<database ref="infoint">
+						<database ref="infoint1">
 							<data>
 								<selections>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="article_header" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="person" Kind="Table"/>
 									</selection>
 									<selection>
-										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint1" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person_article" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint1" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="nyt_person_id" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="db" library="db" uid="3" kind="15">
+					<properties/>
+					<view ltx="-10" rbx="259" rby="611"/>
+					<data>
+						<root scrollposition="53">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="nytlod.article_header" type="table" outkey="53" expanded="1">
+									<entry name="article_id" outkey="54"/>
+									<entry name="headline" outkey="55"/>
+									<entry name="pub_date" outkey="56"/>
+									<entry name="word_count" outkey="57"/>
+									<entry name="abstract" outkey="58"/>
+									<entry name="web_url" outkey="59"/>
+								</entry>
+								<entry name="nytlod.people" type="table" outkey="23" expanded="1">
+									<entry name="person_id" outkey="24"/>
+									<entry name="associated_article_count" outkey="25"/>
+									<entry name="pref_label" outkey="26"/>
+									<entry name="nytlod.people_ref|person_id" type="table">
+										<entry name="nytlod.article_header|article_id" type="table" expanded="1"/>
+									</entry>
+								</entry>
+								<entry name="nytlod.people_ref" type="table" outkey="88" expanded="1">
+									<entry name="article_id" outkey="89"/>
+									<entry name="person_id" outkey="90"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint1">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint1" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="nytlod" Kind="Schema"/>
+										<PathElement Name="article_header" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint1" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="nytlod" Kind="Schema"/>
+										<PathElement Name="people" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint1" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="nytlod" Kind="Schema"/>
+										<PathElement Name="people_ref" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="person-id-from-nyt-id" library="user" blackbox="0" uid="26" kind="19" visible="0">
+					<view ltx="586" lty="568" rbx="719" rby="585"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="nyt_id" inpkey="109" componentid="20"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="person_id" outkey="110" componentid="19"/>
+						</root>
+					</data>
+				</component>
+				<component name="db" library="db" uid="11" kind="15">
+					<properties/>
+					<view ltx="830" lty="490" rbx="1097" rby="555"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.person_article" type="table" inpkey="85" expanded="1">
+									<entry name="article_id" inpkey="86"/>
+									<entry name="person_id" inpkey="87"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint1">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint1" Kind="DataSource"/>
 										<PathElement Name="infoint" Kind="Database"/>
 										<PathElement Name="integrated" Kind="Schema"/>
 										<PathElement Name="person_article" Kind="Table"/>
@@ -228,11 +302,6 @@
 			<graph directed="1">
 				<edges/>
 				<vertices>
-					<vertex vertexkey="1">
-						<edges>
-							<edge vertexkey="10" edgekey="35"/>
-						</edges>
-					</vertex>
 					<vertex vertexkey="4">
 						<edges>
 							<edge vertexkey="11" edgekey="36"/>
@@ -257,6 +326,7 @@
 					<vertex vertexkey="24">
 						<edges>
 							<edge vertexkey="13" edgekey="41"/>
+							<edge vertexkey="107" edgekey="108"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="25">
@@ -270,79 +340,234 @@
 							<edge vertexkey="2" edgekey="44"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="27">
-						<edges>
-							<edge vertexkey="15" edgekey="45"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="28">
-						<edges>
-							<edge vertexkey="16" edgekey="46"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="29">
-						<edges>
-							<edge vertexkey="17" edgekey="47"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="30">
-						<edges>
-							<edge vertexkey="18" edgekey="48"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="31">
-						<edges>
-							<edge vertexkey="21" edgekey="49"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="32">
-						<edges>
-							<edge vertexkey="20" edgekey="50"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="33">
-						<edges>
-							<edge vertexkey="19" edgekey="51"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="34">
-						<edges>
-							<edge vertexkey="22" edgekey="52"/>
-						</edges>
-					</vertex>
 					<vertex vertexkey="53">
 						<edges>
-							<edge vertexkey="60" edgekey="67"/>
+							<edge vertexkey="60" edgekey="93"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="54">
 						<edges>
-							<edge vertexkey="61" edgekey="68"/>
+							<edge vertexkey="61" edgekey="94"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="55">
 						<edges>
-							<edge vertexkey="62" edgekey="69"/>
+							<edge vertexkey="62" edgekey="95"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="56">
 						<edges>
-							<edge vertexkey="65" edgekey="70"/>
+							<edge vertexkey="65" edgekey="96"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="57">
 						<edges>
-							<edge vertexkey="64" edgekey="71"/>
+							<edge vertexkey="64" edgekey="97"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="58">
 						<edges>
-							<edge vertexkey="63" edgekey="72"/>
+							<edge vertexkey="63" edgekey="98"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="59">
 						<edges>
-							<edge vertexkey="66" edgekey="73"/>
+							<edge vertexkey="66" edgekey="99"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="88">
+						<edges>
+							<edge vertexkey="85" edgekey="102"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="89">
+						<edges>
+							<edge vertexkey="86" edgekey="103"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="90">
+						<edges>
+							<edge vertexkey="109" edgekey="111"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="110">
+						<edges>
+							<edge vertexkey="87" edgekey="112"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+	<component name="person-id-from-nyt-id" library="user" blackbox="0" uid="16" editable="1" inline="1">
+		<properties/>
+		<description/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="18" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="5"/>
+					</targets>
+					<view ltx="338" lty="70" rbx="376" rby="88"/>
+					<data>
+						<constant value="1" datatype="decimal"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="person_id" library="core" uid="19" kind="7">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="10"/>
+					</sources>
+					<view ltx="830" lty="1" rbx="906" rby="40"/>
+					<data>
+						<output datatype="string"/>
+						<wsdl/>
+						<parameter usageKind="output" name="person_id"/>
+					</data>
+				</component>
+				<component name="first-items" library="core" uid="23" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="4"/>
+						<datapoint pos="1" key="6"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="1"/>
+					</targets>
+					<view ltx="489" lty="1" rbx="597" rby="57"/>
+				</component>
+				<component name="structure" library="db" uid="21" kind="15">
+					<properties/>
+					<view ltx="626" lty="1" rbx="783" rby="71"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.person" type="table" inpkey="2" expanded="1">
+									<entry name="id" inpkey="12" outkey="9"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint" InstanceRoot="{}integrated.person">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
+				<component name="structure" library="db" uid="24" kind="15">
+					<properties/>
+					<view ltx="3" lty="1" rbx="257" rby="65"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="mapping.nyt_person_id" type="table" outkey="15" expanded="1">
+									<entry name="id" outkey="16"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="mapping" Kind="Schema"/>
+										<PathElement Name="nyt_person_id" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="nyt_id" library="core" uid="20" kind="6">
+					<properties/>
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="7"/>
+					</targets>
+					<view ltx="165" lty="103" rbx="243" rby="142"/>
+					<data>
+						<input datatype="string"/>
+						<wsdl/>
+						<parameter usageKind="input" name="nyt_id"/>
+					</data>
+				</component>
+				<component name="mapping.nyt_person_id" library="db" uid="22" kind="21">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="14"/>
+						<datapoint pos="1" key="24"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="3"/>
+					</targets>
+					<view ltx="299" lty="1" rbx="438" rby="57"/>
+					<data>
+						<where condition="nyt_id = :nyt_id">
+							<parameters>
+								<parameter name="nyt_id" type="string" auto-detect="0"/>
+							</parameters>
+						</where>
+						<wsdl/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="1">
+						<edges>
+							<edge vertexkey="2" edgekey="17"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="3">
+						<edges>
+							<edge vertexkey="4" edgekey="18"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="5">
+						<edges>
+							<edge vertexkey="6" edgekey="19"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="7">
+						<edges>
+							<edge vertexkey="24" edgekey="25"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="9">
+						<edges>
+							<edge vertexkey="10" edgekey="21"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="15">
+						<edges>
+							<edge vertexkey="14" edgekey="22"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="16">
+						<edges>
+							<edge vertexkey="12" edgekey="23"/>
 						</edges>
 					</vertex>
 				</vertices>

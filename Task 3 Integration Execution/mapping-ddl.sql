@@ -261,6 +261,18 @@ CREATE TABLE gnd_work_id (
 ALTER TABLE gnd_work_id OWNER TO postgres;
 
 --
+-- Name: nyt_person_id; Type: TABLE; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE nyt_person_id (
+    nyt_id character varying NOT NULL,
+    id integer
+);
+
+
+ALTER TABLE nyt_person_id OWNER TO postgres;
+
+--
 -- Name: wikidata_occupation; Type: TABLE; Schema: mapping; Owner: postgres; Tablespace: 
 --
 
@@ -457,6 +469,14 @@ ALTER TABLE ONLY gnd_work_id
 
 
 --
+-- Name: nyt_person_id_pkey; Type: CONSTRAINT; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY nyt_person_id
+    ADD CONSTRAINT nyt_person_id_pkey PRIMARY KEY (nyt_id);
+
+
+--
 -- Name: wikidata_occupation_pkey; Type: CONSTRAINT; Schema: mapping; Owner: postgres; Tablespace: 
 --
 
@@ -590,6 +610,13 @@ CREATE INDEX fki_gnd_work_id_fkey ON gnd_work_id USING btree (id);
 --
 
 CREATE INDEX fki_mapping_aw_person_id_fkey ON aw_person_id USING btree (id);
+
+
+--
+-- Name: fki_nyt_person_id_fkey; Type: INDEX; Schema: mapping; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX fki_nyt_person_id_fkey ON nyt_person_id USING btree (id);
 
 
 --
@@ -774,6 +801,14 @@ ALTER TABLE ONLY wikidata_person
 
 ALTER TABLE ONLY wikidata_place
     ADD CONSTRAINT mapping_wd_place_id_fkey FOREIGN KEY (integrated_place_id) REFERENCES integrated.place(id);
+
+
+--
+-- Name: nyt_person_id_fkey; Type: FK CONSTRAINT; Schema: mapping; Owner: postgres
+--
+
+ALTER TABLE ONLY nyt_person_id
+    ADD CONSTRAINT nyt_person_id_fkey FOREIGN KEY (id) REFERENCES integrated.person(id);
 
 
 --
