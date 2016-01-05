@@ -1,0 +1,12 @@
+Beobachtungen bei Task 4
+
+- Personen mit leerem Namen
+- Wenn man ein Duplikat gefunden hat, dann ist das Update kompliziert, weil z.B. person_id in vielen Tabellen (16!) vorkommt
+
+Meta
+- Problem beim Unicode
+- Probleme bei der Installation von editdistance
+
+
+Um eine Tabelle mit Namen und Geburts- und Sterbedaten zu erstellen, kann man folgendes verwenden:
+psql -d data -t -A -F"," -c "select c.id, c.first_name, c.last_name, c.year as birth_year, c.month as birth_month, c.day as birth_day, d.year as death_year, d.month as death_month, d.day as death_day from (select a.id, a.first_name, a.last_name, b.year, b.month, b.day from (select * from integrated.person limit 100000) as a left outer join integrated.birth as b on a.id=b.person_id) as c left outer join integrated.death as d on c.id=d.person_id" > output100000.csv postgres
