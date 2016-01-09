@@ -9,7 +9,7 @@ def import_from_csv(name):
     with open(name,  'rb') as csvfile:
         csvreader = csv.reader(csvfile, encoding='utf-8', delimiter=',', quotechar='|')
         data = []
-        for i, row in enumerate(csvreader):
+        for row in csvreader:
             data.append(row)
     return data
 
