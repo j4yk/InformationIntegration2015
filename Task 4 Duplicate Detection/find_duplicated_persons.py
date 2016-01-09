@@ -43,7 +43,7 @@ def compare(row1, row2, d):
             and (row1[6]=="" or row2[6]=="" or abs(int(row1[6]) - int(row2[6])) < 5)):
             print([row1[0], row2[0]])
     except ValueError:
-        # year wasn't a int
+        # year wasn't an int
         pass
     except IndexError:        
         pass
@@ -51,11 +51,11 @@ def compare(row1, row2, d):
 data = import_from_csv('person_birth_death.csv')
 
 # sort using lastName
-data = sorted(data, key=lambda person: person[1])
+data.sort(key=lambda person: person[1])
 
 duplicates = []
 for i, row in enumerate(data):
-    if (i%3 != 0):
+    if i % 3 != 0:
         continue
     # no name
     if row[1] == "" and row[2] == "":
