@@ -10,3 +10,21 @@ Meta
 
 Um eine Tabelle mit Namen und Geburts- und Sterbedaten zu erstellen, kann man folgendes verwenden:
 psql -d data -t -A -F"," -c "select c.id, c.first_name, c.last_name, c.year as birth_year, c.month as birth_month, c.day as birth_day, d.year as death_year, d.month as death_month, d.day as death_day from (select a.id, a.first_name, a.last_name, b.year, b.month, b.day from (select * from integrated.person limit 100000) as a left outer join integrated.birth as b on a.id=b.person_id) as c left outer join integrated.death as d on c.id=d.person_id" > output100000.csv postgres
+
+Ideen zur Ähnlichkeitsermittlung
+--------------------------------
+
+Zusätzliche Vornamen müssen nicht bedeuten, dass eine zweite Person kein Duplikat ist.
+Je weiter die person.id auseinanderliegt, desto eher Duplikat weil womöglich aus verschiedenen Datenquellen.
+Sehr verschiedene Berufe => vermutlich kein Duplikat. Aber Achtung: Jurist und Politiker schließen sich zum Beispiel nicht aus. Arzt und Internist auch nicht... Autor ist auch kein besonderes Alleinstellungsmerkmal, oder? Außerdem sind auch Titel wie Dipl-Kfm und Prof., Dr. unter den Occupations
+weibliche Bezeichnungen für Berufe (Mediziner vs Medizinerin)
+Für politicians darf man als Occupation wohl auch Politiker annehmen.
+Unterschiedliche Geburtsorte => kein Duplikat.
+Keine Referenzen außerhalb von person => kann gefahrlos mit jmd ander gemerged werden (bringt ja doch nichts der Eintrag).
+
+Ideen zum Cleansing
+-------------------
+
+Vertauschte birth und death Zeilen berichtigen. (death <= birth)
+Titel aus Vornamen in Degree verschieben.
+Titel aus Occupations nach Degree für alle abhängigen Personen verschieben.
