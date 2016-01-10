@@ -1,0 +1,28 @@
+# Table; Columns
+integrated."function"; committee_id int4; politician int4; function_name varchar; ; 
+integrated."position"; position_name varchar; politician int4; ; 
+integrated."work"; id int4; person_id int4; name varchar; ; 
+integrated.almamater; person_id int4; university varchar; ; 
+integrated.article_header; id varchar; headline varchar; abstract varchar; word_count int4; pub_date date; web_url varchar; ; 
+integrated.author; person_id int4; fans_count int4; followers_count int4; average_rating float4; ratings_count int4; goodreads_author bool; ; 
+integrated.auxiliary_income; politician int4; type varchar; "year" int4; "level" int4; start_date date; end_date date; periodical varchar; description varchar; ; 
+integrated.birth; person_id int4; place_id int4; "year" int4; "month" int4; "day" int4; first_name varchar; last_name varchar; ; 
+integrated.book; id int4; author int4; title varchar; average_rating float4; description varchar; edition_information varchar; format varchar; isbd varchar; isbn13 varchar; num_pages int4; publication_date date; published int4; publisher varchar; ratings_count int4; text_reviews_count int4; ; 
+integrated.candidacy; candidate int4; parliament varchar; constituency varchar; party_id int4; state_id int4; result float4; num int4; mandate varchar; ended date; ; 
+integrated.committee; id int4; name varchar; url varchar; flyer_url varchar; info_text varchar; ; 
+integrated.constituency; uuid varchar; name varchar; area_codes _int4; ; 
+integrated.country; id int4; wikidata_id varchar; name varchar; ; 
+integrated.death; person_id int4; place_id int4; "year" int4; "month" int4; "day" int4; ; 
+integrated.occupation; id int4; label varchar; ; 
+integrated.parliament; uuid varchar; name varchar; start_date date; end_date date; election_date date; ; 
+integrated.party; id int4; uri varchar; name varchar; ; 
+integrated.person; id int4; first_name varchar; last_name varchar; gender varchar; email varchar; url varchar; twitter varchar; degree varchar; education varchar; dbpedia_uri varchar; wikidata_id varchar; nyt_id varchar; associated_articles_count int4; nyt_definition varchar; ; 
+integrated.person_article; article_id varchar; person_id int4; ; 
+integrated.person_country; person_id int4; country_id int4; ; 
+integrated.person_occupation; person_id int4; occupation_id int4; ; 
+integrated.person_party; party_id int4; person_id int4; ; 
+integrated.place; id int4; name varchar; latitude varchar; longitude varchar; country_id int4; ; 
+integrated.politician; person_id int4; aw_uuid varchar; aw_username varchar; aw_picture_url varchar; ; 
+integrated.related_to; person1_id int4; person2_id int4; type varchar; ; 
+integrated.state; id int4; name varchar; capital_id int4; area float4; population int4; country_id int4; ; 
+integrated.university; uri varchar; name varchar; ; 

@@ -1,0 +1,7 @@
+Layout; MEDIUM
+1; ; last_name = 'Kohl'; 0; 0; 563; 699; 10000; true; T; integrated.person; ; false; 
+2; 1; ; 972; 7; 476; 460; 500; true; T; integrated.person_occupation; inverse-person_occupation_person_id_fkey; false; 
+5; 2; ; 1466; 6; 476; 460; 500; true; T; integrated.occupation; person_occupation_occupation_id_fkey; false; 
+3; 1; ; 1277; 319; 476; 460; 500; true; T; integrated.death; inverse-death_person_id_fkey; false; 
+4; 1; ; 755; 296; 476; 460; 500; true; T; integrated.birth; inverse-birth_person_id_fkey; false; 
+6; 4; ; 1431; 419; 476; 460; 500; true; T; integrated.place; birth_place_id_fkey; false; 

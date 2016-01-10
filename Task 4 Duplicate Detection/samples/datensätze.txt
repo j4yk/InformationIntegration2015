@@ -1,0 +1,11 @@
+Kohl-Datensatz:
+Viele unterschiedliche Leute mit gleichem Vor- und Nachnamen, die aber nicht gemerged werden sollten.
+(basierend auf occupation, death, birth, place of birth)
+mal ein eindeutiges Duplikat: Michael Kohl geb. in Sondershausen, Diplomat (und Politiker)
+...aber es gibt auch noch andere Michael Kohls...
+noch so einer: Phillip Kohl, aber einmal mit und einmal ohne Doppel-l
+
+Strauß/ss-Datensatz:
+Franz Josef Strauß als Politiker
+Gefährliche Duplikate:
+es gibt (k.A. ob auch in den Daten) drei Komponisten namens Johann Strauss (mglw. mit ß in den Daten): Vater, Sohn und Enkel (Neffe des Sohns...), die nicht gemerged werden sollten

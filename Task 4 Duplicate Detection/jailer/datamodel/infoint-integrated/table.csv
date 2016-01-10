@@ -1,0 +1,28 @@
+# Name; Upsert; Primary key; ; Author
+integrated."function"; N; committee_id int4; politician int4; function_name varchar; ; Data Model Editor; ; 
+integrated."position"; N; position_name varchar; politician int4; ; Data Model Editor; ; 
+integrated.almamater; N; person_id int4; university varchar; ; Data Model Editor; ; 
+integrated.auxiliary_income; N; politician int4; type varchar; "year" int4; "level" int4; start_date date; end_date date; periodical varchar; description varchar; ; Data Model Editor; ; 
+integrated.birth; N; person_id int4; place_id int4; "year" int4; "month" int4; "day" int4; first_name varchar; last_name varchar; ; Data Model Editor; ; 
+integrated.death; N; person_id int4; "year" int4; place_id int4; "day" int4; "month" int4; ; Data Model Editor; ; 
+integrated.person_article; N; article_id varchar; person_id int4; ; Data Model Editor; ; 
+integrated.person_country; N; person_id int4; country_id int4; ; Data Model Editor; ; 
+integrated.person_occupation; N; person_id int4; occupation_id int4; ; Data Model Editor; ; 
+integrated.person_party; N; party_id int4; person_id int4; ; Data Model Editor; ; 
+integrated.related_to; N; person1_id int4; person2_id int4; type varchar; ; Data Model Editor; ; 
+integrated."work"; N; id int4; ; PostgreSQL Native Driver; ; 
+integrated.article_header; N; id varchar; ; PostgreSQL Native Driver; ; 
+integrated.author; N; person_id int4; ; PostgreSQL Native Driver; ; 
+integrated.book; N; id int4; ; PostgreSQL Native Driver; ; 
+integrated.candidacy; N; candidate int4; parliament varchar; ; PostgreSQL Native Driver; ; 
+integrated.committee; N; id int4; ; PostgreSQL Native Driver; ; 
+integrated.constituency; N; uuid varchar; ; PostgreSQL Native Driver; ; 
+integrated.country; N; id int4; ; PostgreSQL Native Driver; ; 
+integrated.occupation; N; id int4; ; PostgreSQL Native Driver; ; 
+integrated.parliament; N; uuid varchar; ; PostgreSQL Native Driver; ; 
+integrated.party; N; id int4; ; PostgreSQL Native Driver; ; 
+integrated.person; N; id int4; ; PostgreSQL Native Driver; ; 
+integrated.place; N; id int4; ; PostgreSQL Native Driver; ; 
+integrated.politician; N; person_id int4; ; PostgreSQL Native Driver; ; 
+integrated.state; N; id int4; ; PostgreSQL Native Driver; ; 
+integrated.university; N; uri varchar; ; PostgreSQL Native Driver; ; 

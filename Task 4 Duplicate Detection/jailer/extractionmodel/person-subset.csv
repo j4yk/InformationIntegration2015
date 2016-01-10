@@ -1,0 +1,131 @@
+# subject; condition;  limit; restrictions
+integrated.person; last_name = 'Kohl'; ; .embedded
+
+# from A (or association name); to B; restriction-condition
+inverse-function_committee_id_fkey; ; ignore
+inverse-candidacy_constituency_fkey; ; ignore
+inverse-person_country_country_id_fkey; ; ignore
+inverse-place_country_id_fkey; ; ignore
+inverse-state_country_id_fkey; ; ignore
+inverse-person_occupation_occupation_id_fkey; ; ignore
+inverse-candidacy_parliament_fkey; ; ignore
+inverse-candidacy_party_id_fkey; ; ignore
+inverse-person_party_party_id_fkey; ; ignore
+inverse-birth_place_id_fkey; ; ignore
+inverse-death_place_id_fkey; ; ignore
+inverse-candidacy_state_fkey; ; ignore
+inverse-almamater_university_fkey; ; ignore
+
+#! block xml-mapping
+auxiliary_income_politician_fkey;auxiliary_income_politician_fkey;NONE
+person_country_country_id_fkey;person_country_country_id_fkey;NONE
+person_country_person_id_fkey;person_country_person_id_fkey;NONE
+inverse-candidacy_parliament_fkey;candidacy;NONE
+related_to_person1_id_fkey;related_to_person1_id_fkey;NONE
+related_to_person2_id_fkey;related_to_person2_id_fkey;NONE
+author_person_id_fkey;author_person_id_fkey;NONE
+inverse-book_author_fkey;book;NONE
+almamater_person_id_fkey;almamater_person_id_fkey;NONE
+almamater_university_fkey;almamater_university_fkey;NONE
+position_politician_fkey;position_politician_fkey;NONE
+inverse-candidacy_party_id_fkey;candidacy;NONE
+inverse-person_party_party_id_fkey;person_party;NONE
+candidacy_constituency_fkey;candidacy_constituency_fkey;NONE
+candidacy_parliament_fkey;candidacy_parliament_fkey;NONE
+candidacy_party_id_fkey;candidacy_party_id_fkey;NONE
+candidacy_candidate_fkey;candidacy_candidate_fkey;NONE
+candidacy_state_fkey;candidacy_state_fkey;NONE
+inverse-candidacy_constituency_fkey;candidacy;NONE
+inverse-function_committee_id_fkey;function;NONE
+function_committee_id_fkey;function_committee_id_fkey;NONE
+function_politician_fkey;function_politician_fkey;NONE
+person_article_article_id_fkey;person_article_article_id_fkey;NONE
+person_article_person_id_fkey;person_article_person_id_fkey;NONE
+work_person_id_fkey;work_person_id_fkey;NONE
+inverse-person_article_article_id_fkey;person_article;NONE
+inverse-person_occupation_occupation_id_fkey;person_occupation;NONE
+birth_person_id_fkey;birth_person_id_fkey;NONE
+birth_place_id_fkey;birth_place_id_fkey;NONE
+person_party_party_id_fkey;person_party_party_id_fkey;NONE
+person_party_person_id_fkey;person_party_person_id_fkey;NONE
+inverse-work_person_id_fkey;work;NONE
+inverse-almamater_person_id_fkey;almamater;NONE
+inverse-author_person_id_fkey;author;NONE
+inverse-birth_person_id_fkey;birth;NONE
+inverse-death_person_id_fkey;death;NONE
+inverse-person_article_person_id_fkey;person_article;NONE
+inverse-person_country_person_id_fkey;person_country;NONE
+inverse-person_occupation_person_id_fkey;person_occupation;NONE
+inverse-person_party_person_id_fkey;person_party;NONE
+inverse-politician_person_id_fkey;politician;NONE
+inverse-related_to_person1_id_fkey;related_to;NONE
+inverse-related_to_person2_id_fkey;related_to;NONE
+death_person_id_fkey;death_person_id_fkey;NONE
+death_place_id_fkey;death_place_id_fkey;NONE
+person_occupation_occupation_id_fkey;person_occupation_occupation_id_fkey;NONE
+person_occupation_person_id_fkey;person_occupation_person_id_fkey;NONE
+inverse-function_politician_fkey;function;NONE
+inverse-position_politician_fkey;position;NONE
+inverse-auxiliary_income_politician_fkey;auxiliary_income;NONE
+inverse-candidacy_candidate_fkey;candidacy;NONE
+politician_person_id_fkey;politician_person_id_fkey;NONE
+inverse-candidacy_state_fkey;candidacy;NONE
+state_country_id_fkey;state_country_id_fkey;NONE
+state_capital_id_fkey;state_capital_id_fkey;NONE
+inverse-birth_place_id_fkey;birth;NONE
+inverse-death_place_id_fkey;death;NONE
+place_country_id_fkey;place_country_id_fkey;NONE
+inverse-state_capital_id_fkey;state;NONE
+inverse-almamater_university_fkey;almamater;NONE
+book_author_fkey;book_author_fkey;NONE
+inverse-person_country_country_id_fkey;person_country;NONE
+inverse-place_country_id_fkey;place;NONE
+inverse-state_country_id_fkey;state;NONE
+
+#! block datamodelfolder
+infoint-integrated
+
+#! block export modus
+SQL
+
+#! block xml settings
+yyyy-MM-dd;yyyy-MM-dd-HH.mm.ss;rowset
+#! block xml column mapping
+#! block upserts
+
+#! block filters
+
+#! block layout
+integrated.person; integrated.auxiliary_income; -319.76329922011183; -29.948273341494257; 1.0
+integrated.person; integrated.person_country; 217.95770263671875; 12.230278968811035; 1.0
+integrated.person; inverse-related_to_person1_id_fkey#; -168.10618591308594; 246.6749267578125; 0.0
+integrated.person; integrated.parliament; 347.0520324707031; -73.66507720947266; 0.0
+integrated.person; integrated.related_to; -173.03416442871094; 401.9547424316406; 0.0
+integrated.person; integrated.author; -194.1454620361328; 115.8233413696289; 1.0
+integrated.person; integrated.almamater; 30.877111434936523; 137.11940002441406; 1.0
+integrated.person; integrated."position"; -316.076904296875; 32.234500885009766; 1.0
+integrated.person; integrated.party; 148.369384765625; -187.94381713867188; 0.0
+integrated.person; integrated.candidacy; 114.43311309814453; -8.184296607971191; 1.0
+integrated.person; integrated.constituency; 278.6994323730469; -189.2611083984375; 0.0
+integrated.person; integrated.committee; -39.085426330566406; -482.7910461425781; 0.0
+integrated.person; integrated.person_article; -101.13900756835938; -186.50689697265625; 1.0
+integrated.person; integrated."function"; -41.47922897338867; -303.12322998046875; 1.0
+integrated.person; inverse-related_to_person2_id_fkey#; -74.37726593017578; 293.35772705078125; 0.0
+integrated.person; integrated."work"; -97.51654815673828; 69.51131439208984; 0.0
+integrated.person; integrated.occupation; -394.3904724121094; -190.61497497558594; 0.0
+integrated.person; integrated.article_header; -170.750166235692; -272.6180264598345; 1.0
+integrated.person; integrated.birth; 155.9281005859375; 252.642578125; 0.0
+integrated.person; integrated.person; 0.0; 0.0; 1.0
+integrated.person; integrated.person_party; 60.44292068481445; -107.74103546142578; 1.0
+integrated.person; integrated.death; 172.25535583496094; 146.77601623535156; 0.0
+integrated.person; $ZOOMBOX; 0.0; 0.0; 1.0
+integrated.person; integrated.person_occupation; -223.3099822998047; -82.38937377929688; 1.0
+integrated.person; integrated.politician; -91.66459354841368; -63.16579343028275; 1.0
+integrated.person; integrated.state; 296.861328125; 133.93240356445312; 1.0
+integrated.person; integrated.place; 304.8437194824219; 244.52769470214844; 1.0
+integrated.person; integrated.university; 40.37080547439149; 257.5680698531558; 1.0
+integrated.person; integrated.book; -368.8677062988281; 221.74063110351562; 0.0
+integrated.person; integrated.country; 400.8056335449219; 128.4280548095703; 1.0
+
+#! block version
+4.3.5
