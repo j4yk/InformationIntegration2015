@@ -28,3 +28,4 @@ Ideen zum Cleansing
 Vertauschte birth und death Zeilen berichtigen. (death <= birth)
 Titel aus Vornamen in Degree verschieben.
 Titel aus Occupations nach Degree für alle abhängigen Personen verschieben.
+Weibliche Berufsbezeichnung => Geschlecht ergänzen.
