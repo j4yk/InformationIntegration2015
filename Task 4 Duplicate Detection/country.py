@@ -1,4 +1,4 @@
-#! pyhton3
+#! python3
 from entity import Entity
 
 country_abbrevs = {'DE': 'Germany'}
