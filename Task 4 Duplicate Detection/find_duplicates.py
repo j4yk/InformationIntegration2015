@@ -3,6 +3,7 @@
 import sys
 import psycopg2
 from party import Party
+from country import Country
 
 def mark_duplicates(elements):
 	for i in range(0, len(elements)):
@@ -59,7 +60,7 @@ def main():
 	open(sys.argv[4], 'w')
 
 	# add new classes that implement Entity's abstract methods
-	classes = [Party]
+	classes = [Party, Country]
 	for cls in classes:
 		elements = cls.get_all(cur)
 		duplicates = mark_duplicates(elements)
