@@ -9,6 +9,8 @@ import csv
 from collections import defaultdict
 
 pattern_ends_with_frau = re.compile('[Ff]rau$')
+pattern_ends_with_tin_or_rin = re.compile('[tr]in$')
+pattern_contains_weiblich = re.compile('[Ww]eiblich')
 
 class Data:
     PERSON_ID = 0
@@ -58,7 +60,7 @@ class Data:
     def label(self, occupation):
         return occupation[1]
 
-    def add_gender_if_occupation_ends_with_frau(self):
+    def add_gender_if_occupation_female(self):
         for person in self.persons:
             try:
                 self.id(person)
@@ -66,7 +68,10 @@ class Data:
                 print(e, "skipping this")
                 continue
             for occupation in self.occupations(person):
-                if pattern_ends_with_frau.search(self.label(occupation)):
+                occupation_label = self.label(occupation)
+                if pattern_ends_with_tin_or_rin.search(occupation_label) \
+                        or pattern_ends_with_frau.search(occupation_label) \
+                        or pattern_contains_weiblich.search(occupation_label):
                     if self.gender(person) != 'f':
                         self.set_gender(person, 'f')
                         yield person
@@ -82,7 +87,7 @@ def process_csv_files(person, person_occupation, occupation, output):
             occupations=csv.reader(occupation, dialect=psql))
     out_csv = csv.writer(output, dialect=psql)
     try:
-        for person in data.add_gender_if_occupation_ends_with_frau():
+        for person in data.add_gender_if_occupation_female():
             out_csv.writerow(person)
     except IOError as e:
         import errno
