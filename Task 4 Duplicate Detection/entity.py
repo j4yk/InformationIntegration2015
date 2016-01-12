@@ -1,0 +1,50 @@
+import abc
+import psycopg2
+
+class Entity:
+	__metaclass__ = abc.ABCMeta
+
+	primary_key = ''
+	foreign_references = []
+
+	def __init__(self):
+		self.duplicates = []
+		self.duplicate_root = -1
+		self.merge_statements = []
+
+	@classmethod
+	def split_column_name(self, col_name):
+		index = col_name.rfind(".")
+		return col_name[:index], col_name[index+1:]
+
+	@classmethod
+	def get_all(self, cursor):
+		table_name, attribute = self.split_column_name(self.primary_key)
+		cursor.execute('SELECT * FROM %s' % table_name)
+		output = []
+		for row in cursor.fetchall():
+			element = self(row[0], row[1], row[2])
+			output.append(element)
+		return output
+
+	def is_duplicate(self):
+		return self.duplicate_root > -1
+
+	def append_merge_statements(self, old_id):
+		for reference in self.foreign_references:
+			table_name, attribute = self.split_column_name(reference)
+			self.merge_statements.append('UPDATE %s SET %s = %i WHERE %s = %i' % (table_name, attribute, self.id, attribute, old_id))
+		table_name, attribute = self.split_column_name(self.primary_key)
+		self.merge_statements.append('DELETE FROM %s WHERE %s = %i' % (table_name, attribute, old_id))
+
+	@abc.abstractmethod
+	def equal(self, other_entity):
+		return
+
+	@abc.abstractmethod
+	def merge(self, other_entity):
+		return
+
+	@abc.abstractmethod
+	def get_update_statement(self):
+		return
