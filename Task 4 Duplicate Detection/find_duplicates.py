@@ -25,6 +25,8 @@ def mark_duplicates(elements):
 					if not new_duplicate in elements[root_index].duplicates:
 						elements[root_index].duplicates.append(new_duplicate)
 						elements[new_duplicate].duplicate_root = root_index
+            if elements[i].stop_iteration(elements[j]):
+                continue
 
 	return elements
 
@@ -32,8 +34,8 @@ def merge_duplicates(elements):
 	output = []
 	for i in range(0, len(elements)):
 		if len(elements[i].duplicates) > 0:
-			merged_element = type(elements[i])()
-			for j in [i] + elements[i].duplicates:
+            merged_element = elements[i]
+            for j in elements[i].duplicates:
 				merged_element.merge(elements[j])
 			output.append(merged_element)
 	return output
@@ -65,7 +67,7 @@ def main():
 		sql_statements = get_sql_statements(merged_duplicates)
 	
 		with open(sys.argv[4], 'a') as f:
-			f.write(';\n'.join(sql_statements) + ';\n')
+            f.write(';\n'.join(sql_statements) + ';\n\n')
 
 if __name__ == '__main__':
 	main()
