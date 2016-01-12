@@ -6,46 +6,45 @@ from party import Party
 from country import Country
 
 def mark_duplicates(elements):
-	for i in range(0, len(elements)):
+	for i, element in enumerate(elements):
 		for j in range(i+1, len(elements)):
-			if elements[i].equal(elements[j]):
-				if elements[i].is_duplicate():
+			compared_element = elements[j]
+			if element.equal(compared_element):
+				if element.is_duplicate():
 					# we already have a bucket for those duplicates
-					root_index = elements[i].duplicate_root
-					new_indices = [j]
-				elif elements[j].is_duplicate():
+					root_element = element.duplicate_root
+					new_duplicates = [compared_element]
+				elif compared_element.is_duplicate():
 					# we have to merge two buckets
-					root_index = elements[j].duplicate_root
-					new_indices = [i] + elements[i].duplicates
+					root_element = compared_element.duplicate_root
+					new_duplicates = [element] + element.duplicates
 				else:
 					# open new bucket for duplicates
-					root_index = i
-					new_indices = [j]
+					root_element = element
+					new_duplicates = [compared_element]
 
-				for new_duplicate in new_indices:
-					if not new_duplicate in elements[root_index].duplicates:
-						elements[root_index].duplicates.append(new_duplicate)
-						elements[new_duplicate].duplicate_root = root_index
-            if elements[i].stop_iteration(elements[j]):
-                continue
+				for new_duplicate in new_duplicates:
+					if not new_duplicate in root_element.duplicates:
+						root_element.duplicates.append(new_duplicate)
+						new_duplicate.duplicate_root = root_element
+			if element.stop_iteration(compared_element):
+				continue
 
 	return elements
 
 def merge_duplicates(elements):
-	output = []
-	for i in range(0, len(elements)):
-		if len(elements[i].duplicates) > 0:
-            merged_element = elements[i]
-            for j in elements[i].duplicates:
-				merged_element.merge(elements[j])
-			output.append(merged_element)
-	return output
+    for element in elements:
+        if len(element.duplicates) > 0:
+            merged_element = element
+            for duplicate_element in element.duplicates:
+                merged_element.merge(duplicate_element)
+            yield merged_element
 
 def get_sql_statements(duplicates):
-	output = []
-	for duplicate in duplicates:
-		output = output + [duplicate.get_update_statement()] + duplicate.merge_statements
-	return output
+    for duplicate in duplicates:
+        yield duplicate.get_update_statement()
+        for merge_statement in duplicate.merge_statements:
+            yield merge_statement
 
 def main():
 	if len(sys.argv) != 5:
@@ -68,7 +67,9 @@ def main():
 		sql_statements = get_sql_statements(merged_duplicates)
 	
 		with open(sys.argv[4], 'a') as f:
-            f.write(';\n'.join(sql_statements) + ';\n\n')
+            for statement in sql_statements:
+                f.write(statement)
+                f.write(';\n')
 
 if __name__ == '__main__':
 	main()

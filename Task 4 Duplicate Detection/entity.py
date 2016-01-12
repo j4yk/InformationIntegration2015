@@ -10,7 +10,7 @@ class Entity:
 
     def __init__(self):
         self.duplicates = []
-        self.duplicate_root = -1
+        self.duplicate_root = None
         self.merge_statements = []
 
     @classmethod
@@ -31,7 +31,7 @@ class Entity:
         return False
 
     def is_duplicate(self):
-        return self.duplicate_root > -1
+        return self.duplicate_root is not None
 
     def append_merge_statements(self, old_id):
         for reference in self.foreign_references:
