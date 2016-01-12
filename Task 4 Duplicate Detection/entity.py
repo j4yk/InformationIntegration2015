@@ -23,8 +23,7 @@ class Entity:
 		cursor.execute('SELECT * FROM %s' % table_name)
 		output = []
 		for row in cursor.fetchall():
-			element = self(row[0], row[1], row[2])
-			output.append(element)
+			output.append(self(*row))
 		return output
 
 	def is_duplicate(self):
