@@ -15,8 +15,8 @@ class Entity:
 
     @classmethod
     def split_column_name(self, col_name):
-        index = col_name.rfind(".")
-        return col_name[:index], col_name[index+1:]
+        """a.b.c  -->  a.b, c"""
+        return tuple(col_name.rsplit('.', 1))
 
     @classmethod
     def get_all(self, cursor):
