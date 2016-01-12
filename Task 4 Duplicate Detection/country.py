@@ -18,7 +18,7 @@ class Country(Entity):
 
     def equal(self, other):
         if self.wikidata_id is not None and other.wikidata_id is not None:
-            return self.wikidata_id  != other.wikidata_id
+            return self.wikidata_id == other.wikidata_id
         if self.name in country_abbrevs:
             return country_abbrevs[self.name] == other.name
         if other.name in country_abbrevs:
@@ -34,6 +34,7 @@ class Country(Entity):
             self.wikidata_id = other.wikidata_id
         if self.name in country_abbrevs or self.name in country_translations:
             self.name = other.name
+        self.append_merge_statements(other.id)
 
     def get_update_statement(self):
         table_name, id_attribute = self.split_column_name(self.primary_key)
