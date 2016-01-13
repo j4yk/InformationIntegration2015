@@ -8,6 +8,7 @@ class Person(Entity):
     primary_key = 'integrated.person.id'
     foreign_references = [
         'integrated.almamater.person_id',
+        'integrated.book.author',
         'integrated.author.person_id',
         'integrated.birth.person_id',
         'integrated.death.person_id',
@@ -15,6 +16,9 @@ class Person(Entity):
         'integrated.person_country.person_id',
         'integrated.person_occupation.person_id',
         'integrated.person_party.person_id',
+        'integrated.candidacy.candidate',
+        'integrated.function.politician',
+        'integrated.position.politiican',
         'integrated.politician.person_id',
         'integrated.work.person_id',
         'integrated.related_to.person1_id',
@@ -22,7 +26,11 @@ class Person(Entity):
     ]
     order_clause = 'last_name'
 
-    def __init__(self, id, first_name, last_name, gender, dbpedia_uri, wikidata_id, birth_year, birth_month, birth_day, birth_name, death_year, death_month, death_day, death_name, occupation):
+    def __init__(self, id, first_name, last_name, gender, email, url, twitter, degree, education, dbpedia_uri, wikidata_id, 
+            nyt_id, articles_count, nyt_def, birth_year, birth_month, birth_day, birth_first_name, birth_last_name, birth_place, 
+            death_year, death_month, death_day, death_place, occupation, fans, followers, avg_rating, ratings_count, goodreads_author,
+            aw_uuid, aw_username, aw_picture_url):
+        self.args = locals()
         super(Person, self).__init__()
         self.id = id
         self.first_name = fix_broken_umlauts(first_name)
@@ -33,11 +41,11 @@ class Person(Entity):
         self.birth_year = birth_year
         self.birth_month = birth_month
         self.birth_day = birth_day
-        self.birth_place = fix_broken_umlauts(birth_name)
+        self.birth_place = fix_broken_umlauts(birth_place)
         self.death_year = death_year
         self.death_month = death_month
         self.death_day = death_day
-        self.death_place = fix_broken_umlauts(death_name)
+        self.death_place = fix_broken_umlauts(death_place)
         self.occupation = fix_broken_umlauts(occupation)
 
     def equal(self, other):
@@ -67,8 +75,8 @@ class Person(Entity):
               and (jw_occupation >= 0.9 or self.occupation == "" or other.occupation == "")
               and (self.birth_place == None or other.birth_place == None or jaro_winkler(self.birth_place, other.birth_place) >= 0.7)
               and (self.death_place == None or other.death_place == None or jaro_winkler(self.death_place, other.death_place) >= 0.7)
-              and (self.wikidata_id == other.wikidata_id or (self.wikidata_id == None and other.wikidata_id == None))
-              and (self.dbpedia_uri == other.dbpedia_uri or (self.dbpedia_uri == None and other.dbpedia_uri == None)))
+              and (self.wikidata_id == other.wikidata_id)
+              and (self.dbpedia_uri == other.dbpedia_uri))
 
         if result == True:
             string = str(self.id) + "|" + self_name + "|" + other_name + "|" + str(other.id) + "|" + str(le_first) + "|" + str(jw_first) + "|" + str(le_last) + "|" + str(jw_last)
@@ -82,16 +90,21 @@ class Person(Entity):
 
     # values of self are used for the new record
     def merge(self, other):
-        # TODO dates
+        assert self.wikidata_id == other.wikidata_id
+        assert self.dbpedia_uri == other.dbpedia_uri
+
+        explicit_args = ['id', 'first_name', 'last_name', 'occupation', 'birth_place', 'death_place']
+        for arg in self.args:
+            if arg in explicit_args:
+                continue
+            if self.args[arg] is None:
+                self.args[arg] = other.args[arg]
+
         self.first_name = self.longest_string(self.first_name, other.first_name)
         self.last_name = self.longest_string(self.last_name, other.last_name)
         self.occupation = self.longest_string(self.occupation, other.occupation)
         self.birth_place = self.longest_string(self.birth_place, other.birth_place)
         self.death_place = self.longest_string(self.death_place, other.death_place)
-        self.wikidata_id = self.longest_string(self.wikidata_id, other.wikidata_id)
-        self.dbpedia_uri = self.longest_string(self.dbpedia_uri, other.dbpedia_uri)
-        if self.gender is None:
-            self.gender = other.gender
 
     def get_update_statements(self):
         table_name, attribute = self.split_column_name(self.primary_key)
@@ -108,25 +121,23 @@ class Person(Entity):
     def get_all(self, cursor):
         table_name, attribute = self.split_column_name(self.primary_key)
         # TODO remove limit from integrated.person
-        cursor.execute("""Select id, first_name, last_name, gender, dbpedia_uri, 
-            wikidata_id, birth_year, birth_month, birth_day, birth_name, death_year,
-            death_month, death_day, death_name, occupation 
-            from (select c.id, c.first_name, c.last_name, c.gender, dbpedia_uri,
-            wikidata_id, c.year as birth_year, c.month as birth_month, 
-            c.day as birth_day, c.birth_name,   d.year as death_year, 
-            d.month as death_month, d.day as death_day, d.name as death_name
-            from ( select a.id, a.first_name, a.last_name, a.gender, dbpedia_uri,
-            wikidata_id, b.year, b.month, b.day, b.name as birth_name
-            from (select * from integrated.person limit 1000000) as a 
-            left outer join  (  select * from integrated.birth as birth 
-            left outer join integrated.place as place on birth.place_id=place.id order By name )
-            as b on a.id=b.person_id ) as c left outer join
-            (select *  from integrated.death as death left outer join integrated.place 
-            on death.place_id = place.id) as d on c.id=d.person_id) as person_birth_death
-            left outer join (select person_id, label as occupation from integrated.person_occupation
-            left outer join integrated.occupation on occupation_id = id ) o 
-            on person_birth_death.id = o.person_id
-            order by last_name, first_name, occupation, gender""")
+        cursor.execute("""
+            SELECT p.id, p.first_name, p.last_name, p.gender, p.email, p.url, p.twitter, p.degree, p.education,
+                p.dbpedia_uri, p.wikidata_id, p.nyt_id, p.associated_articles_count, p.nyt_definition, birth.year, 
+                birth.month, birth.day, birth.first_name, birth.last_name, bp.name, death.year, death.month, death.day,
+                dp.name, occupation.label, author.fans_count, author.followers_count, author.average_rating,
+                author.ratings_count, author.goodreads_author, pol.aw_uuid, pol.aw_username, pol.aw_picture_url
+            FROM
+                (SELECT * FROM integrated.person FETCH FIRST 10000 ROWS ONLY) AS p
+                LEFT OUTER JOIN integrated.birth ON p.id = birth.person_id
+                LEFT OUTER JOIN integrated.place AS bp ON birth.place_id = bp.id
+                LEFT OUTER JOIN integrated.death ON p.id = death.person_id
+                LEFT OUTER JOIN integrated.place AS dp ON death.place_id = dp.id
+                LEFT OUTER JOIN integrated.person_occupation AS po ON p.id = po.person_id
+                LEFT OUTER JOIN integrated.occupation ON po.occupation_id = occupation.id
+                LEFT OUTER JOIN integrated.author ON p.id = author.person_id
+                LEFT OUTER JOIN integrated.politician AS pol ON p.id = pol.person_id
+            """)
         output = []
         for row in cursor.fetchall():
             output.append(self(*row))
