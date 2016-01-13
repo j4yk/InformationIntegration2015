@@ -1,7 +1,7 @@
 #! python3
 
 import sys
-import psycopg2
+import pg8000
 from party import Party
 from country import Country
 from place import Place
@@ -53,7 +53,7 @@ def main():
         return
 
     # connect do database
-	conn = psycopg2.connect(database=sys.argv[1], user=sys.argv[2], password=sys.argv[3])
+    conn = pg8000.connect(database=sys.argv[1], user=sys.argv[2], password=sys.argv[3])
     cur = conn.cursor()
 
     # clear output file before the loop below appends to it
