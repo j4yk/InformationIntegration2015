@@ -1,5 +1,6 @@
 from entity import Entity
 from Levenshtein import distance, jaro_winkler, jaro
+from sqlutils import fix_broken_umlauts
 
 
 class Person(Entity):
@@ -24,20 +25,20 @@ class Person(Entity):
     def __init__(self, id, first_name, last_name, gender, dbpedia_uri, wikidata_id, birth_year, birth_month, birth_day, birth_name, death_year, death_month, death_day, death_name, occupation):
         super(Person, self).__init__()
         self.id = id
-        self.first_name = first_name
-        self.last_name = last_name
+        self.first_name = fix_broken_umlauts(first_name)
+        self.last_name = fix_broken_umlauts(last_name)
         self.gender = gender
         self.dbpedia_uri = dbpedia_uri
         self.wikidata_id = wikidata_id
         self.birth_year = birth_year
         self.birth_month = birth_month
         self.birth_day = birth_day
-        self.birth_place = birth_name
+        self.birth_place = fix_broken_umlauts(birth_name)
         self.death_year = death_year
         self.death_month = death_month
         self.death_day = death_day
-        self.death_place = death_name
-        self.occupation = occupation
+        self.death_place = fix_broken_umlauts(death_name)
+        self.occupation = fix_broken_umlauts(occupation)
 
     def equal(self, other):
         # exclude identical tuples

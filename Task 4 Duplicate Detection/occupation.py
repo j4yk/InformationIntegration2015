@@ -2,6 +2,7 @@
 
 from Levenshtein import distance, jaro, median
 from entity import Entity
+from sqlutils import fix_broken_umlauts
 
 class Occupation(Entity):
 
@@ -15,7 +16,7 @@ class Occupation(Entity):
     def __init__(self, id=-1, label=''):
         super(type(self), self).__init__()
         self.id = id
-        self.label = label
+        self.label = fix_broken_umlauts(label)
         self.alt_labels = []
 
     def is_male_and_female_version(self, str1, str2):
@@ -39,11 +40,8 @@ class Occupation(Entity):
     def capitalize(self, str):
         return str[0].upper() + str[1:]
 
-    def fix_broken_chars(self, str):
-        return str.replace('a' + u"\u0308", 'ä').replace('u' + u"\u0308", 'ü').replace('o' + u"\u0308", 'ö')
-
     def comparison_label(self):
-        return self.fix_broken_chars(self.label.replace('.', '').replace(' ', '').replace('-', '').replace('?', '').lower())
+        return self.label.replace('.', '').replace(' ', '').replace('-', '').replace('?', '').lower()
 
     def equal(self, other):
         label1 = self.comparison_label()
@@ -69,7 +67,6 @@ class Occupation(Entity):
         self.alt_labels.append(self.female_labels.get(other.label, other.label))
         if other.id == self.duplicates[-1].id:
             self.label = median([self.female_labels.get(self.label, self.label)] + self.alt_labels)
-            self.label = self.fix_broken_chars(self.label)
             self.label = self.label[0].upper() + self.label[1:]
 
     def get_update_statement(self):

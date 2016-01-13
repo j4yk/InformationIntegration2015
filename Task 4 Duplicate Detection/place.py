@@ -1,7 +1,7 @@
 #! python3
 import re
 from entity import Entity
-from sqlutils import escape, to_sql_string
+from sqlutils import escape, to_sql_string, fix_broken_umlauts
 
 FIRST_LETTER = re.compile('\\w')
 
@@ -15,7 +15,7 @@ class Place(Entity):
     def __init__(self, id, name, latitude, longtitude, country_id):
         super().__init__()
         self.id = id
-        self.name = name
+        self.name = fix_broken_umlauts(name)
         self.latitude = latitude
         self.longtitude = longtitude
         self.country_id = country_id
