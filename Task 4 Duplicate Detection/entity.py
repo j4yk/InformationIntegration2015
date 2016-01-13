@@ -1,5 +1,4 @@
 import abc
-import psycopg2
 
 class Entity:
     __metaclass__ = abc.ABCMeta
@@ -10,13 +9,13 @@ class Entity:
 
     def __init__(self):
         self.duplicates = []
-        self.duplicate_root = -1
+        self.duplicate_root = None
         self.merge_statements = []
 
     @classmethod
     def split_column_name(self, col_name):
-        index = col_name.rfind(".")
-        return col_name[:index], col_name[index+1:]
+        """a.b.c  -->  a.b, c"""
+        return tuple(col_name.rsplit('.', 1))
 
     @classmethod
     def get_all(self, cursor):
@@ -31,7 +30,7 @@ class Entity:
         return False
 
     def is_duplicate(self):
-        return self.duplicate_root > -1
+        return self.duplicate_root is not None
 
     def append_merge_statements(self, old_id):
         for reference in self.foreign_references:
