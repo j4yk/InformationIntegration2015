@@ -34,7 +34,6 @@ class Country(Entity):
             self.wikidata_id = other.wikidata_id
         if self.name in country_abbrevs or self.name in country_translations:
             self.name = other.name
-        self.append_merge_statements(other.id)
 
     def get_update_statement(self):
         table_name, id_attribute = self.split_column_name(self.primary_key)

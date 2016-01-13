@@ -42,7 +42,6 @@ class Party(Entity):
             self.uri = other_party.uri
         if len(other_party.name) > len(self.name):
             self.name = other_party.name
-        self.append_merge_statements(other_party.id)
 
     def get_update_statement(self):
         table_name, attribute = self.split_column_name(self.primary_key)

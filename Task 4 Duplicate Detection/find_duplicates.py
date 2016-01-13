@@ -29,7 +29,7 @@ def mark_duplicates(elements):
                         root_element.duplicates.append(new_duplicate)
                         new_duplicate.duplicate_root = root_element
             if element.stop_iteration(compared_element):
-                continue
+                break
 
     return elements
 
@@ -39,6 +39,7 @@ def merge_duplicates(elements):
             merged_element = element
             for duplicate_element in element.duplicates:
                 merged_element.merge(duplicate_element)
+                merged_element.append_merge_statements(other_party.id)
             yield merged_element
 
 def get_sql_statements(duplicates):
