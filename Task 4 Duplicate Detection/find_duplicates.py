@@ -40,7 +40,7 @@ def merge_duplicates(elements):
             merged_element = element
             for duplicate_element in element.duplicates:
                 merged_element.merge(duplicate_element)
-                merged_element.append_merge_statements(other_party.id)
+                merged_element.append_merge_statements(duplicate_element.id)
             yield merged_element
 
 def get_sql_statements(duplicates):
@@ -69,7 +69,7 @@ def main():
         merged_duplicates = merge_duplicates(elements)
         sql_statements = get_sql_statements(merged_duplicates)
 
-        with open(sys.argv[4], 'a') as f:
+        with open(sys.argv[4], 'a', encoding='utf-8') as f:
             for statement in sql_statements:
                 f.write(statement)
                 f.write(';\n')
