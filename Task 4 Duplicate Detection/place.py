@@ -24,9 +24,13 @@ class Place(Entity):
         return self._name
 
     @name.setter
-    def set_name(self, new_name):
+    def name(self, new_name):
         self._name = new_name
-        self.block_ident = FIRST_LETTER.search(new_name).group().lower()
+        block_ident_match = FIRST_LETTER.search(new_name)
+        if block_ident_match:
+            self.block_ident = block_ident_match.group().lower()
+        else:
+            self.block_ident = self._name
 
     def equal(self, other):
         if self.name == other.name: # TODO: use edit distance carefully?
@@ -46,8 +50,16 @@ class Place(Entity):
         if self.latitude is None or other.latitude is None \
                 or self.longtitude is None or other.longtitude is None:
             return None
-        return (self.latitude - other.latitude)**2 + \
-                (self.longtitude - other.longtitude)**2
+        return (self.latitude_as_float - other.latitude_as_float)**2 + \
+                (self.longtitude_as_float - other.longtitude_as_float)**2
+
+    @property
+    def latitude_as_float(self):
+        return float(self.latitude.lstrip('NS')) * (-1 if self.latitude[0] == 'S' else 1)
+
+    @property
+    def longtitude_as_float(self):
+        return float(self.longtitude.lstrip('WE')) * (-1 if self.longtitude[0] == 'W' else 1)
 
     def merge(self, other):
         if other.name is not None:
