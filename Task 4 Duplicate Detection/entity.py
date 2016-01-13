@@ -39,6 +39,9 @@ class Entity:
         table_name, attribute = self.split_column_name(self.primary_key)
         self.merge_statements.append('DELETE FROM %s WHERE %s = %i' % (table_name, attribute, old_id))
 
+    def get_class_statements(self):
+        return []
+
     @abc.abstractmethod
     def equal(self, other_entity):
         return

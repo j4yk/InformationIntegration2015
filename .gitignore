@@ -1,3 +1,4 @@
 new_datatypes.txt
 *.json.gz
 *.pyc
+*output_*.txt

@@ -7,6 +7,7 @@ from country import Country
 from place import Place
 from person import Person
 from state import State
+from occupation import Occupation
 
 def mark_duplicates(elements):
     for i, element in enumerate(elements):
@@ -21,6 +22,7 @@ def mark_duplicates(elements):
                     # we have to merge two buckets
                     root_element = compared_element.duplicate_root
                     new_duplicates = [element] + element.duplicates
+                    element.duplicates = []
                 else:
                     # open new bucket for duplicates
                     root_element = element
@@ -45,32 +47,34 @@ def merge_duplicates(elements):
             yield merged_element
 
 def get_sql_statements(duplicates):
+    append_class_statements = True
     for duplicate in duplicates:
+        if append_class_statements:
+            for class_statement in duplicate.get_class_statements():
+                yield class_statement
+            append_class_statements = False
         yield duplicate.get_update_statement()
         for merge_statement in duplicate.merge_statements:
             yield merge_statement
 
 def main():
-    if len(sys.argv) != 5:
-        print('Invalid cmd params. Usage: database username password output_file')
+    if len(sys.argv) != 4:
+        print('Invalid cmd params. Usage: database username password')
         return
 
     # connect do database
     conn = pg8000.connect(database=sys.argv[1], user=sys.argv[2], password=sys.argv[3])
     cur = conn.cursor()
 
-    # clear output file before the loop below appends to it
-    open(sys.argv[4], 'w').close()
-
     # add new classes that implement Entity's abstract methods
-    classes = [Party, Country, Place, Person, State]
+    classes = [Party, Country, Place, Person, State, Occupation]
     for cls in classes:
         elements = cls.get_all(cur)
         duplicates = mark_duplicates(elements)
         merged_duplicates = merge_duplicates(elements)
         sql_statements = get_sql_statements(merged_duplicates)
 
-        with open(sys.argv[4], 'a', encoding='utf-8') as f:
+        with open('output_' + cls.__name__.lower() + '.txt', 'w', encoding='utf-8') as f:
             for statement in sql_statements:
                 f.write(statement)
                 f.write(';\n')
