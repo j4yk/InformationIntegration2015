@@ -57,7 +57,6 @@ class State(Entity):
             self.capital_id = other.capital_id
             self.area = other.area
             self.population = other.population
-        self.append_merge_statements(other.id)
 
     def get_update_statement(self):
         print(self.name + " " + str(self.id))

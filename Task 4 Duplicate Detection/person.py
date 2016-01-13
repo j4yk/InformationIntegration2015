@@ -1,31 +1,25 @@
 from entity import Entity
+from Levenshtein import distance, jaro_winkler, jaro
+
 
 class Person(Entity):
 
     primary_key = 'integrated.person.id'
-    foreign_references = ['integrated.person_party.person_id']
-    # TODO add other references
-
-    # from wikipedia
-    def levenshtein(self, s1, s2):
-        if len(s1) < len(s2):
-            return self.levenshtein(s2, s1)
-
-        # len(s1) >= len(s2)
-        if len(s2) == 0:
-            return len(s1)
-
-        previous_row = range(len(s2) + 1)
-        for i, c1 in enumerate(s1):
-            current_row = [i + 1]
-            for j, c2 in enumerate(s2):
-                insertions = previous_row[j + 1] + 1 # j+1 instead of j since previous_row and current_row are one character longer
-                deletions = current_row[j] + 1       # than s2
-                substitutions = previous_row[j] + (c1 != c2)
-                current_row.append(min(insertions, deletions, substitutions))
-            previous_row = current_row
-        
-        return previous_row[-1]
+    foreign_references = [
+        'integrated.alamamater.person_id',
+        'integrated.author.person_id',
+        'integrated.birth.person_id',
+        'integrated.death.person_id',
+        'integrated.person_article.person_id',
+        'integrated.person_country.person_id',
+        'integrated.person_occupation.person_id',
+        'integrated.person_party.person_id',
+        'integrated.politician.person_id',
+        'integrated.work.person_id',
+        'integrated.related_to.person1_id',
+        'integrated.related_to.person2_id',
+    ]
+    order_clause = 'last_name'
 
     def __init__(self, id, first_name, last_name, gender, dbpedia_uri, wikidata_id, birth_year, birth_month, birth_day, birth_name, death_year, death_month, death_day, death_name, occupation):
         super(Person, self).__init__()
@@ -46,21 +40,43 @@ class Person(Entity):
         self.occupation = occupation
 
     def equal(self, other):
-        return (self.levenshtein(self.first_name, other.first_name) < 2
-            and self.levenshtein(self.last_name, self.last_name) < 2
-            and (self.birth_year==None or other.birth_year==None or abs(int(self.birth_year) - int(other.birth_year)) < 5)
-            and (self.death_year==None or other.death_year==None or abs(int(self.death_year) - int(other.death_year)) < 5))
+        # exclude empty names
+        if (len(self.first_name) < 1 or len(other.first_name) < 1 or len(self.last_name) < 1 or len(other.last_name) < 1):
+            return False
+        self_name = self.first_name + " " + self.last_name
+        other_name = other.first_name + " " + other.last_name
+        le_first = distance(self.first_name, other.first_name) / ((len(self.first_name)+len(other.first_name))/20)
+        le_last = distance(self.last_name, other.last_name) / ((len(self.last_name)+len(other.last_name))/20)
+        jw_first = jaro(self.first_name, other.first_name)
+        jw_last = jaro_winkler(self.last_name, other.last_name)
+        result = ((le_first <= 1 and le_last <= 1)
+              and (jw_last >= 0.95 and jw_first >= 0.95)
+              and (self.birth_year == None or other.birth_year == None or abs(int(self.birth_year) - int(other.birth_year)) < 5)
+              and (self.death_year == None or other.death_year == None or abs(int(self.death_year) - int(other.death_year)) < 5)
+              and (self.gender == other.gender or self.gender is None or other.gender is None))
+
+        if result == True:
+            string = str(self.id) + "|" + self_name + "|" + other_name + "|" + str(other.id) + "|" + str(le_first) + "|" + str(jw_first) + "|" + str(le_last) + "|" + str(jw_last)
+            print(string.encode('utf-8'))
+        return result
         # TODO use other attributes to compare both persons
 
     # values of self are used for the new record
-    def merge(self, other_person):
+    def merge(self, other):
         # TODO
-        self.first_name = other_person.first_name + "_new"
+        if self.gender is None:
+            self.gender = other.gender
 
     def get_update_statement(self):
         table_name, attribute = self.split_column_name(self.primary_key)
         # TODO
-        return 'UPDATE %s SET first_name = \'%s\', last_name = \'%s\' WHERE %s = %i' % (table_name, self.first_name, self.last_name, attribute, self.id)
+        return "UPDATE %s SET first_name = '%s', last_name = '%s', gender = '%s' WHERE %s = %i" % (table_name, self.first_name, self.last_name, self.gender, attribute, self.id)
+
+    def stop_iteration(self, other):
+        # compare only persons with the same starting letter of the lastname
+        self_name = self.last_name.lower()
+        other_name = other.last_name.lower()
+        return len(self_name) == 0 or len(other_name) == 0 or self_name[0] == other_name[0]
 
     @classmethod
     def get_all(self, cursor):
@@ -74,7 +90,7 @@ class Person(Entity):
             d.month as death_month, d.day as death_day, d.name as death_name
             from ( select a.id, a.first_name, a.last_name, a.gender, dbpedia_uri,
             wikidata_id, b.year, b.month, b.day, b.name as birth_name
-            from (select * from integrated.person limit 1000) as a 
+            from (select * from integrated.person limit 1000000) as a 
             left outer join  (  select * from integrated.birth as birth 
             left outer join integrated.place as place on birth.place_id=place.id order By name )
             as b on a.id=b.person_id ) as c left outer join
@@ -86,4 +102,4 @@ class Person(Entity):
         output = []
         for row in cursor.fetchall():
             output.append(self(*row))
-        return output    
+        return output
