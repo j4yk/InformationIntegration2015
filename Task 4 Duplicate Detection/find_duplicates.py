@@ -53,7 +53,8 @@ def get_sql_statements(duplicates):
             for class_statement in duplicate.get_class_statements():
                 yield class_statement
             append_class_statements = False
-        yield duplicate.get_update_statement()
+        for update_statement in duplicate.get_update_statements():
+            yield update_statement
         for merge_statement in duplicate.merge_statements:
             yield merge_statement
 

@@ -51,5 +51,5 @@ class Entity:
         return
 
     @abc.abstractmethod
-    def get_update_statement(self):
+    def get_update_statements(self):
         return

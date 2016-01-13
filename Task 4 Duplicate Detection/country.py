@@ -35,6 +35,6 @@ class Country(Entity):
         if self.name in country_abbrevs or self.name in country_translations:
             self.name = other.name
 
-    def get_update_statement(self):
+    def get_update_statements(self):
         table_name, id_attribute = self.split_column_name(self.primary_key)
-        return "UPDATE %s SET name = '%s', wikidata_id = '%s' WHERE %s = %i" % (table_name, self.name, self.wikidata_id, id_attribute, self.id)
+        return ["UPDATE %s SET name = '%s', wikidata_id = '%s' WHERE %s = %i" % (table_name, self.name, self.wikidata_id, id_attribute, self.id)]

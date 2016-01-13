@@ -43,6 +43,6 @@ class Party(Entity):
         if len(other_party.name) > len(self.name):
             self.name = other_party.name
 
-    def get_update_statement(self):
+    def get_update_statements(self):
         table_name, attribute = self.split_column_name(self.primary_key)
-        return 'UPDATE %s SET uri = \'%s\', name = \'%s\' WHERE %s = %i' % (table_name, self.uri, self.name, attribute, self.id)
+        return ["UPDATE %s SET uri = '%s', name = '%s' WHERE %s = %i" % (table_name, self.uri, self.name, attribute, self.id)]

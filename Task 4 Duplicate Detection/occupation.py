@@ -69,9 +69,9 @@ class Occupation(Entity):
             self.label = median([self.female_labels.get(self.label, self.label)] + self.alt_labels)
             self.label = self.label[0].upper() + self.label[1:]
 
-    def get_update_statement(self):
+    def get_update_statements(self):
         table_name, attribute = self.split_column_name(self.primary_key)
-        return "UPDATE %s SET label = '%s' WHERE %s = %i" % (table_name, self.label, attribute, self.id)
+        return ["UPDATE %s SET label = '%s' WHERE %s = %i" % (table_name, self.label, attribute, self.id)]
 
     def get_class_statements(self):
         output = "UPDATE integrated.person SET gender = 'f' "

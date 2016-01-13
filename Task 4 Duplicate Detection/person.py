@@ -93,10 +93,10 @@ class Person(Entity):
         if self.gender is None:
             self.gender = other.gender
 
-    def get_update_statement(self):
+    def get_update_statements(self):
         table_name, attribute = self.split_column_name(self.primary_key)
         # TODO add birth/death dates and places, occupation to other tables
-        return "UPDATE %s SET first_name = '%s', last_name = '%s', gender = '%s', wikidata_id = '%s', dbpedia_uri = '%s' WHERE %s = %i" % (table_name, self.first_name, self.last_name, self.gender, self.wikidata_id, self.dbpedia_uri, attribute, self.id)
+        return ["UPDATE %s SET first_name = '%s', last_name = '%s', gender = '%s', wikidata_id = '%s', dbpedia_uri = '%s' WHERE %s = %i" % (table_name, self.first_name, self.last_name, self.gender, self.wikidata_id, self.dbpedia_uri, attribute, self.id)]
 
     def stop_iteration(self, other):
         # compare only persons with the same starting letter of the lastname

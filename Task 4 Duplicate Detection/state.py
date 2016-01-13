@@ -1,6 +1,6 @@
 #! python3
 from entity import Entity
-from Levenshtein import distance, jaro_winkler
+from Levenshtein import distance
 
 state_abbrevs = {
     'BW': 'Baden-Württemberg',
@@ -58,7 +58,6 @@ class State(Entity):
             self.area = other.area
             self.population = other.population
 
-    def get_update_statement(self):
-        print(self.name + " " + str(self.id))
+    def get_update_statements(self):
         table_name, id_attribute = self.split_column_name(self.primary_key)
-        return "UPDATE %s SET name = '%s', capital_id = '%i', area = '%i', population = '%i', country_id = '%i' WHERE %s = %i" % (table_name, self.name, self.capital_id, self.area, self.population, self.country_id, id_attribute, self.id)
+        return ["UPDATE %s SET name = '%s', capital_id = %i, area = %f, population = %i, country_id = %i WHERE %s = %i" % (table_name, self.name, self.capital_id, self.area, self.population, self.country_id, id_attribute, self.id)]
