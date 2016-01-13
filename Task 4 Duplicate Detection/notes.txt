@@ -2,6 +2,12 @@ Beobachtungen bei Task 4
 
 - Personen mit leerem Namen
 - Wenn man ein Duplikat gefunden hat, dann ist das Update kompliziert, weil z.B. person_id in vielen Tabellen (16!) vorkommt
+- Wenn man Person a = b, a = c folgt bei uns nicht das b = c, weil beispielsweise:
+	171199;"Albert";"Kohl";"Industriekaufmann";""
+	1909855;"Albert";"Kohl";"Jurist";""
+	1774359;"Albert";"Kohl";"";"m"
+	--> 1774359 = 1909855, 1774359 = 171199 aber 171199 != 1909855
+
 
 Meta
 - Problem beim Unicode
