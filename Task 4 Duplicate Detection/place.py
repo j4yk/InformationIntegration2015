@@ -1,6 +1,7 @@
 #! python3
 import re
 from entity import Entity
+from sqlutils import escape, to_sql_string
 
 FIRST_LETTER = re.compile('\\w')
 
@@ -74,7 +75,14 @@ class Place(Entity):
 
     def get_update_statement(self):
         table_name, id_attribute = self.split_column_name(self.primary_key)
-        return "UPDATE %s SET name = '%s', latitude = '%s', longtitude = '%s', country_id = %s WHERE %s = %i" % (table_name, escape(self.name), self.latitude, self.longtitude, str(self.country_id) if self.country_id is not None else "NULL", id_attribute, self.id)
+        return "UPDATE %s SET name = '%s', latitude = %s, longtitude = %s, country_id = %s WHERE %s = %i" \
+                % (table_name,
+                        escape(self.name),
+                        to_sql_string(self.latitude),
+                        to_sql_string(self.longtitude),
+                        str(self.country_id) if self.country_id is not None else "NULL",
+                        id_attribute,
+                        self.id)
 
     def stop_iteration(self, other_place):
         return self.block_ident != other_place.block_ident
