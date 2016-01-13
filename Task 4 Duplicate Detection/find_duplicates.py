@@ -5,6 +5,7 @@ import pg8000
 from party import Party
 from country import Country
 from place import Place
+from person import Person
 
 def mark_duplicates(elements):
     for i, element in enumerate(elements):
@@ -61,7 +62,7 @@ def main():
     open(sys.argv[4], 'w').close()
 
     # add new classes that implement Entity's abstract methods
-    classes = [Party, Country, Place]
+    classes = [Party, Country, Place, Person]
     for cls in classes:
         elements = cls.get_all(cur)
         duplicates = mark_duplicates(elements)

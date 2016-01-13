@@ -28,6 +28,7 @@
 --     university                     1
 --     work                           2
 -- 
+SET client_encoding = 'UTF8';
 Insert into integrated.constituency(uuid, name, area_codes) values 
  ('{3E06F282-5DB0-453F-AADE-255191951978}', 'Leipzig 7', '{4158,4315,4317,4347,4349,4356,4357}');
 Insert into integrated.parliament(uuid, name, start_date, end_date, election_date) values 
