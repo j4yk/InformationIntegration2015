@@ -1,4 +1,5 @@
 from entity import Entity
+from sqlutils import to_sql_string
 
 class Party(Entity):
 
@@ -45,4 +46,4 @@ class Party(Entity):
 
     def get_update_statements(self):
         table_name, attribute = self.split_column_name(self.primary_key)
-        return ["UPDATE %s SET uri = '%s', name = '%s' WHERE %s = %i" % (table_name, self.uri, self.name, attribute, self.id)]
+        return ["UPDATE %s SET uri = %s, name = %s WHERE %s = %i" % (table_name, to_sql_string(self.uri), to_sql_string(self.name), attribute, self.id)]

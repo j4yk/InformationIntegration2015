@@ -20,7 +20,7 @@ class Occupation(Entity):
         self.alt_labels = []
 
     def is_male_and_female_version(self, str1, str2):
-        equal_endings = [ ['e', 'in'], ['er', 'e'], ['', 'in'] ]
+        equal_endings = [ ['e', 'in'], ['er', 'e'], ['', 'in'], ['mann', 'frau'] ]
         for endings in equal_endings:
             if str1.endswith(endings[0]) and str2.endswith(endings[1]):
                 str2 = str2[:-len(endings[1])].replace('ä', 'a') + endings[0]

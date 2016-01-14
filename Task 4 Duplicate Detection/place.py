@@ -73,9 +73,9 @@ class Place(Entity):
         if other.country_id is not None:
             self.country_id = other.country_id
 
-    def get_update_statement(self):
+    def get_update_statements(self):
         table_name, id_attribute = self.split_column_name(self.primary_key)
-        return "UPDATE %s SET name = '%s', latitude = %s, longtitude = %s, country_id = %s WHERE %s = %i" \
+        yield "UPDATE %s SET name = '%s', latitude = %s, longtitude = %s, country_id = %s WHERE %s = %i" \
                 % (table_name,
                         escape(self.name),
                         to_sql_string(self.latitude),
