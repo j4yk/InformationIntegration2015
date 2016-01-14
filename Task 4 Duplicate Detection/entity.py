@@ -24,7 +24,7 @@ class Entity:
         output = []
         for row in cursor.fetchall():
             output.append(self(*row))
-        return output
+        return output, False
 
     def stop_iteration(self, other_entity):
         return False

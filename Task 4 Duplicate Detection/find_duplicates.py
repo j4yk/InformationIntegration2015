@@ -70,12 +70,14 @@ def main():
     # add new classes that implement Entity's abstract methods
     classes = [Party, Country, Place, Person, State, Occupation]
     for cls in classes:
-        elements = cls.get_all(cur)
+        with open('output_' + cls.__name__.lower() + '.txt', 'w', encoding='utf-8') as f:
+            more_coming = True
+            while more_coming:
+                elements, more_coming = cls.get_all(cur)
         duplicates = mark_duplicates(elements)
         merged_duplicates = merge_duplicates(elements)
         sql_statements = get_sql_statements(merged_duplicates)
 
-        with open('output_' + cls.__name__.lower() + '.txt', 'w', encoding='utf-8') as f:
             for statement in sql_statements:
                 f.write(statement)
                 f.write(';\n')

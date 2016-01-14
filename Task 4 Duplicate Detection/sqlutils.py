@@ -10,6 +10,11 @@ def to_sql_string(string):
         return "NULL"
     return "'%s'" % escape(string)
 
+def to_sql_default(value):
+	if value is None:
+		return "NULL"
+	return str(value)
+
 def fix_broken_umlauts(str):
 	if str is not None:
 		c = u"\u0308"
