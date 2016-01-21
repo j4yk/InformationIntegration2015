@@ -1,0 +1,20 @@
+/*SELECT p.id, first_name, last_name, gender, education, name FROM
+        integrated.person AS p 
+        JOIN integrated.person_party ON p.id = person_party.person_id
+        JOIN integrated.party ON party.id = person_party.party_id --ALLGEMEIN*/
+        
+/*SELECT COUNT(*) AS cnt, name, (CASE WHEN label = 'Jurist' THEN 'Rechtsanwalt' ELSE label END) AS label FROM
+        integrated.person AS p 
+        JOIN integrated.person_party ON p.id = person_party.person_id
+        JOIN integrated.party ON party.id = person_party.party_id
+        JOIN integrated.person_occupation AS po ON p.id = po.person_id
+        JOIN integrated.occupation ON occupation.id = po.occupation_id
+GROUP BY name, label
+HAVING (COUNT(*) >= 3) AND (label <> 'k.A.') AND (label <> 'Politiker') AND (NOT label LIKE 'Md%') AND (NOT label LIKE 'Mitglied%') -- Berufe pro Partei*/
+
+/*SELECT COUNT(*), name, AVG(2015 - year) AS age FROM
+        integrated.person AS p 
+        JOIN integrated.person_party ON p.id = person_party.person_id
+        JOIN integrated.party ON party.id = person_party.party_id
+        JOIN integrated.birth ON p.id = birth.person_id
+GROUP BY name --avg age*/
