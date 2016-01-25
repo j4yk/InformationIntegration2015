@@ -64,6 +64,60 @@ select count(distinct person.id) from integrated.person
 join integrated.author on person.id = author.person_id
 join integrated.work on person.id = work.person_id; -- authors with a work --> 1335
 
+select count(distinct person.id) from integrated.person
+join integrated.work on person.id = work.person_id; -- persons with a work --> 15841
+
+select count(distinct person.id) from integrated.person
+join integrated.person_party on person.id = person_party.person_id
+join integrated.work on person.id = work.person_id; -- people with party and work --> 20
+
+select count(distinct person.id) from integrated.person
+join integrated.person_occupation on person.id = person_occupation.person_id
+join integrated.birth on person.id = birth.person_id; -- people with occupation and birthdate --> 598685 (how many sources provision this?)
+
+select count(distinct person.id) from integrated.person
+join integrated.politician on person.id = politician.person_id
+join integrated.birth on person.id = birth.person_id; -- politicians with birth --> 7957
+
+select count(distinct person.id) from integrated.person
+join integrated.politician on person.id = politician.person_id
+join integrated.birth on person.id = birth.person_id
+join integrated.candidacy on politician.person_id = candidacy.candidate; -- politicians with birth and candidacy --> 3845
+
+select count(distinct person.id) from integrated.person
+join integrated.politician on person.id = politician.person_id
+join integrated.birth on person.id = birth.person_id
+join integrated.candidacy on politician.person_id = candidacy.candidate
+join integrated.constituency on candidacy.constituency = constituency.uuid; -- politicians with birth and candidacy in constituency --> 3594 (all from abgeordnetenwatch?)
+
+select count(distinct person.id) from integrated.person
+join integrated.politician on person.id = politician.person_id
+join integrated.candidacy on politician.person_id = candidacy.candidate; -- politicians with candidacy (from abgeordnetenwatch) --> 4379
+
+select count(distinct person.id) from integrated.person
+join integrated.politician on person.id = politician.person_id
+join integrated.auxiliary_income on politician.person_id = auxiliary_income.politician
+join integrated.candidacy on politician.person_id = candidacy.candidate
+join integrated.constituency on candidacy.constituency = constituency.uuid; -- politicians with auxiliary_income and candidacy in constituency --> 2 >:-(
+
+select count(distinct person.id) from integrated.person
+join integrated.politician on person.id = politician.person_id
+join integrated.auxiliary_income on politician.person_id = auxiliary_income.politician
+join integrated.candidacy on politician.person_id = candidacy.candidate
+join integrated.parliament on candidacy.parliament = parliament.uuid; -- politicians with auxiliary_income and candidacy in a parliament --> 409
+
+select count(distinct person.id) from integrated.person
+join integrated.politician on person.id = politician.person_id
+join integrated.auxiliary_income on politician.person_id = auxiliary_income.politician
+join integrated.work on person.id = work.person_id; -- politicienas with aux income and work --> 0 :-P
+
+select count(distinct person.id) from integrated.person
+join integrated.politician on person.id = politician.person_id
+join integrated.auxiliary_income on politician.person_id = auxiliary_income.politician
+join integrated.author on person.id = author.person_id; -- politician authors with aux income --> 0 ^^
+
+
+
 select regexp_replace(name, '[??]', '', 'g') from integrated.work
 where name like '%?%'; -- remove start of string and string terminator characters
 
