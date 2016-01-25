@@ -96,6 +96,13 @@ join integrated.candidacy on politician.person_id = candidacy.candidate; -- poli
 
 select count(distinct person.id) from integrated.person
 join integrated.politician on person.id = politician.person_id
+join integrated.birth on person.id = birth.person_id
+join integrated.place on birth.place_id = place.id
+join integrated.candidacy on politician.person_id = candidacy.candidate
+join integrated.constituency on candidacy.constituency = constituency.uuid; -- politicians with birthplace and candidacy in constituency --> 68
+
+select count(distinct person.id) from integrated.person
+join integrated.politician on person.id = politician.person_id
 join integrated.auxiliary_income on politician.person_id = auxiliary_income.politician
 join integrated.candidacy on politician.person_id = candidacy.candidate
 join integrated.constituency on candidacy.constituency = constituency.uuid; -- politicians with auxiliary_income and candidacy in constituency --> 2 >:-(
@@ -116,6 +123,35 @@ join integrated.politician on person.id = politician.person_id
 join integrated.auxiliary_income on politician.person_id = auxiliary_income.politician
 join integrated.author on person.id = author.person_id; -- politician authors with aux income --> 0 ^^
 
+select count(distinct person.id) from integrated.person
+join integrated.almamater on person.id = almamater.person_id
+join integrated.birth on person.id = birth.person_id
+join integrated.place on birth.place_id = place.id; -- studied persons with birthplace --> 60
+
+-- Occupations mit geringer durchschnittlicher Lebensdauer
+select occupation, count(distinct person), avg(abs(deathyear - birthyear)), min(abs(deathyear - birthyear)), max(abs(deathyear - birthyear))
+from (select occupation.label as occupation, person.id as person, 
+case when death.year > 9999 then right(death.year || '', 4)::int else death.year end as deathyear, 
+case when birth.year > 9999 then right(birth.year || '', 4)::int else birth.year end as birthyear
+from integrated.person
+join integrated.person_occupation on person.id = person_occupation.person_id
+join integrated.occupation on person_occupation.occupation_id = occupation.id
+join integrated.birth on person.id = birth.person_id
+join integrated.death on person.id = death.person_id) _r
+--where deathyear - birthyear < 60
+group by occupation
+order by avg, count(distinct person) desc;
+
+-- finde Personen mit immer noch falschen Lebensspannen
+select count(distinct person.id)
+from integrated.person
+join integrated.person_occupation on person.id = person_occupation.person_id
+join integrated.occupation on person_occupation.occupation_id = occupation.id
+join integrated.birth on person.id = birth.person_id
+join integrated.death on person.id = death.person_id
+where death.year - birth.year <= 0
+and case when death.year > 9999 then right(death.year || '', 4)::int else death.year end 
+  - case when birth.year > 9999 then right(birth.year || '', 4)::int else birth.year end <= 0;
 
 
 select regexp_replace(name, '[??]', '', 'g') from integrated.work
