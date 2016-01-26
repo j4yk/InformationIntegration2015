@@ -1,0 +1,4 @@
+[integrated-database]
+database=infoint
+user=postgres
+password=mysecret
