@@ -17,12 +17,26 @@ class Person(Entity):
         'integrated.candidacy.candidate',
         'integrated.function.politician',
         'integrated.position.politician',
+        'integrated.auxiliary_income.politician',
         'integrated.work.person_id',
         'integrated.related_to.person1_id',
         'integrated.related_to.person2_id',
     ]
     order_clause = 'last_name'
     partition_index = -1
+
+    deleted_ids = []
+    deleted_ids_birth = []
+    deleted_ids_death = []
+    deleted_ids_author = []
+    deleted_ids_politician = []
+
+    birth_values = []
+    death_values = []
+    author_values = []
+    politician_values = []
+
+    mapping = []
 
     def __init__(self, id, first_name, last_name, gender, email, url, twitter, degree, education, dbpedia_uri, wikidata_id, nyt_id, 
             articles_count, nyt_def, birth_place_id, birth_year, birth_month, birth_day, birth_first_name, birth_last_name, birth_place, 
@@ -51,6 +65,9 @@ class Person(Entity):
         self.had_author_entry = self.needs_entry('author')
         self.had_politician_entry = self.needs_entry('politician')
 
+        self.original_values = (self.first_name, self.last_name, self.args['gender'], self.args['email'], self.args['url'], self.args['twitter'], \
+            self.args['degree'], self.args['education'], self.dbpedia_uri, self.wikidata_id, self.args['nyt_id'], self.args['articles_count'], self.args['nyt_def'])
+
     def needs_entry(self, table):
         return any((key.startswith(table + '_') and (self.args[key] is not None)) for key in self.args.keys())
 
@@ -68,19 +85,16 @@ class Person(Entity):
         le_last = distance(self.last_name, other.last_name) / ((len(self.last_name)+len(other.last_name))/20)
         jw_first = jaro(self.first_name, other.first_name)
         jw_last = jaro_winkler(self.last_name, other.last_name)
-        if (self.occupation == None):
-            self.occupation = ""
-        if (other.occupation == None):
-            other.occupation = ""
         jw_occupation = jaro_winkler(self.occupation, other.occupation)
+
         result = ((le_first <= 1.18 and le_last <= 1.18)
               and (jw_last >= 0.95 and jw_first >= 0.95)
               and (self.birth_year == None or other.birth_year == None or abs(int(self.birth_year) - int(other.birth_year)) < 5)
               and (self.death_year == None or other.death_year == None or abs(int(self.death_year) - int(other.death_year)) < 5)
               and (self.gender == other.gender or self.gender is None or other.gender is None)
-              and (jw_occupation >= 0.9 or self.occupation == "" or other.occupation == "")
-              and (self.birth_place == None or other.birth_place == None or jaro_winkler(self.birth_place, other.birth_place) >= 0.7)
-              and (self.death_place == None or other.death_place == None or jaro_winkler(self.death_place, other.death_place) >= 0.7)
+              and (jw_occupation >= 0.9 or self.occupation == "" or other.occupation == "")     # because fix_broken_umlauts makes None to ""
+              and (self.birth_place == "" or other.birth_place == "" or jaro_winkler(self.birth_place, other.birth_place) >= 0.7)
+              and (self.death_place == "" or other.death_place == "" or jaro_winkler(self.death_place, other.death_place) >= 0.7)
               and (self.wikidata_id == None or other.wikidata_id == None or self.wikidata_id == other.wikidata_id)
               and (self.dbpedia_uri == None or other.dbpedia_uri == None or self.dbpedia_uri == other.dbpedia_uri))
 
@@ -114,35 +128,61 @@ class Person(Entity):
             self.args['death_place_id'] = other.args['death_place_id']
 
         if other.had_birth_entry:
-            self.merge_statements.append('DELETE FROM integrated.birth WHERE person_id = %i' % other.id)
+            self.deleted_ids_birth.append(other.id)
         if other.had_death_entry:
-            self.merge_statements.append('DELETE FROM integrated.death WHERE person_id = %i' % other.id)
+            self.deleted_ids_death.append(other.id)
         if other.had_author_entry:
-            self.merge_statements.append('DELETE FROM integrated.author WHERE person_id = %i' % other.id)
+            self.deleted_ids_author.append(other.id)
         if other.had_politician_entry:
-            self.merge_statements.append('DELETE FROM integrated.politician WHERE person_id = %i' % other.id)
+            self.deleted_ids_politician.append(other.id)
+
+    def append_merge_statements(self, old_id):
+        self.mapping.append((self.id, old_id))
+        self.deleted_ids.append(old_id)
+
+    def get_final_class_statements(self):
+        yield "INSERT INTO integrated.birth (place_id, year, month, day, first_name, last_name, person_id) VALUES %s" \
+                    % str(self.birth_values)[1:-1].replace("'(", "(").replace(")'", ")").replace("\"(", "(").replace(")\"", ")")
+        yield "INSERT INTO integrated.death (place_id, year, month, day, person_id) VALUES %s" \
+                    % str(self.death_values)[1:-1].replace("'(", "(").replace(")'", ")").replace("\"(", "(").replace(")\"", ")")
+        yield "INSERT INTO integrated.author (fans_count, followers_count, average_rating, ratings_count, goodreads_author, person_id) VALUES %s" \
+                    % str(self.author_values)[1:-1].replace("'(", "(").replace(")'", ")").replace("\"(", "(").replace(")\"", ")")
+        yield "INSERT INTO integrated.politician (aw_uuid, aw_username, aw_picture_url, person_id) VALUES %s" \
+                    % str(self.politician_values)[1:-1].replace("'(", "(").replace(")'", ")").replace("\"(", "(").replace(")\"", ")")
+
+        for reference in self.foreign_references:
+            table_name, attribute = self.split_column_name(reference)
+            value_str = str(self.mapping)[1:-1]
+            yield "UPDATE %s AS t SET %s = a.new_id FROM (VALUES %s) AS a(new_id, old_id) WHERE %s = a.old_id" % (table_name, attribute, value_str, attribute)
+
+        yield "DELETE FROM integrated.birth WHERE person_id IN (%s)" % str(self.deleted_ids_birth)[1:-1]
+        yield "DELETE FROM integrated.death WHERE person_id IN (%s)" % str(self.deleted_ids_death)[1:-1]
+        yield "DELETE FROM integrated.author WHERE person_id IN (%s)" % str(self.deleted_ids_author)[1:-1]
+        yield "DELETE FROM integrated.politician WHERE person_id IN (%s)" % str(self.deleted_ids_politician)[1:-1]
+        yield "DELETE FROM integrated.person WHERE id IN (%s)" % str(self.deleted_ids)[1:-1]
 
     def get_update_statements(self):
-        table_name, attribute = self.split_column_name(self.primary_key)
-        # TODO add birth/death dates and places, occupation to other tables
-        yield "UPDATE integrated.person SET (first_name, last_name, gender, email, url, twitter, degree, education, dbpedia_uri, wikidata_id, nyt_id, " \
-                + "associated_articles_count, nyt_definition) = (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) WHERE id = %i" \
-                % (
-                    to_sql_string(self.first_name),
-                    to_sql_string(self.last_name),
-                    to_sql_string(self.args['gender']),
-                    to_sql_string(self.args['email']),
-                    to_sql_string(self.args['url']),
-                    to_sql_string(self.args['twitter']),
-                    to_sql_string(self.args['degree']),
-                    to_sql_string(self.args['education']),
-                    to_sql_string(self.dbpedia_uri),
-                    to_sql_string(self.wikidata_id),
-                    to_sql_string(self.args['nyt_id']),
-                    to_sql_default(self.args['articles_count']),
-                    to_sql_string(self.args['nyt_def']),
-                    self.id
-                )
+        values = (self.first_name, self.last_name, self.args['gender'], self.args['email'], self.args['url'], self.args['twitter'], \
+            self.args['degree'], self.args['education'], self.dbpedia_uri, self.wikidata_id, self.args['nyt_id'], self.args['articles_count'], self.args['nyt_def'])
+        if self.original_values != values:
+            yield "UPDATE integrated.person SET (first_name, last_name, gender, email, url, twitter, degree, education, dbpedia_uri, wikidata_id, nyt_id, " \
+                    + "associated_articles_count, nyt_definition) = (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) WHERE id = %i" \
+                    % (
+                        to_sql_string(self.first_name),
+                        to_sql_string(self.last_name),
+                        to_sql_string(self.args['gender']),
+                        to_sql_string(self.args['email']),
+                        to_sql_string(self.args['url']),
+                        to_sql_string(self.args['twitter']),
+                        to_sql_string(self.args['degree']),
+                        to_sql_string(self.args['education']),
+                        to_sql_string(self.dbpedia_uri),
+                        to_sql_string(self.wikidata_id),
+                        to_sql_string(self.args['nyt_id']),
+                        to_sql_default(self.args['articles_count']),
+                        to_sql_string(self.args['nyt_def']),
+                        self.id
+                    )
 
         if self.needs_entry('birth'):
             values = (
@@ -157,7 +197,7 @@ class Person(Entity):
             if self.had_birth_entry:
                 yield "UPDATE integrated.birth SET (place_id, year, month, day, first_name, last_name) = (%s, %s, %s, %s, %s, %s) WHERE person_id = %i" % values
             else:
-                yield "INSERT INTO integrated.birth (place_id, year, month, day, first_name, last_name, person_id) VALUES (%s, %s, %s, %s, %s, %s, %i)" % values
+                self.birth_values.append("(%s, %s, %s, %s, %s, %s, %i)" % values)
 
         if self.needs_entry('death'):
             values = (
@@ -170,7 +210,7 @@ class Person(Entity):
             if self.had_death_entry:
                 yield "UPDATE integrated.death SET (place_id, year, month, day) = (%s, %s, %s, %s) WHERE person_id = %i" % values
             else:
-                yield "INSERT INTO integrated.death (place_id, year, month, day, person_id) VALUES (%s, %s, %s, %s, %i)" % values
+                self.death_values.append("(%s, %s, %s, %s, %i)" % values)
 
         if self.needs_entry('author'):
             values = (
@@ -184,7 +224,7 @@ class Person(Entity):
             if self.had_author_entry:
                 yield "UPDATE integrated.author SET (fans_count, followers_count, average_rating, ratings_count, goodreads_author) = (%s, %s, %s, %s, %s) WHERE person_id = %i" % values
             else:
-                yield "INSERT INTO integrated.author (fans_count, followers_count, average_rating, ratings_count, goodreads_author, person_id) VALUES (%s, %s, %s, %s, %s, %i)" % values
+                self.author_values.append("(%s, %s, %s, %s, %s, %i)" % values)
 
         if self.needs_entry('politician'):
             values = (
@@ -196,7 +236,7 @@ class Person(Entity):
             if self.had_politician_entry:
                 yield "UPDATE integrated.politician SET (aw_uuid, aw_username, aw_picture_url) = (%s, %s, %s) WHERE person_id = %i" % values
             else:
-                yield "INSERT INTO integrated.politician (aw_uuid, aw_username, aw_picture_url, person_id) = (%s, %s, %s, %i)" % values
+                self.politician_values.append("(%s, %s, %s, %i)" % values)
 
     def stop_iteration(self, other):
         # compare only persons with the same starting letter of the lastname

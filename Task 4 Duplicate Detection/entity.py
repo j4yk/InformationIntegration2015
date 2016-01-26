@@ -42,6 +42,9 @@ class Entity:
     def get_class_statements(self):
         return []
 
+    def get_final_class_statements(self):
+        return []
+
     @abc.abstractmethod
     def equal(self, other_entity):
         return

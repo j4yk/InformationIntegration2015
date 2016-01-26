@@ -57,6 +57,8 @@ def get_sql_statements(duplicates):
             yield update_statement
         for merge_statement in duplicate.merge_statements:
             yield merge_statement
+    for final_class_statement in duplicate.get_final_class_statements():
+        yield final_class_statement
 
 def main():
     if len(sys.argv) != 4:
@@ -72,12 +74,14 @@ def main():
     for cls in classes:
         with open('output_' + cls.__name__.lower() + '.txt', 'w', encoding='utf-8') as f:
             more_coming = True
+            merged_duplicates = []
             while more_coming:
                 elements, more_coming = cls.get_all(cur)
-        duplicates = mark_duplicates(elements)
-        merged_duplicates = merge_duplicates(elements)
-        sql_statements = get_sql_statements(merged_duplicates)
+                duplicates = mark_duplicates(elements)
+                merged_duplicates += merge_duplicates(elements)
+            sql_statements = get_sql_statements(merged_duplicates)
 
+            f.write("SET client_encoding='utf-8';\n")
             for statement in sql_statements:
                 f.write(statement)
                 f.write(';\n')

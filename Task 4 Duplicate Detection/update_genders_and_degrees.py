@@ -17,6 +17,7 @@ def main():
     conn = pg8000.connect(database=sys.argv[1], user=sys.argv[2], password=sys.argv[3])
     cur = conn.cursor()
 
+    ids = []
     with open('output_correct_genders.txt', 'w', encoding='utf-8') as f:
         cur.execute("""
             SELECT person.id, gender, label FROM 
@@ -30,7 +31,22 @@ def main():
                 or pattern_ends_with_frau.search(occupation) \
                 or pattern_contains_weiblich.search(occupation):
                     if row[1] != 'f':
-                        f.write("UPDATE integrated.person SET gender = 'f' WHERE id = %i;\n" % row[0])
+                        ids.append(row[0])
+
+        f.write("UPDATE integrated.person SET gender = 'f' WHERE id IN (%s);\n" % str(ids)[1:-1])
+
+    with open('output_correct_degrees.txt', 'w', encoding='utf-8') as f:
+        cur.execute("SELECT person.id, first_name, degree FROM integrated.person")
+        for row in cur.fetchall():
+            first_name = fix_broken_umlauts(row[1])
+            degree = fix_broken_umlauts(row[2])
+            for possible_degree in ["Prof. Dr.-Ing. Dr.", "Prof. Dr. iur.", "Prof. Dr.", "Prof.Dr.", "Dipl.-Ing.", "Dr.-Ing.", "Dr.", "Prof."]:
+                if first_name.startswith(possible_degree):
+                    first_name = first_name.replace(possible_degree, "").strip()
+                    if degree == "":
+                        degree = possible_degree
+                    f.write("UPDATE integrated.person SET first_name = '%s', degree = '%s' WHERE id = %i;\n" % (first_name, degree, row[0]))
+                    break
 
 if __name__ == '__main__':
     main()

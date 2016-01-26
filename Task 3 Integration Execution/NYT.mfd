@@ -85,17 +85,6 @@
 		<properties SelectedLanguage="builtin"/>
 		<structure>
 			<children>
-				<component name="substring-after" library="core" uid="7" kind="5">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="5"/>
-						<datapoint pos="1" key="6"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="7"/>
-					</targets>
-					<view ltx="369" lty="490" rbx="469" rby="546"/>
-				</component>
 				<component name="constant" library="core" uid="10" kind="2">
 					<properties/>
 					<targets>
@@ -105,6 +94,115 @@
 					<data>
 						<constant value=", " datatype="string"/>
 						<wsdl/>
+					</data>
+				</component>
+				<component name="person-id-from-nyt-id" library="user" blackbox="0" uid="26" kind="19" visible="0">
+					<view ltx="586" lty="568" rbx="719" rby="585"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="nyt_id" inpkey="109" componentid="20"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="person_id" outkey="110" componentid="19"/>
+						</root>
+					</data>
+				</component>
+				<component name="db" library="db" uid="11" kind="15">
+					<properties/>
+					<view ltx="830" lty="490" rbx="1097" rby="555"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="integrated.person_article" type="table" inpkey="85" expanded="1">
+									<entry name="article_id" inpkey="86"/>
+									<entry name="person_id" inpkey="87"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint1">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint1" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="integrated" Kind="Schema"/>
+										<PathElement Name="person_article" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="db" library="db" uid="3" kind="15">
+					<properties/>
+					<view ltx="-10" rbx="259" rby="611"/>
+					<data>
+						<root scrollposition="53">
+							<header>
+								<namespaces/>
+							</header>
+							<entry name="document" expanded="1">
+								<entry name="nytlod.article_header" type="table" outkey="53" expanded="1">
+									<entry name="article_id" outkey="54"/>
+									<entry name="headline" outkey="55"/>
+									<entry name="pub_date" outkey="56"/>
+									<entry name="word_count" outkey="57"/>
+									<entry name="abstract" outkey="58"/>
+									<entry name="web_url" outkey="59"/>
+								</entry>
+								<entry name="nytlod.people" type="table" outkey="23" expanded="1">
+									<entry name="person_id" outkey="24"/>
+									<entry name="associated_article_count" outkey="25"/>
+									<entry name="pref_label" outkey="26"/>
+									<entry name="nytlod.people_ref|person_id" type="table">
+										<entry name="nytlod.article_header|article_id" type="table" expanded="1"/>
+									</entry>
+								</entry>
+								<entry name="nytlod.people_ref" type="table" outkey="88" expanded="1">
+									<entry name="article_id" outkey="89"/>
+									<entry name="person_id" outkey="90"/>
+								</entry>
+							</entry>
+						</root>
+						<wsdl/>
+						<database ref="infoint1">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="infoint1" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="nytlod" Kind="Schema"/>
+										<PathElement Name="article_header" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint1" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="nytlod" Kind="Schema"/>
+										<PathElement Name="people" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="infoint1" Kind="DataSource"/>
+										<PathElement Name="infoint" Kind="Database"/>
+										<PathElement Name="nytlod" Kind="Schema"/>
+										<PathElement Name="people_ref" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
 					</data>
 				</component>
 				<component name="substring-before" library="core" uid="9" kind="5">
@@ -117,6 +215,17 @@
 						<datapoint pos="0" key="4"/>
 					</targets>
 					<view ltx="361" lty="407" rbx="469" rby="463"/>
+				</component>
+				<component name="substring-after" library="core" uid="7" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="5"/>
+						<datapoint pos="1" key="6"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="7"/>
+					</targets>
+					<view ltx="369" lty="490" rbx="469" rby="546"/>
 				</component>
 				<component name="db" library="db" uid="2" kind="15">
 					<properties XSLTDefaultOutput="1"/>
@@ -189,127 +298,18 @@
 						</database>
 					</data>
 				</component>
-				<component name="db" library="db" uid="3" kind="15">
-					<properties/>
-					<view ltx="-10" rbx="259" rby="611"/>
-					<data>
-						<root scrollposition="53">
-							<header>
-								<namespaces/>
-							</header>
-							<entry name="document" expanded="1">
-								<entry name="nytlod.article_header" type="table" outkey="53" expanded="1">
-									<entry name="article_id" outkey="54"/>
-									<entry name="headline" outkey="55"/>
-									<entry name="pub_date" outkey="56"/>
-									<entry name="word_count" outkey="57"/>
-									<entry name="abstract" outkey="58"/>
-									<entry name="web_url" outkey="59"/>
-								</entry>
-								<entry name="nytlod.people" type="table" outkey="23" expanded="1">
-									<entry name="person_id" outkey="24"/>
-									<entry name="associated_article_count" outkey="25"/>
-									<entry name="pref_label" outkey="26"/>
-									<entry name="nytlod.people_ref|person_id" type="table">
-										<entry name="nytlod.article_header|article_id" type="table" expanded="1"/>
-									</entry>
-								</entry>
-								<entry name="nytlod.people_ref" type="table" outkey="88" expanded="1">
-									<entry name="article_id" outkey="89"/>
-									<entry name="person_id" outkey="90"/>
-								</entry>
-							</entry>
-						</root>
-						<wsdl/>
-						<database ref="infoint1">
-							<data>
-								<selections>
-									<selection>
-										<PathElement Name="infoint1" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="nytlod" Kind="Schema"/>
-										<PathElement Name="article_header" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint1" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="nytlod" Kind="Schema"/>
-										<PathElement Name="people" Kind="Table"/>
-									</selection>
-									<selection>
-										<PathElement Name="infoint1" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="nytlod" Kind="Schema"/>
-										<PathElement Name="people_ref" Kind="Table"/>
-									</selection>
-								</selections>
-							</data>
-						</database>
-					</data>
-				</component>
-				<component name="person-id-from-nyt-id" library="user" blackbox="0" uid="26" kind="19" visible="0">
-					<view ltx="586" lty="568" rbx="719" rby="585"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="nyt_id" inpkey="109" componentid="20"/>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="person_id" outkey="110" componentid="19"/>
-						</root>
-					</data>
-				</component>
-				<component name="db" library="db" uid="11" kind="15">
-					<properties/>
-					<view ltx="830" lty="490" rbx="1097" rby="555"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces/>
-							</header>
-							<entry name="document" expanded="1">
-								<entry name="integrated.person_article" type="table" inpkey="85" expanded="1">
-									<entry name="article_id" inpkey="86"/>
-									<entry name="person_id" inpkey="87"/>
-								</entry>
-							</entry>
-						</root>
-						<wsdl/>
-						<database ref="infoint1">
-							<data>
-								<selections>
-									<selection>
-										<PathElement Name="infoint1" Kind="DataSource"/>
-										<PathElement Name="infoint" Kind="Database"/>
-										<PathElement Name="integrated" Kind="Schema"/>
-										<PathElement Name="person_article" Kind="Table"/>
-									</selection>
-								</selections>
-							</data>
-						</database>
-					</data>
-				</component>
 			</children>
 			<graph directed="1">
 				<edges/>
 				<vertices>
 					<vertex vertexkey="4">
 						<edges>
-							<edge vertexkey="11" edgekey="36"/>
+							<edge vertexkey="12" edgekey="113"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="7">
 						<edges>
-							<edge vertexkey="12" edgekey="37"/>
+							<edge vertexkey="11" edgekey="114"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="8">
@@ -401,7 +401,6 @@
 	</component>
 	<component name="person-id-from-nyt-id" library="user" blackbox="0" uid="16" editable="1" inline="1">
 		<properties/>
-		<description/>
 		<structure>
 			<children>
 				<component name="constant" library="core" uid="18" kind="2">
