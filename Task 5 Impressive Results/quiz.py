@@ -53,6 +53,8 @@ class Quiz:
         user_answer = input("\nPlease enter your answer now: ")
         if user_answer == "":
             user_answer = "X"
+        elif len(user_answer) > 1:
+            user_answer = user_answer[0]
         # if the user enters a char with higher code than any of the answers, we assume it's a lowercase letter and map to the upper case
         if ord(user_answer) >= ord(letter):
             user_answer = chr(ord(user_answer) - 32)
