@@ -14,7 +14,7 @@ class BookPartyCagetory(Category):
         correct_answer = fact[self.PARTY_NAME]
         answers = self.find_more_false_answers_for_question(fact)
         answers.append(correct_answer)
-        text = self.text_template % fact
+        text = self.text_template % fact[self.BOOK_TITLE]
         self.cursor.close()
         self.cursor = None
         return Question(text, correct_answer, answers)
