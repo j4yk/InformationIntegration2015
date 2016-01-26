@@ -67,7 +67,7 @@ join integrated.work on person.id = work.person_id; -- authors with a work --> 1
 select count(distinct person.id) from integrated.person
 join integrated.work on person.id = work.person_id; -- persons with a work --> 15841
 
-select count(distinct person.id) from integrated.person
+select * from integrated.person
 join integrated.person_party on person.id = person_party.person_id
 join integrated.work on person.id = work.person_id; -- people with party and work --> 20
 
@@ -122,6 +122,38 @@ select count(distinct person.id) from integrated.person
 join integrated.politician on person.id = politician.person_id
 join integrated.auxiliary_income on politician.person_id = auxiliary_income.politician
 join integrated.author on person.id = author.person_id; -- politician authors with aux income --> 0 ^^
+
+select count(distinct person.id) from integrated.person
+join integrated.politician on person.id = politician.person_id
+join integrated.author on person.id = author.person_id; -- politician authors --> 8
+
+select count(distinct person.id) from integrated.person
+join integrated.politician on person.id = politician.person_id
+join integrated.work on person.id = work.person_id; -- politicians with work --> 20
+
+select count(distinct person.id) from integrated.person
+join integrated.work on person.id = work.person_id
+join integrated.person_occupation on person.id = person_occupation.person_id
+join integrated.occupation on person_occupation.occupation_id = occupation.id
+where occupation.label LIKE '%Polit%'; -- occupied politicians with work --> 187
+
+select count(distinct person.id) from integrated.person
+join integrated.author on person.id = author.person_id
+join integrated.book on author.person_id = book.author
+join integrated.person_occupation on person.id = person_occupation.person_id
+join integrated.occupation on person_occupation.occupation_id = occupation.id
+where occupation.label LIKE '%Polit%'; -- occupied politicians who are authors --> 77
+
+select count(distinct person.id) from integrated.person
+join integrated.work on person.id = work.person_id
+join integrated.person_occupation on person.id = person_occupation.person_id
+join integrated.occupation on person_occupation.occupation_id = occupation.id; -- people with occupation and work --> 11715
+
+select count(distinct person.id) from integrated.person
+join integrated.author on person.id = author.person_id
+join integrated.book on author.person_id = book.author
+join integrated.person_occupation on person.id = person_occupation.person_id
+join integrated.occupation on person_occupation.occupation_id = occupation.id; -- authors with occupation --> 7748
 
 select count(distinct person.id) from integrated.person
 join integrated.almamater on person.id = almamater.person_id

@@ -12,6 +12,7 @@ from work_party_category import WorkPartyCagetory
 from candidacy_almamater_category import CandidacyAlmamaterCagetory
 from article_party_category import ArticlePartyCategory
 from parliament_age_category import ParliamentAgeCategory
+from politician_work_category import PoliticianWorkCategory
 
 def remove_non_ascii(text):
     return ''.join([i if ord(i) < 128 else '?' for i in text])
@@ -90,6 +91,7 @@ def main():
             CandidacyAlmamaterCagetory,
             ArticlePartyCategory,
             ParliamentAgeCategory,
+            PoliticianWorkCategory,
             ]
     categories = []
     for category_class in category_classes:
