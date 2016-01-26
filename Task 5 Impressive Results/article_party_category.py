@@ -1,30 +1,31 @@
 from category import Category
 
-class WorkPartyCagetory(Category):
+class ArticlePartyCategory(Category):
     
     def __init__(self, connection):
         super().__init__()
         self.connection = connection
-        self.text_template = 'Welcher Partei gehörte der Autor des Werkes %s an?'
+        self.text_template = 'Welcher Partei gehörte %s an, der auch in einem Artikel mit der Überschrift %s erwähnt wurde?'
 
     def answer_in(self, fact):
         return fact[self.PARTY_NAME]
 
     def format_question(self, fact):
-        return self.text_template % self.make_yellow(fact[self.WORK_NAME])
+        return self.text_template % (self.make_yellow(fact[self.PERSON_NAME]),
+                self.make_yellow(fact[self.ARTICLE_HEADLINE]))
 
     def select_tuple_for_question(self):
-        self.cursor.execute("""SELECT party.name, work.name, person.first_name || ' ' || person.last_name as name
+        self.cursor.execute("""SELECT party.name, article_header.headline, person.first_name || ' ' || person.last_name as name
 FROM integrated.person
 JOIN integrated.person_party ON person.id = person_party.person_id
 JOIN integrated.party ON person_party.party_id = party.id
-JOIN integrated.work ON person.id = work.person_id
-WHERE work.name IS NOT NULL
+JOIN integrated.person_article ON person.id = person_article.person_id
+JOIN integrated.article_header ON person_article.article_id = article_header.id
 ORDER BY random() FETCH FIRST 1 ROWS ONLY""")
         return self.cursor.fetchone()
 
     PARTY_NAME = 0
-    WORK_NAME = 1
+    ARTICLE_HEADLINE = 1
     PERSON_NAME = 2
 
     def find_more_false_answers_for_question(self, fact):
