@@ -156,6 +156,13 @@ join integrated.person_occupation on person.id = person_occupation.person_id
 join integrated.occupation on person_occupation.occupation_id = occupation.id; -- authors with occupation --> 7748
 
 select count(distinct person.id) from integrated.person
+join integrated.author on person.id = author.person_id
+join integrated.book on author.person_id = book.author
+join integrated.person_occupation on person.id = person_occupation.person_id
+join integrated.occupation on person_occupation.occupation_id = occupation.id
+where label not like '%Schriftsteller%' and label not like '%schriftsteller%' and label not like '%Autor%' and label not like '%autor%' and label not like '%Author%'; -- authors with occupation which is not author --> 3246
+
+select count(distinct person.id) from integrated.person
 join integrated.almamater on person.id = almamater.person_id
 join integrated.birth on person.id = birth.person_id
 join integrated.place on birth.place_id = place.id; -- studied persons with birthplace --> 60

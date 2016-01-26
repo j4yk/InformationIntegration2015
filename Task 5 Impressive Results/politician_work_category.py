@@ -22,12 +22,14 @@ class PoliticianWorkCategory(Category):
         return self.text_template % (reference)
 
     def select_tuple_for_question(self):
-        self.cursor.execute("""SELECT person.first_name || ' ' || person.last_name AS name, person.gender, work.name AS title
+        self.cursor.execute("""SELECT person.first_name || ' ' || person.last_name AS name, person.gender, work.title AS title
         FROM integrated.person
         JOIN integrated.person_occupation ON person.id = person_occupation.person_id
         JOIN integrated.occupation ON person_occupation.occupation_id = occupation.id
-        JOIN integrated.work ON person.id = work.person_id
-        WHERE label LIKE '%%Politiker%%' OR label LIKE '%%Politician%%' OR label LIKE '%%politiker%%'
+        JOIN (SELECT person_id, name AS title FROM integrated.work
+              UNION SELECT book.author AS person_id, title FROM integrated.book) work ON person.id = work.person_id
+        WHERE label LIKE '%%Politiker%%' OR label LIKE '%%politiker%%' OR label LIKE '%%Politician%%' OR label LIKE '%%politician%%'
+        AND (first_name <> '' or last_name <> '')
 ORDER BY random() FETCH FIRST 1 ROWS ONLY""")
         return self.cursor.fetchone()
 
@@ -36,7 +38,9 @@ ORDER BY random() FETCH FIRST 1 ROWS ONLY""")
     WORK_TITLE = 2
 
     def find_more_false_answers_for_question(self, fact):
-        self.cursor.execute("""SELECT name FROM integrated.work
+        self.cursor.execute("""SELECT title FROM 
+(SELECT person_id, name AS title FROM integrated.work
+ UNION SELECT author AS person_id, title FROM integrated.book) work
 JOIN integrated.person on work.person_id = person.id
 WHERE person.first_name || ' ' || person.last_name <> %s
 ORDER BY random() FETCH FIRST 2 ROWS ONLY""", (fact[self.PERSON_NAME],))
