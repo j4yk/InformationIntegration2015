@@ -1,4 +1,3 @@
-from question import Question
 from category import Category
 
 class BookPartyCagetory(Category):
@@ -8,16 +7,11 @@ class BookPartyCagetory(Category):
         self.connection = connection
         self.text_template = 'Welcher Partei gehörte der Autor des Buches %s an?'
 
-    def make_question(self):
-        self.cursor = self.connection.cursor()
-        fact = self.select_tuple_for_question()
-        correct_answer = fact[self.PARTY_NAME]
-        answers = self.find_more_false_answers_for_question(fact)
-        answers.append(correct_answer)
-        text = self.text_template % self.make_yellow(fact[self.BOOK_TITLE])
-        self.cursor.close()
-        self.cursor = None
-        return Question(text, correct_answer, answers)
+    def answer_in(self, fact):
+        return fact[self.PARTY_NAME]
+
+    def format_question(self, fact):
+        return self.text_template % self.make_yellow(fact[self.BOOK_TITLE])
 
     def select_tuple_for_question(self):
         self.cursor.execute("""SELECT party.name, book.title, person.first_name || ' ' || person.last_name as name
