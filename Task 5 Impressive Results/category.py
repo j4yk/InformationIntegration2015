@@ -1,5 +1,5 @@
 from question import Question
-from colorama import Fore
+from colorama import Fore, Style
 
 class Category:
     """Base class for question categories. Inherit from me for a new category"""
@@ -34,4 +34,4 @@ class Category:
         pass
 
     def make_yellow(self, text):
-        return Fore.YELLOW + text + Fore.WHITE
+        return Style.BRIGHT + Fore.YELLOW + text + Style.RESET_ALL

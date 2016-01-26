@@ -3,7 +3,7 @@
 import sys
 import pg8000
 import colorama
-from colorama import Fore
+from colorama import Fore, Style
 import random
 
 from Occupation_Article_Category import Occupation_Article_Category
@@ -25,7 +25,7 @@ class Quiz:
 
     def ask_questions(self, number):
         """Ask questions until the quiz is over"""
-        print("\nWelcome to the quiz! There will be %s%i%s questions." % (Fore.YELLOW, number, Fore.WHITE))
+        print("\nWelcome to the quiz! There will be %s%i%s questions." % (Style.BRIGHT + Fore.YELLOW, number, Style.RESET_ALL))
         for question_number in range(1, number+1):
             print("\nQuestion %i:" % question_number)
             category = random.choice(self.categories)
@@ -45,7 +45,7 @@ class Quiz:
         for answer in question.answers:
             if answer == question.correct_answer:
                 correct_letter = letter
-            print("%s%s:%s %s" % (Fore.YELLOW, letter, Fore.WHITE, remove_non_ascii(answer)))
+            print("%s%s:%s %s" % (Style.BRIGHT + Fore.YELLOW, letter, Style.RESET_ALL, remove_non_ascii(answer)))
             letter = chr(ord(letter) + 1)
 
         user_answer = input("\nPlease enter your answer now: ")
@@ -57,15 +57,17 @@ class Quiz:
 
         if user_answer != correct_letter:
             self.wrong_answers += 1
-            print("\n%sWrong.%s The correct answer was %s%s%s." % (Fore.RED, Fore.WHITE, Fore.YELLOW, correct_letter, Fore.WHITE))
+            print("\n%sWrong.%s The correct answer was %s%s%s." 
+                % (Style.BRIGHT + Fore.RED, Style.RESET_ALL, Style.BRIGHT + Fore.YELLOW, correct_letter, Style.RESET_ALL))
         else:
             self.right_answers += 1
-            print("\n%sCorrect.%s Congratulations!" % (Fore.GREEN, Fore.WHITE))
+            print("\n%sCorrect.%s Congratulations!" % (Fore.GREEN, Style.RESET_ALL))
         print("\n" + "-" * 79)
 
     def show_summary(self):
         """Congratulate or insult the user for his quiz result"""
-        print("\nFinished! %s%i%s correct & %s%i%s wrong answers." % (Fore.GREEN, self.right_answers, Fore.WHITE, Fore.RED, self.wrong_answers, Fore.WHITE))
+        print("\nFinished! %s%i%s correct & %s%i%s wrong answers." 
+            % (Style.BRIGHT + Fore.GREEN, self.right_answers, Style.RESET_ALL, Style.BRIGHT + Fore.RED, self.wrong_answers, Style.RESET_ALL))
 
 def main():
     """Create a quiz and run it"""
