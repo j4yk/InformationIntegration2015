@@ -8,6 +8,7 @@ import random
 
 from Occupation_Article_Category import Occupation_Article_Category
 from book_party_category import BookPartyCagetory
+from work_party_category import WorkPartyCagetory
 
 def remove_non_ascii(text):
     return ''.join([i if ord(i) < 128 else '?' for i in text])
@@ -75,7 +76,11 @@ def main():
 
     colorama.init()
     connection = pg8000.connect(database=sys.argv[1], user=sys.argv[2], password=sys.argv[3])
-    category_classes = [BookPartyCagetory, Occupation_Article_Category]
+    category_classes = [
+            BookPartyCagetory,
+            WorkPartyCagetory,
+            Occupation_Article_Category,
+            ]
     categories = []
     for category_class in category_classes:
         categories.append(category_class(connection))
