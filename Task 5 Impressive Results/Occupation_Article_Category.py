@@ -1,7 +1,6 @@
 #! python3
 
 import sys
-import pg8000
 from category import Category
 from question import Question
 
@@ -9,8 +8,7 @@ class Occupation_Article_Category(Category):
     """Base class for question categories. Inherit from me for a new category"""
 
     def __init__(self, conn):
-        self.question_pattern = """Welchen Beruf hat {}, der auch in einem Artikel 
-        mit der Überschrift {} erwähnt wurden?"""
+        self.question_pattern = "Welchen Beruf hat {}, der auch in einem Artikel mit der Überschrift {} erwähnt wurde?"
         self.cursor = conn.cursor()
 
     def make_question(self):
@@ -21,7 +19,7 @@ class Occupation_Article_Category(Category):
         occupation = tuple[3]
         answers = [occupation]
         answers.extend(self.find_more_false_answers())
-        return Question(self.question_pattern.format(name, headline), occupation, answers)
+        return Question(self.question_pattern.format(self.make_yellow(name), self.make_yellow(headline)), occupation, answers)
 
     def select_tuple_for_question(self):
         self.cursor.execute("""
@@ -35,8 +33,9 @@ class Occupation_Article_Category(Category):
 
     def find_more_false_answers(self):
         self.cursor.execute("""
-            select label from integrated.
-            where not (label Like '%,%' or label Like '%-%' or label Like '%.%'
+            select label from integrated.occupation
+            where not (label Like '%%,%%' or label Like '%%-%%' or label Like '%%.%%')
             order by random() fetch first 2 rows only""")
 
-        return self.cursor.fetchall()
+        for row in self.cursor.fetchall():
+            yield row[0]

@@ -1,3 +1,5 @@
+from colorama import Fore
+
 class Category:
     """Base class for question categories. Inherit from me for a new category"""
 
@@ -14,3 +16,6 @@ class Category:
     def find_more_false_answers_for_question(self, question):
         # ...
         question.answers.extend(more_answers) # ?
+
+    def make_yellow(self, text):
+        return Fore.YELLOW + text + Fore.WHITE

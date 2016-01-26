@@ -6,7 +6,7 @@ class BookPartyCagetory(Category):
     def __init__(self, connection):
         super().__init__()
         self.connection = connection
-        self.text_template = 'Welcher Partei gehörte der Autor des Buches "%s" an?'
+        self.text_template = 'Welcher Partei gehörte der Autor des Buches %s an?'
 
     def make_question(self):
         self.cursor = self.connection.cursor()
@@ -14,7 +14,7 @@ class BookPartyCagetory(Category):
         correct_answer = fact[self.PARTY_NAME]
         answers = self.find_more_false_answers_for_question(fact)
         answers.append(correct_answer)
-        text = self.text_template % fact[self.BOOK_TITLE]
+        text = self.text_template % self.make_yellow(fact[self.BOOK_TITLE])
         self.cursor.close()
         self.cursor = None
         return Question(text, correct_answer, answers)
