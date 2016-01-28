@@ -16,6 +16,9 @@ from politician_work_category import PoliticianWorkCategory
 from related_age_category import RelatedAgeCategory
 
 def remove_non_ascii(text):
+    if text is None:
+        return ""
+    else:
     return ''.join([i if ord(i) < 128 else '?' for i in text])
 
 class Quiz:
